@@ -1,5 +1,9 @@
 # Django settings for kcdc3 project.
 
+# set up relative paths
+import os
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -12,7 +16,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/aramos/projects/KCDC/django_experiment_1/kcdc3_exp1_local/kcdc3/django.db', # Or path to database file if using sqlite3.
+        'NAME': PROJECT_ROOT + "/../django.db", # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
