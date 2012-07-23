@@ -1,4 +1,4 @@
-from classes.models import Event
+from classes.models import Event, Registration
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -58,6 +58,10 @@ class ImproveRawIdFieldsForm(admin.ModelAdmin):
 # END Human-friendly raw_id_fields
 
 
+class RegistrationInline(admin.TabularInline):
+	model = Registration
+	extra = 0
+	fields = ('student', 'date_registered', 'waitlist', 'attended')
 
 class EventAdmin(ImproveRawIdFieldsForm):
 	fieldsets = [
@@ -68,6 +72,7 @@ class EventAdmin(ImproveRawIdFieldsForm):
 		('KCDC people',	{'fields': ['teachers']}),
 	]
 	raw_id_fields = ['teachers',]
+	inlines = (RegistrationInline,)
 	list_display = ('title', 'date','max_students', 'waitlist_status')
 
 admin.site.register(Event, EventAdmin)
