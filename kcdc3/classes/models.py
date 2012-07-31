@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 class Event(models.Model):
 	title = models.CharField(max_length=200)
 	date = models.DateTimeField('First meeting')
+	slug = models.SlugField(unique=True)
 	summary = models.TextField(blank=True)
 	description = models.TextField(blank=True)
 	location_description = models.TextField(max_length=200, blank=True)
@@ -11,10 +12,10 @@ class Event(models.Model):
 	waitlist_status = models.BooleanField('Waitlist', default=True)
 	teachers = models.ManyToManyField(User, blank=True, null=True, related_name='teachers')
 	students = models.ManyToManyField(User, through='Registration', blank=True, null=True, related_name='students')
-	def __unicode__(self):
-		return self.title
 	class Meta:
 		ordering = ['date']
+	def __unicode__(self):
+		return self.title
 		
 class Registration(models.Model):
 	student = models.ForeignKey(User, null=True)
@@ -22,3 +23,7 @@ class Registration(models.Model):
 	date_registered = models.DateTimeField()
 	waitlist = models.BooleanField()
 	attended = models.NullBooleanField()
+	cancelled = models.BooleanField(default=False)
+	date_cancelled = models.DateTimeField(blank=True, null=True)
+
+

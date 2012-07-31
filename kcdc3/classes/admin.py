@@ -61,11 +61,11 @@ class ImproveRawIdFieldsForm(admin.ModelAdmin):
 class RegistrationInline(admin.TabularInline):
 	model = Registration
 	extra = 0
-	fields = ('student', 'date_registered', 'waitlist', 'attended')
+	fields = ('student', 'date_registered', 'waitlist', 'cancelled', 'attended')
 
 class EventAdmin(ImproveRawIdFieldsForm):
 	fieldsets = [
-		(None,			{'fields': ['title', 'date']}),
+		(None,			{'fields': ['title', 'date','slug']}),
 		(None,			{'fields': ['summary', 'description']}),
 		('Location',	{'fields': ['location_description']}),
 		('Size and waitlist',	{'fields': [('max_students', 'waitlist_status')]}),
@@ -74,5 +74,6 @@ class EventAdmin(ImproveRawIdFieldsForm):
 	raw_id_fields = ['teachers',]
 	inlines = (RegistrationInline,)
 	list_display = ('title', 'date','max_students', 'waitlist_status')
+	prepopulated_fields = {"slug": ("title",)}
 
 admin.site.register(Event, EventAdmin)
