@@ -25,5 +25,7 @@ class Registration(models.Model):
 	attended = models.NullBooleanField()
 	cancelled = models.BooleanField(default=False)
 	date_cancelled = models.DateTimeField(blank=True, null=True)
+	class Meta:
+		ordering = ['date_registered']
 
 
