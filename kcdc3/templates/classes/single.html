@@ -1,7 +1,0 @@
-{% if event %}
-	<h1>{{ event.title }}</h1>
-	<p>Cap: {{ event.max_students }}</p>
-	<p>Students registered: {{ registration_count }}</p>
-	<p>Students on waitlist: {{ waitlist_count }}</p>
-	<p><a href="/classes/{{ event.slug }}/register">register</a></p>
-{% endif %}
