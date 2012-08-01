@@ -11,15 +11,15 @@
 	<p>Message: {{ message }}</p>
 	
 	{% if not user_is_registered and not user_is_waitlisted %}
-	<form action="/classes/{{ event.slug }}/register" method="post">
-	{% csrf_token %}
-	<input type="submit" value="Register" />
-	</form>
+		<form action="/classes/{{ event.slug }}/register" method="post">
+			{% csrf_token %}
+			<input type="submit" value="Register" />
+		</form>
 	{% else %}
-	<form action="/classes/{{ event.slug }}/cancel" method="post">
-	{% csrf_token %}
-	<input type="submit" value="Cancel" />
-	</form>
+		<form action="/classes/{{ event.slug }}/cancel" method="post">
+			{% csrf_token %}
+			<input type="submit" value="Cancel" />
+		</form>
 	{% endif %}
 
 	<p><a href="/classes">classes</a></p>
