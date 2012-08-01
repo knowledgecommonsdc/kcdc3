@@ -62,6 +62,8 @@ class RegistrationInline(admin.TabularInline):
 	model = Registration
 	extra = 0
 	fields = ('student', 'date_registered', 'waitlist', 'cancelled', 'attended')
+	can_delete = False
+	#readonly_fields = ('student','date_registered',)
 
 class EventAdmin(ImproveRawIdFieldsForm):
 	fieldsets = [
