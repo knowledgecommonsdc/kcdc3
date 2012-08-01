@@ -1,6 +1,6 @@
 from django.http import HttpRequest, HttpResponseRedirect
 from datetime import datetime
-from django.views.generic import DetailView
+from django.views.generic import DetailView, TemplateView
 from classes.models import Event, Registration
 
 
@@ -42,11 +42,11 @@ def register(request, slug):
 		t = Registration(student=request.user, event=e, date_registered=datetime.now(), waitlist=r.add_to_waitlist)
 		t.save()
 		if r.add_to_waitlist == False:
-			return HttpResponseRedirect("/classes/registered")
+			return HttpResponseRedirect("/classes/response/registered")
 		else:
-			return HttpResponseRedirect("/classes/waitlisted")
+			return HttpResponseRedirect("/classes/response/waitlisted")
 	else: 
-		return HttpResponseRedirect("/classes/error")
+		return HttpResponseRedirect("/classes/response/error")
 
 
 
@@ -65,9 +65,28 @@ def cancel(request, slug):
 		 	for w in Registration.objects.filter(event=e, waitlist=True, cancelled=False)[:1]:
 				w.waitlist=False
 				w.save()
-		return HttpResponseRedirect("/classes/cancelled")
+		return HttpResponseRedirect("/classes/response/cancelled")
 	else: 
-		return HttpResponseRedirect("/classes/error")
+		return HttpResponseRedirect("/classes/response/error")
+
+
+
+# respond to a user action
+class ResponseTemplateView(TemplateView):
+
+	template_name = "classes/response.html"
+	 
+	def get_context_data(self, **kwargs):
+		if self.kwargs['slug'] == "registered":
+			message_text = "You've been registered"
+		elif self.kwargs['slug'] == "waitlisted":
+			message_text = "You've been added to the waitlist"
+		elif self.kwargs['slug'] == "cancelled":
+			message_text = "Registration cancelled"
+		else:
+			message_text = "Error"
+		return {'message': message_text}
+
 
 
 # provide information about an event's registration status
