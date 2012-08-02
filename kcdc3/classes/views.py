@@ -2,7 +2,8 @@ from django.http import HttpRequest, HttpResponseRedirect
 from datetime import datetime
 from django.views.generic import DetailView, TemplateView
 from classes.models import Event, Registration
-
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 	
 # display an event	
@@ -33,7 +34,7 @@ class EventDetailView(DetailView):
 
 # handle registration/waitlist form
 def register(request, slug):
-	
+
 	e = Event.objects.get(slug=slug)
 	r = RegistrationHelper(e,request.user)
 
@@ -42,8 +43,12 @@ def register(request, slug):
 		t = Registration(student=request.user, event=e, date_registered=datetime.now(), waitlist=r.add_to_waitlist)
 		t.save()
 		if r.add_to_waitlist == False:
+			message_body = render_to_string('classes/email_registered.txt', {'title': e.title})
+			send_mail("Registered: "+e.title, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
 			return HttpResponseRedirect("/classes/response/registered")
 		else:
+			message_body = render_to_string('classes/email_registered.txt', {'title': e.title})
+			send_mail(e.title, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
 			return HttpResponseRedirect("/classes/response/waitlisted")
 	else: 
 		return HttpResponseRedirect("/classes/response/error")
@@ -65,6 +70,12 @@ def cancel(request, slug):
 		 	for w in Registration.objects.filter(event=e, waitlist=True, cancelled=False)[:1]:
 				w.waitlist=False
 				w.save()
+				message_body = render_to_string('classes/email_promoted.txt', {'title': e.title})
+				recipient = w.student.email
+				print recipient
+				send_mail("You've been registered: "+e.title, message_body, 'contact@knowledgecommonsdc.org', [recipient], fail_silently=False)
+		message_body = render_to_string('classes/email_registered.txt', {'title': e.title})
+		send_mail("Registration cancelled: "+e.title, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
 		return HttpResponseRedirect("/classes/response/cancelled")
 	else: 
 		return HttpResponseRedirect("/classes/response/error")
