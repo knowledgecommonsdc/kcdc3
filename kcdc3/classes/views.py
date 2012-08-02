@@ -15,19 +15,17 @@ class EventDetailView(DetailView):
 	def get_context_data(self, **kwargs):
 		
 		context = super(EventDetailView, self).get_context_data(**kwargs)
-		context['registration_count'] = Registration.objects.filter(event=self.object, waitlist=False, cancelled=False).count()
-		context['waitlist_count'] = Registration.objects.filter(event=self.object, waitlist=True, cancelled=False).count()
 
-		if (Registration.objects.filter(event=self.object, student=self.request.user, waitlist=True, cancelled=False).count() > 0):
-			context['user_is_waitlisted'] = True
+		if self.request.user.is_authenticated():
+			context['user_is_authenticated'] = True
+			r = UserRegistrationHelper(self.object,self.request.user)
 		else:
-			context['user_is_waitlisted'] = False
-
-		if (Registration.objects.filter(event=self.object, student=self.request.user, waitlist=False, cancelled=False).count() > 0):
-			context['user_is_registered'] = True
-		else:
-			context['user_is_registered'] = False
-
+			r = RegistrationHelper(self.object)
+		context['registration_count'] = r.registration_count
+		context['waitlist_count'] = r.waitlist_count
+		context['user_is_waitlisted'] = r.user_is_waitlisted
+		context['user_is_registered'] = r.user_is_registered
+				
 		return context
 			
 
@@ -36,7 +34,7 @@ class EventDetailView(DetailView):
 def register(request, slug):
 
 	e = Event.objects.get(slug=slug)
-	r = RegistrationHelper(e,request.user)
+	r = UserRegistrationHelper(e,request.user)
 
 	# if there are no non-cancelled registrations for this user and event
 	if r.user_is_registered==False and r.user_is_waitlisted==False:
@@ -59,7 +57,7 @@ def register(request, slug):
 def cancel(request, slug):
 	
 	e = Event.objects.get(slug=slug)
-	r = RegistrationHelper(e,request.user)
+	r = UserRegistrationHelper(e,request.user)
 	
 	if r.user_is_registered or r.user_is_waitlisted:
 		for t in Registration.objects.filter(event=e, student=request.user, cancelled=False)[:1]:
@@ -72,7 +70,6 @@ def cancel(request, slug):
 				w.save()
 				message_body = render_to_string('classes/email_promoted.txt', {'title': e.title})
 				recipient = w.student.email
-				print recipient
 				send_mail("You've been registered: "+e.title, message_body, 'contact@knowledgecommonsdc.org', [recipient], fail_silently=False)
 		message_body = render_to_string('classes/email_registered.txt', {'title': e.title})
 		send_mail("Registration cancelled: "+e.title, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
@@ -100,22 +97,43 @@ class ResponseTemplateView(TemplateView):
 
 
 
+
+# provide information about all registrations for an event
+class RegistrationHelper:
+		
+	def __init__(self, event):
+
+		self.e = event
+
+		self.registration_count = Registration.objects.filter(event=self.e, waitlist=False, cancelled=False).count()
+		self.waitlist_count = Registration.objects.filter(event=self.e, waitlist=True, cancelled=False).count()
+
+		if self.registration_count >= self.e.max_students:
+			self.add_to_waitlist = True
+		else:
+			self.add_to_waitlist = False	
+	
+		self.user_is_waitlisted = False
+		self.user_is_registered = False
+
+
+	
 # provide information about an event's registration status
 # relative to a particular event and user
-class RegistrationHelper:
+class UserRegistrationHelper(RegistrationHelper):
 		
 	def __init__(self, event, student):
 
 		self.e = event
 		self.s = student
 
-		registration_count = Registration.objects.filter(event=self.e, waitlist=False, cancelled=False).count()
-		waitlist_count = Registration.objects.filter(event=self.e, waitlist=True, cancelled=False).count()
+		self.registration_count = Registration.objects.filter(event=self.e, waitlist=False, cancelled=False).count()
+		self.waitlist_count = Registration.objects.filter(event=self.e, waitlist=True, cancelled=False).count()
 
-		if registration_count >= self.e.max_students:
+		if self.registration_count >= self.e.max_students:
 			self.add_to_waitlist = True
 		else:
-			self.add_to_waitlist = False
+			self.add_to_waitlist = False	
 
 		self.user_is_waitlisted = False
 		self.user_is_registered = False
