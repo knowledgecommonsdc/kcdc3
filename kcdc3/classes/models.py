@@ -20,7 +20,7 @@ class Event(models.Model):
 class Registration(models.Model):
 	student = models.ForeignKey(User, null=True)
 	event = models.ForeignKey(Event, null=True)
-	date_registered = models.DateTimeField()
+	date_registered = models.DateTimeField(auto_now_add=True)
 	waitlist = models.BooleanField()
 	attended = models.NullBooleanField()
 	cancelled = models.BooleanField(default=False)
