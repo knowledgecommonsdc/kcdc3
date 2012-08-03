@@ -55,5 +55,10 @@ class EventAdmin(admin.ModelAdmin):
 	inlines = (RegistrationInline,)
 	list_display = ('title', 'date','max_students', 'registration_status', 'waitlist_status','registration_count','waitlist_count')
 	prepopulated_fields = {"slug": ("title",)}
+	class Media:
+		js = [
+			'tiny_mce/tiny_mce.js',
+			'tinymce_setup.js',
+		]
 
 admin.site.register(Event, EventAdmin)
