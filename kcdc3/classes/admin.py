@@ -21,26 +21,36 @@ class RegistrationInline(admin.TabularInline):
 
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None,			{'fields': ['title', 'slug', 'date']}),
-		('Additional meetings', {
+		(None,			{'fields': ['title', 'slug',('date','type'), ('status', 'featured',)]}),
+		('Teachers/facilitators',	{'fields': [('teachers','facilitators')]}),
+		('Description', {
 			'classes': ('grp-collapse grp-closed',), 
-			'fields': []
+			'fields': [
+				'summary', 'description', ('thumbnail', 'main_image'), 
+			]
 		}),
-		('Description and location', {
+		('Location and additional dates', {
 			'classes': ('grp-collapse grp-closed',), 
-			'fields': ['summary', 'description', 'location_description']
+			'fields': [
+				'location_name', 'location_address1', 'location_address2', ('location_city', 'location_state'), 'location_zip', 
+				'location_show_exact', 'location_description',
+				'additional_dates_text',
+			]
+		}),
+		('Email reminders', {
+			'classes': ('grp-collapse grp-closed',), 
+			'fields': ['email_welcome_text','email_reminder_text', 'email_reminder', ]
 		}),
 		('Documentation', {
 			'classes': ('grp-collapse grp-closed',), 
-			'fields': []
+			'fields': ['documentation']
 		}),
-		('Teachers/facilitators',	{'fields': ['teachers']}),
 		('Registration',	{'fields': [('max_students', 'registration_status', 'waitlist_status','registration_count','waitlist_count')]}),
 	]
 	readonly_fields = ('registration_count','waitlist_count')
-	raw_id_fields = ['teachers',]
+	raw_id_fields = ['teachers','facilitators']
 	related_lookup_fields = {
-	    'm2m': ['teachers'],
+	    'm2m': ['teachers', 'facilitators'],
 	}
 	inlines = (RegistrationInline,)
 	list_display = ('title', 'date','max_students', 'registration_status', 'waitlist_status','registration_count','waitlist_count')
