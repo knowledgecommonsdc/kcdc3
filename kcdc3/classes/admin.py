@@ -21,8 +21,12 @@ class RegistrationInline(admin.TabularInline):
 
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None,			{'fields': ['title', 'date','slug']}),
-		('Pre-Class Information', {
+		(None,			{'fields': ['title', 'slug', 'date']}),
+		('Additional meetings', {
+			'classes': ('grp-collapse grp-closed',), 
+			'fields': []
+		}),
+		('Description and location', {
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': ['summary', 'description', 'location_description']
 		}),
