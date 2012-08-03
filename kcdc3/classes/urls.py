@@ -1,11 +1,10 @@
 from django.conf.urls import patterns, include, url
 from classes.models import Event, Registration
-from django.views.generic import ListView
-from classes.views import EventDetailView, ResponseTemplateView
+from classes.views import EventListView, EventDetailView, ResponseTemplateView
 
 urlpatterns = patterns('classes.views',
 
-	url(r'^$', ListView.as_view(model=Event,)),
+	url(r'^$', EventListView.as_view()),
 	url(r'^response/(?P<slug>[A-Za-z0-9_-]+)$', ResponseTemplateView.as_view()),
 	url(r'^(?P<slug>[A-Za-z0-9_-]+)/$', EventDetailView.as_view(model=Event,)),
 	url(r'^(?P<slug>[A-Za-z0-9_-]+)/register$', 'register'),

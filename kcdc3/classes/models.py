@@ -12,6 +12,8 @@ class Event(models.Model):
 	waitlist_status = models.BooleanField('Waitlist', default=True)
 	teachers = models.ManyToManyField(User, blank=True, null=True, related_name='teachers')
 	students = models.ManyToManyField(User, through='Registration', blank=True, null=True, related_name='students')
+	#tmp_num_students_registered = models.IntegerField(default=0)
+	#tmp_adding_to_waitlist = models.BooleanField(default=False)
 	class Meta:
 		ordering = ['date']
 	def __unicode__(self):

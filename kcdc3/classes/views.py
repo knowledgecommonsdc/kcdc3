@@ -1,9 +1,22 @@
 from django.http import HttpRequest, HttpResponseRedirect
 from datetime import datetime
-from django.views.generic import DetailView, TemplateView
+from django.views.generic import DetailView, TemplateView, ListView
 from classes.models import Event, Registration
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+
+
+class EventListView(ListView):
+
+	context_object_name = "event_list"
+	model = Event
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(EventListView, self).get_context_data(**kwargs)
+
+		return context
+
 
 	
 # display an event	
