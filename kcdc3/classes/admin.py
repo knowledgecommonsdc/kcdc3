@@ -31,14 +31,15 @@ class EventAdmin(admin.ModelAdmin):
 			'fields': []
 		}),
 		('Teachers/facilitators',	{'fields': ['teachers']}),
-		('Size and waitlist',	{'fields': [('max_students', 'waitlist_status')]}),
+		('Registration',	{'fields': [('max_students', 'registration_status', 'waitlist_status','registration_count','waitlist_count')]}),
 	]
+	readonly_fields = ('registration_count','waitlist_count')
 	raw_id_fields = ['teachers',]
 	related_lookup_fields = {
 	    'm2m': ['teachers'],
 	}
 	inlines = (RegistrationInline,)
-	list_display = ('title', 'date','max_students', 'waitlist_status')
+	list_display = ('title', 'date','max_students', 'registration_status', 'waitlist_status','registration_count','waitlist_count')
 	prepopulated_fields = {"slug": ("title",)}
 
 admin.site.register(Event, EventAdmin)

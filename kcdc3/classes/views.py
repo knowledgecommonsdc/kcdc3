@@ -38,6 +38,7 @@ class EventDetailView(DetailView):
 		context['waitlist_count'] = r.waitlist_count
 		context['user_is_waitlisted'] = r.user_is_waitlisted
 		context['user_is_registered'] = r.user_is_registered
+		context['is_registration_possible'] = r.is_registration_possible
 				
 		return context
 			
@@ -49,8 +50,8 @@ def register(request, slug):
 	e = Event.objects.get(slug=slug)
 	r = UserRegistrationHelper(e,request.user)
 
-	# if there are no non-cancelled registrations for this user and event
-	if r.user_is_registered==False and r.user_is_waitlisted==False:
+	# if there are no non-cancelled registrations for this user/event and registration is possible
+	if r.user_is_registered==False and r.user_is_waitlisted==False and r.is_registration_possible==True:
 		t = Registration(student=request.user, event=e, date_registered=datetime.now(), waitlist=r.add_to_waitlist)
 		t.save()
 		if r.add_to_waitlist == False:
@@ -128,7 +129,13 @@ class RegistrationHelper:
 	
 		self.user_is_waitlisted = False
 		self.user_is_registered = False
-
+		
+		if self.registration_count < self.e.max_students:
+			self.is_registration_possible = True
+		else: 
+			self.is_registration_possible = False
+		
+		
 
 	
 # provide information about an event's registration status
@@ -154,6 +161,9 @@ class UserRegistrationHelper(RegistrationHelper):
 			self.user_is_registered = True
 		elif (Registration.objects.filter(event=self.e, student=self.s, waitlist=True, cancelled=False).count() > 0):
 			self.user_is_waitlisted = True
-	
-	
-	
+
+		if self.registration_count < self.e.max_students:
+			self.is_registration_possible = True
+		else: 
+			self.is_registration_possible = False
+
