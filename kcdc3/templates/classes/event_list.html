@@ -4,7 +4,7 @@
 {% block content %}
 
 	<ul>
-	{% for event in object_list %}
+	{% for event in event_list %}
 		<li><a href="/classes/{{ event.slug }}">{{ event.title }}</a></li>
 	{% endfor %}
 	</ul>
