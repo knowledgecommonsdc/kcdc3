@@ -24,16 +24,21 @@ class EventAdmin(admin.ModelAdmin):
 		(None,			{'fields': ['title', 'slug',('date','type'), ('status', 'featured',)]}),
 		('Teachers/facilitators',	{'fields': [('teachers','facilitators')]}),
 		('Description', {
-			'classes': ('grp-collapse grp-closed',), 
+			'classes': ('grp-collapse grp-open',), 
 			'fields': [
 				'summary', 'description', ('thumbnail', 'main_image'), 
 			]
 		}),
-		('Location and additional dates', {
+		('Location', {
+			'classes': ('grp-collapse grp-open',), 
+			'fields': [
+				'location_name', 'location_neighborhood', 'location_show_exact', 'location_address1', 'location_address2', 'location_city', ('location_state', 'location_zip'), 
+			]
+		}),
+		('More pre-class details and additional dates', {
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': [
-				'location_name', 'location_address1', 'location_address2', ('location_city', 'location_state'), 'location_zip', 
-				'location_show_exact', 'location_description',
+				'details',
 				'additional_dates_text',
 			]
 		}),
@@ -41,7 +46,7 @@ class EventAdmin(admin.ModelAdmin):
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': ['email_welcome_text','email_reminder_text', 'email_reminder', ]
 		}),
-		('Documentation', {
+		('Post-class documentation', {
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': ['documentation']
 		}),

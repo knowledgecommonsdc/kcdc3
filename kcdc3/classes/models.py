@@ -17,13 +17,13 @@ class Event(models.Model):
 	date = models.DateTimeField('First meeting')
 	additional_dates_text = models.TextField('Notes about additional meetings', blank=True)
 
-	location_name = models.CharField(max_length=100, blank=True)
-	location_address1 = models.CharField('address', max_length=60, blank=True)
-	location_address2 = models.CharField('line two', max_length=60, blank=True)
-	location_city = models.CharField('city', max_length=60, blank=True, default='Washington')
-	location_state = models.CharField('state', max_length=2, blank=True, default='DC')
+	location_name = models.CharField('Description', max_length=100, blank=True)
+	location_neighborhood = models.CharField('Neighborhood', max_length=100, blank=True)
+	location_address1 = models.CharField('Address', max_length=60, blank=True)
+	location_address2 = models.CharField('Line two', max_length=60, blank=True)
+	location_city = models.CharField('City', max_length=60, blank=True, default='Washington')
+	location_state = models.CharField('State', max_length=2, blank=True, default='DC')
 	location_zip = models.CharField('ZIP', max_length=5, blank=True)
-	location_description = models.TextField('Location details', blank=True)
 	location_show_exact = models.BooleanField('Show details/exact address on public site?', default=True)
 	
 	TYPE_CHOICES = (
@@ -35,12 +35,13 @@ class Event(models.Model):
 
 	summary = models.TextField(blank=True)
 	description = models.TextField(blank=True)
+	details = models.TextField('Pre-class details', blank=True)
 	thumbnail = models.ImageField(upload_to='event_images', blank=True, null=True)
 	main_image = models.ImageField(upload_to='event_images', blank=True, null=True)
 
-	email_welcome_text = models.TextField('Additional welcome email text', blank=True)
+	email_welcome_text = models.TextField('Extra text for welcome email', blank=True)
 	email_reminder = models.BooleanField('Send reminder email?', default=True)
-	email_reminder_text = models.TextField('Additional reminder email text', blank=True)
+	email_reminder_text = models.TextField('Extra text for reminder email', blank=True)
 
 	documentation = models.TextField(blank=True)
 	
