@@ -1,6 +1,34 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+
+class Session(models.Model):
+	title = models.CharField(max_length=200)
+	long_title = models.CharField(max_length=200)
+	slug = models.SlugField(unique=True)
+	STATUS_CHOICES = (
+		('CURRENT', 'Current'),
+		('PAST', 'Past'),
+		('HIDDEN', 'Hidden'),
+	)
+	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='CURRENT')
+
+	description = models.TextField(blank=True)
+	documentation = models.TextField(blank=True)
+
+	REGISTRATION_STATUS_CHOICES = (
+		('ALLOW', 'Allow registration'),
+		('PREVENT', 'Prevent registration'),
+	)
+	registration_status = models.CharField(max_length=7, choices=REGISTRATION_STATUS_CHOICES, default='PREVENT')
+	email_reminder_days = models.IntegerField('Send reminder emails this many days ahead of classes:', default=2)
+
+	def __unicode__(self):
+		return self.title
+
+
+
 class Event(models.Model):
 	
 	title = models.CharField(max_length=200)
@@ -14,6 +42,7 @@ class Event(models.Model):
 	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='PUBLISHED')
 	featured = models.BooleanField(default=False)
 	
+	session = models.ForeignKey(Session, blank=True, null=True, on_delete=models.SET_NULL, related_name='session')
 	date = models.DateTimeField('First meeting')
 	additional_dates_text = models.TextField('Notes about additional meetings', blank=True)
 
@@ -73,6 +102,8 @@ class Event(models.Model):
 			return True
 		else:
 			return False
+		
+		
 		
 class Registration(models.Model):
 	student = models.ForeignKey(User, null=True)

@@ -1,4 +1,4 @@
-from classes.models import Event, Registration
+from classes.models import Event, Registration, Session
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -21,7 +21,7 @@ class RegistrationInline(admin.TabularInline):
 
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None,			{'fields': ['title', 'slug',('date','type'), ('status', 'featured',)]}),
+		(None,			{'fields': ['title', 'slug',('date','type','session'), ('status', 'featured',)]}),
 		('Teachers/facilitators',	{'fields': [('teachers','facilitators')]}),
 		('Description', {
 			'classes': ('grp-collapse grp-open',), 
@@ -58,7 +58,6 @@ class EventAdmin(admin.ModelAdmin):
 	    'm2m': ['teachers', 'facilitators'],
 	}
 	inlines = (RegistrationInline,)
-	list_display = ('title', 'date','max_students', 'registration_status', 'waitlist_status','registration_count','waitlist_count')
 	prepopulated_fields = {"slug": ("title",)}
 	class Media:
 		js = [
@@ -66,4 +65,36 @@ class EventAdmin(admin.ModelAdmin):
 			'tinymce_setup.js',
 		]
 
+	list_display = ('title', 'date','session', 'status','registration_status','max_students', 'registration_count', 'waitlist_count','waitlist_status',)
+	list_editable = ('status',)
+	list_filter = ('session', 'status', 'registration_status')
+	search_fields = ('title',)
+
 admin.site.register(Event, EventAdmin)
+
+
+
+class SessionAdmin(admin.ModelAdmin):
+	fieldsets = [
+		(None, {'fields': [
+			'title', 'long_title', 'slug',
+			]}),
+		('Registration', {'fields': [
+			('registration_status', 
+			'email_reminder_days')
+			]}),
+		('Text', {'fields': [
+			'description','documentation'
+			]}),
+	]
+	list_display = ('title', 'registration_status')
+	prepopulated_fields = {"slug": ("title",)}
+	class Media:
+		js = [
+			'tiny_mce/tiny_mce.js',
+			'tinymce_setup.js',
+		]
+
+admin.site.register(Session, SessionAdmin)
+
+
