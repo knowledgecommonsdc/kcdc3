@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
+# a Session is a collection of classes
 class Session(models.Model):
 	title = models.CharField(max_length=200)
 	long_title = models.CharField(max_length=200)
@@ -28,7 +28,7 @@ class Session(models.Model):
 		return self.title
 
 
-
+# an Event is a single class or other event
 class Event(models.Model):
 	
 	title = models.CharField(max_length=200)
@@ -104,7 +104,7 @@ class Event(models.Model):
 			return False
 		
 		
-		
+# Registrations connect Users with the Events they've signed up for		
 class Registration(models.Model):
 	student = models.ForeignKey(User, null=True)
 	event = models.ForeignKey(Event, null=True)
