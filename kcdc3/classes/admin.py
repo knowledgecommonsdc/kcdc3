@@ -9,7 +9,7 @@ from django.utils.html import escape
 from django.contrib.auth.models import User
 
 
-
+# displays registrations as a list in the Event Admin screen
 class RegistrationInline(admin.TabularInline):
 	model = Registration
 	extra = 0
@@ -19,6 +19,8 @@ class RegistrationInline(admin.TabularInline):
 	can_delete = False
 	readonly_fields = ('date_registered',)
 
+
+# lets someone create/edit a Event
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
 		(None,			{'fields': ['title', 'slug',('date','type','session'), ('status', 'featured',)]}),
@@ -73,7 +75,7 @@ class EventAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 
 
-
+# create/edit a Session
 class SessionAdmin(admin.ModelAdmin):
 	fieldsets = [
 		(None, {'fields': [

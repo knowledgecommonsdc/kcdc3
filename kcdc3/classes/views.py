@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
 
+# display a list of events
 class EventListView(ListView):
 
 	context_object_name = "event_list"
@@ -19,7 +20,7 @@ class EventListView(ListView):
 
 
 	
-# display an event	
+# display a single event	
 class EventDetailView(DetailView):
 
 	context_object_name = "event"
@@ -93,7 +94,7 @@ def cancel(request, slug):
 
 
 
-# respond to a user action
+# redirect the user to a thank you/results sceen after they take an action
 class ResponseTemplateView(TemplateView):
 
 	template_name = "classes/response.html"
