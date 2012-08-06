@@ -55,12 +55,12 @@ class EventAdmin(admin.ModelAdmin):
 		('Registration',	{'fields': [('max_students', 'registration_status', 'waitlist_status','registration_count','waitlist_count')]}),
 	]
 	readonly_fields = ('registration_count','waitlist_count')
+	prepopulated_fields = {"slug": ("title",)}
 	raw_id_fields = ['teachers','facilitators']
 	related_lookup_fields = {
 	    'm2m': ['teachers', 'facilitators'],
 	}
 	inlines = (RegistrationInline,)
-	prepopulated_fields = {"slug": ("title",)}
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
