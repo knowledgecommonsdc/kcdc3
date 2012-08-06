@@ -39,7 +39,8 @@ class EventDetailView(DetailView):
 		context['waitlist_count'] = r.waitlist_count
 		context['user_is_waitlisted'] = r.user_is_waitlisted
 		context['user_is_registered'] = r.user_is_registered
-		context['is_registration_possible'] = r.is_registration_possible
+		context['is_registration_open'] = r.is_registration_open
+		context['add_to_waitlist'] = r.add_to_waitlist
 				
 		return context
 			
@@ -52,7 +53,7 @@ def register(request, slug):
 	r = UserRegistrationHelper(e,request.user)
 
 	# if there are no non-cancelled registrations for this user/event and registration is possible
-	if r.user_is_registered==False and r.user_is_waitlisted==False and r.is_registration_possible==True:
+	if r.user_is_registered==False and r.user_is_waitlisted==False and r.is_registration_open==True:
 		t = Registration(student=request.user, event=e, date_registered=datetime.now(), waitlist=r.add_to_waitlist)
 		t.save()
 		if r.add_to_waitlist == False:
@@ -112,8 +113,29 @@ class ResponseTemplateView(TemplateView):
 
 
 
+# teacher/facilitator view
+class FacilitatorEventDetailView(EventDetailView):
+
+	template_name = "classes/facilitator_event_detail.html"
+
+	def get_context_data(self, **kwargs):
+		
+		context = super(EventDetailView, self).get_context_data(**kwargs)
+
+		r = RegistrationHelper(self.object)
+		context['registration_count'] = r.registration_count
+		context['waitlist_count'] = r.waitlist_count
+
+		e = self.object
+		context['registered_students'] = Registration.objects.filter(event=self.object, waitlist=False, cancelled=False)
+		context['waitlisted_students'] = Registration.objects.filter(event=self.object, waitlist=True, cancelled=False)
+
+		return context
+
+
 
 # provide information about all registrations for an event
+# TODO much of this should probably be in the model
 class RegistrationHelper:
 		
 	def __init__(self, event):
@@ -131,16 +153,16 @@ class RegistrationHelper:
 		self.user_is_waitlisted = False
 		self.user_is_registered = False
 		
-		if self.registration_count < self.e.max_students:
-			self.is_registration_possible = True
+		# TODO - account for time offsets and session-wide control in automatically opening registration
+		if self.e.registration_status == 'ALLOW' or self.e.registration_status == 'AUTO':
+			self.is_registration_open = True
 		else: 
-			self.is_registration_possible = False
+			self.is_registration_open = False
 		
 		
-
-	
 # provide information about an event's registration status
 # relative to a particular event and user
+# TODO remove repetitive code in __init__
 class UserRegistrationHelper(RegistrationHelper):
 		
 	def __init__(self, event, student):
@@ -163,8 +185,9 @@ class UserRegistrationHelper(RegistrationHelper):
 		elif (Registration.objects.filter(event=self.e, student=self.s, waitlist=True, cancelled=False).count() > 0):
 			self.user_is_waitlisted = True
 
-		if self.registration_count < self.e.max_students:
-			self.is_registration_possible = True
+		# TODO - account for time offsets and session-wide control in automatically opening registration
+		if self.e.registration_status == 'ALLOW' or self.e.registration_status == 'AUTO':
+			self.is_registration_open = True
 		else: 
-			self.is_registration_possible = False
+			self.is_registration_open = False
 

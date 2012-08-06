@@ -115,3 +115,8 @@ class Registration(models.Model):
 	date_cancelled = models.DateTimeField(blank=True, null=True)
 	class Meta:
 		ordering = ['date_registered']
+		permissions = (
+			("view_students", "Can see enrolled students"),
+			("record_attendance", "Can mark student attendance"),
+			("edit_students", "Can add or remove students"),
+		)

@@ -2,32 +2,51 @@
 
 {% block content %}
 
+	<p><a href="/classes">classes</a></p>
+
+	<hr />
+
 	<h1>{{ event.title }}</h1>
-	<p>Cap: {{ event.max_students }}</p>
-	<p>Students registered: {{ registration_count }}</p>
-	<p>Students on waitlist: {{ waitlist_count }}</p>
-	<p>Is registration possible: {{ is_registration_possible }}</p>
-	<p>Is user registered: {{ user_is_registered }}</p>
-	<p>Is user waitlisted: {{ user_is_waitlisted }}</p>
-	<p>Message: {{ message }}</p>
-	
-	{% if user_is_authenticated %}
-		{% if not user_is_registered and not user_is_waitlisted %}
-			<form action="/classes/{{ event.slug }}/register" method="post">
-				{% csrf_token %}
-				<input type="submit" value="Register" />
-			</form>
+		
+	{% if registration_count >=  event.max_students %}
+		{% if event.waitlist_status %}
+			<p>This class is full, but there is a waitist available.</p>
 		{% else %}
+			<p>This class is full.</p>
+		{% endif %}
+	{% endif %}
+		
+	{% if user_is_authenticated %}
+		{% if user_is_registered %}
+			<p>Registered</p>
 			<form action="/classes/{{ event.slug }}/cancel" method="post">
 				{% csrf_token %}
 				<input type="submit" value="Cancel" />
 			</form>
+		{% elif user_is_waitlisted %}
+			<p>Waitlisted</p>
+			<form action="/classes/{{ event.slug }}/cancel" method="post">
+				{% csrf_token %}
+				<input type="submit" value="Cancel" />
+			</form>
+		{% elif is_registration_open %}
+			<form action="/classes/{{ event.slug }}/register" method="post">
+				{% csrf_token %}
+				{% if add_to_waitlist %}
+					<input type="submit" value="Join waitlist" />
+				{% else %}
+					<input type="submit" value="Register" />
+				{% endif %}
+			</form>
 		{% endif %}
 	{% else %}
-		<p>Please log in or sign up for a new account.<p>
+		<p>To sign up for classes, please log in or create a new account.<p>
 	{% endif %}
+		
 
-	<p><a href="/classes">classes</a></p>
+	<hr />
+
+	<p><a href="/classes/{{ event.slug }}/facilitator">view registrations</a></p>
 	
 {% endblock %}
 

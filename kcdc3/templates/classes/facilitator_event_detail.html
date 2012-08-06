@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<p><a href="/classes">classes</a></p>
+
+	<hr />
+
+	<h1>{{ event.title }}</h1>
+	
+	<h2>Registered students</h2>	
+	<table>
+	{% for student in registered_students %}
+		<tr>
+			<td>
+				{{ student.student.first_name }} {{ student.student.last_name }}
+			</td>
+			<td>
+				{{ student.student.email }}
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+	<h2>Waitlisted students</h2>	
+	<table>
+	{% for student in waitlisted_students %}
+		<tr>
+			<td>
+				{{ student.student.first_name }} {{ student.student.last_name }}
+			</td>
+			<td>
+				{{ student.student.email }}
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+
+	<hr />
+
+	<p><a href="/classes/{{ event.slug }}">main class page</a></p>
+	
+{% endblock %}
+
