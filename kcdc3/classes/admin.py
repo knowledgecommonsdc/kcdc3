@@ -15,9 +15,13 @@ class RegistrationInline(admin.TabularInline):
 	extra = 0
 	classes = ('grp-collapse grp-closed',)
 	# inline_classes = ('grp-collapse grp-open',)
-	fields = ('student', 'date_registered', 'waitlist', 'cancelled', 'attended')
+	fields = ('student', 'date_registered', 'waitlist', 'cancelled', 'date_cancelled', 'attended')
 	can_delete = False
-	readonly_fields = ('date_registered',)
+	readonly_fields = ('date_registered','date_cancelled')
+	raw_id_fields = ['student']
+	related_lookup_fields = {
+	    'fk': ['student'],
+	}
 
 
 # lets someone create/edit a Event
