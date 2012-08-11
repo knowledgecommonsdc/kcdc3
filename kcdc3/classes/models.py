@@ -27,6 +27,15 @@ class Session(models.Model):
 	def __unicode__(self):
 		return self.title
 
+class Location(models.Model):
+	name = models.CharField('Description', max_length=100, blank=True)
+	neighborhood = models.CharField('Neighborhood', max_length=100, blank=True)
+	address1 = models.CharField('Address', max_length=60, blank=True)
+	address2 = models.CharField('Line two', max_length=60, blank=True)
+	city = models.CharField('City', max_length=60, blank=True, default='Washington')
+	state = models.CharField('State', max_length=2, blank=True, default='DC')
+	zip = models.CharField('ZIP', max_length=5, blank=True)
+	show_exact = models.BooleanField('Show details/exact address on public site?', default=True)
 
 # an Event is a single class or other event
 class Event(models.Model):
@@ -46,14 +55,7 @@ class Event(models.Model):
 	date = models.DateTimeField('First meeting')
 	additional_dates_text = models.TextField('Notes about additional meetings', blank=True)
 
-	location_name = models.CharField('Description', max_length=100, blank=True)
-	location_neighborhood = models.CharField('Neighborhood', max_length=100, blank=True)
-	location_address1 = models.CharField('Address', max_length=60, blank=True)
-	location_address2 = models.CharField('Line two', max_length=60, blank=True)
-	location_city = models.CharField('City', max_length=60, blank=True, default='Washington')
-	location_state = models.CharField('State', max_length=2, blank=True, default='DC')
-	location_zip = models.CharField('ZIP', max_length=5, blank=True)
-	location_show_exact = models.BooleanField('Show details/exact address on public site?', default=True)
+	location = models.ForeignKey(Location, blank=True, null=True, on_delete=models.SET_NULL, related_name='location')
 	
 	TYPE_CHOICES = (
 		('CLASS', 'Class'),
@@ -91,6 +93,7 @@ class Event(models.Model):
 		
 	class Meta:
 		ordering = ['date']
+
 	def __unicode__(self):
 		return self.title
 	def registration_count(self):
