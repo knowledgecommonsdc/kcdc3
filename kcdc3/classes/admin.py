@@ -1,4 +1,4 @@
-from classes.models import Event, Registration, Session
+from classes.models import Event, Location, Registration, Session
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -23,22 +23,20 @@ class RegistrationInline(admin.TabularInline):
 	    'fk': ['student'],
 	}
 
+class LocationAdmin(admin.ModelAdmin):
+	model = Location
+
+admin.site.register(Location, LocationAdmin)
 
 # lets someone create/edit a Event
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None,			{'fields': ['title', 'slug',('date','type','session'), ('status', 'featured',)]}),
+		(None,			{'fields': ['title', 'slug',('date','type','session'), ('location'), ('status', 'featured',)]}),
 		('Teachers/facilitators',	{'fields': [('teachers','facilitators')]}),
 		('Description', {
 			'classes': ('grp-collapse grp-open',), 
 			'fields': [
 				'summary', 'description', ('thumbnail', 'main_image'), 
-			]
-		}),
-		('Location', {
-			'classes': ('grp-collapse grp-open',), 
-			'fields': [
-				'location_name', 'location_neighborhood', 'location_show_exact', 'location_address1', 'location_address2', 'location_city', ('location_state', 'location_zip'), 
 			]
 		}),
 		('More pre-class details and additional dates', {
