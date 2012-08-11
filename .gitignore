@@ -2,3 +2,4 @@ www/static
 www/uploads
 *.tmproj
 *.pyc
+kcdc3/django.db
