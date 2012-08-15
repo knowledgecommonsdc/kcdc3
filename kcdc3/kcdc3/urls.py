@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from accounts.views import SignupFormExtra
 
 # development
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -13,6 +14,8 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
+	url(r'^accounts/signup/$', 'userena.views.signup', {'signup_form': SignupFormExtra}),
+	url(r'^accounts/', include('userena.urls')),
 
 )
 

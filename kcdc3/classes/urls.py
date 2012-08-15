@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from classes.models import Event, Registration
-from classes.views import EventListView, EventDetailView, ResponseTemplateView, FacilitatorEventDetailView
+from classes.views import EventListView, EventDetailView, ResponseTemplateView
 
 urlpatterns = patterns('classes.views',
 
@@ -9,6 +9,6 @@ urlpatterns = patterns('classes.views',
 	url(r'^(?P<slug>[A-Za-z0-9_-]+)/$', EventDetailView.as_view(model=Event,)),
 	url(r'^(?P<slug>[A-Za-z0-9_-]+)/register$', 'register'),
 	url(r'^(?P<slug>[A-Za-z0-9_-]+)/cancel$', 'cancel'),
-	url(r'^(?P<slug>[A-Za-z0-9_-]+)/facilitator$', FacilitatorEventDetailView.as_view(model=Event,)),
+	url(r'^(?P<slug>[A-Za-z0-9_-]+)/facilitator$', 'facilitator'),
 
 )

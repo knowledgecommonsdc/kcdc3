@@ -44,9 +44,10 @@
 	{% endif %}
 		
 
-	<hr />
-
-	<p><a href="/classes/{{ event.slug }}/facilitator">view registrations</a></p>
+	{% if show_facilitator %}
+		<hr />
+		<p><a href="/classes/{{ event.slug }}/facilitator">view registrations</a></p>
+	{% endif %}
 	
 {% endblock %}
 

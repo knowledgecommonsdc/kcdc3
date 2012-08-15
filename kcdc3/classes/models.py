@@ -113,8 +113,12 @@ class Registration(models.Model):
 	attended = models.NullBooleanField()
 	cancelled = models.BooleanField(default=False)
 	date_cancelled = models.DateTimeField(blank=True, null=True)
+
 	class Meta:
+
 		ordering = ['date_registered']
+
+		#TODO this isn't being picked up by the admin
 		permissions = (
 			("view_students", "Can see enrolled students"),
 			("record_attendance", "Can mark student attendance"),
