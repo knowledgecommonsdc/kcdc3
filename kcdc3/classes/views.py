@@ -1,10 +1,12 @@
-from django.http import HttpRequest, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response
 from datetime import datetime
 from django.views.generic import DetailView, TemplateView, ListView
 from classes.models import Event, Registration
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-
+from django.template import Context
+from django.contrib.auth.decorators import login_required
 
 # display a list of events
 class EventListView(ListView):
@@ -41,7 +43,12 @@ class EventDetailView(DetailView):
 		context['user_is_registered'] = r.user_is_registered
 		context['is_registration_open'] = r.is_registration_open
 		context['add_to_waitlist'] = r.add_to_waitlist
-				
+
+		# TODO: move this
+		if self.request.user.is_authenticated():
+			if Event.objects.filter(slug=self.object.slug, facilitators=self.request.user).count() > 0 or self.request.user.is_staff:
+				context['show_facilitator'] = True
+			
 		return context
 			
 
@@ -114,24 +121,25 @@ class ResponseTemplateView(TemplateView):
 
 
 # teacher/facilitator view
-class FacilitatorEventDetailView(EventDetailView):
+@login_required
+def facilitator(request, slug):
 
-	template_name = "classes/facilitator_event_detail.html"
+	e = Event.objects.get(slug=slug)
+	r = RegistrationHelper(e)
 
-	def get_context_data(self, **kwargs):
-		
-		context = super(EventDetailView, self).get_context_data(**kwargs)
+	context = Context()
+	context['registration_count'] = r.registration_count
+	context['waitlist_count'] = r.waitlist_count
 
-		r = RegistrationHelper(self.object)
-		context['registration_count'] = r.registration_count
-		context['waitlist_count'] = r.waitlist_count
+	context['registered_students'] = Registration.objects.filter(event=e, waitlist=False, cancelled=False)
+	context['waitlisted_students'] = Registration.objects.filter(event=e, waitlist=True, cancelled=False)
 
-		e = self.object
-		context['registered_students'] = Registration.objects.filter(event=self.object, waitlist=False, cancelled=False)
-		context['waitlisted_students'] = Registration.objects.filter(event=self.object, waitlist=True, cancelled=False)
-
-		return context
-
+	# is the user staff or assigned as a facilitator for this class?
+	if Event.objects.filter(slug=slug, facilitators=request.user).count() > 0 or request.user.is_staff:
+		return render_to_response('classes/facilitator_event_detail.html',context)
+	else:
+		# TODO this should really return a 403
+		return HttpResponse()
 
 
 # provide information about all registrations for an event

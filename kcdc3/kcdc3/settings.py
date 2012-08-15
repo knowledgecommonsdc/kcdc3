@@ -116,6 +116,18 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = (
+	'userena.backends.UserenaAuthenticationBackend',
+	'guardian.backends.ObjectPermissionBackend',
+	'django.contrib.auth.backends.ModelBackend',
+)
+AUTH_PROFILE_MODULE = 'accounts.extendedprofile'
+ANONYMOUS_USER_ID = -1
+LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
+USERENA_MUGSHOT_DEFAULT = 'mm'
+
 ROOT_URLCONF = 'kcdc3.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -140,7 +152,11 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
 	'classes',
+	'accounts',
 	'south',
+	'userena',
+	'guardian',
+	'easy_thumbnails',
 )
 
 
