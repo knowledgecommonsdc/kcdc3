@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from accounts.views import SignupFormExtra
+from filebrowser.sites import site
 
 # development
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -11,6 +12,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
 	url(r'^classes/', include('classes.urls')),
+	url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
