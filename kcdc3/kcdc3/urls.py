@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls.defaults import *
 from accounts.views import SignupFormExtra
 from filebrowser.sites import site
 
