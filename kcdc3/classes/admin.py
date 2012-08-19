@@ -32,7 +32,7 @@ admin.site.register(Location, LocationAdmin)
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
 		(None,			{'fields': ['title', 'slug',('date','type','session'), ('location'), ('status', 'featured',)]}),
-		('Teachers/facilitators',	{'fields': [('teachers','facilitators')]}),
+		('Teachers/facilitators',	{'fields': ['teacher_text', ('teachers','facilitators')]}),
 		('Description', {
 			'classes': ('grp-collapse grp-open',), 
 			'fields': [

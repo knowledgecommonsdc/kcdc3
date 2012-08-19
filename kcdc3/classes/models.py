@@ -87,6 +87,7 @@ class Event(models.Model):
 	)
 	registration_status = models.CharField(max_length=7, choices=REGISTRATION_STATUS_CHOICES, default='AUTO')
 
+	teacher_text = models.CharField('Teacher (displayed)', max_length=200, blank=True)
 	teachers = models.ManyToManyField(User, blank=True, null=True, related_name='teachers')
 	facilitators = models.ManyToManyField(User, blank=True, null=True, related_name='facilitators')
 	students = models.ManyToManyField(User, through='Registration', blank=True, null=True, related_name='students')
