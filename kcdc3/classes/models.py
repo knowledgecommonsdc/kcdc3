@@ -36,6 +36,8 @@ class Location(models.Model):
 	state = models.CharField('State', max_length=2, blank=True, default='DC')
 	zip = models.CharField('ZIP', max_length=5, blank=True)
 	show_exact = models.BooleanField('Show details/exact address on public site?', default=True)
+	def __unicode__(self):
+		return self.name
 
 # an Event is a single class or other event
 class Event(models.Model):

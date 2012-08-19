@@ -25,6 +25,7 @@ class RegistrationInline(admin.TabularInline):
 
 class LocationAdmin(admin.ModelAdmin):
 	model = Location
+	list_display = ('name','neighborhood',)
 
 admin.site.register(Location, LocationAdmin)
 
@@ -58,7 +59,7 @@ class EventAdmin(admin.ModelAdmin):
 	]
 	readonly_fields = ('registration_count','waitlist_count')
 	prepopulated_fields = {"slug": ("title",)}
-	raw_id_fields = ['teachers','facilitators']
+	raw_id_fields = ['location','teachers','facilitators']
 	related_lookup_fields = {
 	    'm2m': ['teachers', 'facilitators'],
 	}
