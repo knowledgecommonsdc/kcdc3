@@ -45,8 +45,12 @@
 			</nav>
 
 			<div class="utility">
-				<a href="/accounts/signin">log in</a> /
-				<a href="/accounts/signup">register</a>
+				{% if user.is_authenticated %}
+					<a href="/accounts/signout">log out</a>
+				{% else %}
+					<a href="/accounts/signin">log in</a> /
+					<a href="/accounts/signup">register</a>
+				{% endif %}
 			</div>
 
 		</header>
