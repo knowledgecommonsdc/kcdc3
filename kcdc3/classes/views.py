@@ -128,6 +128,11 @@ def facilitator(request, slug):
 	r = RegistrationHelper(e)
 
 	context = Context()
+
+	context['slug'] = slug
+	context['title'] = e.title
+
+
 	context['registration_count'] = r.registration_count
 	context['waitlist_count'] = r.waitlist_count
 
