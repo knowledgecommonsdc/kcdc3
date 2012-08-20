@@ -1,15 +1,119 @@
-<html>
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-<title>Knowledge Commons DC / {% block title %}{% endblock %}
-</title>	
-</head>
-<body>
-	
-{% block content %}{% endblock %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<hr />
+	<title>KCDC : Knowledge Commons DC  / {% block title %}{% endblock %}</title>
+	<meta name="description" content="Knowledge Commons DC (KCDC) is a free school for thinkers, doers, and tinkerers - taught anywhere, by anyone, for everyone.">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="/static/css/style.css">
+
+	<link rel="alternate" type="application/rss+xml" title="Blog RSS feed" href="http://knowledgecommonsdc.org/rss" />
+</head>
+
+<body class="" id="">
+
+	<div id="skip">
+		<a href="#content">skip to content</a>
+	</div>
 	
-<a href="/accounts/signin">log in</a> | <a href="/accounts/signup">sign up</a>
+	<div id="container" class="clearfix">
+		
+		<div id="header-mobile">
+			<h1><a href="/">Knowledge Commons DC / KCDC</a></h1>
+			<div class="menu-link"><a href="#global-mobile">&#10132; menu</a></div>
+		</div>
+
+		<header id="header-desktop">
+
+			<nav id="global-desktop" class="global desktop">
+				
+				<li><a href="http://knowledgecommonsdc.org/" class="title">Knowledge Commons DC</a></li>
+				<li><a href="http://knowledgecommonsdc.org/about" class="">Who We Are</a></li>
+				<li><a href="/classes" class="active">Classes + Events</a></li>
+				<li><a href="http://knowledgecommonsdc.org/classes">Past Sessions</a></li>
+				<li><a href="http://knowledgecommonsdc.org/teach" class="">Teach</a></li>
+				<li><a href="http://knowledgecommonsdc.org/contribute" class="">Contribute</a></li>
+				<li><a href="http://knowledgecommonsdc.org/press" class="">Press</a></li>
+				<li><a href="http://knowledgecommonsdc.org/blog" class="break ">Blog</a></li>
+
+			</nav>
+
+			<div class="utility">
+				<a href="/accounts/signin">log in</a> /
+				<a href="/accounts/signup">register</a>
+			</div>
+
+		</header>
+		
+		<div id="main" class="clearfix">
+		
+			<div id="local-desktop" class="local desktop">
+
+			</div>
+
+			<div id="content" class="content section-classes clearfix">
+
+				{% block content %}{% endblock %}
+
+			</div>		
+
+		</div>		
+
+		<div id="local-mobile" class="local mobile">
+				
+		</div>
+
+		<nav id="global-mobile" class="global mobile">
+			<ul>
+				
+				<li><a href="http://knowledgecommonsdc.org/" class="title">Knowledge Commons DC</a></li>
+				<li><a href="http://knowledgecommonsdc.org/about" class="">Who We Are</a></li>
+				<li><a href="/classes" class="active">Classes + Events</a></li>
+				<li><a href="http://knowledgecommonsdc.org/classes" class="active">Past Sessions</a></li>
+				<li><a href="http://knowledgecommonsdc.org/teach" class="">Teach</a></li>
+				<li><a href="http://knowledgecommonsdc.org/contribute" class="">Contribute</a></li>
+				<li><a href="http://knowledgecommonsdc.org/press" class="">Press</a></li>
+				<li><a href="http://knowledgecommonsdc.org/blog" class="break ">Blog</a></li>
+
+				<li><a href="/accounts/signin">log in</a></li>
+				<li><a href="/accounts/signup">register</a></li>
+
+			</ul>
+		</nav>
+
+		<footer id="site-footer">
+			<div class="inner">
+				
+				<a href="http://knowledgecommonsdc.org/">Home</a> <span class="divider">/</span>
+				<a href="http://knowledgecommonsdc.org/about/policies">Privacy</a> <span class="divider">/</span> 
+				<a href="http://knowledgecommonsdc.org/rss">RSS</a> <span class="divider">/</span> 
+				<a href="mailto:contact@knowledgecommonsdc.org">contact@knowledgecommonsdc.org</a>
+				
+			</div>
+		</footer>
+		
+	</div>
 	
+
+	<!-- load scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/assets/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+	<script defer src="/static/js/script.js"></script>
+	<script>
+	  window._gaq = [['_setAccount','UA-599516-14'],['_trackPageview'],['_trackPageLoadTime']];
+	  Modernizr.load({
+	    load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+	  });
+	</script>
+
+	
+
 </body>
 </html>
+
