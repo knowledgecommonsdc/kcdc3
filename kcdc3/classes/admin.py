@@ -32,6 +32,18 @@ admin.site.register(Location, LocationAdmin)
 class BioAdmin(admin.ModelAdmin):
 	model = Bio
 	list_display = ('name','user',)
+	fieldsets = [
+		(None,			{'fields': ['name','description','user',]}),
+	]
+	raw_id_fields = ['user']
+	related_lookup_fields = {
+	    'fk': ['user'],
+	}
+	class Media:
+		js = [
+			'tiny_mce/tiny_mce.js',
+			'tinymce_setup.js',
+		]
 
 admin.site.register(Bio, BioAdmin)
 
