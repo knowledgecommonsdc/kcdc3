@@ -19,7 +19,7 @@
 		{{ event.location }}
 	</p>	
 		
-	{% if event.main_image %}<p><img src="/media/uploads/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
+	{% if event.main_image %}<p><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
 	
 	{{ event.description|safe }}
 
