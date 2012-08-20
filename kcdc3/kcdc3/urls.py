@@ -11,6 +11,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 
+	url(r'^$', include('classes.urls')),
 	url(r'^classes/', include('classes.urls')),
 	url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
