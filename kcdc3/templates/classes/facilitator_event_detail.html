@@ -2,11 +2,7 @@
 
 {% block content %}
 
-	<p><a href="/classes">classes</a></p>
-
-	<hr />
-
-	<h1>{{ c.title }}</h1>
+	<h1>{{ title }}</h1>
 	
 	<h2>Registered students</h2>	
 	<table>
@@ -42,6 +38,13 @@
 	{% endfor %}
 	</table>
 
+	<h4>Registered student emails:</h4>
+
+	<p>
+	{% for registration in registered_students %}
+		<a href="mailto:{{ registration.student.email }}">{{ registration.student.email }}</a>, 
+	{% endfor %}
+	</p>
 
 	<h2>Waitlisted students</h2>	
 	<table>
@@ -76,11 +79,20 @@
 		</tr>
 	{% endfor %}
 	</table>
+	
+	<h4>Waitlisted student emails:</h4>
+
+	<p>
+	{% for registration in waitlisted_students %}
+		<a href="mailto:{{ registration.student.email }}">{{ registration.student.email }}</a>, 
+	{% endfor %}
+	</p>
+
 
 
 	<hr />
 
-	<p><a href="/classes/{{ event.slug }}">main class page</a></p>
+	<p><a href="/classes/{{ slug }}">main class page</a></p>
 	
 {% endblock %}
 
