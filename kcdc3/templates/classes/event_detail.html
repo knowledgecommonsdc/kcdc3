@@ -3,24 +3,72 @@
 {% block content %}
 
 	<h1>{{ event.title }}</h1>
+
+	<p class="date">
+		<b>Date:</b> 
+		{{ event.date|date:"D, N j, f a" }}
+	</p>
+
+	<p class="byline">
+		<b>Instructor:</b>
+		{{ event.teacher_text }}
+	</p>
+
+	<p class="location">
+		<b>Location:</b> 
+		{{ event.location }}
+	</p>	
+		
+	{% if event.main_image %}<p><img src="/media/uploads/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
+	
+	{{ event.description|safe }}
+
+	{% if event.additional_dates_text %}
+		<h3>Additional meetings</h3>
+		{{ event.additional_dates_text|safe }}
+	{% endif %}
+
+	<h3>Location</h3>
+	<p itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+		{{ event.location }}<br />
+		{% if event.location.address1 and event.location.show_exact %}
+			<span itemprop="street-address">
+			{{ event.location.address1 }}
+			{% if event.location.address2 %}<br />{{ event.location.address2 }}{% endif %}
+			</span>
+			<br />
+		{% endif %}
+		{% if event.location.neighborhood %}{{ event.location.neighborhood }}, {% endif %}
+		{% if event.location.city %}<span itemprop="locality">{{ event.location.city }}</span>, {% endif %}
+		{% if event.location.state %}<span itemprop="region">{{ event.location.state }}</span>{% endif %}
+		{% if event.location.zip %}<span itemprop="postal-code">{{ event.location.zip }}</span>{% endif %}
+		{% if event.location.hint %}<br /><em>{{ event.location.hint }}</em>{% endif %}
+	</p>
+	
+	{% if event.details %}
+		<h3>Details</h3>
+		{{ event.details|safe }}
+	{% endif %}
+	
+	<hr />
 		
 	{% if registration_count >=  event.max_students %}
 		{% if event.waitlist_status %}
-			<p>This class is full, but there is a waitist available.</p>
+			<p><strong>This class is full, but there is a waitist available.</strong></p>
 		{% else %}
-			<p>This class is full.</p>
+			<p><strong>This class is full.</strong></p>
 		{% endif %}
 	{% endif %}
 		
 	{% if user_is_authenticated %}
 		{% if user_is_registered %}
-			<p>Registered</p>
+			<p><em>You are registered.</em></p>
 			<form action="/classes/{{ event.slug }}/cancel" method="post">
 				{% csrf_token %}
 				<input type="submit" value="Cancel" />
 			</form>
 		{% elif user_is_waitlisted %}
-			<p>Waitlisted</p>
+			<p><em>You are on the waitlist.</em></p>
 			<form action="/classes/{{ event.slug }}/cancel" method="post">
 				{% csrf_token %}
 				<input type="submit" value="Cancel" />
