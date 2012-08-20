@@ -1,0 +1,153 @@
+// =====================================================
+// typographic styles, largely reusable
+// =====================================================
+
+
+
+// -----------------------------------------------------
+// defaults
+
+body
+	font-family: $fontFamilyMain
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textColor
+
+// -----------------------------------------------------
+// links
+
+a
+	color: $textColor
+	text-decoration: none
+	padding: 0px 0 1px 0
+	border-bottom: 1px solid $linkColorBorder
+	background: none
+	-moz-transition: all 0.5s ease-in
+	-webkit-transition: all 0.5s ease-in
+	transition: all 0.5s ease-in
+a:visited
+	color: $textColorLight
+@mixin hover
+	color: $textColorReverse
+	background: $linkColorActive
+	-moz-transition: all 0.2s ease-in
+	-webkit-transition: all 0.2s ease-in
+	transition: all 0.2s ease-in
+a:hover
+	border-bottom: 1px solid $linkColorActive
+	+hover
+@mixin noborder
+	background: none
+	border: none
+	color: inherit
+a.noborder, a.noborder:hover
+	+noborder
+a img
+	+noborder
+	
+// -----------------------------------------------------
+// headers
+
+@for $i from 1 through 6
+	h#{$i}
+		margin: 1em 0 0.5em 0
+		line-height: 1.0em
+		font-weight: normal
+		color: $textColor
+	h#{$i} a,
+	h#{$i} a:visited
+		border: none
+
+h1
+	font-size: 3em
+	line-height: 1.125em
+	font-family: $fontFamilySans
+	font-weight: bold
+	margin: 0.75em 0 0 0
+	color: $colorB
+	max-width: 500px
+h1 > a,
+h1 > a:visited
+	color: $colorB
+	border: none
+h1 > a:hover
+	color: #fff
+	background: $colorB
+	border: none
+	
+	
+h2
+	font-size: 1.5em
+	line-height: 1.25em
+	margin-top: 2em
+
+h3
+	font-size: 1.0em
+	line-height: 1.25em
+	font-weight: bold
+	span.meta
+		font-weight: normal
+
+h4
+	font-size: 1em
+
+		
+// -----------------------------------------------------
+// body text
+
+p
+	line-height: 1.5em
+	margin-bottom: 0
+	
+p + p
+	margin-top: 1em
+		
+em
+	font-style: italic
+
+strong
+	font-weight: bold
+	
+i, b
+	font-weight: normal
+	font-style: normal
+	
+blockquote
+	margin-left: 0
+	margin-right: 0
+	padding: 1em 1.5em 2em 1.5em
+	background: $colorB5
+
+
+// -----------------------------------------------------
+// special cases
+
+@mixin smaller
+	font-size: 0.85em !important
+	line-height: 1.5em
+
+.intro,
+.intro2
+	color: $colorB
+
+.intro
+	font-size: 1.5em
+
+.wide > .intro
+	border: none
+	max-width: 670px
+	
+h1 + p.intro
+	margin-top: 0.25em
+	
+.section
+	margin-top: 3em
+
+
+
+// -----------------------------------------------------
+// resize for smaller screens
+body
+	// @media screen and (max-width: 768px)
+		font-size: 16px
+	

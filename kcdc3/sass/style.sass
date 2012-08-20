@@ -1,0 +1,156 @@
+
+// bring in opening part of html5 boilerplate
+@import "../public/static/css/html5boilerplate-start.scss"
+
+// additional resets -------------------------------------------------
+
+dt, dd
+	margin: 0
+	padding: 0
+
+// compass utilities
+@import "compass/css3/text-shadow"
+@import "compass/css3/box-shadow"
+@import "compass/css3/border-radius"
+
+// script support CSS
+@import "_flexslider.scss"
+
+// import additional types
+@import "_config.sass"
+@import "_grids.sass"
+@import "_typography.sass"
+@import "_forms.sass"
+
+// resusable components --------------------------------------------
+
+.image-group
+	img
+		margin-right: 2em
+	a
+		border: none
+	a:hover
+		border: none
+		background: none
+
+// import special files -----------------------------------------
+@import "_front.sass"
+@import "_inside.sass"
+@import "_global_nav.sass"
+@import "_local_nav.sass"
+@import "_visualizations.sass"
+
+// begin sitewide local styles ---------------------------------------
+
+img
+	max-width: 100%
+
+.clear
+	clear: both
+	
+#skip
+	position: absolute
+	top: 0
+	left: -9000px
+
+// mobile and basics
+
+#container
+	width: 90%
+	margin: 0 5% 0 5%
+
+#header-desktop,
+#local-desktop
+	display: none
+
+#header-mobile
+	h1
+		font-size: 1em
+		margin: 1em 0
+
+#global-mobile
+	margin-top: 2em
+
+#local-mobile
+	margin: 1em 0 0 1em
+				
+#site-header
+	width: 100%
+	padding: 0 0 1em 0
+	.global
+		width: 100%
+		padding: 3em 0 0.5em 0
+		background: url('/v2/images/sitewide/stripe.png')
+		border-bottom: 1px solid #eee
+		
+#site-footer
+	width: 100%
+	margin-top: 3em
+	padding: 1em 0 2em 0
+	background: url('/v2/images/sitewide/stripe.png')
+	border-top: 5px solid #eee
+	& > div
+		padding: 0 1em 0 2em
+	a
+		background: none
+		border: none
+		padding: 0.2em
+	a:hover
+		background: $colorA
+
+#main
+	width: 100%
+	padding-bottom: 3em
+	
+// mid-width desktop
+
+@media screen and (min-width: 500px)
+	#container
+		width: 80%
+		margin: 0 auto
+		padding: 0 0 0 0
+		max-width: 900px
+		border-left: 1px solid #eee
+	#header-mobile,
+	.content
+		margin-left: 1em
+	
+@media screen and (min-width: 600px)
+	#header-mobile,
+	#global-mobile,
+	#local-mobile
+		display: none
+	#header-desktop,
+	#local-desktop
+		display: block
+		width: 100%
+		li
+			display: inline-block
+	#global-desktop
+		min-height: 5em
+		padding: 3em 0 1em 0.75em
+		background: url('/v2/images/sitewide/stripe.png')
+		border-bottom: 1px solid #eee
+		
+@media screen and (min-width: 860px)
+	#local-desktop
+		margin: 0
+		+cols(3)
+		padding-top: 2em
+		li
+			display: block
+	#content
+		margin: 0
+		+cols(9)
+	#content.wide
+		width: 95%
+		margin-left: 5%
+
+@media screen and (min-width: 940px)
+	#global-desktop
+		min-height: 2em
+		
+// end local styles ------------------------------------------
+
+// bring in closing html5 boilerplate
+@import "../public/static/css/html5boilerplate-end.scss"

@@ -1,0 +1,35 @@
+// =====================================================
+// reusable grid utilities
+// =====================================================
+	
+$gutter: ($nominalGutter/$nominalWidth) * 100%
+$col: 100% / $gridCols - $gutter
+
+@mixin cols($numCols,$inset:0)
+	width: $numCols * ($col + $gutter) - $gutter - $inset
+	margin-right: $gutter
+	float: left
+
+// for lower-level DIVs that contain smaller DIVs
+// no right-hand margin
+@mixin container($numCols,$inset:0)
+	width: $numCols * ($col + $gutter) - $inset
+	float: left
+
+@mixin padLeft($pad:1,$inset:0)
+	padding-left: $pad * ($col + $gutter) - $inset
+
+@mixin padRight($pad:1,$inset:0)
+	padding-right: $pad * ($col + $gutter) - $inset
+
+@mixin pushLeft($pad:1,$inset:0)
+	margin-left: $pad * ($col + $gutter) - $inset
+
+@mixin pushRight($pad:1,$inset:0)
+	margin-right: $pad * ($col + $gutter) - $inset + $gutter
+
+@mixin flushRight
+	margin-right: 0
+	padding-right: 0
+
+

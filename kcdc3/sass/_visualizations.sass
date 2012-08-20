@@ -1,0 +1,52 @@
+
+// class registrations and space available
+
+#registration-chart
+	font-size: 0.8em
+	dt, dd
+		border: none
+		padding-top: 0
+	dt
+		clear: left
+	h3
+		font-weight: normal
+		margin: 0
+		clear: both
+		a
+			color: $colorB
+		a:hover
+			color: #fff
+			background-color: $colorB
+			border: none
+	p
+		margin-right: 0.5em
+		color: #fff
+	.graph-registered,
+	.graph-remaining
+		float: left
+		border: 1px solid $colorB3
+		text-align: right
+		overflow: hidden
+	.graph-registered
+		background: $colorB3
+		border-right: none
+		font-weight: bold
+	.graph-remaining
+		background: url('/v2/images/sitewide/stripe-blue3.png')
+		border: 1px solid $colorB4
+		border-left: none
+		p
+			color: $colorB
+	.graph-full,
+	.graph-unlimited
+		float: left
+		padding-left: 0.5em
+		p
+			color: $colorG
+			padding-top: 0.35em
+			margin: 0
+	.full
+		background: $colorB
+		border-color: $colorB
+		p
+			color: #fff

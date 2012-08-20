@@ -1,0 +1,326 @@
+
+#page-front #container
+	width: 960px
+	max-width: 960px
+
+#page-front #local-desktop
+	display: none
+
+#page-front #top
+	background: #333
+	@include box-shadow(0 1px 2px rgba(0,0,0,0.5),0 -1px 1px rgba(0,0,0,0.3))
+
+#page-front #header-desktop
+	margin-bottom: 2em
+
+#page-front #intro
+	float: left
+	width: 33.333%
+	padding-top: 2em
+	background: $colorA
+	.logo
+		width: 50%
+		margin: 0 1em 0 1em
+		img
+			max-width: 100%
+	.text
+		margin: 1em 1em 1em 1.5em
+	.text > p
+		margin: 0
+		color: #fff
+		font-size: 1.2em
+		line-height: 1.5em
+	.call-to-action
+		margin: 0.25em 0 0 0
+		position: relative
+		left: 70%
+		z-index: 9
+		width: 50%
+		background: #fff
+		@include box-shadow(1px 2px 3px rgba(0,0,0,0.5))
+		white-space: nowrap
+		overflow: hidden
+		& > p
+			margin: 0
+		a
+			padding: 0.5em 0.5em 0.5em 0.75em
+			border: 1px solid rgba(0,0,0,0.2)
+			display: block
+			color: $colorA
+			font-weight: bold
+			font-size: 1em
+		a:hover
+			color: #fff
+			background-color: $colorA
+			border: 1px solid rgba(255,255,255,0.5)
+
+#page-front .social
+	border-top: 1px solid rgba(255,255,255,0.3)
+	margin: 1.5em 1.5em 1em 1.5em
+	padding: 0
+	a
+		+noborder
+		color: #fff
+		font-size: 0.8em
+	img
+		margin: -5px 2px 0 0
+	li
+		list-style: none
+		display: inline-block
+		margin: 1em 0.5em 0 0
+		padding: 0
+
+#page-front #mobile-calls
+	display: none
+
+#page-front #slideshow
+	float: left
+	width: 66.667%
+	img
+		position: relative
+		left: 1px
+
+#signup
+	+cols(12)
+	margin-top: 1em
+	margin-bottom: 0.5em
+	color: $colorA
+	form
+		margin: 0 0 0 1.5em
+		line-height: 2em
+	label
+		font-size: 1.2em
+		margin: 0 0.25em 0 0
+		position: relative
+		top: 0.2em
+	input[type=email]
+		height: 1.8em
+		margin: 0 0.5em 0 0.5em
+		color: #aaa
+	input[type=submit]
+		height: 2em
+		padding: 0.5em
+		font-weight: bold
+		@include box-shadow(1px 2px 1px rgba(0,0,0,0.2))
+		position: relative
+		top: 1px
+		background: $colorA
+	input[type=submit]:hover
+		background: $colorB
+	.label
+		float: left
+		margin-bottom: 0.5em
+	.inputs
+		float: left
+		margin-top: -1em
+		
+#page-front #announcement
+	clear: both
+	width: 100%
+	margin-bottom: 2em
+	padding: 0.75em 0 0.75em 0
+	background: $colorB
+	p
+		font-size: 1.2em
+		margin: 0 0.25em 0 1.5em
+		position: relative
+		color: #fff
+	a,
+	a:visited
+		border: none
+		color: #fff
+		background: none
+	a:hover
+		color: $colorB
+		background: $colorB4
+	
+#page-front #classes
+	width: 100%
+	clear: both
+	margin: 1em 0 0 1.5em
+	b
+		font-weight: bold
+		color: $colorB
+	a:hover b
+		color: #fff
+
+#page-front #classes > .entry
+	+cols(3)
+	border-bottom: 1px solid #eee
+	padding-bottom: 1em
+	margin-bottom: 1em
+	h3
+		padding-right: 1em
+		font-size: 0.9em
+		line-height: 1.5em
+	p
+		margin: 0 0 0.5em 0
+		font-size: 0.9em
+	.instructor a
+		padding: 1px 2px
+		background: url('/v2/images/sitewide/stripe-blue.png')
+		white-space: nowrap
+		border: none
+		-moz-transition: all 0.1s ease-in
+		-webkit-transition: all 0.1s ease-in
+		transition: all 0.1s ease-in
+	h3 a
+		display: block
+	a
+		border: none
+	a:hover,
+	.instructor a:hover
+		background: $colorB
+
+#page-front #classes > .blog
+	background: $colorB2
+	border-bottom: none
+	h3,p
+		margin-left: 1em
+		margin-right: 1em
+	a
+		background: none
+
+#page-front #classes > .contribute
+	background: $colorA2
+	border-bottom: none
+	h3,p
+		margin-left: 1em
+		margin-right: 1em
+	a
+		color: $colorA
+		background: none
+	a:hover
+		background: $colorA
+		color: #fff
+
+#page-front #more
+	+container(12)
+	margin-top: 0
+	clear: both
+	p
+		text-align: right
+		font-size: 1.5em
+		margin: 0
+	a
+		background: $colorB
+		padding: 10px
+		color: #fff
+		@include box-shadow(1px 1px 1px rgba(0,0,0,0.2))
+		-moz-transition: all 0.1s ease-in
+		-webkit-transition: all 0.1s ease-in
+		transition: all 0.1s ease-in
+	a:hover
+		background: $colorA
+		border: none
+		
+#page-front #twitter
+	+cols(12)
+	clear: both
+	margin-top: 4em
+	padding: 0 0 1em 0
+	background: #fff
+	color: #666
+	.tweet
+		margin: 0 0 0.75em 1.5em
+		padding: 0.5em 0 0 0
+		border-top: 1px solid #eee
+		font-size: 0.9em
+	a
+		background: url('/v2/images/sitewide/stripe.png')
+		border: 1px solid #F1F1F1
+		color: #666
+		padding: 1px 2px
+		-moz-transition: all 0.1s ease-in
+		-webkit-transition: all 0.1s ease-in
+		transition: all 0.1s ease-in
+	a:hover
+		background: $colorA
+		color: #fff
+	h2
+		margin: 0.75em 0 0.75em 1em
+		font-size: 1.5em
+		font-weight: bold
+		color: #666
+	.sub
+		font-size: 0.6666em
+		font-weight: normal
+		
+// mobile and smaller screens ------------------------------------------
+
+@media screen and (max-width: 980px)
+	#page-front
+		#container
+			width: 90%
+			margin-left: 5%
+			margin-right: 5%
+		#classes > .entry
+			+cols(4)
+		#top
+			background: $colorA
+			.call-to-action
+				display: none
+			.social
+				display: none
+		#mobile-calls
+			display: block
+			ul
+				margin: 1em 0 0 1.5em
+				padding: 0
+			li
+				margin: 0.5em 0.5em 0 0
+				list-style: none
+				display: inline-block
+				font-size: 0.9em
+				border: 1px solid #eee
+			a
+				border: none
+				padding: 2px 4px
+				display: block
+			img
+				position: relative
+				top: -2px
+				
+@media screen and (max-width: 720px)
+	#page-front 
+		#classes > .entry
+			+cols(12)
+		#intro
+			+container(12)
+			.logo
+				margin: 0 1em 1em 1.5em
+				width: 20%
+				float: left
+			.text
+				width: 60%
+				margin: 0.5em 0 0 0
+				padding-bottom: 2em
+				float: left
+		#top
+			.text > p
+				font-size: 1em
+				line-height: 1.25em
+		#slideshow
+			+container(12)
+			padding: 2em 0
+			background: #555
+		.flexslider
+			width: 60%
+			margin: 0 auto 0 auto
+
+@media screen and (max-width: 600px)
+	#page-front
+		#top
+			margin-top: 1em
+
+@media screen and (max-width: 500px)
+	#container > div
+		width: 95%
+		margin-left: auto
+		margin-right: auto
+	#page-front
+		#slideshow
+			padding: 0
+		.flexslider
+			width: 100%
+		
