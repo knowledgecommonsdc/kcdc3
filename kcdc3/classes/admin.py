@@ -1,4 +1,4 @@
-from classes.models import Event, Location, Registration, Session
+from classes.models import Event, Location, Bio, Registration, Session
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -29,11 +29,17 @@ class LocationAdmin(admin.ModelAdmin):
 
 admin.site.register(Location, LocationAdmin)
 
+class BioAdmin(admin.ModelAdmin):
+	model = Bio
+	list_display = ('name','user',)
+
+admin.site.register(Bio, BioAdmin)
+
 # lets someone create/edit a Event
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
 		(None,			{'fields': ['title', 'slug',('date','type','session'), ('location'), ('status', 'featured',)]}),
-		('Teachers/facilitators',	{'fields': ['teacher_text', ('teachers','facilitators')]}),
+		('Teachers/facilitators',	{'fields': [('teacher_bios','facilitators')]}),
 		('Description', {
 			'classes': ('grp-collapse grp-open',), 
 			'fields': [
@@ -59,9 +65,9 @@ class EventAdmin(admin.ModelAdmin):
 	]
 	readonly_fields = ('registration_count','waitlist_count')
 	prepopulated_fields = {"slug": ("title",)}
-	raw_id_fields = ['location','teachers','facilitators']
+	raw_id_fields = ['location','teacher_bios','facilitators']
 	related_lookup_fields = {
-	    'm2m': ['teachers', 'facilitators'],
+	    'm2m': ['teacher_bios', 'facilitators'],
 	}
 	inlines = (RegistrationInline,)
 	class Media:
