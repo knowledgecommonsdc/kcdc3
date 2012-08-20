@@ -30,7 +30,7 @@
 
 	<h3>Location</h3>
 	<p itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-		{{ event.location }}<br />
+		{% ifnotequal event.location.name event.location.address1 %}{{ event.location.name }}<br />{% endifnotequal %}
 		{% if event.location.address1 and event.location.show_exact %}
 			<span itemprop="street-address">
 			{{ event.location.address1 }}
