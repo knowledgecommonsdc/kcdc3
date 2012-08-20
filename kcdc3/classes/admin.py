@@ -25,7 +25,7 @@ class RegistrationInline(admin.TabularInline):
 
 class LocationAdmin(admin.ModelAdmin):
 	model = Location
-	list_display = ('name','neighborhood',)
+	list_display = ('name','neighborhood','show_exact',)
 
 admin.site.register(Location, LocationAdmin)
 
@@ -65,9 +65,9 @@ class EventAdmin(admin.ModelAdmin):
 				'additional_dates_text',
 			]
 		}),
-		('Email reminders', {
+		('Automatic email messages', {
 			'classes': ('grp-collapse grp-closed',), 
-			'fields': ['email_welcome_text','email_reminder_text', 'email_reminder', ]
+			'fields': ['email_welcome_text',]
 		}),
 		('Post-class documentation', {
 			'classes': ('grp-collapse grp-closed',), 
