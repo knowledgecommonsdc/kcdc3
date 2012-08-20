@@ -40,6 +40,13 @@ class Location(models.Model):
 	def __unicode__(self):
 		return self.name
 
+class Bio(models.Model):
+	name = models.CharField('Name', max_length=100, blank=False)
+	description = models.TextField('Description', blank=True)
+	user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, related_name='user')
+	def __unicode__(self):
+		return self.name
+
 # an Event is a single class or other event
 class Event(models.Model):
 	
@@ -90,7 +97,8 @@ class Event(models.Model):
 	)
 	registration_status = models.CharField(max_length=7, choices=REGISTRATION_STATUS_CHOICES, default='AUTO')
 
-	teacher_text = models.CharField('Teacher (displayed)', max_length=200, blank=True)
+	teacher_bios = models.ManyToManyField(Bio, blank=True, null=True, related_name='event')
+	teacher_text = models.CharField('Teacher (text)', max_length=200, blank=True)
 	teachers = models.ManyToManyField(User, blank=True, null=True, related_name='teachers')
 	facilitators = models.ManyToManyField(User, blank=True, null=True, related_name='facilitators')
 	students = models.ManyToManyField(User, through='Registration', blank=True, null=True, related_name='students')

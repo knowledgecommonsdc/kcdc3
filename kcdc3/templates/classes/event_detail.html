@@ -11,7 +11,7 @@
 
 	<p class="byline">
 		<b>Instructor:</b>
-		{{ event.teacher_text }}
+		{% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
 	</p>
 
 	<p class="location">

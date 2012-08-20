@@ -34,7 +34,7 @@
 
 		{{ event.summary|safe }}
 
-		<p>Instructor: {{ event.teacher_text }}</p>
+		<p>Instructor: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
 
 		</dd>
 		{% endfor %}
