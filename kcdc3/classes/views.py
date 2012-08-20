@@ -162,7 +162,11 @@ class RegistrationHelper:
 		self.user_is_registered = False
 		
 		# TODO - account for time offsets and session-wide control in automatically opening registration
-		if self.e.registration_status == 'ALLOW' or self.e.registration_status == 'AUTO':
+ 		if self.e.date < datetime.now():
+			self.is_registration_open = False
+		elif self.e.registration_status == 'ALLOW':
+			self.is_registration_open = True
+		elif self.e.registration_status == 'AUTO' and self.e.session.registration_status == 'ALLOW':
 			self.is_registration_open = True
 		else: 
 			self.is_registration_open = False
@@ -194,7 +198,11 @@ class UserRegistrationHelper(RegistrationHelper):
 			self.user_is_waitlisted = True
 
 		# TODO - account for time offsets and session-wide control in automatically opening registration
-		if self.e.registration_status == 'ALLOW' or self.e.registration_status == 'AUTO':
+ 		if self.e.date < datetime.now():
+			self.is_registration_open = False
+		elif self.e.registration_status == 'ALLOW':
+			self.is_registration_open = True
+		elif self.e.registration_status == 'AUTO' and self.e.session.registration_status == 'ALLOW':
 			self.is_registration_open = True
 		else: 
 			self.is_registration_open = False
