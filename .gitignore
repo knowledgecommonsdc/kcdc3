@@ -10,3 +10,5 @@ kcdc3/kcdc3/settings.py
 
 kcdc3/public/media/event_images
 kcdc3/public/media/mugshots
+
+codekit-config.json
