@@ -1,0 +1,40 @@
+// =====================================================
+// form styles, largely reusable
+// =====================================================
+
+input:invalid
+	background: #fff
+
+input[type="submit"]
+	height: 2.5em
+	margin: 1.5em 0 0 0
+	padding: 0 1em 0 1em
+	border: none
+	font-size: 0.9em
+	font-weight: bold
+	@include box-shadow(1px 1px 0px rgba(0,0,0,0.3))
+	background-color: $colorB
+	color: #fff
+input[type="submit"]:hover
+	border: none
+	color: #fff
+	background-color: $colorA
+
+input[type="text"],
+input[type="email"],
+input[type="tel"]
+	font-size: 0.8em
+	
+body.front input[type="text"]
+	color: $colorA
+	font-size: 0.8em
+	
+.separate
+	display: block
+	float: left
+	margin-top: 0.5em
+label.separate
+	width: 10em
+	clear: left
+input.separate
+	width: 15em

@@ -1,0 +1,43 @@
+// local navbar
+
+.local ul
+	margin: 0 0 0 -10px
+	padding: 1em 0 0 0
+	
+.local li
+	margin: 1.25em 0 0 0
+	padding: 0
+	list-style-type: none
+	
+.local a, 
+.local a:visited,
+	border: none
+	margin: 0
+	padding: 0.5em 0.5em 
+	color: #666
+	background-color: #fff
+	background: url('/v2/images/sitewide/stripe.png')
+	border: 1px solid #eee
+	line-height: 1em
+	font-weight: bold
+	@include box-shadow(rgba(0,0,0,0.05) 1px 1px 1px 0)
+
+.local a.active
+	background: $colorB1
+	color: #fff
+
+.local a:hover
+	background: $colorB1
+	color: #fff
+
+.local a.greyed
+	background-color: $colorG1 !important
+
+/* continue resizing for phones */
+@media screen and (max-width: 700px)
+	#local-mobile 
+		ul
+			margin: 0 0 0 0
+		li
+			display: inline-block
+		
