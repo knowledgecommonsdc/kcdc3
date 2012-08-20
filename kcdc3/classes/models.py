@@ -54,7 +54,7 @@ class Event(models.Model):
 	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='PUBLISHED')
 	featured = models.BooleanField(default=False)
 	
-	session = models.ForeignKey(Session, blank=True, null=True, on_delete=models.SET_NULL, related_name='session')
+	session = models.ForeignKey(Session, blank=False, null=True, on_delete=models.SET_NULL, related_name='session')
 	date = models.DateTimeField('First meeting')
 	additional_dates_text = models.TextField('Notes about additional meetings', blank=True)
 
@@ -79,7 +79,7 @@ class Event(models.Model):
 
 	documentation = models.TextField(blank=True)
 	
-	max_students = models.IntegerField('Max students', blank=True, null=True)
+	max_students = models.IntegerField('Max students', blank=True, null=True, default=999)
 	waitlist_status = models.BooleanField('Use waitlist', default=True)
 	
 	REGISTRATION_STATUS_CHOICES = (
