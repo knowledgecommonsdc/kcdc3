@@ -14,8 +14,8 @@ class SignupFormExtra(SignupForm):
 	last_name = forms.CharField(label=_(u'Last name'),
 								max_length=30,
 								required=True)
-	phone_number = forms.CharField(max_length=32)
-	zipcode = forms.CharField(max_length=5)
+	phone_number = forms.CharField(max_length=32, required=False)
+	zipcode = forms.CharField(max_length=5, required=False)
 
 	def __init__(self, *args, **kw):
 		"""
