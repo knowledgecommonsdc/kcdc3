@@ -88,8 +88,8 @@ class EventAdmin(admin.ModelAdmin):
 			'tinymce_setup.js',
 		]
 
-	list_display = ('title', 'date','session', 'status','registration_status','max_students', 'registration_count', 'waitlist_count','waitlist_status',)
-	list_editable = ('status',)
+	list_display = ('title', 'status','date','session', 'registration_status','waitlist_status','max_students', 'registration_count', 'waitlist_count',)
+	list_editable = ('registration_status',)
 	list_filter = ('session', 'status', 'registration_status')
 	search_fields = ('title',)
 

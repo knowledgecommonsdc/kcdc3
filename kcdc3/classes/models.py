@@ -18,8 +18,8 @@ class Session(models.Model):
 	documentation = models.TextField(blank=True)
 
 	REGISTRATION_STATUS_CHOICES = (
-		('ALLOW', 'Allow registration'),
-		('PREVENT', 'Prevent registration'),
+		('ALLOW', 'Allow'),
+		('PREVENT', 'Prevent'),
 	)
 	registration_status = models.CharField(max_length=7, choices=REGISTRATION_STATUS_CHOICES, default='PREVENT')
 	email_reminder_days = models.IntegerField('Send reminder emails this many days ahead of classes:', default=2)
@@ -92,10 +92,10 @@ class Event(models.Model):
 	waitlist_status = models.BooleanField('Use waitlist', default=True)
 	
 	REGISTRATION_STATUS_CHOICES = (
-		('AUTO', 'Follow session settings'),
-		('ALLOW', 'Allow registration'),
-		('PREVENT', 'Prevent registration'),
-		('HIDE', 'Hide registration forms'),
+		('AUTO', 'Auto'),
+		('ALLOW', 'Allow (+)'),
+		('PREVENT', 'Prevent (-)'),
+		('HIDE', 'Hide forms'),
 	)
 	registration_status = models.CharField(max_length=7, choices=REGISTRATION_STATUS_CHOICES, default='AUTO')
 
