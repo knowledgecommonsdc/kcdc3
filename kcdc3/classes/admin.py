@@ -33,7 +33,7 @@ class BioAdmin(admin.ModelAdmin):
 	model = Bio
 	list_display = ('name','user',)
 	fieldsets = [
-		(None,			{'fields': ['name','description','user',]}),
+		(None,			{'fields': ['name','description','website','user',]}),
 	]
 	raw_id_fields = ['user']
 	related_lookup_fields = {
@@ -50,7 +50,7 @@ admin.site.register(Bio, BioAdmin)
 # lets someone create/edit a Event
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None,			{'fields': ['title', 'slug',('date','type','session'), ('location'), ('status', 'featured',)]}),
+		(None,			{'fields': ['title', 'slug',('date','end_time','session'),('location','type'),('status', 'featured',)]}),
 		('Teachers/facilitators',	{'fields': [('teacher_bios','facilitators')]}),
 		('Description', {
 			'classes': ('grp-collapse grp-open',), 

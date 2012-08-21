@@ -6,7 +6,13 @@
 
 	<p class="date">
 		<b>Date:</b> 
-		{{ event.date|date:"D, N j, f a" }}
+		{{ event.date|date:"l, j F Y" }}
+	</p>
+	
+	<p class="byline">
+		<b>Time:</b> 
+		{{ event.date|date:"P" }}
+		{% if event.end_time %} to {{ event.end_time|date:"P" }}{% endif %}
 	</p>
 
 	<p class="byline">
