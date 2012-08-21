@@ -24,12 +24,18 @@
 		{% for event in event_list %}
 
 		{% ifchanged %}
-			<dt>{{ event.date|date:"l" }}<br />{{ event.date|date:"F" }} <strong>{{ event.date|date:"j" }}</strong></dt>
+			<dt>
+				{{ event.date|date:"l" }}<br />
+				<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
+				{% if forloop.first %}
+					{{ event.date|date:"Y" }}
+				{% endif %}
+			</dt>
 		{% endifchanged %}
 		<dd>
 		<h3>
 			<!--<b class="event">Event:</b>-->
-			<a href="/classes/{{ event.slug }}">{{ event.title }} <span class="meta">({{ event.date|date:"f a" }})</span></a>
+			<a href="/classes/{{ event.slug }}">{{ event.title }} <span class="meta">({{ event.date|date:"P" }})</span></a>
 		</h3>
 
 		{{ event.summary|safe }}

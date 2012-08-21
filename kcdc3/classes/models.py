@@ -42,7 +42,8 @@ class Location(models.Model):
 
 class Bio(models.Model):
 	name = models.CharField('Name', max_length=100, blank=False)
-	description = models.TextField('Description', blank=True)
+	description = models.TextField('Bio text', blank=True)
+	website = models.URLField(blank=True)
 	user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, related_name='user')
 	def __unicode__(self):
 		return self.name
@@ -63,6 +64,7 @@ class Event(models.Model):
 	
 	session = models.ForeignKey(Session, blank=False, null=True, on_delete=models.SET_NULL, related_name='session')
 	date = models.DateTimeField('First meeting')
+	end_time = models.TimeField('End time', blank=True, null=True)
 	additional_dates_text = models.TextField('Notes about additional meetings', blank=True)
 
 	location = models.ForeignKey(Location, blank=True, null=True, on_delete=models.SET_NULL, related_name='location')
