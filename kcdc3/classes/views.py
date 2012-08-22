@@ -59,16 +59,38 @@ def register(request, slug):
 	e = Event.objects.get(slug=slug)
 	r = UserRegistrationHelper(e,request.user)
 
+	# TODO shouldn't be setting this up by hand
+	event = {
+		'title': e.title,
+		'slug': e.slug,
+		'date': e.date,
+		'end_time': e.end_time,
+		'additional_dates_text': e.additional_dates_text,
+		'location_name': e.location.name,
+		'location_address1': e.location.address1,
+		'location_address2': e.location.address2,
+		'location_city': e.location.city,
+		'location_state': e.location.state,
+		'location_zip': e.location.zip,
+		'location_neighborhood': e.location.neighborhood,
+		'location_hint': e.location.hint,
+		'details': e.details,
+		'email_welcome_text': e.email_welcome_text,	
+	}
+	
 	# if there are no non-cancelled registrations for this user/event and registration is possible
 	if r.user_is_registered==False and r.user_is_waitlisted==False and r.is_registration_open==True:
 		t = Registration(student=request.user, event=e, date_registered=datetime.now(), waitlist=r.add_to_waitlist)
 		t.save()
 		if r.add_to_waitlist == False:
-			message_body = render_to_string('classes/email_registered.txt', {'title': e.title})
-			send_mail("Registered: "+e.title, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
+			message_body = render_to_string('classes/email_registered.txt', event)
+			message_subject = render_to_string('classes/email_registered_subject.txt', event)
+			send_mail(message_subject, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
 			return HttpResponseRedirect("/classes/response/registered")
 		else:
-			message_body = render_to_string('classes/email_registered.txt', {'title': e.title})
+			message_body = render_to_string('classes/email_waitlisted.txt', event)
+			message_subject = render_to_string('classes/email_waitlisted_subject.txt', event)
+			send_mail(message_subject, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
 			send_mail(e.title, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
 			return HttpResponseRedirect("/classes/response/waitlisted")
 	else: 
@@ -82,6 +104,25 @@ def cancel(request, slug):
 	e = Event.objects.get(slug=slug)
 	r = UserRegistrationHelper(e,request.user)
 	
+	# TODO shouldn't be setting this up by hand
+	event = {
+		'title': e.title,
+		'slug': e.slug,
+		'date': e.date,
+		'end_time': e.end_time,
+		'additional_dates_text': e.additional_dates_text,
+		'location_name': e.location.name,
+		'location_address1': e.location.address1,
+		'location_address2': e.location.address2,
+		'location_city': e.location.city,
+		'location_state': e.location.state,
+		'location_zip': e.location.zip,
+		'location_neighborhood': e.location.neighborhood,
+		'location_hint': e.location.hint,
+		'details': e.details,
+		'email_welcome_text': e.email_welcome_text,	
+	}
+
 	if r.user_is_registered or r.user_is_waitlisted:
 		for t in Registration.objects.filter(event=e, student=request.user, cancelled=False)[:1]:
 			t.date_cancelled=datetime.now()
@@ -91,11 +132,13 @@ def cancel(request, slug):
 		 	for w in Registration.objects.filter(event=e, waitlist=True, cancelled=False)[:1]:
 				w.waitlist=False
 				w.save()
-				message_body = render_to_string('classes/email_promoted.txt', {'title': e.title})
+				message_body = render_to_string('classes/email_promoted.txt', event)
+				message_subject = render_to_string('classes/email_promoted_subject.txt', event)
 				recipient = w.student.email
-				send_mail("You've been registered: "+e.title, message_body, 'contact@knowledgecommonsdc.org', [recipient], fail_silently=False)
-		message_body = render_to_string('classes/email_registered.txt', {'title': e.title})
-		send_mail("Registration cancelled: "+e.title, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
+				send_mail(message_subject, message_body, 'contact@knowledgecommonsdc.org', [recipient], fail_silently=False)
+		message_body = render_to_string('classes/email_cancelled.txt', event)
+		message_subject = render_to_string('classes/email_cancelled_subject.txt', event)
+		send_mail(message_subject, message_body, 'contact@knowledgecommonsdc.org', [request.user.email], fail_silently=False)
 		return HttpResponseRedirect("/classes/response/cancelled")
 	else: 
 		return HttpResponseRedirect("/classes/response/error")
