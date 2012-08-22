@@ -1,1 +1,13 @@
-{{ title }}
+You've cancelled your registration. We hope that you'll be able to take
+another Knowledge Commons DC class later.
+
+CLASS: {{ title }}
+
+DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{% endif %}
+
+Onwards and upwards!
+
+With best wishes,
+Knowledge Commons DC
+
+http://knowledgecommonsdc.org

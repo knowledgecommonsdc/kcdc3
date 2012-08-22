@@ -1,1 +1,1 @@
-{{ title }}
+Signed up for {{ title }}

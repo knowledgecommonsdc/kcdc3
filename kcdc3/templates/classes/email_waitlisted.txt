@@ -1,1 +1,22 @@
-{{ title }}
+Thank you. We've added you to the waitlist a Knowledge Commons DC class. 
+We will send you an email if a space becomes available.
+
+CLASS: {{ title }}
+
+DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{% endif %}
+
+{% if additional_dates_text %}ADDITIONAL MEETINGS: {{ additional_dates_text|striptags }}{% endif %}
+
+COURSE WEBPAGE:
+http://c.knowledgecommonsdc.org/classes/{{ slug }}
+
+If you would no longer like to remain on the waitlist, you can withdraw at:
+
+  http://c.knowledgecommonsdc.org/classes/{{ slug }}
+
+Onwards and upwards!
+
+With best wishes,
+Knowledge Commons DC
+
+http://knowledgecommonsdc.org

@@ -1,1 +1,41 @@
-{{ title }}
+Thanks for signing up!
+
+Our teachers and organizers have volunteered their time and resources to
+create this experience, so if you're unable to attend please cancel as far in
+advance as you can. Many of our classes have waitlists, and our teachers need
+to know how many students to expect.
+
+You can cancel your registration at:
+http://c.knowledgecommonsdc.org/classes/{{ slug }}
+
+CLASS: {{ title }}
+
+DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{% endif %}
+
+{% if additional_dates_text %}ADDITIONAL MEETINGS: {{ additional_dates_text|striptags }}{% endif %}
+
+{% if email_welcome_text %}ADDITIONAL INFORMATION:
+{{ email_welcome_text }}{% endif %}
+
+LOCATION:
+{% ifnotequal location_name location_address1 %}{{ location_name }}{% endifnotequal %}
+{{ location_address1 }}
+{% if location_address2 %}{{ location_address2 }}{% endif %}
+{% if location_city %}{{ location_city }}, {% endif %} {% if location_state %}{{ location_state }}{% endif %}{% if location_zip %}{{ location_zip }}{% endif %}
+{% if location_neighborhood %}Neighborhood: {{ location_neighborhood }} {% endif %}
+{% if location_hint %}
+{{ location_hint }}{% endif %}
+
+COURSE WEBPAGE:
+http://c.knowledgecommonsdc.org/classes/{{ slug }}
+
+If you'd like to participate more actively in this gift economy, drop us a
+line at knowledgecomonsdc@gmail.com to volunteer or sign up for DC Time Bank
+(http://www.dctimebank.org) to "pay it forward" in our community.
+
+Onwards and upwards!
+
+With best wishes,
+Knowledge Commons DC
+
+http://knowledgecommonsdc.org
