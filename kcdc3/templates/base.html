@@ -120,12 +120,11 @@
 	<script>window.jQuery || document.write('<script src="/assets/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
 	<script defer src="/static/js/script.js"></script>
 	<script>
-	  window._gaq = [['_setAccount','UA-599516-14'],['_trackPageview'],['_trackPageLoadTime']];
-	  Modernizr.load({
-	    load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-	  });
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-599516-14']);
+	_gaq.push(['_setDomainName', 'knowledgecommonsdc.org']);
+	_gaq.push(['_trackPageview']);
 	</script>
-
 	
 
 </body>
