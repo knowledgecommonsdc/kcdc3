@@ -60,7 +60,7 @@
 		
 	{% if registration_count >=  event.max_students %}
 		{% if event.waitlist_status %}
-			<p><strong>This class is full, but there is a waitist available.</strong></p>
+			<p><strong>This class is full, but there is a waitlist available.</strong></p>
 		{% else %}
 			<p><strong>This class is full.</strong></p>
 		{% endif %}
@@ -71,19 +71,19 @@
 			<p><em>You are registered.</em></p>
 			<form action="/classes/{{ event.slug }}/cancel" method="post">
 				{% csrf_token %}
-				<input type="submit" value="Cancel" />
+				<input type="submit" value="I've changed my mind. Unregister me." />
 			</form>
 		{% elif user_is_waitlisted %}
 			<p><em>You are on the waitlist.</em></p>
 			<form action="/classes/{{ event.slug }}/cancel" method="post">
 				{% csrf_token %}
-				<input type="submit" value="Cancel" />
+				<input type="submit" value="I've changed my mind. Remove me from the list." />
 			</form>
 		{% elif is_registration_open %}
 			<form action="/classes/{{ event.slug }}/register" method="post">
 				{% csrf_token %}
 				{% if add_to_waitlist %}
-					<input type="submit" value="Join waitlist" />
+					<input type="submit" value="Join the waitlist" />
 				{% else %}
 					<input type="submit" value="Register" />
 				{% endif %}
