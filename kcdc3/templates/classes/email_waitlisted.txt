@@ -1,5 +1,5 @@
-Thank you. We've added you to the waitlist a Knowledge Commons DC class. 
-We will send you an email if a space becomes available.
+Thank you. We've added you to the waitlist for a Knowledge Commons DC class. 
+We'll send you an email if a space becomes available.
 
 CLASS: {{ title }}
 
