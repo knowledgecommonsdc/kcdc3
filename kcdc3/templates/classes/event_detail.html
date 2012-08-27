@@ -58,6 +58,14 @@
 	
 	<hr />
 		
+	{% if not event.has_passed %}
+		{% if event.registration_status == "AUTO" %}	
+				<h3>Registration is not yet open.</h3>
+		{% elif event.registration_status == "PREVENT" %}	
+			<h3>Registration is closed.</h3>
+		{% endif %}
+	{% endif %}
+	
 	{% if registration_count >=  event.max_students %}
 		{% if event.waitlist_status %}
 			<p><strong>This class is full, but there is a waitlist available.</strong></p>

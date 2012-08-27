@@ -49,6 +49,10 @@
 
 		<p>Instructor: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
 
+		{% if not event.has_passed and event.registration_status == "ALLOW" %}	
+			<p><em>Registration is open.</em></p>
+		{% endif %}
+
 		</dd>
 		{% endfor %}
 
