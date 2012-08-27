@@ -50,7 +50,15 @@
 		<p>Instructor: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
 
 		{% if not event.has_passed and event.registration_status == "ALLOW" %}	
-			<p><em>Registration is open.</em></p>
+			{% if event.registration_count >= event.max_students %}
+			 	{% if event.waitlist_status %}
+					<p><em>waitlist available</em></p>
+				{% else %}
+					<p><em>class is full</em></p>			
+				{% endif %}
+			{% else %}
+				<p><em>registration is open</em></p>
+			{% endif %}
 		{% endif %}
 
 		</dd>
