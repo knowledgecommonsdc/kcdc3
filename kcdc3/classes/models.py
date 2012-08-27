@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import datetime
 
 # a Session is a collection of classes
 class Session(models.Model):
@@ -110,6 +110,8 @@ class Event(models.Model):
 
 	def __unicode__(self):
 		return self.title
+	def has_passed(self):
+		return self.date < datetime.datetime.now()
 	def registration_count(self):
 		return Registration.objects.filter(event__slug=self.slug,waitlist=False,cancelled=False).count()
 	def waitlist_count(self):
