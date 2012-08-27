@@ -1,0 +1,14 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Disabled account" %}{% endblock %}
+{% block content_title %}<h2>{% trans "Your account has been disabled" %}</h2>{% endblock %}
+{% block content %}
+
+	<p>Your account is currently disabled.</p>
+	<p>If you just signed up, we sent an activation message to your email address.
+		Please check your email and find that message. You'll need to click on the link in that message to activate your account.</p>
+	<p>If you're still having problems, please email us at
+		<a href="mailto:contact@knowledgecommonsdc.org">contact@knowledgecommonsdc.org</a>.
+
+{% endblock %} 
