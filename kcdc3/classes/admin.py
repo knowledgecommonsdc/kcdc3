@@ -17,7 +17,7 @@ class RegistrationInline(admin.TabularInline):
 	# inline_classes = ('grp-collapse grp-open',)
 	fields = ('student', 'date_registered', 'waitlist', 'cancelled', 'date_cancelled', 'attended')
 	can_delete = False
-	readonly_fields = ('date_registered','date_cancelled','waitlist')
+	readonly_fields = ('date_registered','date_cancelled')
 	raw_id_fields = ['student']
 	related_lookup_fields = {
 	    'fk': ['student'],
