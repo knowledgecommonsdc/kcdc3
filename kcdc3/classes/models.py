@@ -121,7 +121,8 @@ class Event(models.Model):
 			return True
 		else:
 			return False
-		
+	def num_teachers(self):
+		return self.teacher_bios.count()
 		
 # Registrations connect Users with the Events they've signed up for		
 class Registration(models.Model):
