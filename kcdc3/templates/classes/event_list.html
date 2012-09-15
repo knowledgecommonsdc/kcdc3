@@ -65,26 +65,6 @@
 						<p><em>registration is open</em></p>
 					{% endif %}
 				{% endif %}
-<<<<<<< HEAD
-			</dt>
-		{% endifchanged %}
-		<dd>
-		<h3>
-			<!--<b class="event">Event:</b>-->
-			<a href="/classes/{{ event.slug }}">{{ event.title }} <span class="meta">({{ event.date|date:"P" }})</span></a>
-		</h3>
-
-		{{ event.summary|safe }}
-
-		<p>Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
-
-		{% if not event.has_passed and event.registration_status == "ALLOW" %}	
-			{% if event.registration_count >= event.max_students %}
-			 	{% if event.waitlist_status %}
-					<p><em>waitlist available</em></p>
-				{% else %}
-					<p><em>class is full</em></p>			
-=======
 
 				</dd>
 
@@ -123,19 +103,6 @@
 				{{ event.summary|safe }}
 
 				<p>Instructor: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
-
-				{% if not event.has_passed and event.registration_status == "ALLOW" %}	
-					{% if event.registration_count >= event.max_students %}
-					 	{% if event.waitlist_status %}
-							<p><em>waitlist available</em></p>
-						{% else %}
-							<p><em>class is full</em></p>			
-						{% endif %}
-					{% else %}
-						<p><em>registration is open</em></p>
-					{% endif %}
->>>>>>> Break up Events into past/future, and hide unpublished courses
-				{% endif %}
 
 				</dd>
 
