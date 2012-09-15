@@ -25,19 +25,47 @@
 
 	</section>
 
-	<!-- <h2 id="upcoming">Upcoming classes</h2> -->
+	{% comment %} TODO: We should not be duplicating the markup and template tags, and we should be filtering in the view. {% endcomment %}
+
+	<h2 id="upcoming">Upcoming classes</h2>
 
 	<dl class="date-listing">
 
 		{% for event in event_list %}
 
-		{% ifchanged %}
-			<dt>
-				{{ event.date|date:"l" }}<br />
-				<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
-				{% if forloop.first %}
-					{{ event.date|date:"Y" }}
+			{% if not event.has_passed and event.status == "PUBLISHED" %}
+
+				{% ifchanged %}
+					<dt>
+						{{ event.date|date:"l" }}<br />
+						<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
+						{% if forloop.first %}
+							{{ event.date|date:"Y" }}
+						{% endif %}
+					</dt>
+				{% endifchanged %}
+				<dd>
+				<h3>
+					<!--<b class="event">Event:</b>-->
+					<a href="/classes/{{ event.slug }}">{{ event.title }} <span class="meta">({{ event.date|date:"P" }})</span></a>
+				</h3>
+
+				{{ event.summary|safe }}
+
+				<p>Instructor: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
+
+				{% if not event.has_passed and event.registration_status == "ALLOW" %}	
+					{% if event.registration_count >= event.max_students %}
+					 	{% if event.waitlist_status %}
+							<p><em>waitlist available</em></p>
+						{% else %}
+							<p><em>class is full</em></p>			
+						{% endif %}
+					{% else %}
+						<p><em>registration is open</em></p>
+					{% endif %}
 				{% endif %}
+<<<<<<< HEAD
 			</dt>
 		{% endifchanged %}
 		<dd>
@@ -56,16 +84,67 @@
 					<p><em>waitlist available</em></p>
 				{% else %}
 					<p><em>class is full</em></p>			
-				{% endif %}
-			{% else %}
-				<p><em>registration is open</em></p>
-			{% endif %}
-		{% endif %}
+=======
 
-		</dd>
+				</dd>
+
+			{% endif %}
+
 		{% endfor %}
 
 	</dl>
+	<div class="clear"></div>
+	
+	
+
+	<h2 id="past" style="padding-top: 3em;">Past classes</h2>
+
+	<dl class="date-listing">
+
+		{% for event in event_list %}
+
+			{% if event.has_passed and event.status == "PUBLISHED" %}
+
+				{% ifchanged %}
+					<dt>
+						{{ event.date|date:"l" }}<br />
+						<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
+						{% if forloop.first %}
+							{{ event.date|date:"Y" }}
+						{% endif %}
+					</dt>
+				{% endifchanged %}
+				<dd>
+				<h3>
+					<!--<b class="event">Event:</b>-->
+					<a href="/classes/{{ event.slug }}">{{ event.title }} <span class="meta">({{ event.date|date:"P" }})</span></a>
+				</h3>
+
+				{{ event.summary|safe }}
+
+				<p>Instructor: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
+
+				{% if not event.has_passed and event.registration_status == "ALLOW" %}	
+					{% if event.registration_count >= event.max_students %}
+					 	{% if event.waitlist_status %}
+							<p><em>waitlist available</em></p>
+						{% else %}
+							<p><em>class is full</em></p>			
+						{% endif %}
+					{% else %}
+						<p><em>registration is open</em></p>
+					{% endif %}
+>>>>>>> Break up Events into past/future, and hide unpublished courses
+				{% endif %}
+
+				</dd>
+
+			{% endif %}
+
+		{% endfor %}
+
+	</dl>
+
 
 	
 {% endblock %}
