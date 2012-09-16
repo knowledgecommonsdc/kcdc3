@@ -52,7 +52,7 @@
 
 				{{ event.summary|safe }}
 
-				<p>Instructor: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
+				<p>Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
 
 				{% if not event.has_passed and event.registration_status == "ALLOW" %}	
 					{% if event.registration_count >= event.max_students %}
@@ -102,7 +102,7 @@
 
 				{{ event.summary|safe }}
 
-				<p>Instructor: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
+				<p>Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
 
 				</dd>
 
