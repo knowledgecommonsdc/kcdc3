@@ -110,14 +110,32 @@ class Event(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
 	def has_passed(self):
+		""" Determines if the class date is before now."""
 		return self.date < datetime.datetime.now()
+
+	def get_registrations(self, waitlist=False, cancelled=False):
+		""" Returns all the registrations associated with this event."""
+		return Registration.objects.filter(
+			event__slug=self.slug,
+			waitlist=waitlist,
+			cancelled=cancelled)
+
 	def registration_count(self):
-		return Registration.objects.filter(event__slug=self.slug,waitlist=False,cancelled=False).count()
+		""" Determines the total number of registrations for a class.
+		This does not include the waitlist."""
+		return self.get_registrations().count()
+
 	def waitlist_count(self):
-		return Registration.objects.filter(event__slug=self.slug,waitlist=True,cancelled=False).count()
+		""" Determines the total number of waitlisted registrations."""
+		return self.get_registrations(waitlist=True).count()
+
 	def add_to_waitlist(self):
-		if Registration.objects.filter(event__slug=self.slug,waitlist=False,cancelled=False).count() >= self.max_students and self.waitlist_status:
+		""" Checks to see if the class is full and has a waitlist.
+		If it is full and has a waitlist it returns true, false otherwise.
+		"""
+		if self.get_registrations().count() >= self.max_students and self.waitlist_status:
 			return True
 		else:
 			return False
