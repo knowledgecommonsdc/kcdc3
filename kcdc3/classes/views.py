@@ -255,3 +255,16 @@ class UserRegistrationHelper(RegistrationHelper):
 		else: 
 			self.is_registration_open = False
 
+# Most of the pain coming from this file is in the poorly organized generation
+# of email. The easiest way to combat that is to create an EventEmail class
+# that overloads the default EmailMessage class in django. 
+#
+# If EventEmail proves to be a difficult implementation then try and make a
+# factory function that returns an email message ready to send.
+
+# Another pain point in this file is the weird registartion helpers. These can
+# be fixed by getting rid of the registartion helpers in general. Looks like
+# the functionality is duplicated in models (specifically within the Event
+# model). 
+
+# Logic can be cleaned up for the waitlist or not stuff. Not sure how yet. 
