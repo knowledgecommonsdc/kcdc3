@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}{{ event.title }}{% endblock %}
+
 {% block content %}
 
 	<h1>{{ event.title }}</h1>
@@ -55,7 +57,13 @@
 		<h3>Details</h3>
 		{{ event.details|safe }}
 	{% endif %}
-	
+		
+	{% for bio in event.teacher_bios.all %}
+		{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
+		<h4>{{ bio.name }}</h4>
+		{{ bio.description|safe }}
+	{% endfor %}
+
 	<hr />
 		
 	{% if not event.has_passed %}
