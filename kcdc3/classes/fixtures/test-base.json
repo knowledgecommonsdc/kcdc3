@@ -171,14 +171,6 @@
     }
   },
   {
-    "pk": "636c5758c0cfea4b125dc2f43b5069f9",
-    "model": "sessions.session",
-    "fields": {
-      "expire_date": "2012-09-27T20:02:54.717",
-      "session_data": "ZmI5MDczNGFmM2U1NmRmZTUxZGJjYTRjYTZlZGUyNTZjN2QyMzY0NDqAAn1xAS4=\n"
-    }
-  },
-  {
     "pk": 1,
     "model": "sites.site",
     "fields": {
