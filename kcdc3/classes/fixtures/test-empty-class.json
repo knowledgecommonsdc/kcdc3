@@ -171,10 +171,10 @@
     }
   },
   {
-    "pk": "52ca11310cb0093534860a151dbb2f64",
+    "pk": "06594120007fc274d42b072cc035fa59",
     "model": "sessions.session",
     "fields": {
-      "expire_date": "2012-09-27T20:04:53.026",
+      "expire_date": "2012-10-29T21:57:32.042",
       "session_data": "MjE2MzhiMzk4MmNhOTgxODYwMjZlMDNiNTUzZDgxZjY2N2M2Y2M2ZDqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
     }
   },
@@ -191,11 +191,11 @@
     "model": "classes.session",
     "fields": {
       "status": "CURRENT",
-      "description": "<p>Test session</p>",
-      "title": "Test Session",
+      "description": "<p>test</p>\r\n<p>&nbsp;</p>",
+      "title": "Test session",
       "email_reminder_days": 2,
-      "documentation": "<p>Test session</p>",
-      "long_title": "This is a test session",
+      "documentation": "<p>session</p>\r\n<p>&nbsp;</p>",
+      "long_title": "this is a test session",
       "slug": "test-session",
       "registration_status": "PREVENT"
     }
@@ -1236,7 +1236,7 @@
       "is_active": true,
       "is_superuser": true,
       "is_staff": true,
-      "last_login": "2012-09-13T20:04:52.868",
+      "last_login": "2012-10-15T21:57:31.893",
       "groups": [],
       "user_permissions": [],
       "password": "pbkdf2_sha256$10000$4j8MggWDEEXz$tVKk3K5Ac6oWlSdRD+R658g0AodqwO0HAdYGy7rES8I=",
@@ -1335,12 +1335,51 @@
     }
   },
   {
+    "pk": 9,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2012-10-15T22:02:16.117",
+      "object_repr": "Test class",
+      "object_id": "1",
+      "change_message": "Changed registration_status.",
+      "user": 1,
+      "content_type": 12
+    }
+  },
+  {
+    "pk": 8,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2012-10-15T22:01:17.677",
+      "object_repr": "Test class",
+      "object_id": "1",
+      "change_message": "",
+      "user": 1,
+      "content_type": 12
+    }
+  },
+  {
+    "pk": 7,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2012-10-15T22:00:39.277",
+      "object_repr": "test bio",
+      "object_id": "1",
+      "change_message": "",
+      "user": 1,
+      "content_type": 11
+    }
+  },
+  {
     "pk": 6,
     "model": "admin.logentry",
     "fields": {
       "action_flag": 1,
-      "action_time": "2012-09-13T20:05:42.196",
-      "object_repr": "Test Session",
+      "action_time": "2012-10-15T22:00:20.502",
+      "object_repr": "Test session",
       "object_id": "1",
       "change_message": "",
       "user": 1,
@@ -1410,6 +1449,52 @@
       "change_message": "Changed password and is_active.",
       "user": 1,
       "content_type": 3
+    }
+  },
+  {
+    "pk": 1,
+    "model": "classes.bio",
+    "fields": {
+      "website": "",
+      "user": null,
+      "name": "test bio",
+      "description": "<p>test bio</p>\r\n<p>Seriously</p>\r\n<p>&nbsp;</p>"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "classes.event",
+    "fields": {
+      "teacher_text": "",
+      "email_reminder": true,
+      "email_reminder_text": "",
+      "featured": false,
+      "session": 1,
+      "teacher_bios": [
+        1
+      ],
+      "title": "Test class",
+      "max_students": 1,
+      "email_welcome_text": "",
+      "details": "",
+      "waitlist_status": true,
+      "type": "CLASS",
+      "thumbnail": "",
+      "location": null,
+      "status": "PUBLISHED",
+      "description": "<p>class</p>",
+      "additional_dates_text": "",
+      "date": "2015-12-31T00:00:00",
+      "slug": "test-class",
+      "registration_status": "ALLOW",
+      "main_image": "",
+      "teachers": [],
+      "documentation": "",
+      "facilitators": [
+        1
+      ],
+      "summary": "<p>test</p>",
+      "end_time": "02:00:00"
     }
   },
   {
