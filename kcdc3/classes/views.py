@@ -38,8 +38,8 @@ class EventDetailView(DetailView):
 			r = UserRegistrationHelper(self.object,self.request.user)
 		else:
 			r = RegistrationHelper(self.object)
-		context['registration_count'] = r.registration_count
-		context['waitlist_count'] = r.waitlist_count
+		context['registration_count'] = self.get_object().registration_count()
+		context['waitlist_count'] = self.get_object().waitlist_count()
 		context['user_is_waitlisted'] = r.user_is_waitlisted
 		context['user_is_registered'] = r.user_is_registered
 		context['is_registration_open'] = r.is_registration_open
@@ -129,8 +129,8 @@ def facilitator(request, slug):
 	context['title'] = e.title
 
 
-	context['registration_count'] = r.registration_count
-	context['waitlist_count'] = r.waitlist_count
+	context['registration_count'] = e.registration_count()
+	context['waitlist_count'] = e.waitlist_count()
 
 	context['registered_students'] = Registration.objects.filter(event=e, waitlist=False, cancelled=False)
 	context['waitlisted_students'] = Registration.objects.filter(event=e, waitlist=True, cancelled=False)
@@ -177,7 +177,7 @@ class RegistrationHelper:
 # relative to a particular event and user
 # TODO remove repetitive code in __init__
 class UserRegistrationHelper(RegistrationHelper):
-		
+
 	def __init__(self, event, student):
 
 		self.e = event
@@ -212,5 +212,42 @@ class UserRegistrationHelper(RegistrationHelper):
 # be fixed by getting rid of the registartion helpers in general. Looks like
 # the functionality is duplicated in models (specifically within the Event
 # model). 
+#
+# The registration helpers do the following things:
+#	For both UserRegistrationHelper and RegistrationHelper
+#	* Helps to populate contexts for templates.
+#
+#	For UserRegistrationHelper:
+#	* Checks to see if the user is registered for the event.
+#	* Checks to see if the user is on the waitlist.
+#	* Checks to see if the event is open for registration.
+#	* Checks to see if the user should be added to the event's waitlist.
+#	* Checks to see the number of users on the waitlist for a given event.
+#	* Checks to see the number of users that are registered for a given event.
+#
+# The functionality of the registration helpers clearly breaks down into two
+# different fields: user handling, and event status querying. 
+#
+# To deal with the event status querying, the event model itself should handle
+# those questions. This is totally NBD.
+#
+# To deal with the context functionality we just peel shit out of the models.
+# All the data the registration helpers provide can be found in the models.
+# But there's still an open question about registration objects.
+#
+# There's weirdness with the user functionality that's rolled into the
+# registration helpers. Users are accounts that are used on the site. When a
+# user registeres for an event, it creates a registration object. This
+# registration object contains the following:
+#	* Keeps track of the user that registered.
+#	* Keeps track of the event that the user is trying to register for.
+#	* When the user was registered for that class.
+#	* Whether the user is waitlisted for the event.
+#	* Whether or not the user attended the event.
+#	* Whether or not the user has cancelled their registration.
+#	* And when they cancelled (if they did).
+#
+# There is literally nothing in the user model, nor in the user profile
+# model (everything for users is contained in the Userina application).
 
 # Logic can be cleaned up for the waitlist or not stuff. Not sure how yet. 

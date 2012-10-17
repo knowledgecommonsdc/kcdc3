@@ -69,6 +69,7 @@ class Event(models.Model):
 
 	location = models.ForeignKey(Location, blank=True, null=True, on_delete=models.SET_NULL, related_name='location')
 	
+	#TODO: `type' keyword is reserved, and using it is considered naughty.
 	TYPE_CHOICES = (
 		('CLASS', 'Class'),
 		('EVENT', 'Event'),
@@ -133,13 +134,15 @@ class Event(models.Model):
 
 	def add_to_waitlist(self):
 		""" Checks to see if the class is full and has a waitlist.
-		If it is full and has a waitlist it returns true, false otherwise.
-		"""
+		If it is full and has a waitlist it returns true, false 
+		otherwise."""
 		if self.get_registrations().count() >= self.max_students and self.waitlist_status:
 			return True
 		else:
 			return False
+
 	def num_teachers(self):
+		""" Returns the number of bios associated with this event."""
 		return self.teacher_bios.count()
 		
 # Registrations connect Users with the Events they've signed up for		
