@@ -144,6 +144,18 @@ class Event(models.Model):
 	def num_teachers(self):
 		""" Returns the number of bios associated with this event."""
 		return self.teacher_bios.count()
+
+	def is_registration_open(self):
+		""" Returns whether a user can register for the class or not."""
+		if self.date < datetime.datetime.now():
+			return False
+		elif self.registration_status == 'ALLOW':
+			return True
+		elif self.registration_status == 'AUTO' and self.session.registration_status == 'ALLOW':
+			return True
+		else: 
+			return False
+
 		
 # Registrations connect Users with the Events they've signed up for		
 class Registration(models.Model):
