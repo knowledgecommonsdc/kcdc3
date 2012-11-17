@@ -1,4 +1,4 @@
-# This is for compiling SASS files into CSS
+# This is for converting SASS files into CSS using SASS/Compass
 
 # Require any additional compass plugins here.
 # Set this to the root of your project when deployed:
