@@ -60,7 +60,6 @@
 		
 	{% for bio in event.teacher_bios.all %}
 		{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
-		<h4>{{ bio.name }}</h4>
 		{{ bio.description|safe }}
 	{% endfor %}
 
