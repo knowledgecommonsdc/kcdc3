@@ -107,7 +107,7 @@ class Event(models.Model):
 	students = models.ManyToManyField(User, through='Registration', blank=True, null=True, related_name='students')
 		
 	class Meta:
-		ordering = ['date']
+		ordering = ['-date']
 
 	def __unicode__(self):
 		return self.title
