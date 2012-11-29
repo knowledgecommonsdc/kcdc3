@@ -31,7 +31,7 @@
 
 	<dl class="date-listing">
 
-		{% for event in event_list %}
+		{% for event in event_list reversed %}
 
 			{% if not event.has_passed and event.status == "PUBLISHED" %}
 
