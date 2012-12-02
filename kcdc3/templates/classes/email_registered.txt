@@ -29,6 +29,9 @@ LOCATION:
 COURSE WEBPAGE:
 http://c.knowledgecommonsdc.org/classes/{{ slug }}
 
+SPECIAL ACCOMMODATIONS:
+Please email us if you need special accommodations. 
+
 If you'd like to participate more actively in this gift economy, drop us a
 line at knowledgecomonsdc@gmail.com to volunteer or sign up for DC Time Bank
 (http://www.dctimebank.org) to "pay it forward" in our community.
