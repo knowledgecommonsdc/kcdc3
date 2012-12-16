@@ -2,10 +2,10 @@ www/static
 www/uploads
 *.tmproj
 *.pyc
-kcdc3/django.db
-kcdc3/settings.py
-kcdc3/kcdc3/settings.py
 
+kcdc3/django.db
+
+kcdc3/settings.py
 kcdc3/kcdc3/settings.py
 
 kcdc3/public/media/event_images
