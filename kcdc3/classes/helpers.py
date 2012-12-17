@@ -54,5 +54,3 @@ def promote_waitlistee(event):
 				cancelled=False)[0]
 	registration.waitlist=False
 	registration.save()
-
-
