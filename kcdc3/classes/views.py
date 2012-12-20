@@ -122,6 +122,14 @@ def register(request, slug):
 		else:
 			send_registration_mail(e, 'waitlisted', request.user.email)
 			return HttpResponseRedirect("/classes/response/waitlisted")
+
+		# Email us with the needs of the student.
+		if request.GET["student_needs"] != "":
+			send_mail(e.title + " Student Considerations",
+				"Student requested the following: "+request.GET["student_needs"],
+				"contact@knowledgecommonsdc.org",
+				["contact@knowledgecommonsdc.org"],
+				fail_silently=False)
 	else: 
 		return HttpResponseRedirect("/classes/response/error")
 
