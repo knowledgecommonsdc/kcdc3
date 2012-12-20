@@ -4,7 +4,7 @@
 	<ul>
 		<li><a href="/classes/#upcoming">Upcoming classes</a></li>
 		<li><a href="/classes/#past">Recent classes</a></li>
-		{% for session in sessions reversed %}
+		{% for session in sessions %}
 			<li><a href="/classes/{{ session.slug }}">{{ session.title }}</a></li>
 		{% endfor %}
 	</ul>
