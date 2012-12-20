@@ -9,7 +9,6 @@ from django.template import Context
 from django.contrib.auth.decorators import login_required
 from email import send_registration_mail
 from helpers import *
-from django.db.models import Q
 
 # display a list of events
 class EventListView(ListView):
@@ -22,20 +21,15 @@ class EventListView(ListView):
 		context = super(EventListView, self).get_context_data(**kwargs)
 
 		context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT")
-
-		context['selected_session'] = Session.objects.filter(status="CURRENT")
-
-		# get list of sessions for use in local navigation
-		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+		context['past_sessions'] = Session.objects.filter(status='PAST')
 
 		return context
 
 
 	
-# display a list of archived (past or future) events
+# display a list of past events
 class EventArchiveView(ListView):
 
-	template_name = "classes/event_archive.html"
 	context_object_name = "event_list"
 	model = Event
 	
@@ -44,11 +38,7 @@ class EventArchiveView(ListView):
 		context = super(EventArchiveView, self).get_context_data(**kwargs)
 
 		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
-		context['selected_session'] = Session.objects.filter(slug=self.kwargs['slug'])
-
-
-		# get list of sessions for use in local navigation
-		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+		context['past_sessions'] = Session.objects.filter(status='PAST')
 
 		return context
 
@@ -64,8 +54,7 @@ class EventDetailView(DetailView):
 		
 		context = super(EventDetailView, self).get_context_data(**kwargs)
 
-		# get list of sessions for use in local navigation
-		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+		context['past_sessions'] = Session.objects.filter(status='PAST')
 
 		if self.request.user.is_authenticated():
 			context['user_is_authenticated'] = True
@@ -122,6 +111,14 @@ def register(request, slug):
 		else:
 			send_registration_mail(e, 'waitlisted', request.user.email)
 			return HttpResponseRedirect("/classes/response/waitlisted")
+
+		# Email us with the needs of the student.
+		if request.GET["student_needs"] != "":
+			send_mail(e.title + " Student Considerations",
+				"Student requested the following: "+request.GET["student_needs"],
+				"contact@knowledgecommonsdc.org",
+				["contact@knowledgecommonsdc.org"],
+				fail_silently=False)
 	else: 
 		return HttpResponseRedirect("/classes/response/error")
 
@@ -172,8 +169,7 @@ def facilitator(request, slug):
 
 	context = Context()
 
-	# get list of sessions for use in local navigation
-	context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+	context['past_sessions'] = Session.objects.filter(status='PAST')
 
 	context['slug'] = slug
 	context['title'] = e.title
