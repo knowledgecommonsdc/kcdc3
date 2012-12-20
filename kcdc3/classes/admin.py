@@ -100,21 +100,17 @@ admin.site.register(Event, EventAdmin)
 class SessionAdmin(admin.ModelAdmin):
 	fieldsets = [
 		(None, {'fields': [
-			'title', 'long_title', 'slug','status'
+			'title', 'long_title', 'slug',
 			]}),
-		('Registration', {
-			'classes': ('grp-collapse grp-closed',), 
-			'fields': [
+		('Registration', {'fields': [
 			('registration_status', 
 			'email_reminder_days')
 			]}),
-		('Text', {
-			'classes': ('grp-collapse grp-closed',), 
-			'fields': [
+		('Text', {'fields': [
 			'description','documentation'
 			]}),
 	]
-	list_display = ('long_title', 'slug','status','registration_status')
+	list_display = ('title', 'registration_status')
 	prepopulated_fields = {"slug": ("title",)}
 	class Media:
 		js = [

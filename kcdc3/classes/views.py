@@ -2,7 +2,7 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from datetime import datetime
 from django.views.generic import DetailView, TemplateView, ListView
-from classes.models import Event, Registration, Bio, Session
+from classes.models import Event, Registration, Bio
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template import Context
@@ -20,30 +20,10 @@ class EventListView(ListView):
 		
 		context = super(EventListView, self).get_context_data(**kwargs)
 
-		context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT")
-		context['past_sessions'] = Session.objects.filter(status='PAST')
-
 		return context
 
 
 	
-# display a list of past events
-class EventArchiveView(ListView):
-
-	context_object_name = "event_list"
-	model = Event
-	
-	def get_context_data(self, **kwargs):
-		
-		context = super(EventArchiveView, self).get_context_data(**kwargs)
-
-		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
-		context['past_sessions'] = Session.objects.filter(status='PAST')
-
-		return context
-
-
-
 # display a single event	
 class EventDetailView(DetailView):
 
@@ -53,8 +33,6 @@ class EventDetailView(DetailView):
 	def get_context_data(self, **kwargs):
 		
 		context = super(EventDetailView, self).get_context_data(**kwargs)
-
-		context['past_sessions'] = Session.objects.filter(status='PAST')
 
 		if self.request.user.is_authenticated():
 			context['user_is_authenticated'] = True
@@ -169,10 +147,9 @@ def facilitator(request, slug):
 
 	context = Context()
 
-	context['past_sessions'] = Session.objects.filter(status='PAST')
-
 	context['slug'] = slug
 	context['title'] = e.title
+
 
 	context['registration_count'] = e.registration_count()
 	context['waitlist_count'] = e.waitlist_count()
