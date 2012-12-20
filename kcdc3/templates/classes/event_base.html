@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block local %}
+	<ul>
+		<li><a href="/classes/#upcoming">Upcoming classes</a></li>
+		<li><a href="/classes/#past">Recent classes</a></li>
+		{% for session in past_sessions %}
+			<li><a href="/classes/{{ session.slug }}">{{ session.title }}</a></li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}
