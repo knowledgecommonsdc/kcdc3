@@ -99,11 +99,15 @@
 				<label for="needs">Let us know of any special considerations you might require:</label>
 				<input type="text" name="student_needs" id="needs" />
 				{% csrf_token %}
+				
+				<p>
 				{% if add_to_waitlist %}
 					<input type="submit" value="Join the waitlist" />
 				{% else %}
 					<input type="submit" value="Register" />
 				{% endif %}
+				</p>
+				
 			</form>
 		{% endif %}
 	{% else %}
