@@ -107,13 +107,19 @@ def cancel(request, slug):
 	
 	e = Event.objects.get(slug=slug)
 	
-	if is_registered(request.user, e) or is_waitlisted(request.user, e):
+	if not is_cancelled(request.user, e) and (is_registered(request.user, e) or is_waitlisted(request.user, e)):
+		# Gotta cache again... There's gotta be another way
+		# to do this, this makes me feel gross.
+		add_to_waitlist = e.add_to_waitlist()
+		student_is_waitlisted = is_waitlisted(request.user, e)
+
 		cancel_registration(request.user, e)
-		if (e.add_to_waitlist() == True and 
+		if (add_to_waitlist == True and 
 			e.waitlist_status == True and 
-			not is_waitlisted(request.user, e)):
-			promote_waitlistee(e)
-			send_registration_mail(e, 'promoted', w.student.email)
+			not student_is_waitlisted and
+			e.waitlist_count > 0):
+			student = promote_waitlistee(e)
+			send_registration_mail(e, 'promoted', student.email)
 		send_registration_mail(e, 'cancelled', request.user.email)
 		return HttpResponseRedirect("/classes/response/cancelled")
 	else: 
