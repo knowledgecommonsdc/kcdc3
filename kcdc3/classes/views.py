@@ -117,7 +117,7 @@ def cancel(request, slug):
 		if (add_to_waitlist == True and 
 			e.waitlist_status == True and 
 			not student_is_waitlisted and
-			e.waitlist_count > 0):
+			e.waitlist_count() > 0):
 			student = promote_waitlistee(e)
 			send_registration_mail(e, 'promoted', student.email)
 		send_registration_mail(e, 'cancelled', request.user.email)
