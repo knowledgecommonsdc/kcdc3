@@ -1,0 +1,298 @@
+
+// styles for front page
+
+
+
+// slideshow -----------------------------
+
+#slideshow-frame
+	width: 100%
+	background: #fff
+
+#front_slideshow
+	max-width: 960px
+	margin: 0 auto 1em auto
+
+// FlexSlider Necessary Styles
+.flexslider
+	margin: 0
+	padding: 0
+// Hide the slides before the JS is loaded. Avoids image jumping
+.slides > li 
+	display: none
+	-webkit-backface-visibility: hidden
+.slides img 
+	width: 100%
+	display: block
+
+/* No JavaScript Fallback */
+.no-js .slides > li:first-child 
+	display: block
+
+#flexslider > ul 
+	margin: 0
+	padding: 0
+	background: #222
+	border: 1px solid #333
+	& > li
+		list-style: none
+		margin: 0
+		padding: 0
+
+
+
+// front intro -----------------------------
+
+#front_intro
+	margin: 1.5em auto 2.0em auto
+	width: 90%
+	max-width: 960px
+	.front_intro_text
+		margin: 0.25em 5% 0 0
+		font-size: 2.9em
+		line-height: 1.25em
+		color: $color_text_lighter
+		font-weight: 300
+	b
+		font-weight: 300
+		color: $colorA
+
+.front_intro_call 
+	margin: 0 0 0 0
+	text-align: right
+	font-size: 1.5em
+	font-weight: 300
+	@media screen and (max-width: 860px)
+		font-size: 1.25em
+		margin-top: 1em
+	& > a
+		margin: 0 0.15em
+		padding: 0.1em 0.4em
+		color: $colorA
+		border: 1px solid $colorE1
+		font-style: normal
+		font-weight: 400
+		background: #fff
+		border-radius: 4px
+	& > a:hover
+		background: $colorA
+		color: #fff
+
+@media screen and (max-width: 1150px)
+	#front_intro
+		width: 80%
+
+@media screen and (max-width: 860px)
+	#front_intro
+		.front_intro_text
+			font-size: 1.5em
+			font-weight: 400
+		b
+			font-weight: 400
+		.call
+			margin-top: 1em
+
+@media screen and (max-width: 600px)
+	#front_intro
+		width: 90%
+		.intro
+			margin-top: 0
+			color: $color_text_lighter
+			font-size: 1.2em
+			font-weight: 400
+		b
+			font-weight: 400
+
+// message of the day -----------------------------
+
+#front_motd
+	margin: 0.1em 0 0 0
+	i
+		font-style: normal
+		margin: 0 0.15em
+		padding: 0.4em 0.4em
+		color: $colorB
+		border: 1px solid $colorE1
+		font-style: normal
+		font-weight: 600
+		background: #fff
+		border-radius: 4px
+	i:hover
+		color: #fff
+		background-color: $colorA
+	.front_motd_button_decoration
+		font-size: 0.8em
+		margin: 0
+	p
+		margin: 0
+		color: $color_text_lighter
+		font-size: 1.2em
+		line-height: 1.4em
+	.more
+		font-style: italic
+	a
+		color: $color_text_lighter
+		border: none
+	a:hover
+		color: $colorB2
+		background: none
+	.motd_icon
+		position: relative
+		top: 0.25em	
+		font-size: 1.25em	
+		color: $colorB
+	.motd_action
+		color: $colorB
+		
+@media screen and (max-width: 550px)
+	#motd
+		p
+			font-size: 1.0em
+
+// features -----------------------------
+
+#features
+	@include clearfix
+	padding: 1.3em 0 0 0
+	h3
+		font-size: 1.2em
+		color: $color_text_lighter
+		margin: 0
+	.date
+		margin: 0 0 0.25em 0
+	.instructor
+		margin-top: 0.25em
+	i
+		color: $colorB2
+
+#features > div
+	width: 25%
+	float: left
+	padding-right: 1em
+
+#features > div:nth-child(n+4)
+	padding-right: 0
+
+#features > div > a
+	display: block
+	border: none
+	border-top: 1px solid #ddd
+	padding: 1em 2em 2em 0
+	color: $color_text_lighter
+
+#features > div > a:hover,
+#features > div > a:hover > h3
+	background: #fff
+	color: $colorB2
+	border-bottom: none
+	
+#features > div > a:hover
+	border-top: 1px solid $colorB
+
+.features-ss-icon-clock
+	margin-right: 0.1em
+	position: relative
+	top: 0.15em
+	color: $colorB
+
+.features-ss-icon-eye
+	font-size: 1.3em
+	position: relative
+	top: 0.2em
+	color: $colorB
+
+@media screen and (max-width: 860px)
+
+	#features > div
+		width: 50%
+
+	#features > div:nth-child(even)
+		padding-right: 0
+
+	#features > div:nth-child(odd)
+		padding-right: 1em
+
+@media screen and (max-width: 550px)
+
+	#features 
+		margin: 0 0 2em 0
+		h3
+			font-size: 1.0em
+		.instructor
+			margin-top: 0
+		.instructor > b
+			font-weight: 400
+		& > div
+			width: 100%
+			clear: both
+		& > div > a
+			padding: 0.5em 0 1em 0
+			
+	#features > div:nth-child(odd)
+		padding-right: 0
+
+// minical -----------------------------
+
+#minical
+	margin: 0 0 0 0
+	h2
+		margin: 0 0 0.5em 0
+		float: left
+	h2 > a,
+	h2 > a:hover
+		color: $colorA
+		border: none
+		
+#minical-full
+	float: left
+	margin: 0 0 0 0.5em
+	position: relative
+	top: -0.1em
+	font-size: 0.85em
+	& > a
+		background: $colorA
+		color: #fff
+		padding: 4px 8px
+		border-radius: 12px
+	& > a:hover
+		background: $colorA1
+		color: #fff
+
+.minical_month
+	margin-bottom: 0.5em
+	@include clearfix
+	& > h4
+		float: left
+		margin: 0.5em 1em 0.5em 0
+		clear: left
+		color: $colorA
+	& > ul
+		list-style: none
+		margin: 0
+		padding: 0
+		float: left
+	& > ul > li	
+		margin: 0 2px 2px 0
+		float: left
+		font-size: 0.8em
+	& > ul > li	> a
+		display: block
+		border: none
+		background: #EBEBEB
+		color: #aaa
+		padding: 0px 6px
+		border-radius: 9px
+	& > ul > li	> a:hover
+		background: #ccc
+		color: #aaa
+	& > ul > .sunday
+		margin-right: 15px
+	.event_1x
+		background: $colorA
+		color: #fff
+	.event_1x:hover
+		background: $colorA1
+		color: #fff
+
+
+	
