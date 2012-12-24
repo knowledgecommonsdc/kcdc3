@@ -38,11 +38,16 @@ class RegistrationEmail(EmailMessage):
 
 		self.bcc = kwargs.get('bcc', [])
 
+		""" Messages were getting CCed even when no CC recipient was specified. 
+			Disabled for now, since we're not using this function anyway."""
 		cc = kwargs.get('cc')
-		if cc and cc != KCDC_EMAIL:
-			self.cc = [cc, KCDC_EMAIL]
-		else:
-			self.cc = [KCDC_EMAIL]
+		self.cc = ['']
+
+		# cc = kwargs.get('cc')
+		# if cc and cc != KCDC_EMAIL:
+		# 	self.cc = [cc, KCDC_EMAIL]
+		# else:
+		# 	self.cc = [KCDC_EMAIL]
 
 		self.connection = kwargs.get('connection')
 
