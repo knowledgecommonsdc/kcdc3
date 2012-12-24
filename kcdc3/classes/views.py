@@ -86,7 +86,6 @@ def register(request, slug):
 
 		# Email us with the needs of the student.
 		if request.POST["student_needs"] != "":
-			print('filled out')
 			send_mail("(KCDC accommodation form) " + e.title,
 				request.user.email+" requested the following: "+request.POST["student_needs"],
 				request.user.email,
