@@ -63,16 +63,17 @@
 
 .calendar
 	margin-top: -1em
+	@include clearfix
 	dt,
 	dd
-		margin: 3em 0 0 0
-		padding: 2em 0 0 0
+		margin: 2em 0 0 0
+		padding: 1em 0 0 0
 		float: left
 		border-top: 6px solid $colorE
 	dt
 		width: 25%
 		clear: left
-		padding-top: 2.25em 
+		padding-top: 1.1em 
 	dd
 		width: 75%
 	dd + dd
@@ -114,6 +115,9 @@
 	margin-left: 0.5em
 	
 .registration_indicator.solid
+	margin-left: 0
+
+p.indicators > .registration_indicator
 	margin-left: 0
 	
 .registration_open,
@@ -165,7 +169,7 @@
 // page head areas -------------------------
 	
 #hed
-	margin: 3.5em 0 1.5em 0
+	margin: 3.5em 0 2em 0
 	@media screen and (max-width: 860px)
 		margin-bottom: 0
 	

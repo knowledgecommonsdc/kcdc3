@@ -43,6 +43,7 @@
 					<span class="registration_indicator"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
 				{% endif %}
 			{% endif %}
+			
 		</p>
 		
 		{% if event.main_image %}<p><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
@@ -80,7 +81,7 @@
 			
 		{% if not event.has_passed %}
 			{% if event.registration_status == "AUTO" %}	
-					<h3>Registration is not yet open.</h3>
+				<h3>Registration is not yet open.</h3>
 			{% elif event.registration_status == "PREVENT" %}	
 				<h3>Registration is closed.</h3>
 			{% elif registration_count >=  event.max_students %}
@@ -89,6 +90,10 @@
 				{% else %}
 					<h3>This class is full.</h3>
 				{% endif %}
+			{% elif event.registration_status == "HIDE" %}
+				<!-- hide registration info -->
+			{% else%}
+					<h3>Register</h3>
 			{% endif %}
 		{% endif %}
 			
@@ -111,9 +116,9 @@
 					<input type="text" name="student_needs" id="needs" />
 					{% csrf_token %}
 					{% if add_to_waitlist %}
-						<input type="submit" value="Join the waitlist" id="submit_button" />
+						<div><input type="submit" value="Join the waitlist" id="submit_button" /></div>
 					{% else %}
-						<input type="submit" value="Register for this class" id="submit_button" />
+						<div><input type="submit" value="Register for this class" id="submit_button" /></div>
 					{% endif %}
 				</form>
 			{% endif %}
