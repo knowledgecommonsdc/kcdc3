@@ -757,14 +757,19 @@ h2 {
   margin-top: 2.5em;
 }
 
-/* line 69, ../sass/_typography.sass */
+/* line 68, ../sass/_typography.sass */
+h2:first-child {
+  margin-top: 0;
+}
+
+/* line 71, ../sass/_typography.sass */
 h3 {
   font-size: 1.25em;
   font-weight: bold;
   line-height: 1.25em;
 }
 
-/* line 74, ../sass/_typography.sass */
+/* line 76, ../sass/_typography.sass */
 h4 {
   margin: 1.5em 0 0.5em 0;
   font-size: 0.9em;
@@ -773,24 +778,24 @@ h4 {
   letter-spacing: 0.1em;
 }
 
-/* line 81, ../sass/_typography.sass */
+/* line 83, ../sass/_typography.sass */
 h5 {
   font-weight: normal;
 }
 
-/* line 84, ../sass/_typography.sass */
+/* line 86, ../sass/_typography.sass */
 h6 {
   font-style: italic;
   font-weight: bold;
   font-weight: 400;
 }
 
-/* line 93, ../sass/_typography.sass */
+/* line 95, ../sass/_typography.sass */
 p, ul, ol {
   margin: 1em 0 0 0;
 }
 
-/* line 96, ../sass/_typography.sass */
+/* line 98, ../sass/_typography.sass */
 .intro {
   font-size: 1.6em;
   line-height: 1.6em;
@@ -798,23 +803,23 @@ p, ul, ol {
   color: #3e9bc3;
 }
 
-/* line 102, ../sass/_typography.sass */
+/* line 104, ../sass/_typography.sass */
 .intro + p {
   margin-top: 2em;
 }
 
-/* line 105, ../sass/_typography.sass */
+/* line 107, ../sass/_typography.sass */
 .secondary {
   font-size: 0.75em;
   line-height: 1.5em;
 }
 
-/* line 111, ../sass/_typography.sass */
+/* line 113, ../sass/_typography.sass */
 em, cite, i {
   font-style: italic;
 }
 
-/* line 114, ../sass/_typography.sass */
+/* line 116, ../sass/_typography.sass */
 strong, b {
   font-weight: bold;
 }
@@ -823,11 +828,11 @@ strong, b {
 .nav {
   margin: 1em 0 0 1em;
   padding: 0;
-  zoom: 1;
+  *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 .nav:before, .nav:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -870,13 +875,13 @@ strong, b {
 
 /* line 33, ../sass/_nav.sass */
 #mobile_nav > ul {
-  zoom: 1;
+  *zoom: 1;
   margin: 3em 0 2em 0;
   border-top: 1px solid #cccccc;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 #mobile_nav > ul:before, #mobile_nav > ul:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -916,11 +921,11 @@ strong, b {
 
 /* line 63, ../sass/_nav.sass */
 #footer {
-  zoom: 1;
+  *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 #footer:before, #footer:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -1127,41 +1132,51 @@ strong, b {
 /* line 64, ../sass/_inside.sass */
 .calendar {
   margin-top: -1em;
+  *zoom: 1;
 }
-/* line 66, ../sass/_inside.sass */
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.calendar:before, .calendar:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.calendar:after {
+  clear: both;
+}
+/* line 67, ../sass/_inside.sass */
 .calendar dt,
 .calendar dd {
-  margin: 3em 0 0 0;
-  padding: 2em 0 0 0;
+  margin: 2em 0 0 0;
+  padding: 1em 0 0 0;
   float: left;
   border-top: 6px solid #f5f6f1;
 }
-/* line 72, ../sass/_inside.sass */
+/* line 73, ../sass/_inside.sass */
 .calendar dt {
   width: 25%;
   clear: left;
-  padding-top: 2.25em;
+  padding-top: 1.1em;
 }
-/* line 76, ../sass/_inside.sass */
+/* line 77, ../sass/_inside.sass */
 .calendar dd {
   width: 75%;
 }
-/* line 78, ../sass/_inside.sass */
+/* line 79, ../sass/_inside.sass */
 .calendar dd + dd {
   margin-top: 0;
   margin-left: 25%;
   border: none;
 }
-/* line 82, ../sass/_inside.sass */
+/* line 83, ../sass/_inside.sass */
 .calendar h3 {
   margin: 0 0 0 0;
   color: #666666;
 }
-/* line 85, ../sass/_inside.sass */
+/* line 86, ../sass/_inside.sass */
 .calendar p {
   margin: 0 0 0.5em 0;
 }
-/* line 87, ../sass/_inside.sass */
+/* line 88, ../sass/_inside.sass */
 .calendar a {
   color: inherit;
   display: block;
@@ -1169,29 +1184,29 @@ strong, b {
   margin: 0;
   padding: 0;
 }
-/* line 93, ../sass/_inside.sass */
+/* line 94, ../sass/_inside.sass */
 .calendar a:hover,
 .calendar a:hover i,
 .calendar a:hover h3 {
   color: #3e9bc3;
   background: inherit;
 }
-/* line 98, ../sass/_inside.sass */
+/* line 99, ../sass/_inside.sass */
 .calendar .meta {
   margin-top: 0.5em;
 }
-/* line 100, ../sass/_inside.sass */
+/* line 101, ../sass/_inside.sass */
 .calendar .ss-icon {
   color: #b8bbb4;
 }
 
-/* line 105, ../sass/_inside.sass */
+/* line 106, ../sass/_inside.sass */
 .indicators {
   margin-top: 0.75em;
   margin-bottom: 1.5em;
 }
 
-/* line 109, ../sass/_inside.sass */
+/* line 110, ../sass/_inside.sass */
 .registration_indicator {
   background: #f5f6f1;
   border: 1px solid #dfe2d2;
@@ -1200,12 +1215,17 @@ strong, b {
   margin-left: 0.5em;
 }
 
-/* line 116, ../sass/_inside.sass */
+/* line 117, ../sass/_inside.sass */
 .registration_indicator.solid {
   margin-left: 0;
 }
 
-/* line 119, ../sass/_inside.sass */
+/* line 120, ../sass/_inside.sass */
+p.indicators > .registration_indicator {
+  margin-left: 0;
+}
+
+/* line 123, ../sass/_inside.sass */
 .registration_open,
 .registration_waitlist {
   margin: 0 0.2em 0 0;
@@ -1214,43 +1234,43 @@ strong, b {
   top: 0.2em;
 }
 
-/* line 126, ../sass/_inside.sass */
+/* line 130, ../sass/_inside.sass */
 .registration_open {
   color: #488716 !important;
 }
 
-/* line 129, ../sass/_inside.sass */
+/* line 133, ../sass/_inside.sass */
 .registration_waitlist {
   color: #fc9519 !important;
 }
 
 @media screen and (max-width: 600px) {
-  /* line 134, ../sass/_inside.sass */
+  /* line 138, ../sass/_inside.sass */
   .calendar dt,
   .calendar dd,
   .calendar dd + dd {
     width: 100%;
     margin-left: 0;
   }
-  /* line 139, ../sass/_inside.sass */
+  /* line 143, ../sass/_inside.sass */
   .calendar dd {
     border: none;
     margin-top: 0;
   }
 }
-/* line 145, ../sass/_inside.sass */
+/* line 149, ../sass/_inside.sass */
 #hed .event_type_hed {
   color: #3e9bc3;
   font-size: 1.25em;
   margin: 1em 0 0 0;
 }
 
-/* line 150, ../sass/_inside.sass */
+/* line 154, ../sass/_inside.sass */
 #hed .event_type_hed + h1 {
   margin-top: 0;
 }
 
-/* line 153, ../sass/_inside.sass */
+/* line 157, ../sass/_inside.sass */
 .calendar .event_type_hed {
   margin: 0.25em 0 0 0;
   color: #3e9bc3;
@@ -1258,24 +1278,24 @@ strong, b {
   font-weight: 600;
 }
 
-/* line 159, ../sass/_inside.sass */
+/* line 163, ../sass/_inside.sass */
 .event_type_partner {
   border-left: 6px solid #f5f6f1 !important;
   padding-left: 0.75em !important;
 }
 
-/* line 167, ../sass/_inside.sass */
+/* line 171, ../sass/_inside.sass */
 #hed {
-  margin: 3.5em 0 1.5em 0;
+  margin: 3.5em 0 2em 0;
 }
 @media screen and (max-width: 860px) {
-  /* line 167, ../sass/_inside.sass */
+  /* line 171, ../sass/_inside.sass */
   #hed {
     margin-bottom: 0;
   }
 }
 
-/* line 172, ../sass/_inside.sass */
+/* line 176, ../sass/_inside.sass */
 .section_hed {
   font-size: 6em;
   line-height: 0.85em;
@@ -1286,14 +1306,14 @@ strong, b {
   margin: 0;
 }
 @media screen and (max-width: 860px) {
-  /* line 172, ../sass/_inside.sass */
+  /* line 176, ../sass/_inside.sass */
   .section_hed {
     font-size: 4em;
     line-height: 1em;
   }
 }
 
-/* line 184, ../sass/_inside.sass */
+/* line 188, ../sass/_inside.sass */
 #hed p {
   font-size: 1.6em;
   line-height: 1.6em;
@@ -1302,7 +1322,7 @@ strong, b {
   margin: 0.25em 30% 0 0.5em;
 }
 @media screen and (max-width: 860px) {
-  /* line 184, ../sass/_inside.sass */
+  /* line 188, ../sass/_inside.sass */
   #hed p {
     font-size: 1.2em;
     line-height: 1.25em;
@@ -1310,7 +1330,7 @@ strong, b {
   }
 }
 
-/* line 198, ../sass/_inside.sass */
+/* line 202, ../sass/_inside.sass */
 .sidebar_text {
   padding: 0 1em 2em 1em;
   border: 1px solid #dddddd;
@@ -1318,14 +1338,14 @@ strong, b {
   background: #f5f6f1;
 }
 
-/* line 204, ../sass/_inside.sass */
+/* line 208, ../sass/_inside.sass */
 .sidebar_contrast {
   background: white;
   border: none;
   padding: 0 1em 2em 0.5em;
   color: #3e9bc3;
 }
-/* line 209, ../sass/_inside.sass */
+/* line 213, ../sass/_inside.sass */
 .sidebar_contrast h2,
 .sidebar_contrast h3 {
   color: #3e9bc3;
@@ -1368,11 +1388,11 @@ img {
   padding: 0 0 0 0;
   clear: both;
   border-top: 7px solid #b8bbb4;
-  zoom: 1;
+  *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 #header:before, #header:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -1397,11 +1417,11 @@ img {
   width: 90%;
   padding: 0 1em 0 0;
   float: left;
-  zoom: 1;
+  *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 #desktop_nav:before, #desktop_nav:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -1416,11 +1436,11 @@ img {
   margin: 0 auto 0 auto;
   padding-top: 0;
   clear: both;
-  zoom: 1;
+  *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 #content:before, #content:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -1433,11 +1453,11 @@ img {
   width: 70%;
   float: left;
   padding-right: 10%;
-  zoom: 1;
+  *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 #main:before, #main:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -1449,11 +1469,11 @@ img {
 #main_fullwidth {
   width: 100%;
   margin: 1em 0 3em 0;
-  zoom: 1;
+  *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 #main_fullwidth:before, #main_fullwidth:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -1465,11 +1485,11 @@ img {
 #sidebar {
   width: 30%;
   float: left;
-  zoom: 1;
+  *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 #sidebar:before, #sidebar:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -1479,12 +1499,12 @@ img {
 
 /* line 98, ../sass/style.sass */
 .sidebar_section {
-  margin: 1.5em 0 0 0;
+  margin: 0 0 0 0;
 }
 
 /* line 102, ../sass/style.sass */
 .sidebar_inside {
-  margin: 1em 0 0 0;
+  margin: 0 0 0 0;
 }
 
 /* line 105, ../sass/style.sass */
@@ -1780,12 +1800,12 @@ img {
 }
 /* line 154, ../sass/_front.sass */
 #features {
-  zoom: 1;
+  *zoom: 1;
   padding: 1.3em 0 0 0;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 #features:before, #features:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -1949,11 +1969,11 @@ img {
 /* line 261, ../sass/_front.sass */
 .minical_month {
   margin-bottom: 0.5em;
-  zoom: 1;
+  *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
 .minical_month:before, .minical_month:after {
-  content: "";
+  content: " ";
   display: table;
 }
 /* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
