@@ -22,7 +22,7 @@
 
 		<p class="meta">
 
-			<i class="ss-icon">&#x1F464;</i> Julia Goren
+			<i class="ss-icon">&#x1F464;</i> {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
 
 
 			<i class="ss-icon icon_push_right">&#x1F3E2;</i> 
@@ -112,8 +112,8 @@
 				</form>
 			{% elif is_registration_open %}
 				<form action="/classes/{{ event.slug }}/register" method="post">
-					<label for="needs">Let us know of any special considerations you might require:</label>
-					<input type="text" name="student_needs" id="needs" />
+					{# <label for="needs">Let us know of any special considerations you might require:</label> #}
+					{# <input type="text" name="student_needs" id="needs" /> #}
 					{% csrf_token %}
 					{% if add_to_waitlist %}
 						<div><input type="submit" value="Join the waitlist" id="submit_button" /></div>
