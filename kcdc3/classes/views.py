@@ -83,20 +83,23 @@ def register(request, slug):
 			date_registered=datetime.now(), 
 			waitlist=waitlist_status)
 		t.save()
+
+		# Email us with the needs of the student.
+		if request.POST["student_needs"] != "":
+			print('filled out')
+			send_mail("(KCDC accommodation form) " + e.title,
+				request.user.email+" requested the following: "+request.POST["student_needs"],
+				request.user.email,
+				["contact@knowledgecommonsdc.org"],
+				fail_silently=False)
+
 		if waitlist_status == False:
 			send_registration_mail(e, 'registered', request.user.email)
 			return HttpResponseRedirect("/classes/response/registered")
 		else:
 			send_registration_mail(e, 'waitlisted', request.user.email)
 			return HttpResponseRedirect("/classes/response/waitlisted")
-
-		# Email us with the needs of the student.
-		if request.GET["student_needs"] != "":
-			send_mail(e.title + " Student Considerations",
-				"Student requested the following: "+request.GET["student_needs"],
-				"contact@knowledgecommonsdc.org",
-				["contact@knowledgecommonsdc.org"],
-				fail_silently=False)
+				
 	else: 
 		return HttpResponseRedirect("/classes/response/error")
 
