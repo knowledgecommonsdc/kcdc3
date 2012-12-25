@@ -1450,9 +1450,9 @@ img {
 
 /* line 81, ../sass/style.sass */
 #main {
-  width: 70%;
+  width: 60%;
   float: left;
-  padding-right: 10%;
+  margin-right: 10%;
   *zoom: 1;
 }
 /* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
@@ -1577,19 +1577,18 @@ img {
 
   /* line 145, ../sass/style.sass */
   #main,
-  #sidebar_inside,
-  #sidebar_section {
+  #sidebar {
     width: 100%;
     clear: both;
     margin: 2em 0 0 0;
   }
 
-  /* line 151, ../sass/style.sass */
+  /* line 150, ../sass/style.sass */
   #main {
     margin-top: 1em;
   }
 
-  /* line 153, ../sass/style.sass */
+  /* line 152, ../sass/style.sass */
   #sidebar_section {
     margin-top: 4em;
   }
