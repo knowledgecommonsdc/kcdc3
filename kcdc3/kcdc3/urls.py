@@ -12,7 +12,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
 	url(r'^$', include('classes.urls')),
-	url(r'^classes', include('classes.urls')),
 	url(r'^classes/', include('classes.urls')),
 	url(r'^admin/filebrowser/', include(site.urls)),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -20,9 +19,7 @@ urlpatterns = patterns('',
 	url(r'^grappelli/', include('grappelli.urls')),
 	url(r'^accounts/signup/$', 'userena.views.signup', {'signup_form': SignupFormExtra}),
 	url(r'^accounts/', include('userena.urls')),
-
-	# TODO move this into pinata.urls
-	url(r'^(?P<path>^.*)', 'pinata.views.page_view'),
+	url(r'^about/|teach/', include('pinata.urls')),
 
 )
 
