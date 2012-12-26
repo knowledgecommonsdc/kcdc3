@@ -30,10 +30,10 @@ def page_view(request):
 
 	# get all other pages with the same parent
 	if e.parent:
-		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED'))
-
+		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+		
 	# get all children
-	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED'))
+	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 		
 	if e.status == 'PUBLISHED' or e.status == 'HIDDEN':
 		return render_to_response('pinata/page.html',context)

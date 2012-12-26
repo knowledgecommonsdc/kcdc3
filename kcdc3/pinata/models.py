@@ -14,6 +14,7 @@ class Page(models.Model):
 	)
 	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='CURRENT')
 	featured = models.BooleanField(default=False)
+	sort_order = models.IntegerField(blank=True, null=True, default=50)
 
 	path = models.CharField(max_length=200, unique=True)
 	parent = models.ForeignKey('self', null=True,blank=True)

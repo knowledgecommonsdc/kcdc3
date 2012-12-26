@@ -10,9 +10,10 @@ from django.utils.html import escape
 
 
 class PageAdmin(admin.ModelAdmin):
+	
 	fieldsets = [
 		(None, {'fields': [
-			'title', 'short_title', 'parent', 'path', 'status',
+			'title', 'short_title', 'parent', 'path', 'status', 'sort_order',
 			]}),
 		('Text', {
 			'classes': ('grp-collapse grp-open',),
@@ -26,7 +27,10 @@ class PageAdmin(admin.ModelAdmin):
 			'sidebar_text',
 			]}),
 	]
-	list_display = ('title', 'status', 'parent', 'path')
+
+	list_display = ('title', 'short_title', 'status', 'parent', 'path', 'sort_order',)
+	list_editable = ('status', 'sort_order',)
+
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
