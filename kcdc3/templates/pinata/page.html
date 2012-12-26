@@ -1,15 +1,38 @@
+{% extends "pinata/base.html" %}
 
-{{ title }}
-{{ teaser|safe }}
-{{ main_text|safe }}
-{{ sidebar_text|safe }}
 
-<hr />
 
-<a href="/{{ parent.path }}">{{ parent.short_title }}</a>
+{% block content %}
 
-<hr />
+	<div id="hed">
+		<h1>{{ title }}</h1>
+	</div>
+	
+	<div id="main">
+		{{ main_text|safe }}
+	</div>
+	
+{% endblock %}
 
-{% for page in siblings %}
-<a href="/{{ page.path }}">{{ page.short_title }}</a>
-{% endfor %}
+
+
+{% block sidebar_text %}
+	{{ sidebar_text|safe }}
+{% endblock %}
+
+
+
+{% block sidebar_nav %}
+
+	<div class="local_nav">
+		<ul>
+			{% for page in siblings %}
+				<li><a href="/{{ page.path }}" class="{% if page.path == path %}active{% endif %}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ page.short_title }}</a></li>
+			{% endfor %}
+			{% for page in children %}
+				<li><a href="/{{ page.path }}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ page.short_title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+
+{% endblock %}

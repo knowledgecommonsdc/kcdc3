@@ -601,7 +601,7 @@ body {
 
 /* line 12, ../sass/_typography.sass */
 a {
-  color: #961604;
+  color: #fb2710;
   text-decoration: none;
   padding: 1px 2px;
   border-bottom: 1px solid #c49b8f;
@@ -609,15 +609,15 @@ a {
 
 /* line 17, ../sass/_typography.sass */
 a:visited {
-  color: #927b78;
+  color: #f75f53;
   border: #c3b8b7;
 }
 
 /* line 20, ../sass/_typography.sass */
 a:hover {
   color: white;
-  background: #d02310;
-  border-bottom: 1px solid #d02310;
+  background: #fb2710;
+  border-bottom: 1px solid #fb2710;
 }
 
 /* line 29, ../sass/_typography.sass */
@@ -1044,6 +1044,15 @@ strong, b {
   display: block;
 }
 /* line 140, ../sass/_nav.sass */
+.local_nav .active {
+  font-weight: bold;
+  font-weight: 800;
+}
+/* line 143, ../sass/_nav.sass */
+.local_nav .active .icon_decorative {
+  color: #fb2710;
+}
+/* line 145, ../sass/_nav.sass */
 .local_nav .icon_decorative {
   color: #dfe2d2;
   position: relative;

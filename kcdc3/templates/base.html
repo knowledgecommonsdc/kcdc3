@@ -29,12 +29,12 @@
 			<div id="desktop_nav">
 				<ul class="nav">
 					
-					<li><a href="http://knowledgecommonsdc.org" class="home_link">Knowledge Commons DC</a></li>
-					<li><a href="http://knowledgecommonsdc.org/about">Who We Are</a></li>
-					<li><a href="http://c.knowledgecommonsdc.org/classes">Classes + Events</a></li>
-					<li><a href="http://knowledgecommonsdc.org/teach">Teach</a></li>
-					<li><a href="http://knowledgecommonsdc.org/contribute">Contribute</a></li>
-					<li><a href="http://knowledgecommonsdc.org/blog">Blog</a></li>
+					<li class="nav_home"><a href="/">Knowledge Commons DC</a></li>
+					<li><a href="/about">Who We Are</a></li>
+					<li><a href="/classes">Classes + Events</a></li>
+					<li><a href="/teach">Teach</a></li>
+					<li><a href="/contribute">Contribute</a></li>
+					<li><a href="/blog">Blog</a></li>
 
 					{% if user.is_authenticated %}
 					<li><a href="/accounts/signout" class="login">Log out</a></li>
@@ -59,12 +59,12 @@
 		<div id="mobile_nav">
 			<ul class="nav">
 				
-				<li class="nav_home"><a href="http://knowledgecommonsdc.org">Home</a></li>
-				<li><a href="http://knowledgecommonsdc.org/about">Who We Are</a></li>
-				<li><a href="http://c.knowledgecommonsdc.org/classes">Classes + Events</a></li>
-				<li><a href="http://knowledgecommonsdc.org/teach">Teach</a></li>
-				<li><a href="http://knowledgecommonsdc.org/contribute">Contribute</a></li>
-				<li><a href="http://knowledgecommonsdc.org/blog">Blog</a></li>
+				<li class="nav_home"><a href="/">Home</a></li>
+				<li><a href="/about">Who We Are</a></li>
+				<li><a href="/classes">Classes + Events</a></li>
+				<li><a href="/teach">Teach</a></li>
+				<li><a href="/contribute">Contribute</a></li>
+				<li><a href="/blog">Blog</a></li>
 
 				{% if user.is_authenticated %}
 				<li><a href="/accounts/signout" class="login">Log out</a></li>
