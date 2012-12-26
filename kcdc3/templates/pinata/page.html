@@ -1,0 +1,15 @@
+
+{{ title }}
+{{ teaser|safe }}
+{{ main_text|safe }}
+{{ sidebar_text|safe }}
+
+<hr />
+
+<a href="/{{ parent.path }}">{{ parent.short_title }}</a>
+
+<hr />
+
+{% for page in siblings %}
+<a href="/{{ page.path }}">{{ page.short_title }}</a>
+{% endfor %}

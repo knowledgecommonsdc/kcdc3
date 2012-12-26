@@ -20,6 +20,9 @@ urlpatterns = patterns('',
 	url(r'^accounts/signup/$', 'userena.views.signup', {'signup_form': SignupFormExtra}),
 	url(r'^accounts/', include('userena.urls')),
 
+	# TODO move this into pinata.urls
+	url(r'^(?P<path>^.*)', 'pinata.views.page_view'),
+
 )
 
 # development
