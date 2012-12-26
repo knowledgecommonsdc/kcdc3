@@ -22,13 +22,18 @@ def page_view(request, path):
 	
 	context['title'] = e.title
 	context['short_title'] = e.short_title
+	context['path'] = e.path
 	context['teaser'] = e.teaser
 	context['main_text'] = e.main_text
 	context['sidebar_text'] = e.sidebar_text
 	context['parent'] = e.parent
 
 	# get all other pages with the same parent
-	context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED'))
+	if e.parent:
+		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED'))
+
+	# get all children
+	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED'))
 		
 	if e.status == 'PUBLISHED' or e.status == 'HIDDEN':
 		return render_to_response('pinata/page.html',context)
