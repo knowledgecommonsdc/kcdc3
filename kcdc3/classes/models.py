@@ -24,6 +24,9 @@ class Session(models.Model):
 	registration_status = models.CharField(max_length=7, choices=REGISTRATION_STATUS_CHOICES, default='PREVENT')
 	email_reminder_days = models.IntegerField('Send reminder emails this many days ahead of classes:', default=2)
 
+	class Meta:
+		ordering = ['slug']
+
 	def __unicode__(self):
 		return self.title
 
