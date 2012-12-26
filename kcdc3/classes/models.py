@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 
+
+
 # a Session is a collection of classes
 class Session(models.Model):
 	title = models.CharField(max_length=200)
@@ -30,6 +32,8 @@ class Session(models.Model):
 	def __unicode__(self):
 		return self.title
 
+
+
 class Location(models.Model):
 	name = models.CharField('Description', max_length=100, blank=True)
 	neighborhood = models.CharField('Neighborhood', max_length=100, blank=True)
@@ -43,13 +47,48 @@ class Location(models.Model):
 	def __unicode__(self):
 		return self.name
 
+
+
+class Role(models.Model):
+	
+	name = models.CharField('Description', max_length=48)
+	description = models.TextField(blank=True)
+	sort_order = models.IntegerField(blank=True, null=True, default=50)
+
+	class Meta:
+		ordering = ['sort_order']
+
+	def __unicode__(self):
+		return self.name
+
+
+
 class Bio(models.Model):
+
+	user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, related_name='user')
+
+	# Basic information, used in class descriptions and elsewhere by default
 	name = models.CharField('Name', max_length=100, blank=False)
 	description = models.TextField('Bio text', blank=True)
 	website = models.URLField(blank=True)
-	user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, related_name='user')
+
+	# Fields for staff bios
+	title = models.CharField(max_length=100, blank=True)
+	staff_description = models.TextField('Staff bio text', blank=True)
+	role = models.ForeignKey(Role, blank=True, null=True, on_delete=models.SET_NULL, related_name='role')
+
+	# Provide a filled-out description if one is available
+	def get_staff_description(self):
+		
+		if self.staff_description:
+			return self.staff_description
+		else: 	
+			return self.description
+
 	def __unicode__(self):
 		return self.name
+
+
 
 # an Event is a single class or other event
 class Event(models.Model):
@@ -159,6 +198,7 @@ class Event(models.Model):
 		else: 
 			return False
 
+		
 		
 # Registrations connect Users with the Events they've signed up for		
 class Registration(models.Model):
