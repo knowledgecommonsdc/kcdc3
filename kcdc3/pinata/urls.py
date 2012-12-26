@@ -3,8 +3,7 @@ from pinata.models import Page
 
 urlpatterns = patterns('pinata.views',
 
-	# right now, URLs are handled in the sitewide urls.py
-	# TODO move handling into this file
-	url(r'^(?P<path>^.*)', 'page_view'),
+	url(r'^$', 'page_view'),
+	url(r'^[0-9a-zA-Z_-]+/$', 'page_view'),
 
 )
