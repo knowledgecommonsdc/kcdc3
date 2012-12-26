@@ -1,62 +1,72 @@
 {% extends "classes/event_base.html" %}
 
-{% block title %}Classes and Events{% endblock %}
+{% block title %}
+ / {% for session in selected_session %}{{ session.long_title }}{% endfor %}
+{% endblock %}
 
 {% block content %}
 
+	<div id="hed">
+		<h1>
+			{% for session in selected_session %}
+			{{ session.long_title }}
+			{% endfor %}
+		</h1>
+	</div>
 
-	{% for session in selected_session %}
-		<h1>{{ session.title }}</h1>
-		{{ session.description|safe }}
-	{% endfor %}
-
-	<dl class="date-listing">
-
+	<div id="main">
+	
+		<dl class="calendar">
 
 		{% for event in events reversed %}
 
 			{% if event.status == "PUBLISHED" %}
 
-				{% ifchanged %}
-					<dt>
-						{{ event.date|date:"l" }}<br />
-						<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
-						{% if forloop.first %}
-							{{ event.date|date:"Y" }}
-						{% endif %}
-					</dt>
-				{% endifchanged %}
-				<dd>
-				<h3>
-					<!--<b class="event">Event:</b>-->
-					<a href="/classes/{{ event.slug }}">{{ event.title }} <span class="meta">({{ event.date|date:"P" }})</span></a>
-				</h3>
+					{% ifchanged %}
+						<dt>
+							{{ event.date|date:"l" }}<br />
+							<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
+							{% if forloop.first %}
+								{{ event.date|date:"Y" }}
+							{% endif %}
+						</dt>
+					{% endifchanged %}
+					<dd>
+						<a href="/classes/{{ event.slug }}">
+							<h3>
+								<!--<b class="event">Event:</b>-->
+								{{ event.title }}
+							</h3>
+							<p class="meta">
+								<i class="ss-icon">time</i> {{ event.date|date:"P" }}
+							</p>
+							{{ event.summary|safe }}
+							<p>
+								<i class="ss-icon">user</i> Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
+							</p>
+						</a>
+					</dd>
 
-				{{ event.summary|safe }}
-
-				<p>Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
-
-				{% if not event.has_passed and event.registration_status == "ALLOW" %}	
-					{% if event.registration_count >= event.max_students %}
-					 	{% if event.waitlist_status %}
-							<p><em>waitlist available</em></p>
-						{% else %}
-							<p><em>class is full</em></p>			
-						{% endif %}
-					{% else %}
-						<p><em>registration is open</em></p>
-					{% endif %}
 				{% endif %}
 
-				</dd>
+			{% endfor %}
 
-			{% endif %}
+		</dl>
 
-		{% endfor %}
+	</div>
 
-	</dl>
-	<div class="clear"></div>
-	
+{% endblock %}
 
-	
+
+
+{% block sidebar_content %}
+
+		<div class="sidebar_text sidebar_contrast">
+
+			{% for session in selected_session %}
+				{{ session.description|safe }}
+			{% endfor %}
+
+		</div>
+
 {% endblock %}

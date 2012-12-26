@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 
-{% block local %}
-	<ul>
-		<li><a href="/classes/#upcoming">Upcoming classes</a></li>
-		<li><a href="/classes/#past">Recent classes</a></li>
-		{% for session in sessions reversed %}
-			<li><a href="/classes/{{ session.slug }}">{{ session.title }}</a></li>
-		{% endfor %}
-	</ul>
+{% block sidebar %}
+
+	<div id="sidebar" class="sidebar_section">
+
+		<div class="local_nav">
+			<ul>
+				<li><a href="/classes#upcoming"><i class="ss-icon icon_decorative">&#x25B9;</i>Upcoming classes</a></li>
+				<li><a href="/classes#past"><i class="ss-icon icon_decorative">&#x25B9;</i>Past classes</a></li>
+				{% for session in sessions reversed %}
+					<li><a href="/classes/{{ session.slug }}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ session.title }}</a></li>
+				{% endfor %}
+				<li><a href="http://knowledgecommonsdc.org/classes"><i class="ss-icon icon_decorative">&#x25BB;</i>More sessions&hellip;</a></li>
+			</ul>
+		</div>
+	
+		{% block sidebar_content %}
+		{% endblock %}
+
+	</div>
 
 {% endblock %}
+
+
+
+

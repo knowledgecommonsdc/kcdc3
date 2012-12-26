@@ -2,13 +2,14 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from datetime import datetime
 from django.views.generic import DetailView, TemplateView, ListView
-from classes.models import Event, Registration, Bio
+from classes.models import Event, Registration, Bio, Session
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template import Context
 from django.contrib.auth.decorators import login_required
 from email import send_registration_mail
 from helpers import *
+from django.db.models import Q
 
 # display a list of events
 class EventListView(ListView):
@@ -19,6 +20,35 @@ class EventListView(ListView):
 	def get_context_data(self, **kwargs):
 		
 		context = super(EventListView, self).get_context_data(**kwargs)
+
+		context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT")
+
+		context['selected_session'] = Session.objects.filter(status="CURRENT")
+
+		# get list of sessions for use in local navigation
+		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+
+		return context
+
+
+
+# display a list of archived (past or future) events
+class EventArchiveView(ListView):
+
+	template_name = "classes/event_archive.html"
+	context_object_name = "event_list"
+	model = Event
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(EventArchiveView, self).get_context_data(**kwargs)
+
+		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
+		context['selected_session'] = Session.objects.filter(slug=self.kwargs['slug'])
+
+
+		# get list of sessions for use in local navigation
+		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
 
 		return context
 
@@ -33,6 +63,9 @@ class EventDetailView(DetailView):
 	def get_context_data(self, **kwargs):
 		
 		context = super(EventDetailView, self).get_context_data(**kwargs)
+
+		# get list of sessions for use in local navigation
+		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
 
 		if self.request.user.is_authenticated():
 			context['user_is_authenticated'] = True
@@ -155,9 +188,11 @@ def facilitator(request, slug):
 
 	context = Context()
 
+	# get list of sessions for use in local navigation
+	context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+
 	context['slug'] = slug
 	context['title'] = e.title
-
 
 	context['registration_count'] = e.registration_count()
 	context['waitlist_count'] = e.waitlist_count()
