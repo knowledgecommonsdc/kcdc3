@@ -39,6 +39,19 @@
 							</h3>
 							<p class="meta">
 								<i class="ss-icon">time</i> {{ event.date|date:"P" }}
+							
+								{% if not event.has_passed and event.registration_status == "ALLOW" %}	
+									{% if event.registration_count >= event.max_students %}
+									 	{% if event.waitlist_status %}
+											<span class="registration_indicator"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
+										{% else %}
+											<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>			
+										{% endif %}
+									{% else %}
+										<span class="registration_indicator"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
+									{% endif %}
+								{% endif %}
+							
 							</p>
 							{{ event.summary|safe }}
 							<p>
