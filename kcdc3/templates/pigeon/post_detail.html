@@ -1,0 +1,29 @@
+{% extends "pigeon/base.html" %}
+
+
+
+{% block content %}
+
+	<div id="hed">
+		<h1>{{ post.title }}</h1>
+	</div>
+	
+	<div id="main">
+		
+		{# TODO Oxford commas would be better, though the building of stylistically correct lists is pretty cool already #}
+		<p>{% for bio in post.author.all %}{% if forloop.last %} and {% elif not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
+
+		{{ post.main_text|safe }}
+
+		{% if post.author.count > 0 %}
+			<hr />
+			{% for bio in post.author.all %}
+				{{ bio.get_staff_description|safe }}
+			{% endfor %}
+		{% endif %}
+
+	</div>	
+	
+{% endblock %}
+
+
