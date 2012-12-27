@@ -1,0 +1,50 @@
+{% extends "pigeon/base.html" %}
+
+
+
+{% block content %}
+
+	<div id="hed">
+		<h1>Blog</h1>
+	</div>
+	
+	<div id="main">
+		
+		<dl class="calendar">
+			
+		{% for post in recent_posts reversed %}
+
+			{% ifchanged %}
+				<dt>
+					{{ post.date|date:"l" }}<br />
+					<strong>{{ post.date|date:"j" }}</strong> {{ post.date|date:"F" }}
+					{% if forloop.first %}
+						{{ post.date|date:"Y" }}
+					{% endif %}
+				</dt>
+			{% endifchanged %}
+
+			<dd>
+				<a href="/blog/{{ post.slug }}">
+					<h3>
+						{{ post.title }}
+					</h3>
+					{% if post.author|length > 0 %}
+						{# TODO Oxford commas would be better, though the building of stylistically correct lists is pretty cool already #}
+						<p>{% for bio in post.author.all %}{% if forloop.last %} and {% elif not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
+					{% endif %}
+					{{ post.teaser|safe }}
+				</a>
+			</dd>
+
+
+		{% endfor %}
+
+
+			
+		</dl>
+
+	</div>	
+	
+{% endblock %}
+

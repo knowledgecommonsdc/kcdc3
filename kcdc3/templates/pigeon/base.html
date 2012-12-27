@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+
+{% block sidebar %}
+
+	<div id="sidebar" class="sidebar_section">
+	
+		{% block sidebar_text %}
+		{% endblock %}
+
+		<div class="local_nav">
+			<ul>
+				{% for post in posts reversed %}
+					{% ifchanged %}
+						<li><a href="/blog/{{ post.date|date:"ym" }}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ post.date|date:"F Y" }}</a></li>
+					{% endifchanged %}
+				{% endfor %}
+			</ul>
+		</div>
+
+	</div>
+
+{% endblock %}
+
+
+
+
