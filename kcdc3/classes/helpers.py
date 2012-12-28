@@ -13,7 +13,7 @@ def is_waitlisted(student, event):
 	student_registrations = Registration.objects.filter(
 					event=event, 
 					student=student, 
-					waitlist=True, 
+					waitlist=True,
 					cancelled=False)
 
 	if len(student_registrations) > 0:
@@ -36,6 +36,22 @@ def is_registered(student, event):
 	else:
 		return False
 
+def is_cancelled(student, event):
+	"""Checks to see if a student has cancelled for a given event."""
+	if student == None:
+		return False
+
+	student_registrations = Registration.objects.filter(
+					event=event,
+					student=student,
+					cancelled=False)
+
+	if len(student_registrations) > 0:
+		return False
+	else:
+		return True
+
+
 def cancel_registration(student, event):
 	"""Cancels the users registration for an event."""
 	registration = Registration.objects.filter(
@@ -48,10 +64,17 @@ def cancel_registration(student, event):
 
 def promote_waitlistee(event):
 	"""Promotes a waitlisted student to registered for an event."""
-	registration = Registration.objects.filter(
+	registrations = Registration.objects.filter(
 				event=event, 
 				waitlist=True, 
-				cancelled=False)[0]
+				cancelled=False)
+
+	if len(registrations) == 0:
+		return None
+	registration = registrations[0]
+	print "registration: "+str(registration)
+
 	registration.waitlist=False
 	registration.save()
+	return registration.student
 

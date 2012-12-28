@@ -2,13 +2,14 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from datetime import datetime
 from django.views.generic import DetailView, TemplateView, ListView
-from classes.models import Event, Registration, Bio
+from classes.models import Event, Registration, Bio, Session
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template import Context
 from django.contrib.auth.decorators import login_required
 from email import send_registration_mail
 from helpers import *
+from django.db.models import Q
 
 # display a list of events
 class EventListView(ListView):
@@ -19,6 +20,35 @@ class EventListView(ListView):
 	def get_context_data(self, **kwargs):
 		
 		context = super(EventListView, self).get_context_data(**kwargs)
+
+		context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT")
+
+		context['selected_session'] = Session.objects.filter(status="CURRENT")
+
+		# get list of sessions for use in local navigation
+		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+
+		return context
+
+
+
+# display a list of archived (past or future) events
+class EventArchiveView(ListView):
+
+	template_name = "classes/event_archive.html"
+	context_object_name = "event_list"
+	model = Event
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(EventArchiveView, self).get_context_data(**kwargs)
+
+		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
+		context['selected_session'] = Session.objects.filter(slug=self.kwargs['slug'])
+
+
+		# get list of sessions for use in local navigation
+		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
 
 		return context
 
@@ -33,6 +63,9 @@ class EventDetailView(DetailView):
 	def get_context_data(self, **kwargs):
 		
 		context = super(EventDetailView, self).get_context_data(**kwargs)
+
+		# get list of sessions for use in local navigation
+		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
 
 		if self.request.user.is_authenticated():
 			context['user_is_authenticated'] = True
@@ -83,12 +116,22 @@ def register(request, slug):
 			date_registered=datetime.now(), 
 			waitlist=waitlist_status)
 		t.save()
+
+		# Email us with the needs of the student.
+		if request.POST["student_needs"] != "":
+			send_mail("(KCDC accommodation form) " + e.title,
+				request.user.email+" requested the following: "+request.POST["student_needs"],
+				request.user.email,
+				["contact@knowledgecommonsdc.org"],
+				fail_silently=False)
+
 		if waitlist_status == False:
 			send_registration_mail(e, 'registered', request.user.email)
 			return HttpResponseRedirect("/classes/response/registered")
 		else:
 			send_registration_mail(e, 'waitlisted', request.user.email)
 			return HttpResponseRedirect("/classes/response/waitlisted")
+				
 	else: 
 		return HttpResponseRedirect("/classes/response/error")
 
@@ -99,13 +142,19 @@ def cancel(request, slug):
 	
 	e = Event.objects.get(slug=slug)
 	
-	if is_registered(request.user, e) or is_waitlisted(request.user, e):
+	if not is_cancelled(request.user, e) and (is_registered(request.user, e) or is_waitlisted(request.user, e)):
+		# Gotta cache again... There's gotta be another way
+		# to do this, this makes me feel gross.
+		add_to_waitlist = e.add_to_waitlist()
+		student_is_waitlisted = is_waitlisted(request.user, e)
+
 		cancel_registration(request.user, e)
-		if (e.add_to_waitlist() == True and 
+		if (add_to_waitlist == True and 
 			e.waitlist_status == True and 
-			not is_waitlisted(request.user, e)):
-			promote_waitlistee(e)
-			send_registration_mail(e, 'promoted', w.student.email)
+			not student_is_waitlisted and
+			e.waitlist_count() > 0):
+			student = promote_waitlistee(e)
+			send_registration_mail(e, 'promoted', student.email)
 		send_registration_mail(e, 'cancelled', request.user.email)
 		return HttpResponseRedirect("/classes/response/cancelled")
 	else: 
@@ -139,9 +188,11 @@ def facilitator(request, slug):
 
 	context = Context()
 
+	# get list of sessions for use in local navigation
+	context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+
 	context['slug'] = slug
 	context['title'] = e.title
-
 
 	context['registration_count'] = e.registration_count()
 	context['waitlist_count'] = e.waitlist_count()

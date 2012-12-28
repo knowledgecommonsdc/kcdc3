@@ -29,21 +29,34 @@ class RegistrationEmail(EmailMessage):
 		self.event = self.generate_context(event)
 
 		self.subject = self.generate_subject(registration_flag)
+
 		self.body = self.generate_message(registration_flag)
 
 		self.from_email = kwargs.get('from_email', KCDC_EMAIL)
-		self.to = list(kwargs.get('to'))
+
+		self.to = [kwargs.get('to')]
+
 		self.bcc = kwargs.get('bcc', [])
 
+		""" Messages were getting CCed even when no CC recipient was specified. 
+			Disabled for now, since we're not using this function anyway."""
 		cc = kwargs.get('cc')
-		if cc and cc != KCDC_EMAIL:
-			self.cc = [cc, KCDC_EMAIL]
-		else:
-			self.cc = [KCDC_EMAIL]
+		self.cc = ['']
+
+		# cc = kwargs.get('cc')
+		# if cc and cc != KCDC_EMAIL:
+		# 	self.cc = [cc, KCDC_EMAIL]
+		# else:
+		# 	self.cc = [KCDC_EMAIL]
 
 		self.connection = kwargs.get('connection')
-		self.attachment = kwargs.get('attachment')
+
+		self.attachments = kwargs.get('attachments')
+
 		self.headers = kwargs.get('headers')
+
+		self.extra_headers = kwargs.get('extra_headers')
+		self.extra_headers = {'From': self.from_email}
 
 	def generate_context(self, event):
 		"""Generate the set of key value pairs that will be used

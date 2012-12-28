@@ -1,1 +1,2191 @@
-article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none}[hidden]{display:none}html{font-size:100%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0;font-size:13px;line-height:1.5}body,button,input,select,textarea{font-family:sans-serif;color:#222}::-moz-selection{background:#fe57a1;color:#fff;text-shadow:none}::selection{background:#fe57a1;color:#fff;text-shadow:none}a{color:#00e}a:visited{color:#551a8b}a:hover{color:#06e}a:focus{outline:thin dotted}a:hover,a:active{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}blockquote{margin:1em 40px}dfn{font-style:italic}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}ins{background:#ff9;color:#000;text-decoration:none}mark{background:#ff0;color:#000;font-style:italic;font-weight:bold}pre,code,kbd,samp{font-family:monospace, monospace;_font-family:'courier new', monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:none}q:before,q:after{content:"";content:none}small{font-size:85%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}ul,ol{margin:1em 0;padding:0 0 0 40px}dd{margin:0 0 0 40px}nav ul,nav ol{list-style:none;list-style-image:none;margin:0;padding:0}img{border:0;-ms-interpolation-mode:bicubic;vertical-align:middle}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:0;margin:0;padding:0}label{cursor:pointer}legend{border:0;*margin-left:-7px;padding:0}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}button,input{line-height:normal;*overflow:visible}table button,table input{*overflow:auto}button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button}input[type="checkbox"],input[type="radio"]{box-sizing:border-box}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top;resize:vertical}input:invalid,textarea:invalid{background-color:#f0dddd}table{border-collapse:collapse;border-spacing:0}td{vertical-align:top}dt,dd{margin:0;padding:0}.flexslider{width:100%;margin:0;padding:0}.flexslider .slides li{display:none}.flexslider .slides img{max-width:100%;display:block}.flexslider a{outline:none}.slides,.flex-control-nav,.flex-direction-nav{margin:0;padding:0;list-style:none}.no-js .slides li:first-child{display:block}.flexslider .slides li{position:relative}.flexslider-container{position:relative}.flex-caption{width:96%;padding:2%;position:absolute;left:0;bottom:0;background:rgba(0,0,0,0.3);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.3);font-size:14px;line-height:18px}.flex-direction-nav li a{width:52px;height:52px;margin:-13px 0 0;display:block;background:url(theme/bg_direction_nav.png) no-repeat 0 0;position:absolute;top:50%;cursor:pointer;text-indent:-9999px}.flex-direction-nav li a.next{background-position:-52px 0;right:-21px}.flex-direction-nav li a.prev{background-position:0 0;left:-20px}.flex-control-nav{width:100%;position:absolute;bottom:-30px;text-align:center}.flex-control-nav li{margin:0 0 0 5px;display:inline-block;zoom:1;*display:inline}.flex-control-nav li:first-child{margin:0}.flex-control-nav li a{width:13px;height:13px;display:block;background:url(theme/bg_control_nav.png) no-repeat 0 0;cursor:pointer;text-indent:-9999px}.flex-control-nav li a:hover{background-position:0 -13px}.flex-control-nav li a.active{background-position:0 -26px;cursor:default}body{font-family:"Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;font-size:14px;line-height:1.5em;color:#666}a{color:#666;text-decoration:none;padding:0px 0 1px 0;border-bottom:1px solid #ccc;background:none;-moz-transition:all 0.5s ease-in;-webkit-transition:all 0.5s ease-in;transition:all 0.5s ease-in}a:visited{color:#756c63}a:hover{border-bottom:1px solid #c83411;color:#fff;background:#c83411;-moz-transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;transition:all 0.2s ease-in}a.noborder,a.noborder:hover{background:none;border:none;color:inherit}a img{background:none;border:none;color:inherit}h1{margin:1em 0 0.5em 0;line-height:1em;font-weight:normal;color:#666}h1 a,h1 a:visited{border:none}h2{margin:1em 0 0.5em 0;line-height:1em;font-weight:normal;color:#666}h2 a,h2 a:visited{border:none}h3{margin:1em 0 0.5em 0;line-height:1em;font-weight:normal;color:#666}h3 a,h3 a:visited{border:none}h4{margin:1em 0 0.5em 0;line-height:1em;font-weight:normal;color:#666}h4 a,h4 a:visited{border:none}h5{margin:1em 0 0.5em 0;line-height:1em;font-weight:normal;color:#666}h5 a,h5 a:visited{border:none}h6{margin:1em 0 0.5em 0;line-height:1em;font-weight:normal;color:#666}h6 a,h6 a:visited{border:none}h1{font-size:3em;line-height:1.125em;font-family:"Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;font-weight:bold;margin:0.75em 0 0 0;color:#3e9bc3;max-width:500px}h1>a,h1>a:visited{color:#3e9bc3;border:none}h1>a:hover{color:#fff;background:#3e9bc3;border:none}h2{font-size:1.5em;line-height:1.25em;margin-top:2em}h3{font-size:1em;line-height:1.25em;font-weight:bold}h3 span.meta{font-weight:normal}h4{font-size:1em}p{line-height:1.5em;margin-bottom:0}p+p{margin-top:1em}em{font-style:italic}strong{font-weight:bold}i,b{font-weight:normal;font-style:normal}blockquote{margin-left:0;margin-right:0;padding:1em 1.5em 2em 1.5em;background:#eef5f6}.intro,.intro2{color:#3e9bc3}.intro{font-size:1.5em}.wide>.intro{border:none;max-width:670px}h1+p.intro{margin-top:0.25em}.section{margin-top:3em}input:invalid{background:#fff}input[type="submit"]{height:2.5em;margin:1.5em 0 0 0;padding:0 1em 0 1em;border:none;font-size:0.9em;font-weight:bold;-webkit-box-shadow:1px 1px 0px rgba(0,0,0,0.3);-moz-box-shadow:1px 1px 0px rgba(0,0,0,0.3);box-shadow:1px 1px 0px rgba(0,0,0,0.3);background-color:#3e9bc3;color:#fff}input[type="submit"]:hover{border:none;color:#fff;background-color:#c83411}input[type="text"],input[type="email"],input[type="tel"]{font-size:0.8em}body.front input[type="text"]{color:#c83411;font-size:0.8em}.separate{display:block;float:left;margin-top:0.5em}label.separate{width:10em;clear:left}input.separate{width:15em}.image-group img{margin-right:2em}.image-group a{border:none}.image-group a:hover{border:none;background:none}#page-front #container{width:960px;max-width:960px}#page-front #local-desktop{display:none}#page-front #top{background:#333;-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.5),0 -1px 1px rgba(0,0,0,0.3);-moz-box-shadow:0 1px 2px rgba(0,0,0,0.5),0 -1px 1px rgba(0,0,0,0.3);box-shadow:0 1px 2px rgba(0,0,0,0.5),0 -1px 1px rgba(0,0,0,0.3)}#page-front #header-desktop{margin-bottom:2em}#page-front #intro{float:left;width:33.333%;padding-top:2em;background:#c83411}#page-front #intro .logo{width:50%;margin:0 1em 0 1em}#page-front #intro .logo img{max-width:100%}#page-front #intro .text{margin:1em 1em 1em 1.5em}#page-front #intro .text>p{margin:0;color:#fff;font-size:1.2em;line-height:1.5em}#page-front #intro .call-to-action{margin:0.25em 0 0 0;position:relative;left:70%;z-index:9;width:50%;background:#fff;-webkit-box-shadow:1px 2px 3px rgba(0,0,0,0.5);-moz-box-shadow:1px 2px 3px rgba(0,0,0,0.5);box-shadow:1px 2px 3px rgba(0,0,0,0.5);white-space:nowrap;overflow:hidden}#page-front #intro .call-to-action>p{margin:0}#page-front #intro .call-to-action a{padding:0.5em 0.5em 0.5em 0.75em;border:1px solid rgba(0,0,0,0.2);display:block;color:#c83411;font-weight:bold;font-size:1em}#page-front #intro .call-to-action a:hover{color:#fff;background-color:#c83411;border:1px solid rgba(255,255,255,0.5)}#page-front .social{border-top:1px solid rgba(255,255,255,0.3);margin:1.5em 1.5em 1em 1.5em;padding:0}#page-front .social a{background:none;border:none;color:inherit;color:#fff;font-size:0.8em}#page-front .social img{margin:-5px 2px 0 0}#page-front .social li{list-style:none;display:inline-block;margin:1em 0.5em 0 0;padding:0}#page-front #mobile-calls{display:none}#page-front #slideshow{float:left;width:66.667%}#page-front #slideshow img{position:relative;left:1px}#signup{width:97.5%;margin-right:2.5%;float:left;margin-top:1em;margin-bottom:0.5em;color:#c83411}#signup form{margin:0 0 0 1.5em;line-height:2em}#signup label{font-size:1.2em;margin:0 0.25em 0 0;position:relative;top:0.2em}#signup input[type=email]{height:1.8em;margin:0 0.5em 0 0.5em;color:#aaa}#signup input[type=submit]{height:2em;padding:0.5em;font-weight:bold;-webkit-box-shadow:1px 2px 1px rgba(0,0,0,0.2);-moz-box-shadow:1px 2px 1px rgba(0,0,0,0.2);box-shadow:1px 2px 1px rgba(0,0,0,0.2);position:relative;top:1px;background:#c83411}#signup input[type=submit]:hover{background:#3e9bc3}#signup .label{float:left;margin-bottom:0.5em}#signup .inputs{float:left;margin-top:-1em}#page-front #announcement{clear:both;width:100%;margin-bottom:2em;padding:0.75em 0 0.75em 0;background:#3e9bc3}#page-front #announcement p{font-size:1.2em;margin:0 0.25em 0 1.5em;position:relative;color:#fff}#page-front #announcement a,#page-front #announcement a:visited{border:none;color:#fff;background:none}#page-front #announcement a:hover{color:#3e9bc3;background:#cfe6ec}#page-front #classes{width:100%;clear:both;margin:1em 0 0 1.5em}#page-front #classes b{font-weight:bold;color:#3e9bc3}#page-front #classes a:hover b{color:#fff}#page-front #classes>.entry{width:22.5%;margin-right:2.5%;float:left;border-bottom:1px solid #eee;padding-bottom:1em;margin-bottom:1em}#page-front #classes>.entry h3{padding-right:1em;font-size:0.9em;line-height:1.5em}#page-front #classes>.entry p{margin:0 0 0.5em 0;font-size:0.9em}#page-front #classes>.entry .instructor a{padding:1px 2px;background:url("/v2/images/sitewide/stripe-blue.png");white-space:nowrap;border:none;-moz-transition:all 0.1s ease-in;-webkit-transition:all 0.1s ease-in;transition:all 0.1s ease-in}#page-front #classes>.entry h3 a{display:block}#page-front #classes>.entry a{border:none}#page-front #classes>.entry a:hover,#page-front #classes>.entry .instructor a:hover{background:#3e9bc3}#page-front #classes>.blog{background:#f1fcff;border-bottom:none}#page-front #classes>.blog h3,#page-front #classes>.blog p{margin-left:1em;margin-right:1em}#page-front #classes>.blog a{background:none}#page-front #classes>.contribute{background:#fff6f3;border-bottom:none}#page-front #classes>.contribute h3,#page-front #classes>.contribute p{margin-left:1em;margin-right:1em}#page-front #classes>.contribute a{color:#c83411;background:none}#page-front #classes>.contribute a:hover{background:#c83411;color:#fff}#page-front #more{width:100%;float:left;margin-top:0;clear:both}#page-front #more p{text-align:right;font-size:1.5em;margin:0}#page-front #more a{background:#3e9bc3;padding:10px;color:#fff;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,0.2);-moz-box-shadow:1px 1px 1px rgba(0,0,0,0.2);box-shadow:1px 1px 1px rgba(0,0,0,0.2);-moz-transition:all 0.1s ease-in;-webkit-transition:all 0.1s ease-in;transition:all 0.1s ease-in}#page-front #more a:hover{background:#c83411;border:none}#page-front #twitter{width:97.5%;margin-right:2.5%;float:left;clear:both;margin-top:4em;padding:0 0 1em 0;background:#fff;color:#666}#page-front #twitter .tweet{margin:0 0 0.75em 1.5em;padding:0.5em 0 0 0;border-top:1px solid #eee;font-size:0.9em}#page-front #twitter a{background:url("/v2/images/sitewide/stripe.png");border:1px solid #f1f1f1;color:#666;padding:1px 2px;-moz-transition:all 0.1s ease-in;-webkit-transition:all 0.1s ease-in;transition:all 0.1s ease-in}#page-front #twitter a:hover{background:#c83411;color:#fff}#page-front #twitter h2{margin:0.75em 0 0.75em 1em;font-size:1.5em;font-weight:bold;color:#666}#page-front #twitter .sub{font-size:0.667em;font-weight:normal}@media screen and (max-width: 980px){#page-front #container{width:90%;margin-left:5%;margin-right:5%}#page-front #classes>.entry{width:30.833%;margin-right:2.5%;float:left}#page-front #top{background:#c83411}#page-front #top .call-to-action{display:none}#page-front #top .social{display:none}#page-front #mobile-calls{display:block}#page-front #mobile-calls ul{margin:1em 0 0 1.5em;padding:0}#page-front #mobile-calls li{margin:0.5em 0.5em 0 0;list-style:none;display:inline-block;font-size:0.9em;border:1px solid #eee}#page-front #mobile-calls a{border:none;padding:2px 4px;display:block}#page-front #mobile-calls img{position:relative;top:-2px}}@media screen and (max-width: 720px){#page-front #classes>.entry{width:97.5%;margin-right:2.5%;float:left}#page-front #intro{width:100%;float:left}#page-front #intro .logo{margin:0 1em 1em 1.5em;width:20%;float:left}#page-front #intro .text{width:60%;margin:0.5em 0 0 0;padding-bottom:2em;float:left}#page-front #top .text>p{font-size:1em;line-height:1.25em}#page-front #slideshow{width:100%;float:left;padding:2em 0;background:#555}#page-front .flexslider{width:60%;margin:0 auto 0 auto}}@media screen and (max-width: 600px){#page-front #top{margin-top:1em}}@media screen and (max-width: 500px){#container>div{width:95%;margin-left:auto;margin-right:auto}#page-front #slideshow{padding:0}#page-front .flexslider{width:100%}}.image-right{float:right;margin:0 0 0 1em}@media screen and (max-width: 500px){.image-right{float:none}}a.internal{background-color:#c83411;color:#fff;border:none;padding:3px}.login a{background-color:#c83411;padding:4px;color:#fff}.login a:hover{background-color:#3e9bc3;border:none}.byline,.location{margin-top:0}.date>b,.byline>b,.location>b,.enrollment>b{color:#939393;font-weight:bold;font-size:0.9em}dl.date-listing dt{width:22.5%;margin-right:2.5%;float:left;margin-top:2em;padding-top:1em;border-top:1px solid #ccc}dl.date-listing dd{width:72.5%;margin-right:2.5%;float:left;margin-top:2em;border-top:1px solid #ccc}dl.date-listing dd p{margin-top:0.25em}dl.date-listing dd p+p{margin-top:0.25em}dl.date-listing dd+dd{margin-left:25%;margin-top:1em;border:none}.event{color:#3e9bc3;font-weight:bold}.registration-notice{width:100%;background-image:url("/v2/images/sitewide/stripe-blue.png");clear:both;margin-top:3em;padding-top:1em;padding-bottom:2em}.registration-notice p,.registration-notice h3{color:#3e9bc3;margin-left:2em;margin-right:2em}.rsvp_form{margin-top:2em;border-top:1px solid #e8e8e8}#checkin_form label{display:block}#checkin_form select{width:230px;display:block;font-size:16px}#checkin_form input[type="text"],#checkin_form input[type="email"]{width:220px;display:block;font-size:16px}.teacher-list{width:47.5%;margin-right:2.5%;float:left}.teacher-list ul{margin:2em 0 0 0;padding:0}.teacher-list li{border-top:1px solid #e8e8e8;list-style-type:none}.teacher-list a{padding:0.5em 0 0.5em 0.5em;border:none;display:block}.page div#main{width:64.167%;margin-right:2.5%;float:left}#main.page{width:64.167%;margin-right:2.5%;float:left}.group{width:100%}.group-image{margin:2em 0 2em 0}.group-content{margin:0 0 4em 0}.group-content>p{line-height:1.333em}.group-content>ul{margin:0 0 1.5em 0;padding:0;list-style:none}.group-content>ul li{margin:0.5em 0 0 0;padding:0.5em 0 0 0;border-top:1px solid #eee;font-size:0.9em;line-height:1.333em;color:#939393}.action,.action:visited,#submit-button{height:1.5em;margin:1.5em 0 0 0;padding:0.5em;border:none;font-size:0.9em;font-weight:bold;-webkit-box-shadow:1px 1px 0px rgba(0,0,0,0.3);-moz-box-shadow:1px 1px 0px rgba(0,0,0,0.3);box-shadow:1px 1px 0px rgba(0,0,0,0.3);background-color:#3e9bc3;color:#fff}.action:hover,#submit-button:hover{border:none;color:#fff;background-color:#c83411}#submit-button{height:2.5em;padding-left:1em;padding-right:1em}@media screen and (min-width: 600px){.group-image{float:left;width:33.333%;clear:left}.group-content{float:left;width:63.667%;margin-left:3%}}@media screen and (min-width: 900px){.group{width:28%;margin:0 5.333% 0 0;float:left}.group-image{float:none;width:100%;height:188px;margin:2em 0 1.5em 0}.group-content{float:none;width:100%;margin-left:0}#contribute-materials-image{margin:55px 0 0 0}#contribute-time-image{margin:40px 0 0 0}}#contribute-form{border-top:1px solid #eee;margin:2em 0 0 0}#contribute-form .fields{margin:1em 0 0.5em 0}#contribute-form label{display:block;clear:left;margin-top:0.25em}#contribute-form label.separate{float:left;width:4em;margin-top:1em}#contribute-form input.separate{display:block;float:left;font-size:1em;width:20em;margin-top:1em}#contribute-form label.vertical{padding-top:1em}#contribute-form textarea{width:24em}#contribute-form #submit-button{clear:both;margin-left:18em;width:9em}#global-desktop ul{margin:0 0 0 0;padding:0 0 0 0;height:2em}#global-desktop li{margin:0;padding:0;display:inline;height:2em}#global-desktop a,#global-desktop a:visited{border:none;margin:0;padding:0.5em 0.5em;color:#666;line-height:1em;font-weight:bold;display:inline-block;background:none}#global-desktop a.title{color:#c83411}#global-desktop a.active{color:#fff;background:#c83411;-webkit-box-shadow:rgba(0,0,0,0.3) 1px 1px 1px 0 inset;-moz-box-shadow:rgba(0,0,0,0.3) 1px 1px 1px 0 inset;box-shadow:rgba(0,0,0,0.3) 1px 1px 1px 0 inset}#global-desktop a.title.active{color:#c83411;background:none}#global-desktop a:hover{background-color:#c83411;color:#fff}#global-desktop ul a.greyed{background-color:#bebebe}#global-mobile li{width:100%}#global-mobile a{display:block;padding:1em 0 1em 1em;border:none;border-top:1px solid #ccc;background:url("/v2/images/sitewide/stripe.png")}#global-mobile a:hover{background:#c83411;color:#fff}.menu-link{width:100%;margin:0}.menu-link a{background:url("/v2/images/sitewide/stripe.png");border:1px solid #eee;display:block;padding:0.5em}.menu-link a:hover{color:#fff;background:#c83411}.utility{margin:0 0 0 0;padding:0 1em 0 0;text-align:right;font-size:0.9em;clear:both;color:#999}.utility a{border:none;background:none;color:#999}.utility a:hover{color:#fff;background-color:#c83411}div#footer p{margin-top:0}div#footer a{background:none;border:none;color:inherit}div#footer .divider{color:#ccc}.local ul{margin:0 0 0 -10px;padding:1em 0 0 0}.local li{margin:1.25em 0 0 0;padding:0;list-style-type:none}.local a,.local a:visited{border:none;margin:0;padding:0.5em 0.5em;color:#666;background-color:#fff;background:url("/static/images/stripe.png");border:1px solid #eee;line-height:1em;font-weight:bold;-webkit-box-shadow:rgba(0,0,0,0.05) 1px 1px 1px 0;-moz-box-shadow:rgba(0,0,0,0.05) 1px 1px 1px 0;box-shadow:rgba(0,0,0,0.05) 1px 1px 1px 0}.local a.active{background:#5fbcdc;color:#fff}.local a:hover{background:#5fbcdc;color:#fff}.local a.greyed{background-color:#bebebe !important}@media screen and (max-width: 700px){#local-mobile ul{margin:0 0 0 0}#local-mobile li{display:inline-block}}#registration-chart{font-size:0.8em}#registration-chart dt,#registration-chart dd{border:none;padding-top:0}#registration-chart dt{clear:left}#registration-chart h3{font-weight:normal;margin:0;clear:both}#registration-chart h3 a{color:#3e9bc3}#registration-chart h3 a:hover{color:#fff;background-color:#3e9bc3;border:none}#registration-chart p{margin-right:0.5em;color:#fff}#registration-chart .graph-registered,#registration-chart .graph-remaining{float:left;border:1px solid #9bd7ea;text-align:right;overflow:hidden}#registration-chart .graph-registered{background:#9bd7ea;border-right:none;font-weight:bold}#registration-chart .graph-remaining{background:url("/v2/images/sitewide/stripe-blue3.png");border:1px solid #cfe6ec;border-left:none}#registration-chart .graph-remaining p{color:#3e9bc3}#registration-chart .graph-full,#registration-chart .graph-unlimited{float:left;padding-left:0.5em}#registration-chart .graph-full p,#registration-chart .graph-unlimited p{color:#939393;padding-top:0.35em;margin:0}#registration-chart .full{background:#3e9bc3;border-color:#3e9bc3}#registration-chart .full p{color:#fff}img{max-width:100%}.clear{clear:both}#skip{position:absolute;top:0;left:-9000px}#container{width:90%;margin:0 5% 0 5%}#header-desktop,#local-desktop{display:none}#header-mobile h1{font-size:1em;margin:1em 0}#global-mobile{margin-top:2em}#local-mobile{margin:1em 0 0 1em}#site-header{width:100%;padding:0 0 1em 0}#site-header .global{width:100%;padding:3em 0 0.5em 0;background:url("/static/images/stripe.png");border-bottom:1px solid #eee}#site-footer{width:100%;margin-top:3em;padding:1em 0 2em 0;background:url("/static/images/stripe.png");border-top:5px solid #eee}#site-footer>div{padding:0 1em 0 2em}#site-footer a{background:none;border:none;padding:0.2em}#site-footer a:hover{background:#c83411}#main{width:100%;padding-bottom:3em}@media screen and (min-width: 500px){#container{width:80%;margin:0 auto;padding:0 0 0 0;max-width:900px;border-left:1px solid #eee}#header-mobile,.content{margin-left:1em}}@media screen and (min-width: 600px){#header-mobile,#global-mobile,#local-mobile{display:none}#header-desktop,#local-desktop{display:block;width:100%}#header-desktop li,#local-desktop li{display:inline-block}#global-desktop{min-height:5em;padding:3em 0 1em 0.75em;background:url("/static/images/stripe.png");border-bottom:1px solid #eee}}@media screen and (min-width: 860px){#local-desktop{margin:0;width:22.5%;margin-right:2.5%;float:left;padding-top:2em}#local-desktop li{display:block}#content{margin:0;width:72.5%;margin-right:2.5%;float:left}#content.wide{width:95%;margin-left:5%}}@media screen and (min-width: 940px){#global-desktop{min-height:2em}}.ir{display:block;border:0;text-indent:-999em;overflow:hidden;background-color:transparent;background-repeat:no-repeat;text-align:left;direction:ltr}.ir br{display:none}.hidden{display:none !important;visibility:hidden}.visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.visuallyhidden.focusable:active,.visuallyhidden.focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.invisible{visibility:hidden}.clearfix:before,.clearfix:after{content:"";display:table}.clearfix:after{clear:both}.clearfix{zoom:1}@media print{*{background:transparent !important;color:black !important;text-shadow:none !important;filter:none !important;-ms-filter:none !important}a,a:visited{text-decoration:underline}a[href]:after{content:" (" attr(href) ")"}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h2,h3{page-break-after:avoid}}
+@import url(../fonts/ss-social/ss-social.css);
+@import url(../fonts/ss-standard/ss-standard.css);
+/* normalize.css v1.0.1 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+/* line 21, normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/*
+ * Corrects `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+/* line 31, normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/*
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 42, normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/*
+ * Addresses styling for `hidden` attribute not present in IE 7/8/9, Firefox 3,
+ * and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+/* line 53, normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Corrects text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 68, normalize.scss */
+html {
+  font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/*
+ * Addresses `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+/* line 83, normalize.scss */
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+
+/*
+ * Addresses margins handled incorrectly in IE 6/7.
+ */
+/* line 91, normalize.scss */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/*
+ * Addresses `outline` inconsistency between Chrome and other browsers.
+ */
+/* line 103, normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers.
+ */
+/* line 112, normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Addresses font sizes and margins set differently in IE 6/7.
+ * Addresses font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+/* line 126, normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* line 131, normalize.scss */
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+
+/* line 136, normalize.scss */
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+/* line 141, normalize.scss */
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
+}
+
+/* line 146, normalize.scss */
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+
+/* line 151, normalize.scss */
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0;
+}
+
+/*
+ * Addresses styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+/* line 160, normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+/* line 169, normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* line 173, normalize.scss */
+blockquote {
+  margin: 1em 40px;
+}
+
+/*
+ * Addresses styling not present in Safari 5 and Chrome.
+ */
+/* line 181, normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE 6/7/8/9.
+ */
+/* line 189, normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/*
+ * Addresses margins set differently in IE 6/7.
+ */
+/* line 199, normalize.scss */
+p,
+pre {
+  margin: 1em 0;
+}
+
+/*
+ * Corrects font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+/* line 210, normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers.
+ */
+/* line 220, normalize.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/*
+ * Addresses CSS quotes not supported in IE 6/7.
+ */
+/* line 230, normalize.scss */
+q {
+  quotes: none;
+}
+
+/*
+ * Addresses `quotes` property not supported in Safari 4.
+ */
+/* line 239, normalize.scss */
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+/*
+ * Addresses inconsistent and variable font size in all browsers.
+ */
+/* line 248, normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/*
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 257, normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 264, normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 268, normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+/*
+ * Addresses margins set differently in IE 6/7.
+ */
+/* line 283, normalize.scss */
+dl,
+menu,
+ol,
+ul {
+  margin: 1em 0;
+}
+
+/* line 287, normalize.scss */
+dd {
+  margin: 0 0 0 40px;
+}
+
+/*
+ * Addresses paddings set differently in IE 6/7.
+ */
+/* line 297, normalize.scss */
+menu,
+ol,
+ul {
+  padding: 0 0 0 40px;
+}
+
+/*
+ * Corrects list images handled incorrectly in IE 7.
+ */
+/* line 306, normalize.scss */
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Removes border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improves image quality when scaled in IE 7.
+ */
+/* line 320, normalize.scss */
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/*
+ * Corrects overflow displayed oddly in IE 9.
+ */
+/* line 329, normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+/* line 341, normalize.scss */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE 6/7.
+ */
+/* line 353, normalize.scss */
+form {
+  margin: 0;
+}
+
+/*
+ * Define consistent border, margin, and padding.
+ */
+/* line 361, normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE 6/7/8/9.
+ * 2. Corrects text not wrapping in Firefox 3.
+ * 3. Corrects alignment displayed oddly in IE 6/7.
+ */
+/* line 373, normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  white-space: normal;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */
+}
+
+/*
+ * 1. Corrects font size not being inherited in all browsers.
+ * 2. Addresses margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improves appearance and consistency in all browsers.
+ */
+/* line 390, normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */
+}
+
+/*
+ * Addresses Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 403, normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Removes inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+/* line 420, normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+  *overflow: visible;
+  /* 4 */
+}
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+/* line 431, normalize.scss */
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+/*
+ * 1. Addresses box sizing set to content-box in IE 8/9.
+ * 2. Removes excess padding in IE 8/9.
+ * 3. Removes excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+/* line 443, normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */
+}
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 456, normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 469, normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+ * Removes inner padding and border in Firefox 3+.
+ */
+/* line 478, normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+/* line 488, normalize.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/*
+ * Remove most spacing between table cells.
+ */
+/* line 501, normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+/* line 9, h5bp_start.scss */
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+/* line 13, h5bp_start.scss */
+::-moz-selection {
+  background: #FFC900;
+  text-shadow: none;
+}
+
+/* line 18, h5bp_start.scss */
+::selection {
+  background: #FFC900;
+  text-shadow: none;
+}
+
+/* line 23, h5bp_start.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 32, h5bp_start.scss */
+img {
+  vertical-align: middle;
+}
+
+/* line 36, h5bp_start.scss */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 42, h5bp_start.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 46, h5bp_start.scss */
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* line 2, ../sass/_typography.sass */
+body {
+  color: #333333;
+  font-size: 15px;
+  line-height: 1.5em;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* line 12, ../sass/_typography.sass */
+a {
+  color: #fb2710;
+  text-decoration: none;
+  padding: 1px 2px;
+  border-bottom: 1px solid #c49b8f;
+}
+
+/* line 17, ../sass/_typography.sass */
+a:visited {
+  color: #f75f53;
+  border: #c3b8b7;
+}
+
+/* line 20, ../sass/_typography.sass */
+a:hover {
+  color: white;
+  background: #fb2710;
+  border-bottom: 1px solid #fb2710;
+}
+
+/* line 29, ../sass/_typography.sass */
+a.noborder, a.noborder:hover {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+/* line 31, ../sass/_typography.sass */
+a img {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+/* line 37, ../sass/_typography.sass */
+h1 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  color: #fb2710;
+}
+
+/* line 45, ../sass/_typography.sass */
+h1 a:hover {
+  background: none;
+  border: none;
+}
+
+/* line 37, ../sass/_typography.sass */
+h2 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  color: #fb2710;
+}
+
+/* line 45, ../sass/_typography.sass */
+h2 a:hover {
+  background: none;
+  border: none;
+}
+
+/* line 37, ../sass/_typography.sass */
+h3 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  color: #fb2710;
+}
+
+/* line 45, ../sass/_typography.sass */
+h3 a:hover {
+  background: none;
+  border: none;
+}
+
+/* line 37, ../sass/_typography.sass */
+h4 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  color: #fb2710;
+}
+
+/* line 45, ../sass/_typography.sass */
+h4 a:hover {
+  background: none;
+  border: none;
+}
+
+/* line 37, ../sass/_typography.sass */
+h5 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  color: #fb2710;
+}
+
+/* line 45, ../sass/_typography.sass */
+h5 a:hover {
+  background: none;
+  border: none;
+}
+
+/* line 37, ../sass/_typography.sass */
+h6 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  color: #fb2710;
+}
+
+/* line 45, ../sass/_typography.sass */
+h6 a:hover {
+  background: none;
+  border: none;
+}
+
+/* line 49, ../sass/_typography.sass */
+h3 a {
+  color: #fb2710;
+  border: none;
+  background: none;
+}
+
+/* line 53, ../sass/_typography.sass */
+h3 a:hover {
+  color: white;
+  background: #fb2710;
+}
+
+/* line 57, ../sass/_typography.sass */
+h1 {
+  font-size: 3.5em;
+  font-weight: 600;
+  margin: 0.75em 0 0 0;
+  color: #666666;
+}
+@media screen and (max-width: 600px) {
+  /* line 57, ../sass/_typography.sass */
+  h1 {
+    font-size: 2.5em;
+  }
+}
+
+/* line 65, ../sass/_typography.sass */
+h2 {
+  font-size: 1.75em;
+  margin-top: 2.5em;
+}
+
+/* line 68, ../sass/_typography.sass */
+h2:first-child {
+  margin-top: 0;
+}
+
+/* line 71, ../sass/_typography.sass */
+h3 {
+  font-size: 1.25em;
+  font-weight: bold;
+  line-height: 1.25em;
+}
+
+/* line 76, ../sass/_typography.sass */
+h4 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* line 83, ../sass/_typography.sass */
+h5 {
+  font-weight: normal;
+}
+
+/* line 86, ../sass/_typography.sass */
+h6 {
+  font-style: italic;
+  font-weight: bold;
+  font-weight: 400;
+}
+
+/* line 95, ../sass/_typography.sass */
+p, ul, ol {
+  margin: 1em 0 0 0;
+}
+
+/* line 98, ../sass/_typography.sass */
+.intro {
+  font-size: 1.6em;
+  line-height: 1.6em;
+  font-weight: 400;
+  color: #3e9bc3;
+}
+
+/* line 104, ../sass/_typography.sass */
+.intro + p {
+  margin-top: 2em;
+}
+
+/* line 107, ../sass/_typography.sass */
+.secondary {
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
+
+/* line 113, ../sass/_typography.sass */
+em, cite, i {
+  font-style: italic;
+}
+
+/* line 116, ../sass/_typography.sass */
+strong, b {
+  font-weight: bold;
+}
+
+/* line 3, ../sass/_nav.sass */
+.nav {
+  margin: 1em 0 0 1em;
+  padding: 0;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.nav:before, .nav:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.nav:after {
+  clear: both;
+}
+
+/* line 8, ../sass/_nav.sass */
+.nav > li {
+  float: left;
+  list-style: none;
+  display: inline-block;
+}
+
+/* line 13, ../sass/_nav.sass */
+.nav > li > a {
+  border: none;
+  color: #333333;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  display: block;
+}
+
+/* line 19, ../sass/_nav.sass */
+.nav > li > a:hover {
+  background: #fb2710;
+  color: white;
+}
+
+/* line 23, ../sass/_nav.sass */
+.nav > li > .login {
+  font-style: italic;
+  color: #fb2710;
+}
+
+/* line 27, ../sass/_nav.sass */
+.nav > li > .home_link {
+  color: #fb2710;
+  font-weight: bold;
+}
+
+/* line 33, ../sass/_nav.sass */
+#mobile_nav > ul {
+  *zoom: 1;
+  margin: 3em 0 2em 0;
+  border-top: 1px solid #cccccc;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#mobile_nav > ul:before, #mobile_nav > ul:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#mobile_nav > ul:after {
+  clear: both;
+}
+/* line 37, ../sass/_nav.sass */
+#mobile_nav > ul > li {
+  display: block;
+  margin: 0;
+  width: 50%;
+  border-bottom: 1px solid #cccccc;
+}
+/* line 42, ../sass/_nav.sass */
+#mobile_nav > ul a {
+  display: block;
+  padding: 0.75em 10% 0.75em 2em;
+  margin: 0;
+}
+
+/* line 50, ../sass/_nav.sass */
+#mobile_jump {
+  width: 100%;
+  text-align: right;
+}
+/* line 53, ../sass/_nav.sass */
+#mobile_jump a {
+  border: none;
+  color: #333333;
+}
+
+/* line 56, ../sass/_nav.sass */
+#menu-icon {
+  position: relative;
+  top: 2px;
+}
+
+/* line 63, ../sass/_nav.sass */
+#footer {
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#footer:before, #footer:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#footer:after {
+  clear: both;
+}
+/* line 65, ../sass/_nav.sass */
+#footer a {
+  margin: 0;
+  border: none;
+  color: #333333;
+  white-space: nowrap;
+}
+/* line 70, ../sass/_nav.sass */
+#footer a:hover {
+  color: #fb2710;
+  background: none;
+}
+/* line 73, ../sass/_nav.sass */
+#footer .divider {
+  color: #b8bbb4;
+}
+/* line 75, ../sass/_nav.sass */
+#footer .footer_social {
+  margin-right: 0;
+  font-size: 1.25em;
+}
+/* line 78, ../sass/_nav.sass */
+#footer .footer_social .ss-icon {
+  margin-right: 0;
+  position: relative;
+  top: 0.2em;
+}
+/* line 82, ../sass/_nav.sass */
+#footer .divider + .footer_social {
+  margin-left: 0.1em;
+}
+
+/* line 85, ../sass/_nav.sass */
+#footer_links {
+  margin-right: 10%;
+}
+
+/* line 88, ../sass/_nav.sass */
+#footer_links,
+#footer_signup {
+  float: left;
+  margin-bottom: 1em;
+  width: 45%;
+}
+@media screen and (max-width: 680px) {
+  /* line 88, ../sass/_nav.sass */
+  #footer_links,
+  #footer_signup {
+    width: 100%;
+    margin-right: 0;
+    clear: both;
+  }
+}
+
+/* line 99, ../sass/_nav.sass */
+#footer_email {
+  margin-top: 0.25em;
+}
+
+/* line 102, ../sass/_nav.sass */
+#footer_signup {
+  line-height: 1.5em;
+  margin-top: 0.1em;
+  max-width: 390px;
+}
+/* line 105, ../sass/_nav.sass */
+#footer_signup input[type=email] {
+  height: 30px;
+}
+/* line 107, ../sass/_nav.sass */
+#footer_signup .button {
+  margin: 0.5em 0 0 0.5em;
+  padding: 0.3em 0.5em 0.1em 0.5em;
+  border: none;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+  background-color: #3e9bc3;
+  color: white;
+  font-family: SSStandard;
+  font-size: 1.25em;
+  font-weight: normal;
+}
+/* line 118, ../sass/_nav.sass */
+#footer_signup .button:hover {
+  background-color: #fb2710;
+}
+
+/* line 125, ../sass/_nav.sass */
+.local_nav {
+  margin-bottom: 3em;
+}
+/* line 127, ../sass/_nav.sass */
+.local_nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 131, ../sass/_nav.sass */
+.local_nav li {
+  margin: 0 0 3px 0;
+  padding: 0;
+  border: 1px solid #eaece1;
+  background: #f5f6f1;
+}
+/* line 136, ../sass/_nav.sass */
+.local_nav a {
+  border: none;
+  padding: 0.5em 0 0.5em 0.5em;
+  display: block;
+}
+/* line 140, ../sass/_nav.sass */
+.local_nav .active {
+  font-weight: bold;
+  font-weight: 800;
+}
+/* line 143, ../sass/_nav.sass */
+.local_nav .active .icon_decorative {
+  color: #fb2710;
+}
+/* line 145, ../sass/_nav.sass */
+.local_nav .icon_decorative {
+  color: #dfe2d2;
+  position: relative;
+  top: 0.15em;
+}
+
+/* line 4, ../sass/_inside.sass */
+.ss-icon {
+  margin: 0 0.2em 0 0;
+  position: relative;
+  top: 0.1em;
+}
+
+/* line 9, ../sass/_inside.sass */
+.icon_push_right {
+  margin-left: 1em;
+}
+
+/* line 14, ../sass/_inside.sass */
+.meta {
+  margin-top: 0.25em;
+}
+/* line 16, ../sass/_inside.sass */
+.meta .ss-icon {
+  color: #b8bbb4;
+}
+
+/* line 19, ../sass/_inside.sass */
+.registration-notice {
+  width: 100%;
+  clear: both;
+  margin-top: 3em;
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+/* line 25, ../sass/_inside.sass */
+.registration-notice p, .registration-notice h3 {
+  color: #fb2710;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+/* line 30, ../sass/_inside.sass */
+.rsvp_form {
+  margin-top: 2em;
+  border-top: 1px solid #fb2710;
+}
+
+/* line 36, ../sass/_inside.sass */
+#submit_button {
+  height: 3em;
+  margin: 1.5em 0 0 0;
+  padding: 0.5em 1.5em;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-weight: bold;
+  -webkit-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+  background-color: #3e9bc3;
+  color: white;
+}
+
+/* line 47, ../sass/_inside.sass */
+#submit_button:hover {
+  background-color: #fb2710;
+}
+
+/* line 50, ../sass/_inside.sass */
+#register label {
+  margin: 1em 0 0.5em 0;
+  display: block;
+}
+
+/* line 54, ../sass/_inside.sass */
+#register input {
+  display: block;
+}
+
+/* line 57, ../sass/_inside.sass */
+#needs {
+  width: 20em;
+  height: 2.5em;
+}
+
+/* line 64, ../sass/_inside.sass */
+.calendar {
+  margin-top: -1em;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.calendar:before, .calendar:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.calendar:after {
+  clear: both;
+}
+/* line 67, ../sass/_inside.sass */
+.calendar dt,
+.calendar dd {
+  margin: 2em 0 0 0;
+  padding: 1em 0 0 0;
+  float: left;
+  border-top: 6px solid #f5f6f1;
+}
+/* line 73, ../sass/_inside.sass */
+.calendar dt {
+  width: 25%;
+  clear: left;
+  padding-top: 1.1em;
+}
+/* line 77, ../sass/_inside.sass */
+.calendar dd {
+  width: 75%;
+}
+/* line 79, ../sass/_inside.sass */
+.calendar dd + dd {
+  margin-top: 0;
+  margin-left: 25%;
+  border: none;
+}
+/* line 83, ../sass/_inside.sass */
+.calendar h3 {
+  margin: 0 0 0 0;
+  color: #666666;
+}
+/* line 86, ../sass/_inside.sass */
+.calendar p {
+  margin: 0 0 0.5em 0;
+}
+/* line 88, ../sass/_inside.sass */
+.calendar a {
+  color: inherit;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 94, ../sass/_inside.sass */
+.calendar a:hover,
+.calendar a:hover i,
+.calendar a:hover h3 {
+  color: #3e9bc3;
+  background: inherit;
+}
+/* line 99, ../sass/_inside.sass */
+.calendar .meta {
+  margin-top: 0.5em;
+}
+/* line 101, ../sass/_inside.sass */
+.calendar .ss-icon {
+  color: #b8bbb4;
+}
+
+/* line 106, ../sass/_inside.sass */
+.indicators {
+  margin-top: 0.75em;
+  margin-bottom: 1.5em;
+}
+
+/* line 110, ../sass/_inside.sass */
+.registration_indicator {
+  background: #f5f6f1;
+  border: 1px solid #dfe2d2;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-left: 0.5em;
+}
+
+/* line 117, ../sass/_inside.sass */
+.registration_indicator.solid {
+  margin-left: 0;
+}
+
+/* line 120, ../sass/_inside.sass */
+p.indicators > .registration_indicator {
+  margin-left: 0;
+}
+
+/* line 123, ../sass/_inside.sass */
+.registration_open,
+.registration_waitlist {
+  margin: 0 0.2em 0 0;
+  font-size: 1.1em;
+  position: relative;
+  top: 0.2em;
+}
+
+/* line 130, ../sass/_inside.sass */
+.registration_open {
+  color: #488716 !important;
+}
+
+/* line 133, ../sass/_inside.sass */
+.registration_waitlist {
+  color: #fc9519 !important;
+}
+
+@media screen and (max-width: 600px) {
+  /* line 138, ../sass/_inside.sass */
+  .calendar dt,
+  .calendar dd,
+  .calendar dd + dd {
+    width: 100%;
+    margin-left: 0;
+  }
+  /* line 143, ../sass/_inside.sass */
+  .calendar dd {
+    border: none;
+    margin-top: 0;
+  }
+}
+/* line 149, ../sass/_inside.sass */
+#hed .event_type_hed {
+  color: #3e9bc3;
+  font-size: 1.25em;
+  margin: 1em 0 0 0;
+}
+
+/* line 154, ../sass/_inside.sass */
+#hed .event_type_hed + h1 {
+  margin-top: 0;
+}
+
+/* line 157, ../sass/_inside.sass */
+.calendar .event_type_hed {
+  margin: 0.25em 0 0 0;
+  color: #3e9bc3;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+/* line 163, ../sass/_inside.sass */
+.event_type_partner {
+  border-left: 6px solid #f5f6f1 !important;
+  padding-left: 0.75em !important;
+}
+
+/* line 171, ../sass/_inside.sass */
+#hed {
+  margin: 3.5em 0 2em 0;
+}
+@media screen and (max-width: 860px) {
+  /* line 171, ../sass/_inside.sass */
+  #hed {
+    margin-bottom: 0;
+  }
+}
+
+/* line 176, ../sass/_inside.sass */
+.section_hed {
+  font-size: 6em;
+  line-height: 0.85em;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: #666666;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.03);
+  margin: 0;
+}
+@media screen and (max-width: 860px) {
+  /* line 176, ../sass/_inside.sass */
+  .section_hed {
+    font-size: 4em;
+    line-height: 1em;
+  }
+}
+
+/* line 188, ../sass/_inside.sass */
+#hed p {
+  font-size: 1.6em;
+  line-height: 1.6em;
+  font-weight: 400;
+  color: #666666;
+  margin: 0.25em 30% 0 0.5em;
+}
+@media screen and (max-width: 860px) {
+  /* line 188, ../sass/_inside.sass */
+  #hed p {
+    font-size: 1.2em;
+    line-height: 1.25em;
+    margin: 0.5em 25% 0 0;
+  }
+}
+
+/* line 202, ../sass/_inside.sass */
+.sidebar_text {
+  padding: 0 1em 2em 1em;
+  border: 1px solid #dddddd;
+  border-left: 6px solid #dddddd;
+  background: #f5f6f1;
+}
+
+/* line 208, ../sass/_inside.sass */
+.sidebar_contrast {
+  background: white;
+  border: none;
+  padding: 0 1em 2em 0.5em;
+  color: #3e9bc3;
+}
+/* line 213, ../sass/_inside.sass */
+.sidebar_contrast h2,
+.sidebar_contrast h3 {
+  color: #3e9bc3;
+}
+
+/* ----- START PROJECT STYLES  -------------------------------------------- */
+/* ----- setup -------------------------------------------- */
+/* line 26, ../sass/style.sass */
+* {
+  box-sizing: border-box;
+}
+
+/* line 33, ../sass/style.sass */
+#skip {
+  position: absolute;
+  left: -9000px;
+}
+
+/* line 37, ../sass/style.sass */
+img {
+  max-width: 100%;
+}
+
+/* ----- layout  -------------------------------------------- */
+/* line 43, ../sass/style.sass */
+#mobile_jump {
+  display: none;
+}
+
+/* line 45, ../sass/style.sass */
+#mobile_nav {
+  display: none;
+}
+
+/* line 50, ../sass/style.sass */
+#header {
+  width: 80%;
+  max-width: 960px;
+  margin: 0 auto 0 auto;
+  padding: 0 0 0 0;
+  clear: both;
+  border-top: 7px solid #b8bbb4;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#header:before, #header:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#header:after {
+  clear: both;
+}
+
+/* line 59, ../sass/style.sass */
+#logo {
+  margin: 1em 0 1em 0;
+  width: 10%;
+  float: left;
+}
+/* line 63, ../sass/style.sass */
+#logo a:hover {
+  background: none;
+}
+
+/* line 66, ../sass/style.sass */
+#desktop_nav {
+  margin-top: 0;
+  width: 90%;
+  padding: 0 1em 0 0;
+  float: left;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#desktop_nav:before, #desktop_nav:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#desktop_nav:after {
+  clear: both;
+}
+
+/* line 73, ../sass/style.sass */
+#content {
+  width: 80%;
+  max-width: 960px;
+  margin: 0 auto 0 auto;
+  padding-top: 0;
+  clear: both;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#content:before, #content:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#content:after {
+  clear: both;
+}
+
+/* line 81, ../sass/style.sass */
+#main {
+  width: 60%;
+  float: left;
+  margin-right: 10%;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#main:before, #main:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#main:after {
+  clear: both;
+}
+
+/* line 87, ../sass/style.sass */
+#main_fullwidth {
+  width: 100%;
+  margin: 1em 0 3em 0;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#main_fullwidth:before, #main_fullwidth:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#main_fullwidth:after {
+  clear: both;
+}
+
+/* line 92, ../sass/style.sass */
+#sidebar {
+  width: 30%;
+  float: left;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#sidebar:before, #sidebar:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#sidebar:after {
+  clear: both;
+}
+
+/* line 98, ../sass/style.sass */
+.sidebar_section {
+  margin: 0 0 0 0;
+}
+
+/* line 102, ../sass/style.sass */
+.sidebar_inside {
+  margin: 0 0 0 0;
+}
+
+/* line 105, ../sass/style.sass */
+#register {
+  margin-top: 2em;
+}
+
+/* line 108, ../sass/style.sass */
+#footer {
+  margin-top: 4em;
+  width: 80%;
+  max-width: 960px;
+  margin: 4em auto 0 auto;
+  padding: 1em 0 4em 0;
+  clear: both;
+  border-top: 6px solid #b8bbb4;
+}
+
+@media screen and (max-width: 800px) {
+  /* line 119, ../sass/style.sass */
+  #content {
+    margin-top: 1em;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 124, ../sass/style.sass */
+  #logo {
+    clear: both;
+    width: 80px;
+    margin: 0 auto 0 auto;
+  }
+
+  /* line 128, ../sass/style.sass */
+  #desktop_nav {
+    display: none;
+  }
+
+  /* line 130, ../sass/style.sass */
+  #mobile_jump {
+    display: block;
+    margin-top: 1em;
+  }
+
+  /* line 133, ../sass/style.sass */
+  #mobile_nav {
+    display: block;
+  }
+
+  /* line 135, ../sass/style.sass */
+  #content {
+    width: 80%;
+  }
+
+  /* line 137, ../sass/style.sass */
+  #footer {
+    width: 80%;
+    margin-top: 0;
+    border: none;
+  }
+
+  /* line 141, ../sass/style.sass */
+  #content {
+    margin-top: 0;
+  }
+
+  /* line 143, ../sass/style.sass */
+  #hed {
+    margin-top: 1em;
+  }
+
+  /* line 145, ../sass/style.sass */
+  #main,
+  #sidebar {
+    width: 100%;
+    clear: both;
+    margin: 2em 0 0 0;
+  }
+
+  /* line 150, ../sass/style.sass */
+  #main {
+    margin-top: 1em;
+  }
+
+  /* line 152, ../sass/style.sass */
+  #sidebar_section {
+    margin-top: 4em;
+  }
+}
+/* line 8, ../sass/_front.sass */
+#slideshow-frame {
+  width: 100%;
+  background: white;
+}
+
+/* line 12, ../sass/_front.sass */
+#front_slideshow {
+  max-width: 960px;
+  margin: 0 auto 1em auto;
+}
+
+/* line 17, ../sass/_front.sass */
+.flexslider {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 21, ../sass/_front.sass */
+.slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+
+/* line 24, ../sass/_front.sass */
+.slides img {
+  width: 100%;
+  display: block;
+}
+
+/* No JavaScript Fallback */
+/* line 29, ../sass/_front.sass */
+.no-js .slides > li:first-child {
+  display: block;
+}
+
+/* line 32, ../sass/_front.sass */
+#flexslider > ul {
+  margin: 0;
+  padding: 0;
+  background: #222222;
+  border: 1px solid #333333;
+}
+/* line 37, ../sass/_front.sass */
+#flexslider > ul > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 46, ../sass/_front.sass */
+#front_intro {
+  margin: 1.5em auto 2em auto;
+  width: 90%;
+  max-width: 960px;
+}
+/* line 50, ../sass/_front.sass */
+#front_intro .front_intro_text {
+  margin: 0.25em 5% 0 0;
+  font-size: 2.9em;
+  line-height: 1.25em;
+  color: #666666;
+  font-weight: 300;
+}
+/* line 56, ../sass/_front.sass */
+#front_intro b {
+  font-weight: 300;
+  color: #fb2710;
+}
+
+/* line 60, ../sass/_front.sass */
+.front_intro_call {
+  margin: 0 0 0 0;
+  text-align: right;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+@media screen and (max-width: 860px) {
+  /* line 60, ../sass/_front.sass */
+  .front_intro_call {
+    font-size: 1.25em;
+    margin-top: 1em;
+  }
+}
+/* line 68, ../sass/_front.sass */
+.front_intro_call > a {
+  margin: 0 0.15em;
+  padding: 0.1em 0.4em;
+  color: #fb2710;
+  border: 1px solid #d2d2d2;
+  font-style: normal;
+  font-weight: 400;
+  background: white;
+  border-radius: 4px;
+}
+/* line 77, ../sass/_front.sass */
+.front_intro_call > a:hover {
+  background: #fb2710;
+  color: white;
+}
+
+@media screen and (max-width: 1150px) {
+  /* line 82, ../sass/_front.sass */
+  #front_intro {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 860px) {
+  /* line 87, ../sass/_front.sass */
+  #front_intro .front_intro_text {
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+  /* line 90, ../sass/_front.sass */
+  #front_intro b {
+    font-weight: 400;
+  }
+  /* line 92, ../sass/_front.sass */
+  #front_intro .call {
+    margin-top: 1em;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 96, ../sass/_front.sass */
+  #front_intro {
+    width: 90%;
+  }
+  /* line 98, ../sass/_front.sass */
+  #front_intro .intro {
+    margin-top: 0;
+    color: #666666;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+  /* line 103, ../sass/_front.sass */
+  #front_intro b {
+    font-weight: 400;
+  }
+}
+/* line 108, ../sass/_front.sass */
+#front_motd {
+  margin: 0.1em 0 0 0;
+}
+/* line 110, ../sass/_front.sass */
+#front_motd i {
+  font-style: normal;
+  margin: 0 0.15em;
+  padding: 0.4em 0.4em;
+  color: #3e9bc3;
+  border: 1px solid #d2d2d2;
+  font-style: normal;
+  font-weight: 600;
+  background: white;
+  border-radius: 4px;
+}
+/* line 120, ../sass/_front.sass */
+#front_motd i:hover {
+  color: white;
+  background-color: #fb2710;
+}
+/* line 123, ../sass/_front.sass */
+#front_motd .front_motd_button_decoration {
+  font-size: 0.8em;
+  margin: 0;
+}
+/* line 126, ../sass/_front.sass */
+#front_motd p {
+  margin: 0;
+  color: #666666;
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+/* line 131, ../sass/_front.sass */
+#front_motd .more {
+  font-style: italic;
+}
+/* line 133, ../sass/_front.sass */
+#front_motd a {
+  color: #666666;
+  border: none;
+}
+/* line 136, ../sass/_front.sass */
+#front_motd a:hover {
+  color: #0f7eb2;
+  background: none;
+}
+/* line 139, ../sass/_front.sass */
+#front_motd .motd_icon {
+  position: relative;
+  top: 0.25em;
+  font-size: 1.25em;
+  color: #3e9bc3;
+}
+/* line 144, ../sass/_front.sass */
+#front_motd .motd_action {
+  color: #3e9bc3;
+}
+
+@media screen and (max-width: 550px) {
+  /* line 149, ../sass/_front.sass */
+  #motd p {
+    font-size: 1em;
+  }
+}
+/* line 154, ../sass/_front.sass */
+#features {
+  *zoom: 1;
+  padding: 1.3em 0 0 0;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#features:before, #features:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#features:after {
+  clear: both;
+}
+/* line 157, ../sass/_front.sass */
+#features h3 {
+  font-size: 1.2em;
+  color: #666666;
+  margin: 0;
+}
+/* line 161, ../sass/_front.sass */
+#features .date {
+  margin: 0 0 0.25em 0;
+}
+/* line 163, ../sass/_front.sass */
+#features .instructor {
+  margin-top: 0.25em;
+}
+/* line 165, ../sass/_front.sass */
+#features i {
+  color: #0f7eb2;
+}
+
+/* line 168, ../sass/_front.sass */
+#features > div {
+  width: 25%;
+  float: left;
+  padding-right: 1em;
+}
+
+/* line 173, ../sass/_front.sass */
+#features > div:nth-child(n+4) {
+  padding-right: 0;
+}
+
+/* line 176, ../sass/_front.sass */
+#features > div > a {
+  display: block;
+  border: none;
+  border-top: 1px solid #dddddd;
+  padding: 1em 2em 2em 0;
+  color: #666666;
+}
+
+/* line 183, ../sass/_front.sass */
+#features > div > a:hover,
+#features > div > a:hover > h3 {
+  background: white;
+  color: #0f7eb2;
+  border-bottom: none;
+}
+
+/* line 189, ../sass/_front.sass */
+#features > div > a:hover {
+  border-top: 1px solid #3e9bc3;
+}
+
+/* line 192, ../sass/_front.sass */
+.features-ss-icon-clock {
+  margin-right: 0.1em;
+  position: relative;
+  top: 0.15em;
+  color: #3e9bc3;
+}
+
+/* line 198, ../sass/_front.sass */
+.features-ss-icon-eye {
+  font-size: 1.3em;
+  position: relative;
+  top: 0.2em;
+  color: #3e9bc3;
+}
+
+@media screen and (max-width: 860px) {
+  /* line 206, ../sass/_front.sass */
+  #features > div {
+    width: 50%;
+  }
+
+  /* line 209, ../sass/_front.sass */
+  #features > div:nth-child(even) {
+    padding-right: 0;
+  }
+
+  /* line 212, ../sass/_front.sass */
+  #features > div:nth-child(odd) {
+    padding-right: 1em;
+  }
+}
+@media screen and (max-width: 550px) {
+  /* line 217, ../sass/_front.sass */
+  #features {
+    margin: 0 0 2em 0;
+  }
+  /* line 219, ../sass/_front.sass */
+  #features h3 {
+    font-size: 1em;
+  }
+  /* line 221, ../sass/_front.sass */
+  #features .instructor {
+    margin-top: 0;
+  }
+  /* line 223, ../sass/_front.sass */
+  #features .instructor > b {
+    font-weight: 400;
+  }
+  /* line 225, ../sass/_front.sass */
+  #features > div {
+    width: 100%;
+    clear: both;
+  }
+  /* line 228, ../sass/_front.sass */
+  #features > div > a {
+    padding: 0.5em 0 1em 0;
+  }
+
+  /* line 231, ../sass/_front.sass */
+  #features > div:nth-child(odd) {
+    padding-right: 0;
+  }
+}
+/* line 236, ../sass/_front.sass */
+#minical {
+  margin: 0 0 0 0;
+}
+/* line 238, ../sass/_front.sass */
+#minical h2 {
+  margin: 0 0 0.5em 0;
+  float: left;
+}
+/* line 241, ../sass/_front.sass */
+#minical h2 > a,
+#minical h2 > a:hover {
+  color: #fb2710;
+  border: none;
+}
+
+/* line 246, ../sass/_front.sass */
+#minical-full {
+  float: left;
+  margin: 0 0 0 0.5em;
+  position: relative;
+  top: -0.1em;
+  font-size: 0.85em;
+}
+/* line 252, ../sass/_front.sass */
+#minical-full > a {
+  background: #fb2710;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+/* line 257, ../sass/_front.sass */
+#minical-full > a:hover {
+  background: #f75f53;
+  color: white;
+}
+
+/* line 261, ../sass/_front.sass */
+.minical_month {
+  margin-bottom: 0.5em;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.minical_month:before, .minical_month:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.minical_month:after {
+  clear: both;
+}
+/* line 264, ../sass/_front.sass */
+.minical_month > h4 {
+  float: left;
+  margin: 0.5em 1em 0.5em 0;
+  clear: left;
+  color: #fb2710;
+}
+/* line 269, ../sass/_front.sass */
+.minical_month > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+/* line 274, ../sass/_front.sass */
+.minical_month > ul > li {
+  margin: 0 2px 2px 0;
+  float: left;
+  font-size: 0.8em;
+}
+/* line 278, ../sass/_front.sass */
+.minical_month > ul > li > a {
+  display: block;
+  border: none;
+  background: #ebebeb;
+  color: #aaaaaa;
+  padding: 0px 6px;
+  border-radius: 9px;
+}
+/* line 285, ../sass/_front.sass */
+.minical_month > ul > li > a:hover {
+  background: #cccccc;
+  color: #aaaaaa;
+}
+/* line 288, ../sass/_front.sass */
+.minical_month > ul > .sunday {
+  margin-right: 15px;
+}
+/* line 290, ../sass/_front.sass */
+.minical_month .event_1x {
+  background: #fb2710;
+  color: white;
+}
+/* line 293, ../sass/_front.sass */
+.minical_month .event_1x:hover {
+  background: #f75f53;
+  color: white;
+}
+
+/* ----- END PROJECT STYLES  ---------------------------------------------- */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/* line 11, h5bp_end.scss */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
+}
+
+/* line 18, h5bp_end.scss */
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+}
+
+/* line 25, h5bp_end.scss */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/* line 30, h5bp_end.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* line 42, h5bp_end.scss */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* line 51, h5bp_end.scss */
+.invisible {
+  visibility: hidden;
+}
+
+/* line 56, h5bp_end.scss */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+/* line 61, h5bp_end.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 65, h5bp_end.scss */
+.clearfix {
+  *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+@media print {
+  /* line 74, h5bp_end.scss */
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* line 82, h5bp_end.scss */
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  /* line 86, h5bp_end.scss */
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  /* line 90, h5bp_end.scss */
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links for images, or javascript/internal links
+   */
+  /* line 100, h5bp_end.scss */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  /* line 105, h5bp_end.scss */
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /* line 110, h5bp_end.scss */
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  }
+
+  /* line 115, h5bp_end.scss */
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  /* line 119, h5bp_end.scss */
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+}
+
+  /* line 129, h5bp_end.scss */
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* line 135, h5bp_end.scss */
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

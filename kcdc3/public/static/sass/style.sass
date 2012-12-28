@@ -1,0 +1,162 @@
+// SASS/Compass helpers
+@import 'compass/css3/border-radius'
+@import 'bourbon'
+@import 'compass/css3/text-shadow'
+
+// normalize and front of H5BP
+@import '../css/normalize.scss'
+@import '../css/h5bp_start.scss'
+
+// symbolset
+@import '../fonts/ss-social/ss-social.css'
+@import '../fonts/ss-standard/ss-standard.css'
+
+// local style components
+@import '_colors.sass'
+@import '_typography.sass'
+@import '_nav.sass'
+@import '_inside.sass'
+
+/* ----- START PROJECT STYLES  -------------------------------------------- */
+
+/* ----- setup -------------------------------------------- */
+
+// we are using a more intuitive box model
+// see http://paulirish.com/2012/box-sizing-border-box-ftw
+*
+	box-sizing: border-box
+
+// uncomment this rule to put a transparent background behind elements
+div, article
+//	background: $indicator
+
+#skip
+	position: absolute
+	left: -9000px
+
+img
+	max-width: 100%
+
+/* ----- layout  -------------------------------------------- */
+
+// turn off mobile-only elts
+#mobile_jump
+	display: none
+#mobile_nav
+	display: none
+		
+// shared layout elts
+
+#header
+	width: 80%
+	max-width: 960px
+	margin: 0 auto 0 auto	
+	padding: 0 0 0 0
+	clear: both
+	border-top: 7px solid $colorE2
+	@include clearfix
+
+#logo
+	margin: 1em 0 1em 0
+	width: 10%
+	float: left
+	a:hover
+		background: none
+
+#desktop_nav
+	margin-top: 0
+	width: 90%
+	padding: 0 1em 0 0
+	float: left
+	@include clearfix
+	
+#content
+	width: 80%
+	max-width: 960px
+	margin: 0 auto 0 auto	
+	padding-top: 0
+	clear: both
+	@include clearfix
+
+#main
+	width: 60%
+	float: left
+	margin-right: 10%
+	@include clearfix
+	
+#main_fullwidth
+	width: 100%
+	margin: 1em 0 3em 0
+	@include clearfix
+	
+#sidebar
+	width: 30%
+	float: left
+	@include clearfix
+
+// for section pages
+.sidebar_section
+	margin: 0 0 0 0
+
+// for inside pages
+.sidebar_inside
+	margin: 0 0 0 0
+
+#register
+	margin-top: 2em
+
+#footer
+	margin-top: 4em
+	width: 80%
+	max-width: 960px
+	margin: 4em auto 0 auto	
+	padding: 1em 0 4em 0
+	clear: both
+	border-top: 6px solid $colorE2
+
+// tablet
+@media screen and (max-width: 800px)
+	#content
+		margin-top: 1em
+
+// smartphone
+@media screen and (max-width: 600px)
+	#logo
+		clear: both
+		width: 80px
+		margin: 0 auto 0 auto
+	#desktop_nav
+		display: none
+	#mobile_jump
+		display: block
+		margin-top: 1em
+	#mobile_nav
+		display: block
+	#content
+		width: 80%
+	#footer
+		width: 80%
+		margin-top: 0
+		border: none
+	#content
+		margin-top: 0
+	#hed
+		margin-top: 1em
+	#main,
+	#sidebar
+		width: 100%
+		clear: both
+		margin: 2em 0 0 0
+	#main
+		margin-top: 1em
+	#sidebar_section
+		margin-top: 4em
+
+// page-specific styles
+@import '_front.sass'
+
+
+/* ----- END PROJECT STYLES  ---------------------------------------------- */
+
+// remainder of H5BP
+@import '../css/h5bp_end.scss'

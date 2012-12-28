@@ -1,23 +1,26 @@
 {% extends "classes/event_base.html" %}
 
-{% block title %} / Classes and Events{% endblock %}
+{% block title %}
+ / {% for session in selected_session %}{{ session.long_title }}{% endfor %}
+{% endblock %}
 
 {% block content %}
 
 	<div id="hed">
-		<h1 class="section_hed">Classes + Events</h1>
-		<p>As always, KCDC classes are free – and they fill up fast!</p>
+		<h1>
+			{% for session in selected_session %}
+			{{ session.long_title }}
+			{% endfor %}
+		</h1>
 	</div>
 
 	<div id="main">
 	
-		<h2 id="upcoming">Upcoming classes</h2>
-
 		<dl class="calendar">
 
-			{% for event in events reversed %}
+		{% for event in events reversed %}
 
-				{% if not event.has_passed and event.status == "PUBLISHED" %}
+			{% if event.status == "PUBLISHED" %}
 
 					{% ifchanged %}
 						<dt>
@@ -28,7 +31,6 @@
 							{% endif %}
 						</dt>
 					{% endifchanged %}
-
 					<dd>
 						<a href="/classes/{{ event.slug }}">
 							<h3>
@@ -58,48 +60,6 @@
 						</a>
 					</dd>
 
-
-
-
-				{% endif %}
-
-			{% endfor %}
-
-		</dl>
-
-		<h2 id="past">Recent classes</h2>
-
-		<dl class="calendar">
-
-			{% for event in events %}
-
-				{% if event.has_passed and event.status == "PUBLISHED" %}
-
-					{% ifchanged %}
-						<dt>
-							{{ event.date|date:"l" }}<br />
-							<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
-							{% if forloop.first %}
-								{{ event.date|date:"Y" }}
-							{% endif %}
-						</dt>
-					{% endifchanged %}
-					<dd>
-						<a href="/classes/{{ event.slug }}">
-							<h3>
-								<!--<b class="event">Event:</b>-->
-								{{ event.title }}
-							</h3>
-							<p class="meta">
-								<i class="ss-icon">time</i> {{ event.date|date:"P" }}
-							</p>
-							{{ event.summary|safe }}
-							<p>
-								<i class="ss-icon">user</i> Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
-							</p>
-						</a>
-					</dd>
-
 				{% endif %}
 
 			{% endfor %}
@@ -109,7 +69,6 @@
 	</div>
 
 {% endblock %}
-
 
 
 

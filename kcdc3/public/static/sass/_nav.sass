@@ -1,0 +1,149 @@
+
+// global navbar
+.nav
+	margin: 1em 0 0 1em
+	padding: 0
+	@include clearfix
+	
+.nav > li
+	float: left
+	list-style: none
+	display: inline-block
+
+.nav > li > a
+	border: none
+	color: $color_text
+	padding: 0.5em 0.5em 0.5em 0.5em
+	display: block
+	
+.nav > li > a:hover
+	background: $colorA
+	color: #fff
+	
+.nav > li > .login
+	font-style: italic
+	color: $colorA
+
+.nav > li > .home_link
+	color: $colorA
+	font-weight: bold
+	
+// mobile navbar	
+#mobile_nav 
+	& > ul 
+		@include clearfix
+		margin: 3em 0 2em 0
+		border-top: 1px solid #ccc
+		& > li
+			display: block
+			margin: 0
+			width: 50%
+			border-bottom: 1px solid #ccc
+		a
+			display: block
+			padding: 0.75em 10% 0.75em 2em
+			margin: 0
+		// .nav_home
+		// 	width: 100%
+
+// mobile jump button
+#mobile_jump
+	width: 100%
+	text-align: right
+	a
+		border: none
+		color: $color_text
+#menu-icon
+	position: relative
+	top: 2px
+	
+	
+// footer
+
+#footer 
+	@include clearfix
+	a
+		margin: 0
+		border: none
+		color: $color_text
+		white-space: nowrap
+	a:hover
+		color: $colorA
+		background: none
+	.divider
+		color: $colorE2
+	.footer_social
+		margin-right: 0
+		font-size: 1.25em
+		.ss-icon
+			margin-right: 0
+			position: relative
+			top: 0.2em
+	.divider + .footer_social
+		margin-left: 0.1em
+			
+#footer_links
+	margin-right: 10%
+
+#footer_links,
+#footer_signup
+	float: left
+	margin-bottom: 1em 
+	width: 45%
+	@media screen and (max-width: 680px)
+		width: 100%
+		margin-right: 0
+		clear: both
+		
+		
+#footer_email
+	margin-top: 0.25em
+	
+#footer_signup
+	line-height: 1.5em
+	margin-top: 0.1em
+	input[type=email]
+		height: 30px
+	.button
+		margin: 0.5em 0 0 0.5em
+		padding: 0.3em 0.5em 0.1em 0.5em
+		border: none
+		border-radius: 3px
+		@include box-shadow(1px 1px 0px rgba(0,0,0,0.3))
+		background-color: $colorB
+		color: #fff
+		font-family: SSStandard
+		font-size: 1.25em
+		font-weight: normal
+	.button:hover
+		background-color: $colorA
+	max-width: 390px
+	
+	
+// local nav
+
+.local_nav
+	margin-bottom: 3em
+	ul
+		list-style: none
+		margin: 0
+		padding: 0
+	li
+		margin: 0 0 3px 0
+		padding: 0
+		border: 1px solid darken($colorE, 5%)
+		background: $colorE
+	a
+		border: none
+		padding: 0.5em 0 0.5em 0.5em
+		display: block
+	.active
+		font-weight: bold
+		font-weight: 800
+		.icon_decorative
+			color: $colorA
+	.icon_decorative
+		color: darken($colorE, 10%)
+		position: relative
+		top: 0.15em
+		

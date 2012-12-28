@@ -1,122 +1,163 @@
 {% extends "base.html" %}
 
-{% block title %}{{ event.title }}{% endblock %}
+{% block title %}
+ / {{ event.title }}
+{% endblock %}
 
 {% block content %}
 
-	<h1>{{ event.title }}</h1>
-
-	<p class="date">
-		<b>Date:</b> 
-		{{ event.date|date:"l, j F Y" }}
-	</p>
+	<div id="hed">
+		<h1>{{ event.title }}</h1>
+	</div>
 	
-	<p class="byline">
-		<b>Time:</b> 
-		{{ event.date|date:"P" }}
-		{% if event.end_time %} to {{ event.end_time|date:"P" }}{% endif %}
-	</p>
-
-	<p class="byline">
-		<b>Instructor:</b>
-		{% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
-	</p>
-
-	<p class="location">
-		<b>Location:</b> 
-		{{ event.location }}
-	</p>	
-		
-	{% if event.main_image %}<p><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
+	<div id="main">
 	
-	{{ event.description|safe }}
+		<p class="meta">
+			
+			<i class="ss-icon">date</i> 
+			{{ event.date|date:"l, j F Y" }}
 
-	{% if event.additional_dates_text %}
-		<h3>Additional meetings</h3>
-		{{ event.additional_dates_text|safe }}
-	{% endif %}
-
-	<h3>Location</h3>
-	<p itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-		{% ifnotequal event.location.name event.location.address1 %}{{ event.location.name }}<br />{% endifnotequal %}
-		{% if event.location.address1 and event.location.show_exact %}
-			<span itemprop="street-address">
-			{{ event.location.address1 }}
-			{% if event.location.address2 %}<br />{{ event.location.address2 }}{% endif %}
-			</span>
-			<br />
-		{% endif %}
-		{% if event.location.city %}<span itemprop="locality">{{ event.location.city }}</span>, {% endif %}
-		{% if event.location.state %}<span itemprop="region">{{ event.location.state }}</span>{% endif %}
-		{% if event.location.zip %}<span itemprop="postal-code">{{ event.location.zip }}</span>{% endif %}
-		{% if event.location.neighborhood %}<br />Neighborhood: {{ event.location.neighborhood }} {% endif %}
-		{% if event.location.hint %}<br /><em>{{ event.location.hint }}</em>{% endif %}
-	</p>
-	
-	{% if event.details %}
-		<h3>Details</h3>
-		{{ event.details|safe }}
-	{% endif %}
-		
-	{% for bio in event.teacher_bios.all %}
-		{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
-		{{ bio.description|safe }}
-	{% endfor %}
-
-	<hr />
-		
-	{% if not event.has_passed %}
-		{% if event.registration_status == "AUTO" %}	
-				<h3>Registration is not yet open.</h3>
-		{% elif event.registration_status == "PREVENT" %}	
-			<h3>Registration is closed.</h3>
-		{% endif %}
-	{% endif %}
-	
-	{% if registration_count >=  event.max_students %}
-		{% if event.waitlist_status %}
-			<p><strong>This class is full, but there is a waitlist available.</strong></p>
-		{% else %}
-			<p><strong>This class is full.</strong></p>
-		{% endif %}
-	{% endif %}
-		
-	{% if user_is_authenticated %}
-		{% if user_is_registered %}
-			<p><em>You are registered.</em></p>
-			<form action="/classes/{{ event.slug }}/cancel" method="post">
-				{% csrf_token %}
-				<input type="submit" value="I've changed my mind. Unregister me." />
-			</form>
-		{% elif user_is_waitlisted %}
-			<p><em>You are on the waitlist.</em></p>
-			<form action="/classes/{{ event.slug }}/cancel" method="post">
-				{% csrf_token %}
-				<input type="submit" value="I've changed my mind. Remove me from the list." />
-			</form>
-		{% elif is_registration_open %}
-			<form action="/classes/{{ event.slug }}/register" method="post">
-				{% csrf_token %}
-				{% if add_to_waitlist %}
-					<input type="submit" value="Join the waitlist" />
-				{% else %}
-					<input type="submit" value="Register" />
-				{% endif %}
-			</form>
-		{% endif %}
-	{% else %}
-		<p>
-			To sign up for classes, please 
-			<a href="/accounts/signin">log in</a> or 
-			<a href="/accounts/signup">create a new account</a>.
+			<i class="ss-icon icon_push_right">time</i> 
+			{{ event.date|date:"P" }}
+			{% if event.end_time %} to {{ event.end_time|date:"P" }}{% endif %}
 		</p>
-	{% endif %}
+
+		<p class="meta">
+
+			<i class="ss-icon">&#x1F464;</i> {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
+
+
+			<i class="ss-icon icon_push_right">&#x1F3E2;</i> 
+			{{ event.location }}
+			
+		</p>	
+
+		<p class="meta indicators">
+			
+			{% if not event.has_passed and event.registration_status == "ALLOW" %}	
+				{% if event.registration_count >= event.max_students %}
+				 	{% if event.waitlist_status %}
+						<span class="registration_indicator"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
+					{% else %}
+						<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>			
+					{% endif %}
+				{% else %}
+					<span class="registration_indicator"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
+				{% endif %}
+			{% endif %}
+			
+		</p>
+		
+		{% if event.main_image %}<p><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
+	
+		{{ event.description|safe }}
+
+		{% if event.additional_dates_text %}
+			<h3>Additional meetings</h3>
+			{{ event.additional_dates_text|safe }}
+		{% endif %}
+
+		<h3>Location</h3>
+		<p itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+			{% ifnotequal event.location.name event.location.address1 %}{{ event.location.name }}<br />{% endifnotequal %}
+			{% if event.location.address1 and event.location.show_exact %}
+				<span itemprop="street-address">
+				{{ event.location.address1 }}
+				{% if event.location.address2 %}<br />{{ event.location.address2 }}{% endif %}
+				</span>
+				<br />
+			{% endif %}
+			{% if event.location.city %}<span itemprop="locality">{{ event.location.city }}</span>, {% endif %}
+			{% if event.location.state %}<span itemprop="region">{{ event.location.state }}</span>{% endif %}
+			{% if event.location.zip %}<span itemprop="postal-code">{{ event.location.zip }}</span>{% endif %}
+			{% if event.location.neighborhood %}<br />Neighborhood: {{ event.location.neighborhood }} {% endif %}
+			{% if event.location.hint %}<br /><em>{{ event.location.hint }}</em>{% endif %}
+		</p>
+	
+		{% if event.details %}
+			<h3>Details</h3>
+			{{ event.details|safe }}
+		{% endif %}
+
+
+			
+		{% if not event.has_passed %}
+			{% if event.registration_status == "AUTO" %}	
+				<h3>Registration is not yet open.</h3>
+			{% elif event.registration_status == "PREVENT" %}	
+				<h3>Registration is closed.</h3>
+			{% elif registration_count >=  event.max_students %}
+				{% if event.waitlist_status %}
+					<h3>This class is full, but there is a waitlist available.</h3>
+				{% else %}
+					<h3>This class is full.</h3>
+				{% endif %}
+			{% elif event.registration_status == "HIDE" %}
+				<!-- hide registration info -->
+			{% else%}
+					<h3>Register</h3>
+			{% endif %}
+		{% endif %}
+			
+		{% if user_is_authenticated %}
+			{% if user_is_registered %}
+				<p><em>You are registered.</em></p>
+				<form action="/classes/{{ event.slug }}/cancel" method="post">
+					{% csrf_token %}
+					<input type="submit" value="I've changed my mind. Unregister me." id="submit_button" />
+				</form>
+			{% elif user_is_waitlisted %}
+				<p><em>You are on the waitlist.</em></p>
+				<form action="/classes/{{ event.slug }}/cancel" method="post">
+					{% csrf_token %}
+					<input type="submit" value="I've changed my mind. Remove me from the list." id="submit_button" />
+				</form>
+			{% elif is_registration_open %}
+				<form action="/classes/{{ event.slug }}/register" method="post">
+					<label for="needs">Let us know of any special considerations you might require:</label>
+					<input type="text" name="student_needs" id="needs" />
+					{% csrf_token %}
+					{% if add_to_waitlist %}
+						<div><input type="submit" value="Join the waitlist" id="submit_button" /></div>
+					{% else %}
+						<div><input type="submit" value="Register for this class" id="submit_button" /></div>
+					{% endif %}
+				</form>
+			{% endif %}
+		{% else %}
+			<p>
+				To sign up for classes, please 
+				<a href="/accounts/signin">log in</a> or 
+				<a href="/accounts/signup">create a new account</a>.
+			</p>
+		{% endif %}
+			
+			
+			
+					
+			
 		
 
-	{% if show_facilitator %}
-		<hr />
-		<p><a href="/classes/{{ event.slug }}/facilitator">view registrations</a></p>
-	{% endif %}
+
+
+
+		{% if show_facilitator %}
+			<hr />
+			<p><a href="/classes/{{ event.slug }}/facilitator">view registrations</a></p>
+		{% endif %}
 	
+	</div>
+
+	<div id="sidebar" class="sidebar_inside">
+
+		<div class="sidebar_text">
+			{% for bio in event.teacher_bios.all %}
+				{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
+				{{ bio.description|safe }}
+			{% endfor %}
+		</div>
+
+	</div>
+
 {% endblock %}
 

@@ -1,0 +1,119 @@
+
+body
+	color: $color_text
+	font-size: 15px
+	line-height: 1.5em
+	font-family: 'Source Sans Pro', 'Helvetica Neue',Helvetica,Arial,sans-serif
+	font-weight: 400
+	text-align: left
+		
+// links
+
+a
+	color: $color_link
+	text-decoration: none
+	padding: 1px 2px
+	border-bottom: 1px solid $color_link_border
+a:visited
+	color: $color_link_visited
+	border: $color_link_visited_border
+a:hover
+	color: $color_link_hover
+	background: $color_link_hover_background
+	border-bottom: 1px solid $color_link_hover_background
+
+@mixin noborder
+	background: none
+	border: none
+	color: inherit
+a.noborder, a.noborder:hover
+	+noborder
+a img
+	+noborder
+
+// headers
+
+@for $i from 1 through 6
+	h#{$i}
+		margin: 1.5em 0 0.5em 0
+		font-size: 1em
+		line-height: 1.0em
+		font-weight: bold
+		color: $colorA
+	h#{$i} a,
+	h#{$i} a:visited
+	h#{$i} a:hover
+		background: none
+		border: none
+
+h3 a
+	color: $colorA
+	border: none
+	background: none
+h3 a:hover
+	color: #fff
+	background: $colorA
+
+h1
+	font-size: 3.5em
+	font-weight: 600
+	margin: 0.75em 0 0 0
+	color: $color_text_lighter
+	@media screen and (max-width: 600px)
+		font-size: 2.5em
+		
+h2
+	font-size: 1.75em
+	margin-top: 2.5em
+h2:first-child
+	margin-top: 0
+
+h3
+	font-size: 1.25em
+	font-weight: bold
+	line-height: 1.25em
+
+h4
+	margin: 1.5em 0 0.5em 0
+	font-size: 0.9em
+	font-weight: normal
+	text-transform: uppercase
+	letter-spacing: 0.1em
+
+h5
+	font-weight: normal
+
+h6
+	font-style: italic
+	font-weight: bold
+	font-weight: 400
+
+
+		
+// blocks
+
+p, ul, ol
+	margin: 1em 0 0 0
+
+.intro
+	font-size: 1.6em
+	line-height: 1.6em
+	font-weight: 400
+	color: $colorB
+
+.intro + p
+	margin-top: 2em
+
+.secondary
+	font-size: 0.75em
+	line-height: 1.5em
+	
+// inline elements
+
+em, cite, i
+	font-style: italic
+	
+strong, b
+	font-weight: bold
+	
+	

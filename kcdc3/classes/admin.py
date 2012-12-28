@@ -1,4 +1,4 @@
-from classes.models import Event, Location, Bio, Registration, Session
+from classes.models import Event, Location, Bio, Registration, Session, Role
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from django.utils.encoding import smart_unicode
 from django.utils.html import escape
 from django.contrib.auth.models import User
+
 
 
 # displays registrations as a list in the Event Admin screen
@@ -23,22 +24,60 @@ class RegistrationInline(admin.TabularInline):
 	    'fk': ['student'],
 	}
 
+
+
 class LocationAdmin(admin.ModelAdmin):
 	model = Location
 	list_display = ('name','neighborhood','show_exact',)
 
 admin.site.register(Location, LocationAdmin)
 
-class BioAdmin(admin.ModelAdmin):
-	model = Bio
-	list_display = ('name','user',)
+
+
+class RoleAdmin(admin.ModelAdmin):
+
+	model = Role
+	list_display = ('name', 'sort_order',)
 	fieldsets = [
-		(None,			{'fields': ['name','description','website','user',]}),
+		(None, {'fields': ['name','description', 'sort_order',]}),
+	]
+
+	class Media:
+		js = [
+			'tiny_mce/tiny_mce.js',
+			'tinymce_setup.js',
+		]
+
+admin.site.register(Role, RoleAdmin)
+
+
+
+class BioAdmin(admin.ModelAdmin):
+	
+	model = Bio
+	list_display = ('name', 'user', 'role', 'title',)
+	fieldsets = [
+		(None, {'fields': ['name','user',]}),
+		('Teacher bio', {
+			'classes': ('grp-collapse grp-open',), 
+			'fields': [
+				'description', 'website', 
+			]
+		}),
+		('Staff bio', {
+			'classes': ('grp-collapse grp-open',), 
+			'fields': [
+				'role', 'title', 'staff_description', 
+			]
+		}),
 	]
 	raw_id_fields = ['user']
 	related_lookup_fields = {
 	    'fk': ['user'],
 	}
+
+	search_fields = ('name',)
+
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
@@ -46,6 +85,8 @@ class BioAdmin(admin.ModelAdmin):
 		]
 
 admin.site.register(Bio, BioAdmin)
+
+
 
 # lets someone create/edit a Event
 class EventAdmin(admin.ModelAdmin):
@@ -96,22 +137,26 @@ class EventAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 
 
+
 # create/edit a Session
 class SessionAdmin(admin.ModelAdmin):
 	fieldsets = [
 		(None, {'fields': [
-			'title', 'long_title', 'slug',
+			'title', 'long_title', 'slug', 'status',
 			]}),
-		('Registration', {'fields': [
-			('registration_status', 
-			'email_reminder_days')
-			]}),
-		('Text', {'fields': [
-			'description','documentation'
+		# ('Registration', {
+		# 	'classes': ('grp-collapse grp-closed',),
+		# 	'fields': [
+		# 	('registration_status', 
+		# 	'email_reminder_days')
+		# 	]}),
+		('Text', {
+			'classes': ('grp-collapse grp-open',),
+			'fields': [
+			'description'
 			]}),
 	]
-	list_display = ('title', 'registration_status')
-	prepopulated_fields = {"slug": ("title",)}
+	list_display = ('title', 'slug', 'status')
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
