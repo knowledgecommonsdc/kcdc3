@@ -4,6 +4,8 @@ www/uploads
 *.pyc
 
 kcdc3/django.db
+kcdc3/public/media/mugshots
+kcdc3/kcdc3/settings.py
 
 kcdc3/public/media/event_images
 kcdc3/public/media/mugshots
