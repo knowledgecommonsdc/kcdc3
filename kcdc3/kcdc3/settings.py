@@ -153,6 +153,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
 	'classes',
+	'pinata',
+	'pigeon',
 	'accounts',
 	'south',
 	'userena',
