@@ -8,10 +8,10 @@
 			<ul>
 				<li><a href="/classes#upcoming"><i class="ss-icon icon_decorative">&#x25B9;</i>Upcoming classes</a></li>
 				<li><a href="/classes#past"><i class="ss-icon icon_decorative">&#x25B9;</i>Recent classes</a></li>
+				<li><a href="http://knowledgecommonsdc.org/about/january-2013-study-hall"><i class="ss-icon icon_decorative">&#x25BB;</i>Study Hall</a></li>
 				{% for session in sessions reversed %}
 					<li><a href="/classes/{{ session.slug }}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ session.title }}</a></li>
 				{% endfor %}
-				<li><a href="http://knowledgecommonsdc.org/about/january-2013-study-hall"><i class="ss-icon icon_decorative">&#x25BB;</i>January 2013 Study Hall</a></li>
 				<li><a href="http://knowledgecommonsdc.org/classes"><i class="ss-icon icon_decorative">&#x25BB;</i>More sessions&hellip;</a></li>
 			</ul>
 		</div>
