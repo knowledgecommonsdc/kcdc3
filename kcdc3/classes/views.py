@@ -53,6 +53,26 @@ class EventArchiveView(ListView):
 		return context
 
 
+
+# more about a particular session
+class SessionView(ListView):
+
+	template_name = "classes/event_session.html"
+	context_object_name = "event_list"
+	model = Event
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(SessionView, self).get_context_data(**kwargs)
+
+		context['selected_session'] = Session.objects.filter(slug=self.kwargs['slug'])
+
+		# get list of sessions for use in local navigation
+		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+
+		return context
+
+
 	
 # display a single event	
 class EventDetailView(DetailView):
