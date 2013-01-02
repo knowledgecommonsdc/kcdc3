@@ -111,13 +111,7 @@ class SessionAdmin(admin.ModelAdmin):
 		('Text', {
 			'classes': ('grp-collapse grp-open',),
 			'fields': [
-			'description',
-			'sidebar_text',
-			]}),
-		('Extended Text', {
-			'classes': ('grp-collapse grp-open',),
-			'fields': [
-			'documentation',
+			'description'
 			]}),
 	]
 	list_display = ('title', 'slug', 'status')

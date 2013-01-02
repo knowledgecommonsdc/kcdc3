@@ -11,17 +11,6 @@
 
 	<div id="main">
 	
-		{% for session in selected_session %}
-			<div class="local_intro type_section">
-				{{ session.description|safe }}
-				
-				{% if session.documentation %}
-					<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>
-				{% endif %}
-								
-			</div>
-		{% endfor %}
-
 		<h2 id="upcoming">Upcoming classes</h2>
 
 		<dl class="calendar">
@@ -129,7 +118,7 @@
 		<div class="sidebar_text sidebar_contrast">
 
 			{% for session in selected_session %}
-				{{ session.sidebar_text|safe }}
+				{{ session.description|safe }}
 			{% endfor %}
 
 		</div>
