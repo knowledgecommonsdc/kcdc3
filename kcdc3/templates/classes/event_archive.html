@@ -62,6 +62,8 @@
 									{% else %}
 										<span class="registration_indicator"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
 									{% endif %}
+								{% elif event.registration_status == 'PREVENT' %}
+									<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
 								{% endif %}
 							
 							</p>
