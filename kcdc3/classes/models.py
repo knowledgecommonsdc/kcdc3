@@ -14,8 +14,9 @@ class Session(models.Model):
 	)
 	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='CURRENT')
 
-	description = models.TextField(blank=True)
-	documentation = models.TextField(blank=True)
+	description = models.TextField('Intro/Description', blank=True)
+	sidebar_text = models.TextField('Sidebar', blank=True)
+	documentation = models.TextField('Documentation/Extended Text', blank=True)
 
 	REGISTRATION_STATUS_CHOICES = (
 		('ALLOW', 'Allow'),
