@@ -1,6 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
+from datetime import timedelta
+
+# TODO this shouldn't be here but don't have settings import working yet
+# In hours, how long before a class do late promotion rules apply?
+WAITLIST_LATE_PROMOTION_TIME = 8
+
 
 # a Session is a collection of classes
 class Session(models.Model):
@@ -160,7 +166,13 @@ class Event(models.Model):
 		else: 
 			return False
 
+	def is_late_promotion(self):
+		if (self.date <= datetime.datetime.now() + timedelta(hours=WAITLIST_LATE_PROMOTION_TIME)):
+			return True
+		else:
+			return False
 		
+
 # Registrations connect Users with the Events they've signed up for		
 class Registration(models.Model):
 	student = models.ForeignKey(User, null=True)
@@ -170,6 +182,8 @@ class Registration(models.Model):
 	attended = models.NullBooleanField()
 	cancelled = models.BooleanField(default=False)
 	date_cancelled = models.DateTimeField(blank=True, null=True)
+	date_promoted = models.DateTimeField(blank=True, null=True)
+	late_promotion = models.BooleanField(default=False)
 
 	class Meta:
 

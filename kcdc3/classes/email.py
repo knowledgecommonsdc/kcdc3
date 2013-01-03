@@ -79,6 +79,7 @@ class RegistrationEmail(EmailMessage):
 			'location_hint': event.location.hint,
 			'details': event.details,
 			'email_welcome_text': event.email_welcome_text,	
+			'is_late_promotion': event.is_late_promotion,	
 			}
 
 	def generate_subject(self, registration_flag):

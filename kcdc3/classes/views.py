@@ -81,7 +81,7 @@ class EventDetailView(DetailView):
 	model = Event
 	
 	def get_context_data(self, **kwargs):
-		
+				
 		context = super(EventDetailView, self).get_context_data(**kwargs)
 
 		# get list of sessions for use in local navigation

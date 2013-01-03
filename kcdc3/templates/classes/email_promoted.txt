@@ -7,6 +7,10 @@ If you can't, please cancel your registration at:
 
    http://c.knowledgecommonsdc.org/classes/{{ slug }}
 
+{% if is_late_promotion %}We realize that you are receiving this message quite late.
+We want to give you a chance to attend, but we understand 
+if you've made other plans.{% endif %}
+
 CLASS: {{ title }}
 
 DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{% endif %}
