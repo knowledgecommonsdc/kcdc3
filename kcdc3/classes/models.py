@@ -167,6 +167,8 @@ class Event(models.Model):
 			return False
 
 	def is_late_promotion(self):
+		""" True if a user is being promoted from the waitlist 
+		close to the class meeting time."""
 		if (self.date <= datetime.datetime.now() + timedelta(hours=WAITLIST_LATE_PROMOTION_TIME)):
 			return True
 		else:
