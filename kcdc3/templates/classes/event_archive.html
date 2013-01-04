@@ -34,13 +34,13 @@
 
 			{% if event.status == "PUBLISHED" %}
 
-					{% ifchanged %}
+					{% ifchanged event.date.toordinal %}
 						<dt>
 							{{ event.date|date:"l" }}<br />
 							<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
-							{% if forloop.first %}
-								{{ event.date|date:"Y" }}
-							{% endif %}
+							{% ifchanged event.date.year %}
+								<br />{{ event.date|date:"Y" }}
+							{% endifchanged %}
 						</dt>
 					{% endifchanged %}
 					<dd>
