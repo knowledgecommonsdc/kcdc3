@@ -5,7 +5,7 @@ from datetime import timedelta
 
 # TODO this shouldn't be here but don't have settings import working yet
 # In hours, how long before a class do late promotion rules apply?
-WAITLIST_LATE_PROMOTION_TIME = 8
+WAITLIST_LATE_PROMOTION_TIME = 24
 
 
 # a Session is a collection of classes
