@@ -861,29 +861,30 @@ strong, b {
   color: white;
 }
 
-/* line 23, ../sass/_nav.sass */
-.nav > li > .login {
-  font-style: italic;
-  color: #fb2710;
-}
-
-/* line 27, ../sass/_nav.sass */
+/* line 25, ../sass/_nav.sass */
 .nav > .user_logout {
   margin: 0.45em 0 0 0.5em;
+  color: #fb2710;
 }
-/* line 29, ../sass/_nav.sass */
+/* line 28, ../sass/_nav.sass */
 .nav > .user_logout > a {
   padding: 0.5em 0;
   display: inline;
+  font-style: italic;
+  color: #fb2710;
+}
+/* line 33, ../sass/_nav.sass */
+.nav > .user_logout > .username {
+  font-style: normal;
 }
 
-/* line 33, ../sass/_nav.sass */
+/* line 36, ../sass/_nav.sass */
 .nav > li > .home_link {
   color: #fb2710;
   font-weight: bold;
 }
 
-/* line 39, ../sass/_nav.sass */
+/* line 42, ../sass/_nav.sass */
 #mobile_nav > ul {
   *zoom: 1;
   margin: 3em 0 2em 0;
@@ -898,49 +899,47 @@ strong, b {
 #mobile_nav > ul:after {
   clear: both;
 }
-/* line 43, ../sass/_nav.sass */
+/* line 46, ../sass/_nav.sass */
 #mobile_nav > ul > li {
   display: block;
   margin: 0;
   width: 50%;
   border-bottom: 1px solid #cccccc;
 }
-/* line 48, ../sass/_nav.sass */
+/* line 51, ../sass/_nav.sass */
 #mobile_nav > ul a {
   display: block;
   padding: 0.75em 10% 0.75em 2em;
   margin: 0;
 }
-/* line 52, ../sass/_nav.sass */
+/* line 55, ../sass/_nav.sass */
 #mobile_nav .user_logout {
   margin: 0;
-  padding: 0.75em 2em;
-  width: 100%;
 }
-/* line 56, ../sass/_nav.sass */
+/* line 57, ../sass/_nav.sass */
 #mobile_nav .user_logout > a {
-  padding: 0.5em 0;
-  display: inline;
+  padding: 0.75em 2em;
+  display: block;
 }
 
-/* line 63, ../sass/_nav.sass */
+/* line 64, ../sass/_nav.sass */
 #mobile_jump {
   width: 100%;
   text-align: right;
 }
-/* line 66, ../sass/_nav.sass */
+/* line 67, ../sass/_nav.sass */
 #mobile_jump a {
   border: none;
   color: #333333;
 }
 
-/* line 69, ../sass/_nav.sass */
+/* line 70, ../sass/_nav.sass */
 #menu-icon {
   position: relative;
   top: 2px;
 }
 
-/* line 76, ../sass/_nav.sass */
+/* line 77, ../sass/_nav.sass */
 #footer {
   *zoom: 1;
 }
@@ -953,44 +952,44 @@ strong, b {
 #footer:after {
   clear: both;
 }
-/* line 78, ../sass/_nav.sass */
+/* line 79, ../sass/_nav.sass */
 #footer a {
   margin: 0;
   border: none;
   color: #333333;
   white-space: nowrap;
 }
-/* line 83, ../sass/_nav.sass */
+/* line 84, ../sass/_nav.sass */
 #footer a:hover {
   color: #fb2710;
   background: none;
 }
-/* line 86, ../sass/_nav.sass */
+/* line 87, ../sass/_nav.sass */
 #footer .divider {
   color: #b8bbb4;
 }
-/* line 88, ../sass/_nav.sass */
+/* line 89, ../sass/_nav.sass */
 #footer .footer_social {
   margin-right: 0;
   font-size: 1.25em;
 }
-/* line 91, ../sass/_nav.sass */
+/* line 92, ../sass/_nav.sass */
 #footer .footer_social .ss-icon {
   margin-right: 0;
   position: relative;
   top: 0.2em;
 }
-/* line 95, ../sass/_nav.sass */
+/* line 96, ../sass/_nav.sass */
 #footer .divider + .footer_social {
   margin-left: 0.1em;
 }
 
-/* line 98, ../sass/_nav.sass */
+/* line 99, ../sass/_nav.sass */
 #footer_links {
   margin-right: 10%;
 }
 
-/* line 101, ../sass/_nav.sass */
+/* line 102, ../sass/_nav.sass */
 #footer_links,
 #footer_signup {
   float: left;
@@ -998,7 +997,7 @@ strong, b {
   width: 45%;
 }
 @media screen and (max-width: 680px) {
-  /* line 101, ../sass/_nav.sass */
+  /* line 102, ../sass/_nav.sass */
   #footer_links,
   #footer_signup {
     width: 100%;
@@ -1007,22 +1006,22 @@ strong, b {
   }
 }
 
-/* line 112, ../sass/_nav.sass */
+/* line 113, ../sass/_nav.sass */
 #footer_email {
   margin-top: 0.25em;
 }
 
-/* line 115, ../sass/_nav.sass */
+/* line 116, ../sass/_nav.sass */
 #footer_signup {
   line-height: 1.5em;
   margin-top: 0.1em;
   max-width: 390px;
 }
-/* line 118, ../sass/_nav.sass */
+/* line 119, ../sass/_nav.sass */
 #footer_signup input[type=email] {
   height: 30px;
 }
-/* line 120, ../sass/_nav.sass */
+/* line 121, ../sass/_nav.sass */
 #footer_signup .button {
   margin: 0.5em 0 0 0.5em;
   padding: 0.3em 0.5em 0.1em 0.5em;
@@ -1036,35 +1035,35 @@ strong, b {
   font-size: 1.25em;
   font-weight: normal;
 }
-/* line 131, ../sass/_nav.sass */
+/* line 132, ../sass/_nav.sass */
 #footer_signup .button:hover {
   background-color: #fb2710;
 }
 
-/* line 138, ../sass/_nav.sass */
+/* line 139, ../sass/_nav.sass */
 .local_nav {
   margin-bottom: 3em;
 }
-/* line 140, ../sass/_nav.sass */
+/* line 141, ../sass/_nav.sass */
 .local_nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 144, ../sass/_nav.sass */
+/* line 145, ../sass/_nav.sass */
 .local_nav li {
   margin: 0 0 3px 0;
   padding: 0;
   border: 1px solid #eaece1;
   background: #f5f6f1;
 }
-/* line 149, ../sass/_nav.sass */
+/* line 150, ../sass/_nav.sass */
 .local_nav a {
   border: none;
   padding: 0.5em 0 0.5em 0.5em;
   display: block;
 }
-/* line 153, ../sass/_nav.sass */
+/* line 154, ../sass/_nav.sass */
 .local_nav .icon_decorative {
   color: #dfe2d2;
   position: relative;

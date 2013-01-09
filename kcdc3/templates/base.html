@@ -37,10 +37,9 @@
 					<li><a href="http://knowledgecommonsdc.org/blog">Blog</a></li>
 
 					{% if user.is_authenticated %}
-					<li class="user_logout"><a href="/accounts/{{ user }}" class="login">{{ user }}</a> <a href="/accounts/signout" class="login">(log out)</a></li>
+					<li class="user_logout"><a href="/accounts/{{ user }}" class="username">{{ user }}</a> <a href="/accounts/signout" class="login">(log out)</a></li>
 					{% else %}
-					<li><a href="/accounts/signup" class="login">Join</a></li>
-					<li><a href="/accounts/signin" class="login">Log in</a></li>
+					<li  class="user_logout"><a href="/accounts/signup" class="login">Join</a> / <a href="/accounts/signin" class="login">Log in</a></li>
 					{% endif %}
 
 				</ul>
@@ -67,10 +66,11 @@
 				<li><a href="http://knowledgecommonsdc.org/blog">Blog</a></li>
 
 				{% if user.is_authenticated %}
-					<li class="user_logout"><a href="/accounts/{{ user }}" class="login">{{ user }}</a> <a href="/accounts/signout" class="login">(log out)</a></li>
+					<li class="user_logout"><a href="/accounts/{{ user }}" class="username">{{ user }}</a></li>
+					<li class="user_logout"><a href="/accounts/signout" class="login">(log out)</a></li>
 				{% else %}
-				<li><a href="/accounts/register" class="login">Join</a></li>
-				<li><a href="/accounts/signin" class="login">Log in</a></li>
+				<li class="user_logout"><a href="/accounts/signup" class="login">Join</a></li>
+				<li class="user_logout"><a href="/accounts/signin" class="login">Log in</a></li>
 				{% endif %}
 
 			</ul>
