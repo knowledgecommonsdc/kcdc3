@@ -120,7 +120,7 @@
 					</form>
 				{% endif %}
 			{% elif user_is_waitlisted %}
-				<p><i class="ss-icon registration_open">&#x22C6;</i> <em>You are on the waitlist.</em></p>
+				<p><i class="ss-icon registration_waitlist">&#x22C6;</i> <em>You are on the waitlist.</em></p>
 				{% if not event.has_passed %}
 					<form action="/classes/{{ event.slug }}/cancel" method="post">
 						{% csrf_token %}
