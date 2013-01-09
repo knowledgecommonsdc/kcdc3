@@ -868,12 +868,22 @@ strong, b {
 }
 
 /* line 27, ../sass/_nav.sass */
+.nav > .user_logout {
+  margin: 0.45em 0 0 0.5em;
+}
+/* line 29, ../sass/_nav.sass */
+.nav > .user_logout > a {
+  padding: 0.5em 0;
+  display: inline;
+}
+
+/* line 33, ../sass/_nav.sass */
 .nav > li > .home_link {
   color: #fb2710;
   font-weight: bold;
 }
 
-/* line 33, ../sass/_nav.sass */
+/* line 39, ../sass/_nav.sass */
 #mobile_nav > ul {
   *zoom: 1;
   margin: 3em 0 2em 0;
@@ -888,38 +898,49 @@ strong, b {
 #mobile_nav > ul:after {
   clear: both;
 }
-/* line 37, ../sass/_nav.sass */
+/* line 43, ../sass/_nav.sass */
 #mobile_nav > ul > li {
   display: block;
   margin: 0;
   width: 50%;
   border-bottom: 1px solid #cccccc;
 }
-/* line 42, ../sass/_nav.sass */
+/* line 48, ../sass/_nav.sass */
 #mobile_nav > ul a {
   display: block;
   padding: 0.75em 10% 0.75em 2em;
   margin: 0;
 }
+/* line 52, ../sass/_nav.sass */
+#mobile_nav .user_logout {
+  margin: 0;
+  padding: 0.75em 2em;
+  width: 100%;
+}
+/* line 56, ../sass/_nav.sass */
+#mobile_nav .user_logout > a {
+  padding: 0.5em 0;
+  display: inline;
+}
 
-/* line 50, ../sass/_nav.sass */
+/* line 63, ../sass/_nav.sass */
 #mobile_jump {
   width: 100%;
   text-align: right;
 }
-/* line 53, ../sass/_nav.sass */
+/* line 66, ../sass/_nav.sass */
 #mobile_jump a {
   border: none;
   color: #333333;
 }
 
-/* line 56, ../sass/_nav.sass */
+/* line 69, ../sass/_nav.sass */
 #menu-icon {
   position: relative;
   top: 2px;
 }
 
-/* line 63, ../sass/_nav.sass */
+/* line 76, ../sass/_nav.sass */
 #footer {
   *zoom: 1;
 }
@@ -932,44 +953,44 @@ strong, b {
 #footer:after {
   clear: both;
 }
-/* line 65, ../sass/_nav.sass */
+/* line 78, ../sass/_nav.sass */
 #footer a {
   margin: 0;
   border: none;
   color: #333333;
   white-space: nowrap;
 }
-/* line 70, ../sass/_nav.sass */
+/* line 83, ../sass/_nav.sass */
 #footer a:hover {
   color: #fb2710;
   background: none;
 }
-/* line 73, ../sass/_nav.sass */
+/* line 86, ../sass/_nav.sass */
 #footer .divider {
   color: #b8bbb4;
 }
-/* line 75, ../sass/_nav.sass */
+/* line 88, ../sass/_nav.sass */
 #footer .footer_social {
   margin-right: 0;
   font-size: 1.25em;
 }
-/* line 78, ../sass/_nav.sass */
+/* line 91, ../sass/_nav.sass */
 #footer .footer_social .ss-icon {
   margin-right: 0;
   position: relative;
   top: 0.2em;
 }
-/* line 82, ../sass/_nav.sass */
+/* line 95, ../sass/_nav.sass */
 #footer .divider + .footer_social {
   margin-left: 0.1em;
 }
 
-/* line 85, ../sass/_nav.sass */
+/* line 98, ../sass/_nav.sass */
 #footer_links {
   margin-right: 10%;
 }
 
-/* line 88, ../sass/_nav.sass */
+/* line 101, ../sass/_nav.sass */
 #footer_links,
 #footer_signup {
   float: left;
@@ -977,7 +998,7 @@ strong, b {
   width: 45%;
 }
 @media screen and (max-width: 680px) {
-  /* line 88, ../sass/_nav.sass */
+  /* line 101, ../sass/_nav.sass */
   #footer_links,
   #footer_signup {
     width: 100%;
@@ -986,22 +1007,22 @@ strong, b {
   }
 }
 
-/* line 99, ../sass/_nav.sass */
+/* line 112, ../sass/_nav.sass */
 #footer_email {
   margin-top: 0.25em;
 }
 
-/* line 102, ../sass/_nav.sass */
+/* line 115, ../sass/_nav.sass */
 #footer_signup {
   line-height: 1.5em;
   margin-top: 0.1em;
   max-width: 390px;
 }
-/* line 105, ../sass/_nav.sass */
+/* line 118, ../sass/_nav.sass */
 #footer_signup input[type=email] {
   height: 30px;
 }
-/* line 107, ../sass/_nav.sass */
+/* line 120, ../sass/_nav.sass */
 #footer_signup .button {
   margin: 0.5em 0 0 0.5em;
   padding: 0.3em 0.5em 0.1em 0.5em;
@@ -1015,35 +1036,35 @@ strong, b {
   font-size: 1.25em;
   font-weight: normal;
 }
-/* line 118, ../sass/_nav.sass */
+/* line 131, ../sass/_nav.sass */
 #footer_signup .button:hover {
   background-color: #fb2710;
 }
 
-/* line 125, ../sass/_nav.sass */
+/* line 138, ../sass/_nav.sass */
 .local_nav {
   margin-bottom: 3em;
 }
-/* line 127, ../sass/_nav.sass */
+/* line 140, ../sass/_nav.sass */
 .local_nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 131, ../sass/_nav.sass */
+/* line 144, ../sass/_nav.sass */
 .local_nav li {
   margin: 0 0 3px 0;
   padding: 0;
   border: 1px solid #eaece1;
   background: #f5f6f1;
 }
-/* line 136, ../sass/_nav.sass */
+/* line 149, ../sass/_nav.sass */
 .local_nav a {
   border: none;
   padding: 0.5em 0 0.5em 0.5em;
   display: block;
 }
-/* line 140, ../sass/_nav.sass */
+/* line 153, ../sass/_nav.sass */
 .local_nav .icon_decorative {
   color: #dfe2d2;
   position: relative;
