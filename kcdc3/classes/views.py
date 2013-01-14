@@ -230,6 +230,7 @@ def facilitator(request, slug):
 
 
 # display a list of registrations for a given session
+@login_required
 class RegistrationListView(ListView):
 
 	context_object_name = "registration_list"
