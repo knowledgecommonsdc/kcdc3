@@ -226,3 +226,18 @@ def facilitator(request, slug):
 	else:
 		# TODO this should really return a 403
 		return HttpResponse()
+
+
+
+# display a list of registrations for a given session
+class RegistrationListView(ListView):
+
+	context_object_name = "registration_list"
+	model = Registration
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(RegistrationListView, self).get_context_data(**kwargs)
+		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
+		return context
+
