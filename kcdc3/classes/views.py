@@ -230,15 +230,20 @@ def facilitator(request, slug):
 
 
 # display a list of registrations for a given session
-@login_required
-class RegistrationListView(ListView):
-
-	context_object_name = "registration_list"
-	model = Registration
-	
-	def get_context_data(self, **kwargs):
-		
-		context = super(RegistrationListView, self).get_context_data(**kwargs)
-		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
-		return context
-
+# @login_required
+# class RegistrationListView(ListView):
+# 
+# 	context_object_name = "registration_list"
+# 	model = Registration
+# 	
+# 	def get_context_data(self, **kwargs):
+# 		
+# 		context = super(RegistrationListView, self).get_context_data(**kwargs)
+# 		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
+# 
+# 		# is the user staff?
+# 		if request.user.is_staff:
+# 			return context
+# 		else:
+# 			# TODO this should really return a 403
+# 			return HttpResponse()
