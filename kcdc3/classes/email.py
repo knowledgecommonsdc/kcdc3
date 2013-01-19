@@ -41,7 +41,7 @@ class RegistrationEmail(EmailMessage):
 		""" Messages were getting CCed even when no CC recipient was specified. 
 			Disabled for now, since we're not using this function anyway."""
 		cc = kwargs.get('cc')
-		self.cc = ['kcdc.waitlist@gmail.com']
+		self.cc = ['']
 
 		# cc = kwargs.get('cc')
 		# if cc and cc != KCDC_EMAIL:
