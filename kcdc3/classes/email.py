@@ -55,9 +55,13 @@ class RegistrationEmail(EmailMessage):
 
 		self.headers = kwargs.get('headers')
 
+		""" We can't be setting the 'From' header if we're sending mail 
+		djrill and the Mandrill API, but the regular Django SMTP backend
+		does expect the header to be set. """
+
 		self.extra_headers = kwargs.get('extra_headers')
 		# self.extra_headers = {'From': self.from_email}
-
+				
 	def generate_context(self, event):
 		"""Generate the set of key value pairs that will be used
 		for all template population for the emails."""
