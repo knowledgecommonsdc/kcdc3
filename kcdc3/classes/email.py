@@ -56,7 +56,7 @@ class RegistrationEmail(EmailMessage):
 		self.headers = kwargs.get('headers')
 
 		self.extra_headers = kwargs.get('extra_headers')
-		self.extra_headers = {'From': self.from_email}
+		# self.extra_headers = {'From': self.from_email}
 
 	def generate_context(self, event):
 		"""Generate the set of key value pairs that will be used
