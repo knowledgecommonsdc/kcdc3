@@ -129,8 +129,8 @@
 				{% endif %}
 			{% elif is_registration_open %}
 				<form action="/classes/{{ event.slug }}/register" method="post">
-					<label for="needs">Let us know of any special considerations you might require:</label>
-					<input type="text" name="student_needs" id="needs" />
+					<label for="needs">Let us know if you require any disability accommodations:</label>
+					<input type="text" name="student_needs" id="needs" placeholder="None needed" />
 					{% csrf_token %}
 					{% if add_to_waitlist %}
 						<div><input type="submit" value="Join the waitlist" id="submit_button" /></div>
