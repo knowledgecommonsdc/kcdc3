@@ -19,6 +19,9 @@
 			<td>
 				date registered
 			</td>
+			<td>
+				attendance
+			</td>
 		</tr>
 	{% for registration in registered_students %}
 		<tr>
@@ -33,6 +36,9 @@
 			</td>
 			<td>
 				{{ registration.date_registered }} 
+			</td>
+			<td>
+				{{ registration.attended }} 
 			</td>
 		</tr>
 	{% endfor %}
@@ -76,6 +82,9 @@
 			</td>
 			<td>
 				{{ registration.date_registered }} 
+			</td>
+			<td>
+				{{ registration.attended }} 
 			</td>
 		</tr>
 	{% endfor %}
