@@ -14,10 +14,22 @@
 				email
 			</td>
 			<td>
+				class
+			</td>
+			<td>
+				class date
+			</td>
+			<td>
 				date registered
 			</td>
 			<td>
-				event
+				date cancelled
+			</td>
+			<td>
+				date promoted
+			</td>
+			<td>
+				late promotion
 			</td>
 			<td>
 				attended
@@ -35,10 +47,22 @@
 				<a href="mailto:{{ registration.student.email }}">{{ registration.student.email }}</a>
 			</td>
 			<td>
+				{{ registration.event }}
+			</td>
+			<td>
+				{{ registration.event.date }}
+			</td>
+			<td>
 				{{ registration.date_registered }} 
 			</td>
 			<td>
-				{{ registration.event }}
+				{{ registration.date_cancelled }} 
+			</td>
+			<td>
+				{{ registration.date_promoted }} 
+			</td>
+			<td>
+				{{ registration.late_promotion }} 
 			</td>
 			<td>
 				{{ registration.attended }}

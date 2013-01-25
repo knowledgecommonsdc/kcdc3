@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template import Context
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from email import send_registration_mail
 from helpers import *
 from django.db.models import Q
@@ -230,20 +231,24 @@ def facilitator(request, slug):
 
 
 # display a list of registrations for a given session
-# @login_required
-# class RegistrationListView(ListView):
-# 
-# 	context_object_name = "registration_list"
-# 	model = Registration
-# 	
-# 	def get_context_data(self, **kwargs):
-# 		
-# 		context = super(RegistrationListView, self).get_context_data(**kwargs)
-# 		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
-# 
-# 		# is the user staff?
-# 		if request.user.is_staff:
-# 			return context
-# 		else:
-# 			# TODO this should really return a 403
-# 			return HttpResponse()
+class RegistrationListView(ListView):
+
+	context_object_name = "registration_list"
+	model = Registration
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(RegistrationListView, self).get_context_data(**kwargs)
+		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
+
+		# is the user staff?
+		if self.request.user.is_staff:
+			return context
+		else:
+			# TODO this should really return a 403
+			return HttpResponse()
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(RegistrationListView, self).dispatch(*args, **kwargs)
+	
