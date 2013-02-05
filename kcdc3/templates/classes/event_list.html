@@ -12,15 +12,18 @@
 	<div id="main">
 	
 		{% for session in selected_session %}
-			<div class="local_intro type_section">
-				{{ session.description|safe }}
-				
-				{% if session.documentation %}
-					<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>
-				{% endif %}
-								
-			</div>
+			{% if forloop.last %}
+				<div class="local_intro type_section">
+					{{ session.description|safe }}
+					
+					{% if session.documentation %}
+						<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>
+					{% endif %}
+									
+				</div>
+			{% endif %}
 		{% endfor %}
+
 
 		<h2 id="upcoming">Upcoming classes</h2>
 
