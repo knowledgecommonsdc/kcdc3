@@ -61,7 +61,7 @@ class BioAdmin(admin.ModelAdmin):
 		('Teacher bio', {
 			'classes': ('grp-collapse grp-open',), 
 			'fields': [
-				'description', 'website', 
+				'description', 'website', 'image',
 			]
 		}),
 		('Staff bio', {
