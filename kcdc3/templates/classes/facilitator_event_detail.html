@@ -4,7 +4,7 @@
 
 	<h1>{{ title }}</h1>
 	
-	<h2>Registered students</h2>	
+	<h2>Registered students ({{ registration_count }})</h2>	
 	<table>
 		<tr>
 			<td>
@@ -19,6 +19,9 @@
 			<td>
 				date registered
 			</td>
+			<td>
+				attendance
+			</td>
 		</tr>
 	{% for registration in registered_students %}
 		<tr>
@@ -29,10 +32,13 @@
 				{{ registration.student.username }}
 			</td>
 			<td>
-				{{ registration.student.email }}
+				<a href="mailto:{{ registration.student.email }}">{{ registration.student.email }}</a>
 			</td>
 			<td>
 				{{ registration.date_registered }} 
+			</td>
+			<td>
+				{{ registration.attended }} 
 			</td>
 		</tr>
 	{% endfor %}
@@ -42,12 +48,12 @@
 
 	<p>
 	{% for registration in registered_students %}
-		<a href="mailto:{{ registration.student.email }}">{{ registration.student.email }}</a>, 
+		{{ registration.student.email }}, 
 	{% endfor %}
 	contact@knowledgecommonsdc.org
 	</p>
 
-	<h2>Waitlisted students</h2>	
+	<h2>Waitlisted students ({{ waitlist_count }})</h2>	
 	<table>
 		<tr>
 			<td>
@@ -72,10 +78,13 @@
 				{{ registration.student.username }}
 			</td>
 			<td>
-				{{ registration.student.email }}
+				<a href="mailto:{{ registration.student.email }}">{{ registration.student.email }}</a>
 			</td>
 			<td>
 				{{ registration.date_registered }} 
+			</td>
+			<td>
+				{{ registration.attended }} 
 			</td>
 		</tr>
 	{% endfor %}
@@ -85,7 +94,7 @@
 
 	<p>
 	{% for registration in waitlisted_students %}
-		<a href="mailto:{{ registration.student.email }}">{{ registration.student.email }}</a>, 
+		{{ registration.student.email }}, 
 	{% endfor %}
 	contact@knowledgecommonsdc.org
 	</p>

@@ -3,7 +3,8 @@ registration stuff."""
 
 from models import Event, Registration
 from django.contrib.auth.models import User
-from datetime import datetime
+from datetime import datetime, timedelta
+
 
 def is_waitlisted(student, event):
 	"""Checks to see if a student is waitlisted for a given event."""
@@ -75,5 +76,9 @@ def promote_waitlistee(event):
 	print "registration: "+str(registration)
 
 	registration.waitlist=False
+	registration.date_promoted=datetime.now()
+	
+	registration.late_promotion=event.is_late_promotion
+		
 	registration.save()
 	return registration.student

@@ -16,9 +16,9 @@ class RegistrationInline(admin.TabularInline):
 	extra = 0
 	classes = ('grp-collapse grp-closed',)
 	# inline_classes = ('grp-collapse grp-open',)
-	fields = ('student', 'date_registered', 'waitlist', 'cancelled', 'date_cancelled', 'attended')
+	fields = ('student', 'date_registered', 'waitlist', 'cancelled', 'date_cancelled', 'attended', 'late_promotion', 'date_promoted')
 	can_delete = False
-	readonly_fields = ('date_registered','date_cancelled')
+	readonly_fields = ('date_registered','date_cancelled', 'late_promotion', 'date_promoted')
 	raw_id_fields = ['student']
 	related_lookup_fields = {
 	    'fk': ['student'],
@@ -153,7 +153,13 @@ class SessionAdmin(admin.ModelAdmin):
 		('Text', {
 			'classes': ('grp-collapse grp-open',),
 			'fields': [
-			'description'
+			'description',
+			'sidebar_text',
+			]}),
+		('Extended Text', {
+			'classes': ('grp-collapse grp-open',),
+			'fields': [
+			'documentation',
 			]}),
 	]
 	list_display = ('title', 'slug', 'status')
@@ -164,5 +170,7 @@ class SessionAdmin(admin.ModelAdmin):
 		]
 
 admin.site.register(Session, SessionAdmin)
+
+
 
 

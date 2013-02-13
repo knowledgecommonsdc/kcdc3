@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template import Context
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from email import send_registration_mail
 from helpers import *
 from django.db.models import Q
@@ -46,6 +47,26 @@ class EventArchiveView(ListView):
 		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
 		context['selected_session'] = Session.objects.filter(slug=self.kwargs['slug'])
 
+
+		# get list of sessions for use in local navigation
+		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
+
+		return context
+
+
+
+# more about a particular session
+class SessionView(ListView):
+
+	template_name = "classes/event_session.html"
+	context_object_name = "event_list"
+	model = Event
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(SessionView, self).get_context_data(**kwargs)
+
+		context['selected_session'] = Session.objects.filter(slug=self.kwargs['slug'])
 
 		# get list of sessions for use in local navigation
 		context['sessions'] = Session.objects.filter(Q(status='PAST')|Q(status='CURRENT'))
@@ -206,3 +227,28 @@ def facilitator(request, slug):
 	else:
 		# TODO this should really return a 403
 		return HttpResponse()
+
+
+
+# display a list of registrations for a given session
+class RegistrationListView(ListView):
+
+	context_object_name = "registration_list"
+	model = Registration
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(RegistrationListView, self).get_context_data(**kwargs)
+		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
+
+		# is the user staff?
+		if self.request.user.is_staff:
+			return context
+		else:
+			# TODO this should really return a 403
+			return HttpResponse()
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(RegistrationListView, self).dispatch(*args, **kwargs)
+	

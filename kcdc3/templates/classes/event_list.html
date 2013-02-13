@@ -11,6 +11,20 @@
 
 	<div id="main">
 	
+		{% for session in selected_session %}
+			{% if forloop.last %}
+				<div class="local_intro type_section">
+					{{ session.description|safe }}
+					
+					{% if session.documentation %}
+						<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>
+					{% endif %}
+									
+				</div>
+			{% endif %}
+		{% endfor %}
+
+
 		<h2 id="upcoming">Upcoming classes</h2>
 
 		<dl class="calendar">
@@ -19,13 +33,13 @@
 
 				{% if not event.has_passed and event.status == "PUBLISHED" %}
 
-					{% ifchanged %}
+					{% ifchanged event.date.toordinal %}
 						<dt>
 							{{ event.date|date:"l" }}<br />
 							<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
-							{% if forloop.first %}
-								{{ event.date|date:"Y" }}
-							{% endif %}
+							{% ifchanged event.date.year %}
+								<br />{{ event.date|date:"Y" }}
+							{% endifchanged %}
 						</dt>
 					{% endifchanged %}
 
@@ -38,7 +52,9 @@
 							<p class="meta">
 								<i class="ss-icon">time</i> {{ event.date|date:"P" }}
 							
-								{% if not event.has_passed and event.registration_status == "ALLOW" %}	
+								{% if event.has_passed %}
+									<!-- past event -->
+								{% elif event.registration_status == "ALLOW" %}	
 									{% if event.registration_count >= event.max_students %}
 									 	{% if event.waitlist_status %}
 											<span class="registration_indicator"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
@@ -48,6 +64,8 @@
 									{% else %}
 										<span class="registration_indicator"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
 									{% endif %}
+								{% elif event.registration_status == 'PREVENT' %}
+									<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
 								{% endif %}
 							
 							</p>
@@ -75,13 +93,13 @@
 
 				{% if event.has_passed and event.status == "PUBLISHED" %}
 
-					{% ifchanged %}
+					{% ifchanged event.date.toordinal %}
 						<dt>
 							{{ event.date|date:"l" }}<br />
 							<strong>{{ event.date|date:"j" }}</strong> {{ event.date|date:"F" }}
-							{% if forloop.first %}
-								{{ event.date|date:"Y" }}
-							{% endif %}
+							{% ifchanged event.date.year %}
+								<br />{{ event.date|date:"Y" }}
+							{% endifchanged %}
 						</dt>
 					{% endifchanged %}
 					<dd>
@@ -92,6 +110,9 @@
 							</h3>
 							<p class="meta">
 								<i class="ss-icon">time</i> {{ event.date|date:"P" }}
+								{% if event.documentation %}
+									<span class="registration_indicator documentation"><i class="ss-icon indicator_documentation">&#x1F4F7;</i> Documentation</span>			
+								{% endif %}
 							</p>
 							{{ event.summary|safe }}
 							<p>
@@ -118,7 +139,7 @@
 		<div class="sidebar_text sidebar_contrast">
 
 			{% for session in selected_session %}
-				{{ session.description|safe }}
+				{{ session.sidebar_text|safe }}
 			{% endfor %}
 
 		</div>
