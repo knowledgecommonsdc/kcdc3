@@ -9,7 +9,7 @@
 <p>{% trans "Thank you for signing up with us!" %}</p>
 
 {% if userena_activation_required %}
-<p>{% blocktrans %}Next, you need to active your account. We've just sent you an email message with an activation link.{% endblocktrans %}</p>
+<p>{% blocktrans %}Next, you need to active your account. We've just sent you an email message with an activation link. <strong>Check your spam folder for the message.</strong>{% endblocktrans %}</p>
 {% else  %}
 <p>{% blocktrans %}You can now use the supplied credentials to signin.{% endblocktrans %}</p>
 {% endif %}

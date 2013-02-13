@@ -21,8 +21,17 @@
 	color: #fff
 	
 .nav > li > .login
-	font-style: italic
+	
+.nav > .user_logout
+	margin: 0.45em 0 0 0.5em
 	color: $colorA
+	& > a
+		padding: 0.5em 0
+		display: inline
+		font-style: italic
+		color: $colorA
+	& > .username
+		font-style: normal
 
 .nav > li > .home_link
 	color: $colorA
@@ -43,6 +52,11 @@
 			display: block
 			padding: 0.75em 10% 0.75em 2em
 			margin: 0
+	.user_logout
+		margin: 0
+		& > a
+			padding: 0.75em 2em
+			display: block
 		// .nav_home
 		// 	width: 100%
 

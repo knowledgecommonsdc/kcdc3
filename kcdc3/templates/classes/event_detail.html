@@ -34,7 +34,9 @@
 
 		<p class="meta indicators">
 			
-			{% if not event.has_passed and event.registration_status == "ALLOW" %}	
+			{% if event.has_passed %}
+				<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Past</span>			
+			{% elif event.registration_status == "ALLOW" %}	
 				{% if event.registration_count >= event.max_students %}
 				 	{% if event.waitlist_status %}
 						<span class="registration_indicator"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
@@ -44,6 +46,8 @@
 				{% else %}
 					<span class="registration_indicator"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
 				{% endif %}
+			{% elif event.registration_status == 'PREVENT' %}
+				<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
 			{% endif %}
 			
 		</p>
@@ -51,6 +55,11 @@
 		{% if event.main_image %}<p><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
 	
 		{{ event.description|safe }}
+
+		{% if event.documentation %} 
+			<h3>Documentation</h3>
+			{{ event.documentation|safe }}
+		{% endif %}
 
 		{% if event.additional_dates_text %}
 			<h3>Additional meetings</h3>
@@ -81,7 +90,11 @@
 
 
 			
-		{% if not event.has_passed %}
+		{% if event.has_passed %}
+			<h3>Past event</h3>
+		{% elif event.registration_status == "HIDE" %}
+			<!-- hide registration info -->
+		{% else %}
 			{% if event.registration_status == "AUTO" %}	
 				<h3>Registration is not yet open.</h3>
 			{% elif event.registration_status == "PREVENT" %}	
@@ -101,21 +114,25 @@
 			
 		{% if user_is_authenticated %}
 			{% if user_is_registered %}
-				<p><em>You are registered.</em></p>
-				<form action="/classes/{{ event.slug }}/cancel" method="post">
-					{% csrf_token %}
-					<input type="submit" value="I've changed my mind. Unregister me." id="submit_button" />
-				</form>
+				<p><i class="ss-icon registration_open">&#x2713;</i> <em>You are registered.</em></p>
+				{% if not event.has_passed %}
+					<form action="/classes/{{ event.slug }}/cancel" method="post">
+						{% csrf_token %}
+						<input type="submit" value="I've changed my mind. Unregister me." id="submit_button" />
+					</form>
+				{% endif %}
 			{% elif user_is_waitlisted %}
-				<p><em>You are on the waitlist.</em></p>
-				<form action="/classes/{{ event.slug }}/cancel" method="post">
-					{% csrf_token %}
-					<input type="submit" value="I've changed my mind. Remove me from the list." id="submit_button" />
-				</form>
+				<p><i class="ss-icon registration_waitlist">&#x22C6;</i> <em>You are on the waitlist.</em></p>
+				{% if not event.has_passed %}
+					<form action="/classes/{{ event.slug }}/cancel" method="post">
+						{% csrf_token %}
+						<input type="submit" value="I've changed my mind. Remove me from the list." id="submit_button" />
+					</form>
+				{% endif %}
 			{% elif is_registration_open %}
 				<form action="/classes/{{ event.slug }}/register" method="post">
-					<label for="needs">Let us know of any special considerations you might require:</label>
-					<input type="text" name="student_needs" id="needs" />
+					<label for="needs">Let us know if you require any disability accommodations:</label>
+					<input type="text" name="student_needs" id="needs" placeholder="None needed" />
 					{% csrf_token %}
 					{% if add_to_waitlist %}
 						<div><input type="submit" value="Join the waitlist" id="submit_button" /></div>
