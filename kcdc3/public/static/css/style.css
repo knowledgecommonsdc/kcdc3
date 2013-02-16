@@ -1424,6 +1424,11 @@ p.indicators > .registration_indicator {
 }
 
 /* line 246, ../sass/_inside.sass */
+.bios + p {
+  margin-top: 0;
+}
+
+/* line 249, ../sass/_inside.sass */
 .minibio {
   width: 25%;
   min-width: 180px;
@@ -1440,7 +1445,7 @@ p.indicators > .registration_indicator {
 .minibio:after {
   clear: both;
 }
-/* line 252, ../sass/_inside.sass */
+/* line 255, ../sass/_inside.sass */
 .minibio h5 {
   margin: 0.2em 0 0 0;
   padding: 0;
@@ -1448,26 +1453,26 @@ p.indicators > .registration_indicator {
   font-weight: 600;
   color: #333333;
 }
-/* line 258, ../sass/_inside.sass */
+/* line 261, ../sass/_inside.sass */
 .minibio p {
   margin: 0;
   padding: 0;
   font-size: 0.8em;
 }
-/* line 262, ../sass/_inside.sass */
+/* line 265, ../sass/_inside.sass */
 .minibio a {
   display: block;
   border: none;
   color: inherit;
 }
-/* line 266, ../sass/_inside.sass */
+/* line 269, ../sass/_inside.sass */
 .minibio a:hover,
 .minibio a:hover h5 {
   background: none;
   color: #3e9bc3;
 }
 
-/* line 271, ../sass/_inside.sass */
+/* line 274, ../sass/_inside.sass */
 .bio_image {
   background: #f5f6f1;
   border: 1px solid #eaece1;
@@ -1477,25 +1482,25 @@ p.indicators > .registration_indicator {
   float: left;
 }
 
-/* line 282, ../sass/_inside.sass */
+/* line 285, ../sass/_inside.sass */
 .department_label {
   font-style: normal;
   color: #fb2710;
 }
 
-/* line 286, ../sass/_inside.sass */
+/* line 289, ../sass/_inside.sass */
 #hed .department_label {
   color: #fb2710;
   margin: 0;
   font-size: 1.5em;
 }
 
-/* line 291, ../sass/_inside.sass */
+/* line 294, ../sass/_inside.sass */
 .department_label + h1 {
   margin: 0;
 }
 
-/* line 294, ../sass/_inside.sass */
+/* line 297, ../sass/_inside.sass */
 #hed .byline {
   font-size: 1.5em;
   margin: 0 0 0 0;
