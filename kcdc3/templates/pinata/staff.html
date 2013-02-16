@@ -13,10 +13,11 @@
 		{{ main_text|safe }}
 
 		<h3>The Wonder Dojo</h3>
-		{{ dojo_desc.description|safe }}
+		{{ dojo_role.description|safe }}
 		<div class="bios">				
 			{% for bio in dojo %}
 				<div class="minibio">
+					{% if bio.website %}<a href="{{ bio.website }}">{% endif %}
 					<div class="bio_image">
 						{% if bio.image %}
 							<img src="/static/uploads/{{ bio.image }}" />
@@ -24,39 +25,53 @@
 					</div>	
 					<h5>{{ bio.name }}</h5>		
 					<p>{{ bio.title }}</p>				
+					{% if bio.website %}</a>{% endif %}
 				</div>
 			{% endfor %}			
 		</div>
+		{{ dojo_role.extended_description|safe }}
 
 		<h3>Volunteers</h3>
-		{{ volunteers_desc.description|safe }}
+		{{ volunteers_role.description|safe }}
 		{% if volunteers %}
-			<p>
-				{% for bio in volunteers %}
-					{{ bio.name }} {% if bio.title %}<i>({{ bio.title }})</i>{% endif %}{% if not forloop.last %}, {% endif %}
-				{% endfor %}
-			</p>
+		<div class="bios">				
+			{% for bio in volunteers %}
+				<div class="minibio">
+					<h5>{{ bio.name }}</h5>		
+					<p>{{ bio.title }}</p>				
+				</div>
+			{% endfor %}			
+		</div>
 		{% endif %}
+		{{ volunteers_role.extended_description|safe }}
 
 		<h3>Dojo-at-Large</h3>
-		{{ dojo_at_large_desc.description|safe }}
+		{{ dojo_at_large_role.description|safe }}
 		{% if dojo_at_large %}
-			<p>
-				{% for bio in dojo_emeritus %}
-					{{ bio.name }} {% if bio.title %}<i>({{ bio.title }})</i>{% endif %}{% if not forloop.last %}, {% endif %}
-				{% endfor %}
-			</p>
+		<div class="bios">				
+			{% for bio in dojo_at_large %}
+				<div class="minibio">
+					<h5>{{ bio.name }}</h5>		
+					<p>{{ bio.title }}</p>				
+				</div>
+			{% endfor %}			
+		</div>
 		{% endif %}
+		{{ dojo_at_large_role.extended_description|safe }}
 
 		<h3>Dojo Emeritus</h3>
-		{{ dojo_emeritus_desc.description|safe }}
+		{{ dojo_emeritus_role.description|safe }}
 		{% if dojo_emeritus %}
-			<p>
-				{% for bio in dojo_emeritus %}
-					{{ bio.name }} {% if bio.title %}<i>({{ bio.title }})</i>{% endif %}{% if not forloop.last %}, {% endif %}
-				{% endfor %}
-			</p>
+		<div class="bios">				
+			{% for bio in dojo_emeritus %}
+				<div class="minibio">
+					<h5>{{ bio.name }}</h5>		
+					<p>{{ bio.title }}</p>				
+				</div>
+			{% endfor %}			
+		</div>
 		{% endif %}
+		{{ dojo_emeritus_role.extended_description|safe }}
 
 	</div>
 	

@@ -58,6 +58,7 @@ class Role(models.Model):
 	
 	name = models.CharField('Name', max_length=48)
 	description = models.TextField(blank=True)
+	extended_description = models.TextField(blank=True)
 	sort_order = models.IntegerField(blank=True, null=True, default=50)
 
 	class Meta:

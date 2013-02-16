@@ -39,7 +39,7 @@ class RoleAdmin(admin.ModelAdmin):
 	model = Role
 	list_display = ('name', 'sort_order',)
 	fieldsets = [
-		(None, {'fields': ['name','description', 'sort_order',]}),
+		(None, {'fields': ['name','description', 'extended_description', 'sort_order',]}),
 	]
 
 	class Media:
