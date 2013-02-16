@@ -601,7 +601,7 @@ body {
 
 /* line 12, ../sass/_typography.sass */
 a {
-  color: #961604;
+  color: #fb2710;
   text-decoration: none;
   padding: 1px 2px;
   border-bottom: 1px solid #c49b8f;
@@ -609,15 +609,15 @@ a {
 
 /* line 17, ../sass/_typography.sass */
 a:visited {
-  color: #927b78;
+  color: #f75f53;
   border: #c3b8b7;
 }
 
 /* line 20, ../sass/_typography.sass */
 a:hover {
   color: white;
-  background: #d02310;
-  border-bottom: 1px solid #d02310;
+  background: #fb2710;
+  border-bottom: 1px solid #fb2710;
 }
 
 /* line 29, ../sass/_typography.sass */
@@ -1063,16 +1063,16 @@ strong, b {
   padding: 0.5em 0 0.5em 0.5em;
   display: block;
 }
-/* line 140, ../sass/_nav.sass */
+/* line 154, ../sass/_nav.sass */
 .local_nav .active {
   font-weight: bold;
   font-weight: 800;
 }
-/* line 143, ../sass/_nav.sass */
+/* line 157, ../sass/_nav.sass */
 .local_nav .active .icon_decorative {
   color: #fb2710;
 }
-/* line 154, ../sass/_nav.sass */
+/* line 159, ../sass/_nav.sass */
 .local_nav .icon_decorative {
   color: #dfe2d2;
   position: relative;
@@ -1404,6 +1404,59 @@ p.indicators > .registration_indicator {
 .sidebar_contrast h2,
 .sidebar_contrast h3 {
   color: #3e9bc3;
+}
+
+/* line 241, ../sass/_inside.sass */
+.bios {
+  margin-top: 2em;
+  width: 100%;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.bios:before, .bios:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.bios:after {
+  clear: both;
+}
+
+/* line 246, ../sass/_inside.sass */
+.minibio {
+  width: 33%;
+  min-width: 200px;
+  margin: 0 0 1em 0;
+  float: left;
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.minibio:before, .minibio:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.minibio:after {
+  clear: both;
+}
+/* line 252, ../sass/_inside.sass */
+.minibio h5 {
+  margin: 0;
+  padding: 0;
+}
+/* line 255, ../sass/_inside.sass */
+.minibio p {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 259, ../sass/_inside.sass */
+.bio_image {
+  background: #cccccc;
+  height: 60px;
+  width: 60px;
+  margin: 0 1em 0 0;
+  float: left;
 }
 
 /* ----- START PROJECT STYLES  -------------------------------------------- */

@@ -1,0 +1,70 @@
+{% extends "pinata/page.html" %}
+
+
+
+{% block content %}
+
+	<div id="hed">
+		<h1>Who We Are</h1>
+	</div>
+	
+	<div id="main">
+				
+		{{ main_text|safe }}
+
+		<h3>The Wonder Dojo</h3>
+		{{ dojo_desc.description|safe }}
+		<div class="bios">				
+			{% for bio in dojo %}
+				<div class="minibio">
+					<div class="bio_image">
+						{% if bio.image %}
+							<img src="/static/uploads/{{ bio.image }}" />
+						{% endif %}
+					</div>	
+					<h5>{{ bio.name }}</h5>		
+					<p>{{ bio.title }}</p>				
+				</div>
+			{% endfor %}			
+		</div>
+
+		<h3>Volunteers</h3>
+		{{ volunteers_desc.description|safe }}
+		{% if volunteers %}
+			<p>
+				{% for bio in volunteers %}
+					{{ bio.name }} {% if bio.title %}<i>({{ bio.title }})</i>{% endif %}{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+			</p>
+		{% endif %}
+
+		<h3>Dojo-at-Large</h3>
+		{{ dojo_at_large_desc.description|safe }}
+		{% if dojo_at_large %}
+			<p>
+				{% for bio in dojo_emeritus %}
+					{{ bio.name }} {% if bio.title %}<i>({{ bio.title }})</i>{% endif %}{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+			</p>
+		{% endif %}
+
+		<h3>Dojo Emeritus</h3>
+		{{ dojo_emeritus_desc.description|safe }}
+		{% if dojo_emeritus %}
+			<p>
+				{% for bio in dojo_emeritus %}
+					{{ bio.name }} {% if bio.title %}<i>({{ bio.title }})</i>{% endif %}{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+			</p>
+		{% endif %}
+
+	</div>
+	
+{% endblock %}
+
+
+
+{% block sidebar_text %}
+	{{ sidebar_text|safe }}
+{% endblock %}
+

@@ -57,18 +57,19 @@ class BioAdmin(admin.ModelAdmin):
 	model = Bio
 	list_display = ('name', 'user', 'role', 'title',)
 	fieldsets = [
-		(None, {'fields': ['name','user',]}),
+		(None, {'fields': ['name','user','image',]}),
 		('Teacher bio', {
 			'classes': ('grp-collapse grp-open',), 
 			'fields': [
-				'description', 'website', 'image',
+				'description', 'website',
 			]
 		}),
 		('Staff bio', {
 			'classes': ('grp-collapse grp-open',), 
 			'fields': [
 				'role', 'title', 'staff_description', 
-			]
+			],
+			'description': "The <em>staff bio</em> field doesn't display yet.",
 		}),
 	]
 	raw_id_fields = ['user']
