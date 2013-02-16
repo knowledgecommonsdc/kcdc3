@@ -5,6 +5,7 @@
 {% block content %}
 
 	<div id="hed">
+		{% if post.department_label %}<p class="department_label">{{ post.department_label }}</p>{% endif %}
 		<h1>{{ post.title }}</h1>
 	</div>
 	
