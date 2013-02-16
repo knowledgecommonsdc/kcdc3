@@ -56,7 +56,7 @@ class Location(models.Model):
 
 class Role(models.Model):
 	
-	name = models.CharField('Description', max_length=48)
+	name = models.CharField('Name', max_length=48)
 	description = models.TextField(blank=True)
 	sort_order = models.IntegerField(blank=True, null=True, default=50)
 
@@ -76,7 +76,7 @@ class Bio(models.Model):
 	name = models.CharField('Name', max_length=100, blank=False)
 	description = models.TextField('Bio text', blank=True)
 	website = models.URLField(blank=True)
-	image = models.ImageField(upload_to='bio_images', blank=True, null=True)
+	image = models.ImageField('Image (60x60px)', upload_to='bio', blank=True, null=True)
 
 	# Fields for staff bios
 	title = models.CharField(max_length=100, blank=True)
