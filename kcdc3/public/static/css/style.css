@@ -767,9 +767,10 @@ h3 {
   font-size: 1.25em;
   font-weight: bold;
   line-height: 1.25em;
+  margin-top: 2em;
 }
 
-/* line 76, ../sass/_typography.sass */
+/* line 77, ../sass/_typography.sass */
 h4 {
   margin: 1.5em 0 0.5em 0;
   font-size: 0.9em;
@@ -778,24 +779,24 @@ h4 {
   letter-spacing: 0.1em;
 }
 
-/* line 83, ../sass/_typography.sass */
+/* line 84, ../sass/_typography.sass */
 h5 {
   font-weight: normal;
 }
 
-/* line 86, ../sass/_typography.sass */
+/* line 87, ../sass/_typography.sass */
 h6 {
   font-style: italic;
   font-weight: bold;
   font-weight: 400;
 }
 
-/* line 95, ../sass/_typography.sass */
+/* line 96, ../sass/_typography.sass */
 p, ul, ol {
   margin: 1em 0 0 0;
 }
 
-/* line 98, ../sass/_typography.sass */
+/* line 99, ../sass/_typography.sass */
 .intro {
   font-size: 1.6em;
   line-height: 1.6em;
@@ -803,23 +804,23 @@ p, ul, ol {
   color: #3e9bc3;
 }
 
-/* line 104, ../sass/_typography.sass */
+/* line 105, ../sass/_typography.sass */
 .intro + p {
   margin-top: 2em;
 }
 
-/* line 107, ../sass/_typography.sass */
+/* line 108, ../sass/_typography.sass */
 .secondary {
   font-size: 0.75em;
   line-height: 1.5em;
 }
 
-/* line 113, ../sass/_typography.sass */
+/* line 114, ../sass/_typography.sass */
 em, cite, i {
   font-style: italic;
 }
 
-/* line 116, ../sass/_typography.sass */
+/* line 117, ../sass/_typography.sass */
 strong, b {
   font-weight: bold;
 }
@@ -1408,7 +1409,7 @@ p.indicators > .registration_indicator {
 
 /* line 241, ../sass/_inside.sass */
 .bios {
-  margin: 1em 0 0.5em 0;
+  margin: 1.5em 0 0.5em 0;
   width: 100%;
   *zoom: 1;
 }
