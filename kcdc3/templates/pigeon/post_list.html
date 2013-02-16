@@ -26,15 +26,23 @@
 
 			<dd>
 				<a href="/blog/{{ post.slug }}">
+					
 					<h3>
 						{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
 						{{ post.title }}
 					</h3>
+
 					{% if post.author|length > 0 %}
-						{# TODO Oxford commas would be better, though the building of stylistically correct lists is pretty cool already #}
-						<p>{% for bio in post.author.all %}{% if forloop.last %} and {% elif not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}</p>
+						<p>
+						{% for bio in post.author.all %}							
+							{% if forloop.last %}{% if forloop.counter > 1 %} and {% endif %}{% endif %}
+							{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
+						{% endfor %}
+						</p>
 					{% endif %}
+					
 					{{ post.teaser|safe }}
+
 				</a>
 			</dd>
 
