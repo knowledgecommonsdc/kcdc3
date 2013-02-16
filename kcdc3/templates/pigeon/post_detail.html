@@ -4,20 +4,19 @@
 
 {% block content %}
 
-	<div id="hed">
+	<div id="hed" class="blog_hed">
 		{% if post.department_label %}<p class="department_label">{{ post.department_label }}</p>{% endif %}
 		<h1>{{ post.title }}</h1>
-	</div>
-	
-	<div id="main">
-		
-		<p>
+		<p class="byline">By 
 			{% for bio in post.author.all %}							
 				{% if forloop.last %}{% if forloop.counter > 1 %} and {% endif %}{% endif %}
 				{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
 			{% endfor %}
 		</p>
-
+	</div>
+	
+	<div id="main">
+		
 		{{ post.main_text|safe }}
 
 		{% if post.author.count > 0 %}

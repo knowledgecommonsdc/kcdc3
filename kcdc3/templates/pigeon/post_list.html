@@ -10,14 +10,13 @@
 	
 	<div id="main">
 		
-		<dl class="calendar">
+		<dl class="calendar blog_calendar">
 			
 		{% for post in recent_posts reversed %}
 
 			{% ifchanged %}
 				<dt>
-					{{ post.date|date:"l" }}<br />
-					<strong>{{ post.date|date:"j" }}</strong> {{ post.date|date:"F" }}
+					{{ post.date|date:"j" }} {{ post.date|date:"F" }}
 					{% if forloop.first %}
 						{{ post.date|date:"Y" }}
 					{% endif %}
@@ -33,7 +32,7 @@
 					</h3>
 
 					{% if post.author|length > 0 %}
-						<p>
+						<p>By 
 						{% for bio in post.author.all %}							
 							{% if forloop.last %}{% if forloop.counter > 1 %} and {% endif %}{% endif %}
 							{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
