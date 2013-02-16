@@ -3,6 +3,7 @@ from django.views.generic import DetailView, TemplateView, ListView
 from datetime import datetime
 from django.template import Context
 from django.db.models import Q
+from django.contrib.syndication.views import Feed
 from pigeon.models import Post
 from classes.models import Bio
 
@@ -56,3 +57,24 @@ class PostDetailView(DetailView):
 		context['posts'] = Post.objects.filter(status='PUBLISHED').exclude(date__gte=datetime.now())
 		return context
 			
+
+
+
+# RSS feed
+class BlogFeed(Feed):
+	title = "KCDC Blog"
+	link = "/blog/"
+	description = "Knowledge Commons DC Blog"
+
+	def items(self):
+		return Post.objects.order_by('-date')[:10]
+
+	def item_title(self, item):
+		return item.title
+
+	def item_description(self, item):
+		return item.teaser
+
+
+
+
