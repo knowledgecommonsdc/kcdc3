@@ -27,6 +27,7 @@
 			<dd>
 				<a href="/blog/{{ post.slug }}">
 					<h3>
+						{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
 						{{ post.title }}
 					</h3>
 					{% if post.author|length > 0 %}

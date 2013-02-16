@@ -14,7 +14,7 @@ class PostAdmin(admin.ModelAdmin):
 	
 	fieldsets = [
 		(None, {'fields': [
-			'title', 'slug', ('date', 'author',), ('status', 'featured',),
+			'title', 'slug', 'department_label', ('date', 'author',), ('status', 'featured',),
 			]}),
 		('Text', {
 			'classes': ('grp-collapse grp-open',),
