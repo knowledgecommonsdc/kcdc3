@@ -41,7 +41,7 @@ class Notice(models.Model):
 
 	class Meta:
 		ordering = ['sort_order']
-		verbose_name=u'Front Page Notice'
+		verbose_name=u'Front Notice'
 
 	def __unicode__(self):
 		return self.title
@@ -59,7 +59,7 @@ class Slide(models.Model):
 
 	class Meta:
 		ordering = ['sort_order']
-		verbose_name=u'Front Page Slide'
+		verbose_name=u'Front Slide'
 
 	def __unicode__(self):
 		return self.title
