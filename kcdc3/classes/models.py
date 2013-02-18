@@ -63,6 +63,7 @@ class Role(models.Model):
 
 	class Meta:
 		ordering = ['sort_order']
+		verbose_name=u'Staff Role'
 
 	def __unicode__(self):
 		return self.name
@@ -91,6 +92,9 @@ class Bio(models.Model):
 			return self.staff_description
 		else: 	
 			return self.description
+
+	class Meta:
+		verbose_name=u'Staff/Teacher Bio'
 
 	def __unicode__(self):
 		return self.name
@@ -157,6 +161,8 @@ class Event(models.Model):
 		
 	class Meta:
 		ordering = ['-date']
+		verbose_name=u'Class/Event'
+		verbose_name_plural=u'Classes/Events'
 
 	def __unicode__(self):
 		return self.title
