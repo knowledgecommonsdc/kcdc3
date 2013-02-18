@@ -11,7 +11,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 
-	url(r'^$', include('pinata.urls')),
+	url(r'^$', 'pinata.views.home'),
 	url(r'^classes/', include('classes.urls')),
 	url(r'^blog/', include('pigeon.urls')),
 	url(r'^about/$', 'pinata.views.staff'),

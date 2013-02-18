@@ -18,11 +18,11 @@ class PageAdmin(admin.ModelAdmin):
 		('Text', {
 			'classes': ('grp-collapse grp-open',),
 			'fields': [
-			'teaser',
+			#'teaser',
 			'main_text'
 			]}),
 		('Additional Text', {
-			'classes': ('grp-collapse grp-open',),
+			'classes': ('grp-collapse grp-closed',),
 			'fields': [
 			'sidebar_text',
 			]}),
