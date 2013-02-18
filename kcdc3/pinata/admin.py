@@ -1,4 +1,4 @@
-from pinata.models import Page
+from pinata.models import Page, Notice, Slide
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -38,4 +38,38 @@ class PageAdmin(admin.ModelAdmin):
 		]
 
 admin.site.register(Page, PageAdmin)
+
+
+
+
+
+class NoticeAdmin(admin.ModelAdmin):
+	
+	fieldsets = [
+		(None, {'fields': [
+			'title', 'main_text', 'live', 'sort_order',
+			]}),
+	]
+
+	list_display = ('title', 'live', 'sort_order',)
+	list_editable = ('live', 'sort_order',)
+
+admin.site.register(Notice, NoticeAdmin)
+
+
+
+
+
+class SlideAdmin(admin.ModelAdmin):
+	
+	fieldsets = [
+		(None, {'fields': [
+			'title', 'image', 'main_text', 'live',
+			]}),
+	]
+
+	list_display = ('title', 'live', 'image',)
+	list_editable = ('live',)
+
+admin.site.register(Slide, SlideAdmin)
 
