@@ -37,8 +37,84 @@
 			{{ notice.main_text|safe }}
 		{% endfor %}
 	</div>
+
+	<div style="margin: 3em 0 0 0;">
+		{% for event in events reversed %}
+			<div class="event_preview">
+				<a href="/classes/{{ event.slug }}">
+					<h3>
+						<!--<b class="event">Event:</b>-->
+						{{ event.title }}
+					</h3>
+					<p class="meta">
+						<i class="ss-icon">time</i> {{ event.date|date:"P" }}
+					
+						{% if event.has_passed %}
+							<!-- past event -->
+						{% elif event.registration_status == "ALLOW" %}	
+							{% if event.registration_count >= event.max_students %}
+							 	{% if event.waitlist_status %}
+									<span class="registration_indicator"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
+								{% else %}
+									<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>			
+								{% endif %}
+							{% else %}
+								<span class="registration_indicator"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
+							{% endif %}
+						{% elif event.registration_status == 'PREVENT' %}
+							<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
+						{% endif %}
+					
+					</p>
+					<p>
+						<i class="ss-icon">user</i> Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
+					</p>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+
+
+	<div style="margin: 3em 0 0 0;">
+		{% for post in posts reversed %}
+
+		{% ifchanged %}
+			<dt>
+				{{ post.date|date:"j" }} {{ post.date|date:"F" }}
+				{% if forloop.first %}
+					{{ post.date|date:"Y" }}
+				{% endif %}
+			</dt>
+		{% endifchanged %}
+
+		<dd>
+			<a href="/blog/{{ post.slug }}">
+				
+				<h3>
+					{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
+					{{ post.title }}
+				</h3>
+
+				{% if post.author|length > 0 %}
+					<p>By 
+					{% for bio in post.author.all %}							
+						{% if forloop.last %}{% if forloop.counter > 1 %} and {% endif %}{% endif %}
+						{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
+					{% endfor %}
+					</p>
+				{% endif %}
+				
+				{{ post.teaser|safe }}
+
+			</a>
+		</dd>
+
+	{% endfor %}
+	</div>
+
 	
 {% endblock %}
+
 
 
 
