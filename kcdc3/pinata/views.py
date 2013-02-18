@@ -3,14 +3,15 @@ from django.shortcuts import render_to_response
 from datetime import datetime
 from django.template import Context
 from django.db.models import Q
-from pinata.models import Page
+from pinata.models import Page, Notice, Slide
 from classes.models import Bio, Role
 
 
 def page_view(request):
+	""" Handle requests for pages. """
 
 	# debug
-	print('path: "'+request.path+'"')	
+	# print('path: "'+request.path+'"')	
 
 	# Remove trailing slashes from incoming path.
 	# Probably best handled in urls.py,
@@ -47,7 +48,9 @@ def page_view(request):
 		
 		
 def staff(request):
-	
+	""" View for front page of the About section.
+	Includes staff and volunteer listings. """
+
 	context = Context()
 
 	e = Page.objects.get(path='/about')
@@ -72,3 +75,16 @@ def staff(request):
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
 	return render_to_response('pinata/staff.html',context)
+
+
+
+def home(request):
+	""" Sitewide home page """
+
+	context = Context()
+
+	context['notices'] = Notice.objects.filter(live=True)
+	context['slides'] = Slide.objects.filter(live=True)
+		
+	return render_to_response('pinata/home.html',context)
+

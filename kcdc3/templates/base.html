@@ -48,6 +48,8 @@
 
 		</div>
 		
+		{% block pre_content %}{% endblock %}
+
 		<div id="content">
 										
 			{% block content %}{% endblock %}
@@ -55,6 +57,7 @@
 						
 		</div>
 
+		{% block post_content %}{% endblock %}
 
 		<div id="mobile_nav">
 			<ul class="nav">
@@ -123,6 +126,7 @@
 		</script>
 
 		<!-- local scripts for page -->
+		{% block local_scripts %}{% endblock %}
 
     </body>
 </html>
