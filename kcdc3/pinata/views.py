@@ -4,7 +4,8 @@ from datetime import datetime
 from django.template import Context
 from django.db.models import Q
 from pinata.models import Page, Notice, Slide
-from classes.models import Bio, Role
+from classes.models import Bio, Role, Event, Session
+from pigeon.models import Post
 
 
 def page_view(request):
@@ -87,8 +88,13 @@ def home(request):
 	context = Context()
 	context['user'] = request.user
 
+	# Get information for front page content
 	context['notices'] = Notice.objects.filter(live=True)
 	context['slides'] = Slide.objects.filter(live=True)
 		
+	# Pull content from elsewhere in the site
+	context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT", featured=True)[:8]
+	context['posts'] = Post.objects.filter(status='PUBLISHED').filter(featured=True).exclude(date__gte=datetime.now())[:4]
+
 	return render_to_response('pinata/home.html',context)
 
