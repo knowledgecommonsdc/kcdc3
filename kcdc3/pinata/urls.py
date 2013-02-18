@@ -3,7 +3,7 @@ from pinata.models import Page
 
 urlpatterns = patterns('pinata.views',
 
-	url(r'^$', 'home'),
+	url(r'^$', 'page_view'),
 	url(r'^[0-9a-zA-Z_-]+/$', 'page_view'),
 
 )
