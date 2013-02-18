@@ -2,10 +2,16 @@
 
 
 
+{% block title %}
+ / {{ short_title }}
+{% endblock %}
+
+
+
 {% block content %}
 
 	<div id="hed">
-		<h1>Who We Are</h1>
+		<h1>{{ title }}</h1>
 	</div>
 	
 	<div id="main">

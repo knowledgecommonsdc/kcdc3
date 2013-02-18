@@ -60,6 +60,8 @@ def staff(request):
 	e = Page.objects.get(path='/about')
 	print(e.main_text)
 	context['main_text'] = e.main_text
+	context['short_title'] = e.short_title
+	context['title'] = e.title
 	
 	context['dojo'] = Bio.objects.filter(role__name='Dojo')
 	context['volunteers'] = Bio.objects.filter(role__name='Volunteers')
