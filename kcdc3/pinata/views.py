@@ -10,6 +10,9 @@ from classes.models import Bio, Role
 def page_view(request):
 	""" Handle requests for pages. """
 
+	context = Context()
+	context['user'] = request.user
+
 	# debug
 	# print('path: "'+request.path+'"')	
 
@@ -22,7 +25,6 @@ def page_view(request):
 	# print('search path: "'+search_path+'"')	
 
 	e = Page.objects.get(path=search_path)
-	context = Context()
 	
 	context['title'] = e.title
 	context['short_title'] = e.short_title
@@ -52,6 +54,7 @@ def staff(request):
 	Includes staff and volunteer listings. """
 
 	context = Context()
+	context['user'] = request.user
 
 	e = Page.objects.get(path='/about')
 	print(e.main_text)
@@ -82,6 +85,7 @@ def home(request):
 	""" Sitewide home page """
 
 	context = Context()
+	context['user'] = request.user
 
 	context['notices'] = Notice.objects.filter(live=True)
 	context['slides'] = Slide.objects.filter(live=True)
