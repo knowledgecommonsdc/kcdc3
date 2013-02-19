@@ -70,7 +70,7 @@
 		padding: 0.1em 0.4em
 		color: $colorA
 		border: 1px solid $colorE1
-		font-size: 1.1em
+		font-size: 1.0em
 		font-style: normal
 		font-weight: 400
 		background: #fff
@@ -172,12 +172,12 @@
 	width: 25%
 	float: left
 	padding-right: 1em
-	@media screen and (max-width: 860px)
+	@media screen and (max-width: 920px)
 		width: 50%
-		border-top: 1px solid $colorE1
 	@media screen and (max-width: 600px)
 		width: 100%
 		clear: both
+		border-top: 1px solid $colorE1
 
 .features > div:nth-child(n+4)
 	padding-right: 0
@@ -211,9 +211,11 @@
 
 #classes
 	margin: 4em 0 0 0
-	border-top: 1px solid $colorE1
+	border-top: 6px solid $colorE
+	@media screen and (max-width: 600px)
+		border-top: none
 	.front_more_link
-		margin: 5.0em 0 0 0
+		margin: 4.8em 0 0 0
 		padding: 0 0 0 0
 		text-align: right
 		@media screen and (max-width: 860px)
@@ -238,15 +240,16 @@
 // blog listing -------------------------
 #posts
 	margin: 4em 0 0 0
-	h2
+	h3
 		margin: 0 0.5em 1em 0
 		float: left
-		line-height: 1.5em
+		line-height: 2.2em
 		a
 			border: none
 			color: $color_text_lighter
 		a:hover
 			color: $colorA
+			background: none
 	i
 		color: $color_text_lighter
 	& > p
@@ -257,7 +260,7 @@
 		margin: 0
 		position: relative
 		left: -1px
-		@media screen and (max-width: 600px)
+		@media screen and (max-width: 920px)
 			width: 100%
 			clear: both
 			white-space: normal
