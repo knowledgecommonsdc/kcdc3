@@ -1,0 +1,49 @@
+{% extends "pinata/page.html" %}
+
+
+
+{% block title %}
+ / {{ short_title }}
+{% endblock %}
+
+
+
+{% block content %}
+
+	<div id="hed">
+		<h1>{{ title }}</h1>
+	</div>
+	
+	<div id="main">
+				
+		{{ main_text|safe }}
+
+		<div id="wufoo-q7x2x3" style="padding-top: 3em;" class="form_contribution">
+		Fill out our <a href="http://knowledgecommonsdc.wufoo.com/forms/q7x2x3">contribution form</a>.
+		</div>
+		<script type="text/javascript">var q7x2x3;(function(d, t) {
+		var s = d.createElement(t), options = {
+		'userName':'knowledgecommonsdc', 
+		'formHash':'q7x2x3', 
+		'autoResize':true,
+		'height':'692',
+		'async':true,
+		'header':'show'};
+		s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
+		s.onload = s.onreadystatechange = function() {
+		var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+		try { q7x2x3 = new WufooForm();q7x2x3.initialize(options);q7x2x3.display(); } catch (e) {}};
+		var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+		})(document, 'script');</script>
+
+
+	</div>
+	
+{% endblock %}
+
+
+
+{% block sidebar_text %}
+	{{ sidebar_text|safe }}
+{% endblock %}
+

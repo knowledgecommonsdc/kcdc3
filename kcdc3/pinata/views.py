@@ -51,7 +51,7 @@ def page_view(request):
 		
 		
 def staff(request):
-	""" View for front page of the About section.
+	""" Front page of the About section.
 	Includes staff and volunteer listings. """
 
 	context = Context()
@@ -99,4 +99,46 @@ def home(request):
 	context['posts'] = Post.objects.filter(status='PUBLISHED').filter(featured=True).exclude(date__gte=datetime.now())[:4]
 
 	return render_to_response('pinata/home.html',context)
+
+
+
+
+def proposal(request):
+	""" Course proposal page """
+
+	context = Context()
+	context['user'] = request.user
+
+	e = Page.objects.get(path='/teach/proposal')
+	print(e.main_text)
+	context['main_text'] = e.main_text
+	context['short_title'] = e.short_title
+	context['title'] = e.title
+
+	# Get information for front page content
+	context['notices'] = Notice.objects.filter(live=True)
+	context['slides'] = Slide.objects.filter(live=True)
+		
+	# Pull content from elsewhere in the site
+	context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT", featured=True)[:8]
+	context['posts'] = Post.objects.filter(status='PUBLISHED').filter(featured=True).exclude(date__gte=datetime.now())[:4]
+
+	return render_to_response('pinata/proposal.html',context)
+
+
+
+
+def contribute(request):
+	""" Contribute page """
+
+	context = Context()
+	context['user'] = request.user
+
+	e = Page.objects.get(path='/contribute')
+	print(e.main_text)
+	context['main_text'] = e.main_text
+	context['short_title'] = e.short_title
+	context['title'] = e.title
+
+	return render_to_response('pinata/contribute.html',context)
 
