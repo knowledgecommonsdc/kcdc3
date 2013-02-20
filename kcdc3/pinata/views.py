@@ -54,6 +54,8 @@ def staff(request):
 	""" Front page of the About section.
 	Includes staff and volunteer listings. """
 
+	""" TODO: This really ought to extend page_view() """
+
 	context = Context()
 	context['user'] = request.user
 
@@ -105,7 +107,12 @@ def home(request):
 
 def proposal(request):
 	""" Course proposal page """
-
+	
+	""" TODO: The observant reader may note that this method 
+	is identical to contribute(), except for the template name. 
+	Really, though, it would be best to modify page_view() and 
+	Page so that admins could choose a template on the backend. """
+	
 	context = Context()
 	context['user'] = request.user
 
@@ -114,14 +121,6 @@ def proposal(request):
 	context['main_text'] = e.main_text
 	context['short_title'] = e.short_title
 	context['title'] = e.title
-
-	# Get information for front page content
-	context['notices'] = Notice.objects.filter(live=True)
-	context['slides'] = Slide.objects.filter(live=True)
-		
-	# Pull content from elsewhere in the site
-	context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT", featured=True)[:8]
-	context['posts'] = Post.objects.filter(status='PUBLISHED').filter(featured=True).exclude(date__gte=datetime.now())[:4]
 
 	return render_to_response('pinata/proposal.html',context)
 
