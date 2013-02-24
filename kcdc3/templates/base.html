@@ -23,18 +23,18 @@
 		<div id="header">
 
 			<div id="logo">
-				<a href="/"><img src="/static/images/logo_reversed.png" alt="logo" /></a>
+				<a href="http://knowledgecommonsdc.org/"><img src="/static/images/logo_reversed.png" alt="logo" /></a>
 			</div>
 			<div id="mobile_jump"><a href="#mobile_nav"><span class="ss-icon" id="menu-icon">&#xED50;</span> menu</a></div>
 			<div id="desktop_nav">
 				<ul class="nav">
 					
-					<li class="nav_home"><a href="/">Knowledge Commons DC</a></li>
-					<li><a href="/about">Who We Are</a></li>
+					<li class="nav_home"><a href="http://knowledgecommonsdc.org/">Knowledge Commons DC</a></li>
+					<li><a href="http://knowledgecommonsdc.org/about">Who We Are</a></li>
 					<li><a href="/classes">Classes + Events</a></li>
-					<li><a href="/teach">Teach</a></li>
-					<li><a href="/contribute">Contribute</a></li>
-					<li><a href="/blog">Blog</a></li>
+					<li><a href="http://knowledgecommonsdc.org/teach">Teach</a></li>
+					<li><a href="http://knowledgecommonsdc.org/contribute">Contribute</a></li>
+					<li><a href="http://knowledgecommonsdc.org/blog">Blog</a></li>
 
 					{% if user.is_authenticated %}
 					<li class="user_logout"><a href="/accounts/{{ user }}" class="username">{{ user }}</a> <a href="/accounts/signout" class="login">(log out)</a></li>
@@ -62,12 +62,12 @@
 		<div id="mobile_nav">
 			<ul class="nav">
 				
-				<li class="nav_home"><a href="/">Home</a></li>
-				<li><a href="/about">Who We Are</a></li>
+				<li class="nav_home"><a href="http://knowledgecommonsdc.org/">Home</a></li>
+				<li><a href="http://knowledgecommonsdc.org/about">Who We Are</a></li>
 				<li><a href="/classes">Classes + Events</a></li>
-				<li><a href="/teach">Teach</a></li>
-				<li><a href="/contribute">Contribute</a></li>
-				<li><a href="/blog">Blog</a></li>
+				<li><a href="http://knowledgecommonsdc.org/teach">Teach</a></li>
+				<li><a href="http://knowledgecommonsdc.org/contribute">Contribute</a></li>
+				<li><a href="http://knowledgecommonsdc.org/blog">Blog</a></li>
 
 				{% if user.is_authenticated %}
 					<li class="user_logout"><a href="/accounts/{{ user }}" class="username">{{ user }}</a></li>
