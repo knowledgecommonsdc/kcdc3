@@ -49,10 +49,7 @@ tinyMCE.init({
     // style formsts overrides theme_advanced_styles
     // see http://www.tinymce.com/wiki.php/Configuration:style_formats
     style_formats: [
-        {title: 'Paragraph Small', block : 'p', classes: 'p_small'},
-        {title: 'Paragraph ImageCaption', block : 'p', classes: 'p_caption'},
-        {title: 'Clearfix', block : 'p', classes: 'clearfix'},
-        {title: 'Code', block : 'p', classes: 'code'}
+        {title: 'Intro', block : 'p', classes: 'intro'},
     ],
     verify_html: true,
 
@@ -73,11 +70,11 @@ tinyMCE.init({
     theme_advanced_toolbar_location: 'top',
     theme_advanced_toolbar_align: 'left',
     theme_advanced_statusbar_location: 'bottom',
-    theme_advanced_buttons1: 'formatselect,styleselect,|,bold,italic,underline,|,bullist,numlist,blockquote,|,undo,redo,|,link,unlink,|,image,|,fullscreen,|,grappelli_adv',
-    theme_advanced_buttons2: 'search,|,pasteword,template,media,charmap,|,code,|,table,cleanup,grappelli_documentstructure',
+    theme_advanced_buttons1: 'formatselect,styleselect,|,bold,italic,|,bullist,numlist,blockquote,|,undo,redo,|,link,unlink,|,image,|,fullscreen,|,grappelli_adv',
+    theme_advanced_buttons2: 'search,|,pasteword,media,charmap,|,code,|,cleanup,grappelli_documentstructure',
     theme_advanced_buttons3: '',
     theme_advanced_path: false,
-    theme_advanced_blockformats: 'p,h2,h3,h4,h5,h6,pre,blockquote',
+    theme_advanced_blockformats: 'p,h2,h3,h4,h5,pre,blockquote',
     theme_advanced_resizing: true,
     theme_advanced_resize_horizontal: false,
     theme_advanced_resizing_use_cookie: true,
