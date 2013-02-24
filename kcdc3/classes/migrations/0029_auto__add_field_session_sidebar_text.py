@@ -8,14 +8,16 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'Bio.image'
-        db.add_column('classes_bio', 'image',
-                      self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True),
+        # Adding field 'Session.sidebar_text'
+        db.add_column('classes_session', 'sidebar_text',
+                      self.gf('django.db.models.fields.TextField')(default='', blank=True),
                       keep_default=False)
 
+
     def backwards(self, orm):
-        # Deleting field 'Bio.image'
-        db.delete_column('classes_bio', 'image')
+        # Deleting field 'Session.sidebar_text'
+        db.delete_column('classes_session', 'sidebar_text')
+
 
     models = {
         'auth.group': {
@@ -51,11 +53,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Bio'},
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'role': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'role'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['classes.Role']"}),
-            'staff_description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '100', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'user'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['auth.User']"}),
             'website': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'})
         },
@@ -108,20 +106,11 @@ class Migration(SchemaMigration):
             'attended': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
             'cancelled': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'date_cancelled': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'date_promoted': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'date_registered': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'event': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['classes.Event']", 'null': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'late_promotion': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'student': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'}),
             'waitlist': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
-        },
-        'classes.role': {
-            'Meta': {'ordering': "['sort_order']", 'object_name': 'Role'},
-            'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '48'}),
-            'sort_order': ('django.db.models.fields.IntegerField', [], {'default': '50', 'null': 'True', 'blank': 'True'})
         },
         'classes.session': {
             'Meta': {'ordering': "['slug']", 'object_name': 'Session'},
