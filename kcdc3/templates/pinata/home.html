@@ -16,7 +16,7 @@
 				<ul class="slides">
 					{% for slide in slides %}
 						{% if slide.image %}
-						<li><img src="/static/uploads/{{ slide.image }}" alt="{{ slide.title }}" /></li>
+						<li><img src="/media/{{ slide.image }}" alt="{{ slide.title }}" /></li>
 						{% else %}
 						<li>{{ slide.main_text|safe }}</li>
 						{% endif %}
