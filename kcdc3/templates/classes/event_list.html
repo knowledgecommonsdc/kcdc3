@@ -117,6 +117,7 @@
 							{{ event.summary|safe }}
 							<p>
 								<i class="ss-icon">user</i> Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
+								{% if event.teacher_text %}{{ event.teacher_text|safe }}{% endif %}
 							</p>
 						</a>
 					</dd>

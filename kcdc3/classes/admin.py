@@ -115,6 +115,10 @@ class EventAdmin(admin.ModelAdmin):
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': ['documentation']
 		}),
+		('Legacy data', {
+			'classes': ('grp-collapse grp-closed',), 
+			'fields': ['teacher_text','location_text']
+		}),
 		('Registration',	{'fields': [('max_students', 'registration_status', 'waitlist_status','registration_count','waitlist_count')]}),
 	]
 	readonly_fields = ('registration_count','waitlist_count')
@@ -131,7 +135,7 @@ class EventAdmin(admin.ModelAdmin):
 		]
 
 	list_display = ('title', 'status','date','session', 'featured', 'registration_status','waitlist_status','max_students', 'registration_count', 'waitlist_count',)
-	list_editable = ('registration_status','featured',)
+	list_editable = ('registration_status','featured','session',)
 	list_filter = ('session', 'status', 'registration_status', 'featured',)
 	search_fields = ('title',)
 

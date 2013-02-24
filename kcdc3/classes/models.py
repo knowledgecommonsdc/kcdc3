@@ -154,10 +154,13 @@ class Event(models.Model):
 	registration_status = models.CharField(max_length=7, choices=REGISTRATION_STATUS_CHOICES, default='AUTO')
 
 	teacher_bios = models.ManyToManyField(Bio, blank=True, null=True, related_name='event')
-	teacher_text = models.CharField('Teacher (text)', max_length=200, blank=True)
 	teachers = models.ManyToManyField(User, blank=True, null=True, related_name='teachers')
 	facilitators = models.ManyToManyField(User, blank=True, null=True, related_name='facilitators')
 	students = models.ManyToManyField(User, through='Registration', blank=True, null=True, related_name='students')
+
+	# legacy fields
+	teacher_text = models.CharField('Teacher (text)', max_length=200, blank=True)
+	location_text = models.CharField('Location (text)', max_length=300, blank=True)
 		
 	class Meta:
 		ordering = ['-date']
