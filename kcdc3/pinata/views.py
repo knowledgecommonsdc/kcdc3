@@ -69,7 +69,7 @@ def staff(request):
 	context['volunteers'] = Bio.objects.filter(role__name='Volunteers')
 	context['dojo_at_large'] = Bio.objects.filter(role__name='Dojo-at-Large')
 	context['dojo_emeritus'] = Bio.objects.filter(role__name='Dojo Emeritus')
-
+	
 	context['dojo_role'] = Role.objects.get(name='Dojo')
 	context['volunteers_role'] = Role.objects.get(name='Volunteers')
 	context['dojo_at_large_role'] = Role.objects.get(name='Dojo-at-Large')
