@@ -11,6 +11,8 @@ kcdc3/kcdc3/settings.py
 kcdc3/public/media/event_images
 kcdc3/public/media/mugshots
 
+venv_kcdc
+
 codekit-config.json
 .sass-cache
 kcdc3/public/media/uploads/event_images/IMG_5082a.jpg
@@ -37,3 +39,11 @@ kcdc3/public/static/uploads/bio/_MG_7036.jpg
 kcdc3/public/static/uploads/bio/stereoscope.jpg
 
 kcdc3/public/static/uploads/front_slides/atbs_blackboard.jpg
+
+kcdc3/public/static/uploads/csv/export.csv
+
+kcdc3/public/static/uploads/csv/export_1.csv
+
+kcdc3/public/static/uploads/csv/export_2.csv
+
+kcdc3/public/static/uploads/csv/export_3.csv

@@ -25,11 +25,13 @@
 		<p class="meta">
 
 			<i class="ss-icon">&#x1F464;</i> {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
+			{% if event.teacher_text %}{{ event.teacher_text|safe }}{% endif %}
 
-
+			{% if event.location %}
 			<i class="ss-icon icon_push_right">&#x1F3E2;</i> 
 			{{ event.location }}
-			
+			{% endif %}
+
 		</p>	
 
 		<p class="meta indicators">
@@ -67,6 +69,7 @@
 		{% endif %}
 
 		<h3>Location</h3>
+ 		{% if event.location_text %}<p>{{ event.location_text|safe }}</p>{% endif %}
 		<p itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
 			{% ifnotequal event.location.name event.location.address1 %}{{ event.location.name }}<br />{% endifnotequal %}
 			{% if event.location.address1 and event.location.show_exact %}
