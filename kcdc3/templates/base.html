@@ -39,7 +39,6 @@
 					{% if user.is_authenticated %}
 					<li class="user_logout"><a href="/accounts/{{ user }}" class="username">{{ user }}</a> <a href="/accounts/signout" class="login">(log out)</a></li>
 					{% else %}
-					<li><a href="/accounts/signup" class="login">Join</a></li>
 					<li  class="user_logout"><a href="/accounts/signup" class="login">Join</a> / <a href="/accounts/signin" class="login">Log in</a></li>
 					{% endif %}
 
@@ -90,8 +89,8 @@
 				<a href="http://www.flickr.com/photos/61921496@N04"><span class="ss-icon ss-social ss-social-circle">&#xF640;</span> Flickr</a>
 
 				<p>
-					<a href="http://knowledgecommonsdc.org/">Home</a> <span class="divider">/</span>
-					<a href="http://knowledgecommonsdc.org/about/policies">Policies</a> <span class="divider">/</span>
+					<a href="/">Home</a> <span class="divider">/</span>
+					<a href="/about/policies">Policies</a> <span class="divider">/</span>
 					<a href="/blog/rss"><span class="ss-icon ss-social">&#xE310;</span> RSS</a> 
 				</p>
 				<p id="footer_email">
