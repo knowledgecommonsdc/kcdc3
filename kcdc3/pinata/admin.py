@@ -1,4 +1,4 @@
-from pinata.models import Page, Notice, Slide
+from pinata.models import Page, Notice, Slide, Sponsor, Press_Clipping
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -72,4 +72,60 @@ class SlideAdmin(admin.ModelAdmin):
 	list_editable = ('live',)
 
 admin.site.register(Slide, SlideAdmin)
+
+
+
+
+
+class SponsorAdmin(admin.ModelAdmin):
+	
+	fieldsets = [
+		(None, {'fields': [
+			'title', 
+			('group', 'status', 'sort_order',),
+			'destination_url', 
+			'image',
+			'main_text',
+			]}),
+	]
+
+	list_display = ('title', 'status', 'group',)
+	list_editable = ('status', 'group',)
+
+	class Media:
+		js = [
+			'tiny_mce/tiny_mce.js',
+			'tinymce_setup.js',
+		]
+
+admin.site.register(Sponsor, SponsorAdmin)
+
+
+
+
+class Press_ClippingAdmin(admin.ModelAdmin):
+	
+	fieldsets = [
+		(None, {'fields': [
+			'title', 
+			'date', 
+			'publication',
+			'destination_url',
+			'main_text',
+			'excerpt',
+			'status',
+			]}),
+	]
+
+	list_display = ('title', 'status', 'date',)
+	list_editable = ('status',)
+	
+	class Media:
+		js = [
+			'tiny_mce/tiny_mce.js',
+			'tinymce_setup.js',
+		]
+	
+
+admin.site.register(Press_Clipping, Press_ClippingAdmin)
 
