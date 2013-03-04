@@ -2,8 +2,9 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
 from datetime import datetime
 from django.template import Context
+from django.views.generic import DetailView, TemplateView, ListView
 from django.db.models import Q
-from pinata.models import Page, Notice, Slide
+from pinata.models import Page, Notice, Slide, Sponsor, Press_Clipping
 from classes.models import Bio, Role, Event, Session
 from pigeon.models import Post
 
@@ -48,13 +49,13 @@ def page_view(request):
 	else:
 		raise Http404
 		
-		
-		
+
+
 def staff(request):
 	""" Front page of the About section.
 	Includes staff and volunteer listings. """
 
-	""" TODO: This really ought to extend page_view() """
+	""" TODO: This really ought to be a class-based view """
 
 	context = Context()
 	context['user'] = request.user
@@ -121,6 +122,14 @@ def proposal(request):
 	context['main_text'] = e.main_text
 	context['short_title'] = e.short_title
 	context['title'] = e.title
+	context['id'] = e.id
+
+	# get all other pages with the same parent
+	if e.parent:
+		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+		
+	# get all children
+	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
 	return render_to_response('pinata/proposal.html',context)
 
@@ -138,6 +147,69 @@ def contribute(request):
 	context['main_text'] = e.main_text
 	context['short_title'] = e.short_title
 	context['title'] = e.title
+	context['id'] = e.id
 
 	return render_to_response('pinata/contribute.html',context)
+
+
+
+
+def sponsors(request):
+	""" List of sponsors. """
+
+	""" TODO: This really ought to be a class-based view """
+
+	context = Context()
+	context['user'] = request.user
+
+	e = Page.objects.get(path='/about/sponsors')
+	print(e.main_text)
+	context['main_text'] = e.main_text
+	context['short_title'] = e.short_title
+	context['title'] = e.title
+	context['id'] = e.id
+	
+	context['sponsors_A'] = Sponsor.objects.filter(group='A').filter(status='PUBLISHED')
+	context['sponsors_B'] = Sponsor.objects.filter(group='B').filter(status='PUBLISHED')
+	context['sponsors_S'] = Sponsor.objects.filter(group='S').filter(status='PUBLISHED')
+	
+	# get all other pages with the same parent
+	if e.parent:
+		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+		
+	# get all children
+	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+
+	return render_to_response('pinata/sponsors.html',context)
+
+
+
+
+def press_clippings(request):
+	""" List of press clippings. """
+
+	""" TODO: This really ought to class-based view """
+
+	context = Context()
+	context['user'] = request.user
+
+	e = Page.objects.get(path='/about/press')
+	print(e.main_text)
+	context['main_text'] = e.main_text
+	context['short_title'] = e.short_title
+	context['title'] = e.title
+	context['id'] = e.id
+	
+	context['press_clippings'] = Press_Clipping.objects.filter(status='PUBLISHED')
+	
+	# get all other pages with the same parent
+	if e.parent:
+		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+		
+	# get all children
+	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+
+	return render_to_response('pinata/press_clippings.html',context)
+
+
 
