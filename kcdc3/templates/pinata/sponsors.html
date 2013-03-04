@@ -1,0 +1,50 @@
+{% extends "pinata/page.html" %}
+
+
+
+
+{% block content %}
+
+	<div id="hed">
+		<h1>{{ title }}</h1>
+	</div>
+	
+	<div id="main">
+	
+		{{ main_text|safe }}
+	
+		<div class="sponsor_group">				
+			{% for sponsor in sponsors_A %}
+				<div class="sponsor">
+					{% if sponsor.destination_url %}<a href="{{ sponsor.destination_url }}">{% endif %}
+					<img src="/media/{{ sponsor.image }}" />
+					{% if sponsor.destination_url %}</a>{% endif %}
+				</div>
+			{% endfor %}			
+		</div>		
+
+		<div class="sponsor_group">				
+			{% for sponsor in sponsors_B %}
+				<div class="sponsor">
+					{% if sponsor.destination_url %}<a href="{{ sponsor.destination_url }}">{% endif %}
+					<img src="/media/{{ sponsor.image }}" />
+					{% if sponsor.destination_url %}</a>{% endif %}
+				</div>
+			{% endfor %}			
+		</div>		
+
+		<div class="sponsor_group">				
+			{% for sponsor in sponsors_S %}
+				<div class="sponsor">
+					{% if sponsor.destination_url %}<a href="{{ sponsor.destination_url }}">{% endif %}
+					<img src="/media/{{ sponsor.image }}" />
+					{% if sponsor.destination_url %}</a>{% endif %}
+				</div>
+			{% endfor %}			
+		</div>		
+	
+	
+	</div>
+	
+{% endblock %}
+

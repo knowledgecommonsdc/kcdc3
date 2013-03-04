@@ -85,7 +85,7 @@ class SponsorAdmin(admin.ModelAdmin):
 			('group', 'status', 'sort_order',),
 			'destination_url', 
 			'image',
-			'main_text',
+			# 'main_text',
 			]}),
 	]
 
