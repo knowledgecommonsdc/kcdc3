@@ -1408,6 +1408,31 @@ p.indicators > .registration_indicator {
 }
 
 /* line 241, ../sass/_inside.sass */
+.sponsor_group {
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.sponsor_group:before, .sponsor_group:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.sponsor_group:after {
+  clear: both;
+}
+
+/* line 244, ../sass/_inside.sass */
+.sponsor {
+  width: 140px;
+  float: left;
+}
+/* line 247, ../sass/_inside.sass */
+.sponsor a {
+  border: none;
+  background: none;
+}
+
+/* line 253, ../sass/_inside.sass */
 .bios {
   margin: 1.5em 0 0.5em 0;
   width: 100%;
@@ -1423,12 +1448,12 @@ p.indicators > .registration_indicator {
   clear: both;
 }
 
-/* line 246, ../sass/_inside.sass */
+/* line 258, ../sass/_inside.sass */
 .bios + p {
   margin-top: 0;
 }
 
-/* line 249, ../sass/_inside.sass */
+/* line 261, ../sass/_inside.sass */
 .minibio {
   width: 25%;
   min-width: 180px;
@@ -1445,7 +1470,7 @@ p.indicators > .registration_indicator {
 .minibio:after {
   clear: both;
 }
-/* line 255, ../sass/_inside.sass */
+/* line 267, ../sass/_inside.sass */
 .minibio h5 {
   margin: 0.2em 0 0 0;
   padding: 0;
@@ -1453,26 +1478,26 @@ p.indicators > .registration_indicator {
   font-weight: 600;
   color: #333333;
 }
-/* line 261, ../sass/_inside.sass */
+/* line 273, ../sass/_inside.sass */
 .minibio p {
   margin: 0;
   padding: 0;
   font-size: 0.8em;
 }
-/* line 265, ../sass/_inside.sass */
+/* line 277, ../sass/_inside.sass */
 .minibio a {
   display: block;
   border: none;
   color: inherit;
 }
-/* line 269, ../sass/_inside.sass */
+/* line 281, ../sass/_inside.sass */
 .minibio a:hover,
 .minibio a:hover h5 {
   background: none;
   color: #3e9bc3;
 }
 
-/* line 274, ../sass/_inside.sass */
+/* line 286, ../sass/_inside.sass */
 .bio_image {
   background: #f5f6f1;
   border: 1px solid #eaece1;
@@ -1482,25 +1507,25 @@ p.indicators > .registration_indicator {
   float: left;
 }
 
-/* line 285, ../sass/_inside.sass */
+/* line 297, ../sass/_inside.sass */
 .department_label {
   font-style: normal;
   color: #fb2710;
 }
 
-/* line 289, ../sass/_inside.sass */
+/* line 301, ../sass/_inside.sass */
 #hed .department_label {
   color: #fb2710;
   margin: 0;
   font-size: 1.5em;
 }
 
-/* line 294, ../sass/_inside.sass */
+/* line 306, ../sass/_inside.sass */
 .department_label + h1 {
   margin: 0;
 }
 
-/* line 297, ../sass/_inside.sass */
+/* line 309, ../sass/_inside.sass */
 #hed .byline {
   font-size: 1.5em;
   margin: 0 0 0 0;
