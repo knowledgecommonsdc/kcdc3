@@ -1,4 +1,4 @@
-from pinata.models import Page, Notice, Slide, Sponsor, Press_Clipping
+from pinata.models import Page, Notice, Slide, Sponsor, PressClipping
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -103,7 +103,7 @@ admin.site.register(Sponsor, SponsorAdmin)
 
 
 
-class Press_ClippingAdmin(admin.ModelAdmin):
+class PressClippingAdmin(admin.ModelAdmin):
 	
 	fieldsets = [
 		(None, {'fields': [
@@ -127,5 +127,5 @@ class Press_ClippingAdmin(admin.ModelAdmin):
 		]
 	
 
-admin.site.register(Press_Clipping, Press_ClippingAdmin)
+admin.site.register(PressClipping, PressClippingAdmin)
 

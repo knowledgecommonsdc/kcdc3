@@ -1,0 +1,61 @@
+{% extends "pinata/page.html" %}
+
+
+
+
+{% block content %}
+
+	<div id="hed">
+		<h1>{{ short_title }}</h1>
+	</div>
+	
+	<div id="main">
+		
+		<dl class="calendar blog_calendar">
+			
+		{% for pressclipping in pressclippings reversed %}
+
+			{% ifchanged %}
+				<dt>
+					{{ pressclipping.date|date:"j" }} {{ pressclipping.date|date:"F" }}
+					{% if forloop.first %}
+						{{ pressclipping.date|date:"Y" }}
+					{% endif %}
+				</dt>
+			{% endifchanged %}
+
+			<dd>
+					
+					{% if pressclipping.destination_url %}
+						<h3><a href="{{ pressclipping.destination_url }}">{{ pressclipping.title }} <i class="ss-icon">link</i></a></h3>
+					{% else %}
+						<h3>
+						{{ pressclipping.title }}
+						</h3>
+					{% endif %}
+					
+					<p>
+					{{ pressclipping.publication }} 
+					</p>
+					
+					{{ pressclipping.main_text|safe }}
+					
+					{% if pressclipping.excerpt %}
+						<blockquote>
+						{{ pressclipping.excerpt|safe }}
+						</blockquote>
+					{% endif %}
+
+			</dd>
+
+
+		{% endfor %}
+
+
+			
+		</dl>
+
+	</div>	
+	
+{% endblock %}
+

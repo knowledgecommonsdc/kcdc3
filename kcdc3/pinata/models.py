@@ -98,7 +98,7 @@ class Sponsor(models.Model):
 
 
 
-class Press_Clipping(models.Model):
+class PressClipping(models.Model):
 	""" A press article """
 
 	title = models.CharField(max_length=200)
