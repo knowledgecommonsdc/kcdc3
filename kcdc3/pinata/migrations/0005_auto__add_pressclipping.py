@@ -8,8 +8,8 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Press_Clipping'
-        db.create_table('pinata_press_clipping', (
+        # Adding model 'PressClipping'
+        db.create_table('pinata_pressclipping', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=200)),
             ('main_text', self.gf('django.db.models.fields.TextField')(blank=True)),
@@ -19,17 +19,17 @@ class Migration(SchemaMigration):
             ('destination_url', self.gf('django.db.models.fields.URLField')(max_length=200, blank=True)),
             ('status', self.gf('django.db.models.fields.CharField')(default='PUBLISHED', max_length=9)),
         ))
-        db.send_create_signal('pinata', ['Press_Clipping'])
+        db.send_create_signal('pinata', ['PressClipping'])
 
 
     def backwards(self, orm):
-        # Deleting model 'Press_Clipping'
-        db.delete_table('pinata_press_clipping')
+        # Deleting model 'PressClipping'
+        db.delete_table('pinata_pressclipping')
 
 
     models = {
         'pinata.notice': {
-            'Meta': {'ordering': "['sort_order']", 'object_name': 'Notice'},
+            'Meta': {'ordering': "['sort_order', 'title']", 'object_name': 'Notice'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'live': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'main_text': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
@@ -50,8 +50,8 @@ class Migration(SchemaMigration):
             'teaser': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '200'})
         },
-        'pinata.press_clipping': {
-            'Meta': {'ordering': "['date']", 'object_name': 'Press_Clipping'},
+        'pinata.pressclipping': {
+            'Meta': {'ordering': "['date']", 'object_name': 'PressClipping'},
             'date': ('django.db.models.fields.DateField', [], {'blank': 'True'}),
             'destination_url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'}),
             'excerpt': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
@@ -62,7 +62,7 @@ class Migration(SchemaMigration):
             'title': ('django.db.models.fields.CharField', [], {'max_length': '200'})
         },
         'pinata.slide': {
-            'Meta': {'ordering': "['sort_order']", 'object_name': 'Slide'},
+            'Meta': {'ordering': "['sort_order', 'title']", 'object_name': 'Slide'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'live': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),

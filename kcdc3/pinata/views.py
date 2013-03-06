@@ -4,7 +4,7 @@ from datetime import datetime
 from django.template import Context
 from django.views.generic import DetailView, TemplateView, ListView
 from django.db.models import Q
-from pinata.models import Page, Notice, Slide, Sponsor, Press_Clipping
+from pinata.models import Page, Notice, Slide, Sponsor, PressClipping
 from classes.models import Bio, Role, Event, Session
 from pigeon.models import Post
 
@@ -185,7 +185,7 @@ def sponsors(request):
 
 
 
-def press_clippings(request):
+def pressclippings(request):
 	""" List of press clippings. """
 
 	""" TODO: This really ought to class-based view """
@@ -200,7 +200,7 @@ def press_clippings(request):
 	context['title'] = e.title
 	context['id'] = e.id
 	
-	context['press_clippings'] = Press_Clipping.objects.filter(status='PUBLISHED')
+	context['pressclippings'] = PressClipping.objects.filter(status='PUBLISHED')
 	
 	# get all other pages with the same parent
 	if e.parent:
@@ -209,7 +209,7 @@ def press_clippings(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('pinata/press_clippings.html',context)
+	return render_to_response('pinata/pressclippings.html',context)
 
 
 
