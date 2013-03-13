@@ -75,7 +75,7 @@ class Bio(models.Model):
 	user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, related_name='user')
 
 	# Basic information, used in class descriptions and elsewhere by default
-	name = models.CharField('Name', max_length=100, blank=False)
+	name = models.CharField('Name', max_length=100, blank=False, unique=True)
 	description = models.TextField('Bio text', blank=True)
 	website = models.URLField(blank=True)
 	image = models.ImageField('Image (60x60px)', upload_to='bio', blank=True, null=True)
