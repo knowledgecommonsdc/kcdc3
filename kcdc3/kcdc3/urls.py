@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from accounts.views import SignupFormExtra
 from filebrowser.sites import site
+from django.conf import settings
 
 # development
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -18,7 +19,7 @@ urlpatterns = patterns('',
 	url(r'^teach/proposal/$', 'pinata.views.proposal'),
 	url(r'^about/$', 'pinata.views.staff'),
 	url(r'^about/sponsors/$', 'pinata.views.sponsors'),
-	url(r'^about/press/$', 'pinata.views.pressclippings'),
+	url(r'^press/$', 'pinata.views.pressclippings'),
 	url(r'^about/|teach/', include('pinata.urls')),
 	url(r'^admin/filebrowser/', include(site.urls)),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -29,5 +30,13 @@ urlpatterns = patterns('',
 
 )
 
-# development
-urlpatterns += staticfiles_urlpatterns()
+
+if settings.DEBUG:
+	urlpatterns += patterns('',
+		url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+			'document_root': settings.MEDIA_ROOT,
+		}),
+		url(r'^assets/(?P<path>.*)$', 'django.views.static.serve', {
+			'document_root': settings.ASSETS_ROOT,
+		}),
+   )
