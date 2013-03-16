@@ -193,7 +193,7 @@ def pressclippings(request):
 	context = Context()
 	context['user'] = request.user
 
-	e = Page.objects.get(path='/about/press')
+	e = Page.objects.get(path='/press')
 	print(e.main_text)
 	context['main_text'] = e.main_text
 	context['short_title'] = e.short_title

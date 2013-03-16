@@ -1508,24 +1508,78 @@ p.indicators > .registration_indicator {
 }
 
 /* line 297, ../sass/_inside.sass */
+#press_clippings {
+  *zoom: 1;
+}
+/* line 18, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#press_clippings:before, #press_clippings:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/bourbon/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+#press_clippings:after {
+  clear: both;
+}
+/* line 299, ../sass/_inside.sass */
+#press_clippings div {
+  float: left;
+  width: 45%;
+  margin: 0 5% 1em 0;
+}
+@media screen and (max-width: 600px) {
+  /* line 299, ../sass/_inside.sass */
+  #press_clippings div {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+/* line 306, ../sass/_inside.sass */
+#press_clippings h3 {
+  color: #666666;
+  margin: 0.5em 0 0.25em 0;
+}
+/* line 309, ../sass/_inside.sass */
+#press_clippings p {
+  margin: 0 0 0.25em 0;
+}
+/* line 311, ../sass/_inside.sass */
+#press_clippings a {
+  display: block;
+  padding: 1em;
+  min-height: 9em;
+  border: 1px solid #f5f6f1;
+  color: #333333;
+}
+/* line 317, ../sass/_inside.sass */
+#press_clippings a:hover {
+  background: none;
+  border-color: #3e9bc3;
+}
+/* line 320, ../sass/_inside.sass */
+#press_clippings a:hover p,
+#press_clippings a:hover h3 {
+  color: #3e9bc3;
+}
+
+/* line 328, ../sass/_inside.sass */
 .department_label {
   font-style: normal;
   color: #fb2710;
 }
 
-/* line 301, ../sass/_inside.sass */
+/* line 332, ../sass/_inside.sass */
 #hed .department_label {
   color: #fb2710;
   margin: 0;
   font-size: 1.5em;
 }
 
-/* line 306, ../sass/_inside.sass */
+/* line 337, ../sass/_inside.sass */
 .department_label + h1 {
   margin: 0;
 }
 
-/* line 309, ../sass/_inside.sass */
+/* line 340, ../sass/_inside.sass */
 #hed .byline {
   font-size: 1.5em;
   margin: 0 0 0 0;

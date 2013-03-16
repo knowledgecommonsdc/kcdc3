@@ -107,6 +107,7 @@ class PressClipping(models.Model):
 	publication = models.CharField(max_length=200,blank=True)
 	excerpt = models.TextField(blank=True)
 	destination_url = models.URLField(blank=True)
+	image = models.CharField(max_length=200,blank=True)
 
 	STATUS_CHOICES = (
 		('PUBLISHED', 'Published'),
