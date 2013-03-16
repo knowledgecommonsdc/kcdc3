@@ -110,6 +110,7 @@ class PressClippingAdmin(admin.ModelAdmin):
 			'title', 
 			'date', 
 			'publication',
+			'image',
 			'destination_url',
 			# 'main_text',
 			'excerpt',
