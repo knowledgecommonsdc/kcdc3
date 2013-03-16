@@ -22,10 +22,7 @@
 
 			{% ifchanged %}
 				<dt>
-					{{ post.date|date:"j" }} {{ post.date|date:"F" }}
-					{% if forloop.first %}
-						{{ post.date|date:"Y" }}
-					{% endif %}
+					{{ post.date|date:"j F Y" }}
 				</dt>
 			{% endifchanged %}
 

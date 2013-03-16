@@ -18,6 +18,7 @@
 				{% if forloop.last %}{% if forloop.counter > 1 %} and {% endif %}{% endif %}
 				{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
 			{% endfor %}
+			({{ post.date|date:"j F Y" }})
 		</p>
 	</div>
 	
