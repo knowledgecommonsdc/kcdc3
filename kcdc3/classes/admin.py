@@ -69,7 +69,6 @@ class BioAdmin(admin.ModelAdmin):
 			'fields': [
 				'role', 'title', 'staff_description', 
 			],
-			'description': "The <em>staff bio</em> field doesn't display yet.",
 		}),
 	]
 	raw_id_fields = ['user']
@@ -77,6 +76,7 @@ class BioAdmin(admin.ModelAdmin):
 	    'fk': ['user'],
 	}
 
+	list_filter = ('role',)
 	search_fields = ('name',)
 
 	class Media:
