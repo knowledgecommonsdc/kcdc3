@@ -1525,7 +1525,7 @@ p.indicators > .registration_indicator {
   float: left;
   width: 30%;
   margin: 0 3.333% 1em 0;
-  padding: 1em 0 0 0;
+  padding: 0 0 0 0;
   border-top: 6px solid #f5f6f1;
 }
 @media screen and (max-width: 600px) {
@@ -1537,7 +1537,7 @@ p.indicators > .registration_indicator {
 }
 /* line 308, ../sass/_inside.sass */
 #press_clippings div img {
-  margin: 0 0 0.5em 0;
+  margin: 0.5em 0 0.5em 0;
 }
 /* line 310, ../sass/_inside.sass */
 #press_clippings h3 {
@@ -1551,7 +1551,7 @@ p.indicators > .registration_indicator {
 /* line 315, ../sass/_inside.sass */
 #press_clippings a {
   display: block;
-  min-height: 9em;
+  min-height: 7em;
   border: none;
   color: #333333;
 }
