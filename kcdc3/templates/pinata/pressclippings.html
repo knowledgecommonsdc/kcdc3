@@ -9,7 +9,7 @@
 		<h1>{{ short_title }}</h1>
 	</div>
 	
-	<div id="main">
+	<div id="main_fullwidth">
 				
 		<div id="press_clippings">
 			
@@ -17,7 +17,9 @@
 
 				<div>	
 
+						{% if pressclipping.destination_url %}
 						<a href="{{ pressclipping.destination_url }}">
+						{% endif %}
 					
 						{% if pressclipping.image %}
 						<img src="/media/press/{{ pressclipping.image }}" alt="{{ pressclipping.publication }}" />
@@ -34,7 +36,9 @@
 						<p>&ldquo;{{ pressclipping.excerpt }}&rdquo;</p>
 						{% endif %}
 					
+						{% if pressclipping.destination_url %}
 						</a>
+						{% endif %}
 					
 				</div>
 

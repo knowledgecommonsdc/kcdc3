@@ -298,11 +298,15 @@ p.indicators > .registration_indicator
 	@include clearfix
 	div
 		float: left
-		width: 45%
-		margin: 0 5% 1em 0
+		width: 30%
+		margin: 0 3.333% 1em 0
+		padding: 1em 0 0 0
+		border-top: 6px solid $colorE
 		@media screen and (max-width: 600px)
 			width: 100%
 			margin-right: 0
+		img
+			margin: 0 0 0.5em 0
 	h3
 		color: $color_text_lighter
 		margin: 0.5em 0 0.25em 0
@@ -310,13 +314,11 @@ p.indicators > .registration_indicator
 		margin: 0 0 0.25em 0
 	a
 		display: block
-		padding: 1em
 		min-height: 9em
-		border: 1px solid $colorE
+		border: none
 		color: $color_text
 	a:hover
 		background: none
-		border-color: $colorB
 		p,
 		h3
 			color: $colorB
