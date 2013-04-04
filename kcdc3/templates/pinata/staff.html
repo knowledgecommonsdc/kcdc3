@@ -51,31 +51,29 @@
 		{% endif %}
 		{{ volunteers_role.extended_description|safe }}
 
-		<h3>Dojo-at-Large</h3>
-		{{ dojo_at_large_role.description|safe }}
+		<h3>Dojo-at-Large and Emeritus</h3>
+
+		{# <h4>Dojo-at-Large</h4> #}
+		{# {{ dojo_at_large_role.description|safe }} #}
 		{% if dojo_at_large %}
-		<div class="bios">				
+		<p>				
+			<strong>At-Large: </strong> 			
 			{% for bio in dojo_at_large %}
-				<div class="minibio">
-					<h5>{{ bio.name }}</h5>		
-					<p>{{ bio.title }}</p>				
-				</div>
+				{{ bio.name }}{% if bio.title %} ({{ bio.title }}){% endif %}{% if not forloop.last %}, {% endif %} 
 			{% endfor %}			
-		</div>
+		</p>
 		{% endif %}
 		{{ dojo_at_large_role.extended_description|safe }}
 
-		<h3>Dojo Emeritus</h3>
-		{{ dojo_emeritus_role.description|safe }}
+		{# <h4>Dojo Emeritus</h4> #}
+		{# {{ dojo_emeritus_role.description|safe }} #}
 		{% if dojo_emeritus %}
-		<div class="bios">				
+		<p>	
+			<strong>Emeritus: </strong> 			
 			{% for bio in dojo_emeritus %}
-				<div class="minibio">
-					<h5>{{ bio.name }}</h5>		
-					<p>{{ bio.title }}</p>				
-				</div>
+				{{ bio.name }}{% if bio.title %} ({{ bio.title }}){% endif %}{% if not forloop.last %}, {% endif %} 
 			{% endfor %}			
-		</div>
+		</p>
 		{% endif %}
 		{{ dojo_emeritus_role.extended_description|safe }}
 
