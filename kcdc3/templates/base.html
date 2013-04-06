@@ -50,13 +50,15 @@
 		
 		{% block pre_content %}{% endblock %}
 
+		{% block content_shell %}
 		<div id="content">
 										
 			{% block content %}{% endblock %}
 			{% block sidebar %}{% endblock %}
 						
 		</div>
-
+		{% endblock %}
+		
 		{% block post_content %}{% endblock %}
 
 		<div id="mobile_nav">
