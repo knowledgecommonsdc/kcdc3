@@ -43,9 +43,12 @@ def page_view(request):
 		
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+	
+	# set up templates
+	template_path = 'pinata/' + e.template
 		
 	if e.status == 'PUBLISHED' or e.status == 'HIDDEN':
-		return render_to_response('pinata/page.html',context)
+		return render_to_response(template_path, context)
 	else:
 		raise Http404
 		
@@ -79,6 +82,9 @@ def staff(request):
 	# get all other pages with the same parent
 	if e.parent:
 		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+		
+	# todo: rewrite this so it returns section home and subpages
+	# todo: write new function that returns children only for non-section-homes
 		
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)

@@ -23,6 +23,12 @@ class Page(models.Model):
 	main_text = models.TextField(blank=True)
 	sidebar_text = models.TextField(blank=True)
 
+	TEMPLATE_CHOICES = (
+		('page.html', 'Basic'),
+		('page_wide.html', 'Wide'),
+	)
+	template = models.CharField(max_length=48, choices=TEMPLATE_CHOICES, default='basic.html')
+
 	class Meta:
 		ordering = ['path']
 

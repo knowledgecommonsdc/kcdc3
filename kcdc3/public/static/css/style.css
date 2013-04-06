@@ -1028,7 +1028,6 @@ strong, b {
   padding: 0.3em 0.5em 0.1em 0.5em;
   border: none;
   border-radius: 3px;
-  -webkit-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
   background-color: #3e9bc3;
   color: white;
@@ -1075,6 +1074,46 @@ strong, b {
 }
 /* line 159, ../sass/_nav.sass */
 .local_nav .icon_decorative {
+  color: #dfe2d2;
+  position: relative;
+  top: 0.15em;
+}
+
+/* line 166, ../sass/_nav.sass */
+.local_nav_wide {
+  margin: 1em 0 1em 0;
+}
+/* line 168, ../sass/_nav.sass */
+.local_nav_wide ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 172, ../sass/_nav.sass */
+.local_nav_wide li {
+  margin: 0 0 3px 0;
+  padding: 0;
+  border: 1px solid #eaece1;
+  background: #f5f6f1;
+  display: inline-block;
+}
+/* line 178, ../sass/_nav.sass */
+.local_nav_wide a {
+  border: none;
+  padding: 0.5em 0.75em;
+  display: block;
+}
+/* line 182, ../sass/_nav.sass */
+.local_nav_wide .active {
+  font-weight: bold;
+  font-weight: 800;
+}
+/* line 185, ../sass/_nav.sass */
+.local_nav_wide .active .icon_decorative {
+  color: #fb2710;
+}
+/* line 187, ../sass/_nav.sass */
+.local_nav_wide .icon_decorative {
   color: #dfe2d2;
   position: relative;
   top: 0.15em;
@@ -1131,7 +1170,6 @@ strong, b {
   border-radius: 3px;
   font-size: 0.9em;
   font-weight: bold;
-  -webkit-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   background-color: #3e9bc3;
   color: white;
@@ -1589,36 +1627,59 @@ p.indicators > .registration_indicator {
   margin: 0 0 0 0;
 }
 
+/* line 3, ../sass/_page_wide.sass */
+#content.content_wide {
+  max-width: 960px;
+}
+
+/* line 6, ../sass/_page_wide.sass */
+.hed_wide {
+  max-width: 960px;
+}
+
+/* line 9, ../sass/_page_wide.sass */
+.main_wide {
+  width: 60%;
+  margin: 0 30% 0 10%;
+}
+@media screen and (max-width: 680px) {
+  /* line 9, ../sass/_page_wide.sass */
+  .main_wide {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 /* ----- START PROJECT STYLES  -------------------------------------------- */
 /* ----- setup -------------------------------------------- */
-/* line 26, ../sass/style.sass */
+/* line 29, ../sass/style.sass */
 * {
   box-sizing: border-box;
 }
 
-/* line 33, ../sass/style.sass */
+/* line 36, ../sass/style.sass */
 #skip {
   position: absolute;
   left: -9000px;
 }
 
-/* line 37, ../sass/style.sass */
+/* line 40, ../sass/style.sass */
 img {
   max-width: 100%;
 }
 
 /* ----- layout  -------------------------------------------- */
-/* line 43, ../sass/style.sass */
+/* line 46, ../sass/style.sass */
 #mobile_jump {
   display: none;
 }
 
-/* line 45, ../sass/style.sass */
+/* line 48, ../sass/style.sass */
 #mobile_nav {
   display: none;
 }
 
-/* line 50, ../sass/style.sass */
+/* line 53, ../sass/style.sass */
 #header {
   width: 80%;
   max-width: 960px;
@@ -1638,18 +1699,18 @@ img {
   clear: both;
 }
 
-/* line 59, ../sass/style.sass */
+/* line 62, ../sass/style.sass */
 #logo {
   margin: 1em 0 1em 0;
   width: 10%;
   float: left;
 }
-/* line 63, ../sass/style.sass */
+/* line 66, ../sass/style.sass */
 #logo a:hover {
   background: none;
 }
 
-/* line 66, ../sass/style.sass */
+/* line 69, ../sass/style.sass */
 #desktop_nav {
   margin-top: 0;
   width: 90%;
@@ -1667,7 +1728,7 @@ img {
   clear: both;
 }
 
-/* line 73, ../sass/style.sass */
+/* line 76, ../sass/style.sass */
 #content {
   width: 80%;
   max-width: 960px;
@@ -1686,7 +1747,7 @@ img {
   clear: both;
 }
 
-/* line 81, ../sass/style.sass */
+/* line 84, ../sass/style.sass */
 #main {
   width: 60%;
   float: left;
@@ -1703,7 +1764,7 @@ img {
   clear: both;
 }
 
-/* line 87, ../sass/style.sass */
+/* line 90, ../sass/style.sass */
 #main_fullwidth {
   width: 100%;
   margin: 1em 0 3em 0;
@@ -1719,7 +1780,7 @@ img {
   clear: both;
 }
 
-/* line 92, ../sass/style.sass */
+/* line 95, ../sass/style.sass */
 #sidebar {
   width: 30%;
   float: left;
@@ -1735,22 +1796,22 @@ img {
   clear: both;
 }
 
-/* line 98, ../sass/style.sass */
+/* line 101, ../sass/style.sass */
 .sidebar_section {
   margin: 0 0 0 0;
 }
 
-/* line 102, ../sass/style.sass */
+/* line 105, ../sass/style.sass */
 .sidebar_inside {
   margin: 0 0 0 0;
 }
 
-/* line 105, ../sass/style.sass */
+/* line 108, ../sass/style.sass */
 #register {
   margin-top: 2em;
 }
 
-/* line 108, ../sass/style.sass */
+/* line 111, ../sass/style.sass */
 #footer {
   margin-top: 4em;
   width: 80%;
@@ -1762,58 +1823,58 @@ img {
 }
 
 @media screen and (max-width: 800px) {
-  /* line 119, ../sass/style.sass */
+  /* line 122, ../sass/style.sass */
   #content {
     margin-top: 1em;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 124, ../sass/style.sass */
+  /* line 127, ../sass/style.sass */
   #logo {
     clear: both;
     width: 80px;
     margin: 0 auto 0 auto;
   }
 
-  /* line 128, ../sass/style.sass */
+  /* line 131, ../sass/style.sass */
   #desktop_nav {
     display: none;
   }
 
-  /* line 130, ../sass/style.sass */
+  /* line 133, ../sass/style.sass */
   #mobile_jump {
     display: block;
     margin-top: 1em;
   }
 
-  /* line 133, ../sass/style.sass */
+  /* line 136, ../sass/style.sass */
   #mobile_nav {
     display: block;
   }
 
-  /* line 135, ../sass/style.sass */
+  /* line 138, ../sass/style.sass */
   #content {
     width: 80%;
   }
 
-  /* line 137, ../sass/style.sass */
+  /* line 140, ../sass/style.sass */
   #footer {
     width: 80%;
     margin-top: 0;
     border: none;
   }
 
-  /* line 141, ../sass/style.sass */
+  /* line 144, ../sass/style.sass */
   #content {
     margin-top: 0;
   }
 
-  /* line 143, ../sass/style.sass */
+  /* line 146, ../sass/style.sass */
   #hed {
     margin-top: 1em;
   }
 
-  /* line 145, ../sass/style.sass */
+  /* line 148, ../sass/style.sass */
   #main,
   #sidebar {
     width: 100%;
@@ -1821,12 +1882,12 @@ img {
     margin: 2em 0 0 0;
   }
 
-  /* line 150, ../sass/style.sass */
+  /* line 153, ../sass/style.sass */
   #main {
     margin-top: 1em;
   }
 
-  /* line 152, ../sass/style.sass */
+  /* line 155, ../sass/style.sass */
   #sidebar_section {
     margin-top: 4em;
   }

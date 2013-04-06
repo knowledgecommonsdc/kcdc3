@@ -26,10 +26,15 @@ class PageAdmin(admin.ModelAdmin):
 			'fields': [
 			'sidebar_text',
 			]}),
+		('Layout', {
+			'classes': ('grp-collapse grp-closed',),
+			'fields': [
+			'template',
+			]}),
 	]
 
-	list_display = ('title', 'short_title', 'status', 'parent', 'path', 'sort_order',)
-	list_editable = ('status', 'sort_order',)
+	list_display = ('title', 'short_title', 'status', 'parent', 'path', 'sort_order', 'template')
+	list_editable = ('status', 'sort_order', 'template')
 
 	class Media:
 		js = [
