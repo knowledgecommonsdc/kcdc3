@@ -137,29 +137,38 @@
 // local nav
 
 .local_nav
+	max-width: 15em
 	margin-bottom: 3em
 	ul
 		list-style: none
 		margin: 0
 		padding: 0
-	li
-		margin: 0 0 3px 0
-		padding: 0
 		border: 1px solid darken($colorE, 5%)
-		background: $colorE
+		border-top: none
+		// background: $colorE
+	li
+		margin: 0 0 2px 0
+		padding: 0
+		border-top: 1px solid darken($colorE, 5%)
 	a
+		color: $colorE4
 		border: none
-		padding: 0.5em 0 0.5em 0.5em
+		padding: 0.25em 0 0.25em 0.25em
 		display: block
+	a:hover,
+	a:hover i
+		color: #fff
 	.active
 		font-weight: bold
 		font-weight: 800
 		.icon_decorative
 			color: $colorA
 	.icon_decorative
-		color: darken($colorE, 10%)
+		font-size: 0.85em
+		color: darken($colorE, 5%)
 		position: relative
 		top: 0.15em
+		
 		
 
 // horizontal local nav for wide page
