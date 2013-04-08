@@ -147,7 +147,7 @@
 		border-top: none
 		// background: $colorE
 	li
-		margin: 0 0 2px 0
+		margin: 0 0 0 0
 		padding: 0
 		border-top: 1px solid darken($colorE, 5%)
 	a
@@ -159,8 +159,6 @@
 	a:hover i
 		color: #fff
 	.active
-		font-weight: bold
-		font-weight: 800
 		.icon_decorative
 			color: $colorA
 	.icon_decorative
@@ -174,26 +172,43 @@
 // horizontal local nav for wide page
 .local_nav_wide
 	margin: 1em 0 1em 0
+	border-top: 1px solid darken($colorE, 5%)
+	background-image: url('/static/images/local_nav_horizontal.png') 
+	background-repeat: repeat-x
+	background-position: center 36px
+	height: 38px
 	ul
 		list-style: none
 		margin: 0
 		padding: 0
 	li
-		margin: 0 0 3px 0
+		margin: 0 0 0 0
 		padding: 0
-		border: 1px solid darken($colorE, 5%)
-		background: $colorE
 		display: inline-block
 	a
 		border: none
-		padding: 0.5em 0.75em
+		padding: 0.5em 0.5em
 		display: block
 	.active
-		font-weight: bold
-		font-weight: 800
-		.icon_decorative
-			color: $colorA
+		background-image: url('/static/images/local_nav_horizontal_active.png') 
+		background-repeat: no-repeat
+		background-position: center 23px
+	a:hover
+		background-image: none
 	.icon_decorative
 		color: darken($colorE, 10%)
 		position: relative
 		top: 0.15em
+	@media screen and (max-width: 680px)
+		background: none
+		border: none
+		a
+			background: lighten($colorE, 3%)
+			border: 1px solid darken($colorE, 3%)
+			padding: 0.1em 0.35em
+			margin: 0 0 0.3em 0
+		a:hover
+			background: $colorA
+		.active
+			background-image: none
+		
