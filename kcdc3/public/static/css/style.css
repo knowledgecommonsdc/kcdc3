@@ -1042,54 +1042,63 @@ strong, b {
 
 /* line 139, ../sass/_nav.sass */
 .local_nav {
+  max-width: 15em;
   margin-bottom: 3em;
 }
-/* line 141, ../sass/_nav.sass */
+/* line 142, ../sass/_nav.sass */
 .local_nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-/* line 145, ../sass/_nav.sass */
-.local_nav li {
-  margin: 0 0 3px 0;
-  padding: 0;
   border: 1px solid #eaece1;
-  background: #f5f6f1;
+  border-top: none;
 }
-/* line 150, ../sass/_nav.sass */
+/* line 149, ../sass/_nav.sass */
+.local_nav li {
+  margin: 0 0 2px 0;
+  padding: 0;
+  border-top: 1px solid #eaece1;
+}
+/* line 153, ../sass/_nav.sass */
 .local_nav a {
+  color: #898989;
   border: none;
-  padding: 0.5em 0 0.5em 0.5em;
+  padding: 0.25em 0 0.25em 0.25em;
   display: block;
 }
-/* line 154, ../sass/_nav.sass */
+/* line 158, ../sass/_nav.sass */
+.local_nav a:hover,
+.local_nav a:hover i {
+  color: white;
+}
+/* line 161, ../sass/_nav.sass */
 .local_nav .active {
   font-weight: bold;
   font-weight: 800;
 }
-/* line 157, ../sass/_nav.sass */
+/* line 164, ../sass/_nav.sass */
 .local_nav .active .icon_decorative {
   color: #fb2710;
 }
-/* line 159, ../sass/_nav.sass */
+/* line 166, ../sass/_nav.sass */
 .local_nav .icon_decorative {
-  color: #dfe2d2;
+  font-size: 0.85em;
+  color: #eaece1;
   position: relative;
   top: 0.15em;
 }
 
-/* line 166, ../sass/_nav.sass */
+/* line 175, ../sass/_nav.sass */
 .local_nav_wide {
   margin: 1em 0 1em 0;
 }
-/* line 168, ../sass/_nav.sass */
+/* line 177, ../sass/_nav.sass */
 .local_nav_wide ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 172, ../sass/_nav.sass */
+/* line 181, ../sass/_nav.sass */
 .local_nav_wide li {
   margin: 0 0 3px 0;
   padding: 0;
@@ -1097,22 +1106,22 @@ strong, b {
   background: #f5f6f1;
   display: inline-block;
 }
-/* line 178, ../sass/_nav.sass */
+/* line 187, ../sass/_nav.sass */
 .local_nav_wide a {
   border: none;
   padding: 0.5em 0.75em;
   display: block;
 }
-/* line 182, ../sass/_nav.sass */
+/* line 191, ../sass/_nav.sass */
 .local_nav_wide .active {
   font-weight: bold;
   font-weight: 800;
 }
-/* line 185, ../sass/_nav.sass */
+/* line 194, ../sass/_nav.sass */
 .local_nav_wide .active .icon_decorative {
   color: #fb2710;
 }
-/* line 187, ../sass/_nav.sass */
+/* line 196, ../sass/_nav.sass */
 .local_nav_wide .icon_decorative {
   color: #dfe2d2;
   position: relative;
