@@ -210,8 +210,11 @@ class Event(models.Model):
 			return False
 		elif self.registration_status == 'ALLOW':
 			return True
-		elif self.registration_status == 'AUTO' and self.registration_opens < datetime.datetime.now():
-			return True
+		elif self.registration_status == 'AUTO' and self.registration_opens:
+			if self.registration_opens < datetime.datetime.now():
+				return True
+			else: 
+				return False
 		else: 
 			return False
 			

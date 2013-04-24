@@ -50,24 +50,28 @@
 						{{ event.date|date:"j N, P" }}
 					</p>
 
-					<p class="meta indicators">
+					<p class="meta indicators">					
 						{% if event.has_passed %}
 							<!-- past event -->
-						{% elif event.registration_status == "ALLOW" %}	
-							{% if event.registration_count >= event.max_students %}
-							 	{% if event.waitlist_status %}
+						{% elif event.registration_status == "HIDE" %}
+							<!-- hide registration info -->
+						{% else %}
+							{% if event.registration_status == "AUTO" and not event.is_registration_open %}	
+								<!-- registration opens later -->
+							{% elif event.registration_status == "PREVENT" %}	
+								<span class="registration_indicator solid"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
+							{% elif registration_count >=  event.max_students %}
+								{% if event.waitlist_status %}
 									<span class="registration_indicator solid"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
 								{% else %}
 									<span class="registration_indicator solid"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>			
 								{% endif %}
-							{% else %}
+							{% else%}
 								<span class="registration_indicator solid"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
 							{% endif %}
-						{% elif event.registration_status == 'PREVENT' %}
-							<span class="registration_indicator solid"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
-						{% endif %}
-					
+						{% endif %}							
 					</p>
+
 				</a>
 			</div>
 		{% endfor %}
