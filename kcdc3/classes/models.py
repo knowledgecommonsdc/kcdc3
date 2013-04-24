@@ -152,6 +152,7 @@ class Event(models.Model):
 		('HIDE', 'Hide forms'),
 	)
 	registration_status = models.CharField(max_length=7, choices=REGISTRATION_STATUS_CHOICES, default='AUTO')
+	registration_opens = models.DateTimeField(blank=True, null=True)
 
 	teacher_bios = models.ManyToManyField(Bio, blank=True, null=True, related_name='event')
 	teachers = models.ManyToManyField(User, blank=True, null=True, related_name='teachers')
@@ -209,11 +210,11 @@ class Event(models.Model):
 			return False
 		elif self.registration_status == 'ALLOW':
 			return True
-		elif self.registration_status == 'AUTO' and self.session.registration_status == 'ALLOW':
+		elif self.registration_status == 'AUTO' and self.registration_opens < datetime.datetime.now():
 			return True
 		else: 
 			return False
-
+			
 	def is_late_promotion(self):
 		""" True if a user is being promoted from the waitlist 
 		close to the class meeting time."""

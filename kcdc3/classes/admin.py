@@ -100,6 +100,7 @@ class EventAdmin(admin.ModelAdmin):
 				'summary', 'description', ('thumbnail', 'main_image'), 
 			]
 		}),
+		('Registration',	{'fields': [('registration_status', 'registration_opens',), ('max_students', 'waitlist_status', 'registration_count','waitlist_count'),]}),
 		('More pre-class details and additional dates', {
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': [
@@ -119,7 +120,6 @@ class EventAdmin(admin.ModelAdmin):
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': ['teacher_text','location_text']
 		}),
-		('Registration',	{'fields': [('max_students', 'registration_status', 'waitlist_status','registration_count','waitlist_count')]}),
 	]
 	readonly_fields = ('registration_count','waitlist_count')
 	prepopulated_fields = {"slug": ("title",)}
@@ -134,9 +134,9 @@ class EventAdmin(admin.ModelAdmin):
 			'tinymce_setup.js',
 		]
 
-	list_display = ('title', 'status','date','session', 'featured', 'registration_status','waitlist_status','max_students', 'registration_count', 'waitlist_count',)
-	list_editable = ('registration_status','featured','session',)
-	list_filter = ('session', 'status', 'registration_status', 'featured',)
+	list_display = ('title', 'status','date','session', 'featured', 'registration_status', 'registration_opens', 'waitlist_status','max_students', 'registration_count', 'waitlist_count',)
+	list_editable = ('registration_status', 'featured', 'registration_opens',)
+	list_filter = ('session', 'status', 'registration_status',)
 	search_fields = ('title',)
 
 admin.site.register(Event, EventAdmin)
