@@ -61,7 +61,7 @@
 										<!-- registration opens later -->
 									{% elif event.registration_status == "PREVENT" %}	
 										<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
-									{% elif registration_count >=  event.max_students %}
+									{% elif event.registration_count >=  event.max_students %}
 										{% if event.waitlist_status %}
 											<span class="registration_indicator"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
 										{% else %}
