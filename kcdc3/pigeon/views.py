@@ -18,7 +18,7 @@ class PostListView(ListView):
 	def get_context_data(self, **kwargs):
 		
 		context = super(PostListView, self).get_context_data(**kwargs)
-		context['posts'] = Post.objects.filter(status='PUBLISHED').exclude(date__gte=datetime.now())
+		context['posts'] = Post.objects.filter(status='PUBLISHED').exclude(date__gte=datetime.now()).order_by('-date')
 		context['recent_posts'] = context['posts'][:15]
 
 		return context
