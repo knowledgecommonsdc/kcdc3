@@ -8,8 +8,6 @@ kcdc3/kcdc3/settings.py
 
 kcdc3/kcdc3/settings.py
 
-kcdc3/public/media/event_images
-kcdc3/public/media/mugshots
 
 venv_kcdc
 
@@ -32,18 +30,13 @@ kcdc3/public/static/fonts/ss-standard/ss-standard.js
 kcdc3/public/static/fonts/ss-standard/ss-standard.svg
 kcdc3/public/static/fonts/ss-standard/ss-standard.ttf
 kcdc3/public/static/fonts/ss-standard/ss-standard.woff
-kcdc3/public/media/uploads/
 
-kcdc3/public/static/uploads/bio/_MG_7036.jpg
+kcdc3/public/media/bio
+kcdc3/public/media/blog
+kcdc3/public/media/event_images
+kcdc3/public/media/front_slides
+kcdc3/public/media/mugshots
+kcdc3/public/media/press
+kcdc3/public/media/uploads
 
-kcdc3/public/static/uploads/bio/stereoscope.jpg
-
-kcdc3/public/static/uploads/front_slides/atbs_blackboard.jpg
-
-kcdc3/public/static/uploads/csv/export.csv
-
-kcdc3/public/static/uploads/csv/export_1.csv
-
-kcdc3/public/static/uploads/csv/export_2.csv
-
-kcdc3/public/static/uploads/csv/export_3.csv
+kcdc3/public/media/csv/export_2013-02-24.csv
