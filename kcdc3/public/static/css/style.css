@@ -2516,7 +2516,7 @@ img {
   }
 
   /* line 77, ../sass/_print.sass */
-  .main,
+  #main,
   .main_wide,
   #sidebar {
     width: 100%;
@@ -2525,14 +2525,14 @@ img {
   }
 
   /* line 84, ../sass/_print.sass */
-  hed,
-  hed_wide {
+  #hed,
+  #hed_wide {
     margin: 0;
     width: 100%;
   }
   /* line 88, ../sass/_print.sass */
-  hed h1,
-  hed_wide h1 {
+  #hed h1,
+  #hed_wide h1 {
     font-size: 2em;
     margin-left: 0;
   }
