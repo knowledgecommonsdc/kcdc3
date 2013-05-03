@@ -2517,34 +2517,36 @@ img {
 
   /* line 77, ../sass/_print.sass */
   .main,
-  .main_wide {
+  .main_wide,
+  #sidebar {
     width: 100%;
-    margin: 0;
+    margin: 2em 0 0 0;
+    clear: both;
   }
 
-  /* line 82, ../sass/_print.sass */
+  /* line 84, ../sass/_print.sass */
   hed,
   hed_wide {
     margin: 0;
     width: 100%;
   }
-  /* line 86, ../sass/_print.sass */
+  /* line 88, ../sass/_print.sass */
   hed h1,
   hed_wide h1 {
     font-size: 2em;
     margin-left: 0;
   }
 
-  /* line 90, ../sass/_print.sass */
+  /* line 92, ../sass/_print.sass */
   #skip {
     top: 0;
     left: 4em;
   }
-  /* line 93, ../sass/_print.sass */
+  /* line 95, ../sass/_print.sass */
   #skip h1 {
     font-size: 1.4em;
   }
-  /* line 95, ../sass/_print.sass */
+  /* line 97, ../sass/_print.sass */
   #skip a {
     display: none;
   }
