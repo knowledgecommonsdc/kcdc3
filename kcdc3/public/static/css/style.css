@@ -2420,6 +2420,135 @@ img {
   color: white;
 }
 
+/* based on h5bp print styles */
+@media print {
+  /* line 6, ../sass/_print.sass */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* line 12, ../sass/_print.sass */
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  /* line 16, ../sass/_print.sass */
+  li a[href]:after,
+  p a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  /* line 20, ../sass/_print.sass */
+  li abbr[title]:after,
+  p abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* Don't show links for images, or javascript/internal links
+   */
+  /* line 29, ../sass/_print.sass */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  /* line 34, ../sass/_print.sass */
+  pre,
+  blockquote {
+    border: 1px solid #999999;
+    page-break-inside: avoid;
+  }
+
+  /* line 39, ../sass/_print.sass */
+  thead {
+    display: table-header-group;
+  }
+
+  /* line 42, ../sass/_print.sass */
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  /* line 46, ../sass/_print.sass */
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+}
+
+  /* line 52, ../sass/_print.sass */
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* line 58, ../sass/_print.sass */
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  /* layout changes */
+  /* line 65, ../sass/_print.sass */
+  #header,
+  .local_nav,
+  .local_nav_wide,
+  #desktop_nav,
+  #mobile_nav,
+  #footer {
+    display: none;
+  }
+
+  /* line 73, ../sass/_print.sass */
+  #content {
+    width: 80%;
+    margin: 0 4em;
+  }
+
+  /* line 77, ../sass/_print.sass */
+  .main,
+  .main_wide {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* line 82, ../sass/_print.sass */
+  hed,
+  hed_wide {
+    margin: 0;
+    width: 100%;
+  }
+  /* line 86, ../sass/_print.sass */
+  hed h1,
+  hed_wide h1 {
+    font-size: 2em;
+    margin-left: 0;
+  }
+
+  /* line 90, ../sass/_print.sass */
+  #skip {
+    top: 0;
+    left: 4em;
+  }
+  /* line 93, ../sass/_print.sass */
+  #skip h1 {
+    font-size: 1.4em;
+  }
+  /* line 95, ../sass/_print.sass */
+  #skip a {
+    display: none;
+  }
+}
 /* ----- END PROJECT STYLES  ---------------------------------------------- */
 /* ==========================================================================
    Helper classes
@@ -2489,86 +2618,4 @@ img {
 /* line 65, h5bp_end.scss */
 .clearfix {
   *zoom: 1;
-}
-
-/* ==========================================================================
-   Print styles
-   ========================================================================== */
-@media print {
-  /* line 74, h5bp_end.scss */
-  * {
-    background: transparent !important;
-    color: black !important;
-    /* Black prints faster: h5bp.com/s */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  /* line 82, h5bp_end.scss */
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  /* line 86, h5bp_end.scss */
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
-  /* line 90, h5bp_end.scss */
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links for images, or javascript/internal links
-   */
-  /* line 100, h5bp_end.scss */
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
-  }
-
-  /* line 105, h5bp_end.scss */
-  pre,
-  blockquote {
-    border: 1px solid #999999;
-    page-break-inside: avoid;
-  }
-
-  /* line 110, h5bp_end.scss */
-  thead {
-    display: table-header-group;
-    /* h5bp.com/t */
-  }
-
-  /* line 115, h5bp_end.scss */
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  /* line 119, h5bp_end.scss */
-  img {
-    max-width: 100% !important;
-  }
-
-  @page {
-    margin: 0.5cm;
-}
-
-  /* line 129, h5bp_end.scss */
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  /* line 135, h5bp_end.scss */
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
 }
