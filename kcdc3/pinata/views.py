@@ -155,6 +155,13 @@ def contribute(request):
 	context['title'] = e.title
 	context['id'] = e.id
 
+	# get all other pages with the same parent
+	if e.parent:
+		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+		
+	# get all children
+	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
+
 	return render_to_response('pinata/contribute.html',context)
 
 

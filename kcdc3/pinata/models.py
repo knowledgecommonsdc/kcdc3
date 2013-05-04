@@ -26,6 +26,7 @@ class Page(models.Model):
 	TEMPLATE_CHOICES = (
 		('page.html', 'Basic'),
 		('page_wide.html', 'Wide'),
+		('page_nosidebar.html', 'No Sidebar'),
 	)
 	template = models.CharField(max_length=48, choices=TEMPLATE_CHOICES, default='basic.html')
 
