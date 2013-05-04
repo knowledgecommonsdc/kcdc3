@@ -771,6 +771,11 @@ h3 {
 }
 
 /* line 77, ../sass/_typography.sass */
+h3.alt {
+  color: #3e9bc3;
+}
+
+/* line 80, ../sass/_typography.sass */
 h4 {
   margin: 1.5em 0 0.5em 0;
   font-size: 0.9em;
@@ -779,24 +784,24 @@ h4 {
   letter-spacing: 0.1em;
 }
 
-/* line 84, ../sass/_typography.sass */
+/* line 87, ../sass/_typography.sass */
 h5 {
   font-weight: normal;
 }
 
-/* line 87, ../sass/_typography.sass */
+/* line 90, ../sass/_typography.sass */
 h6 {
   font-style: italic;
   font-weight: bold;
   font-weight: 400;
 }
 
-/* line 96, ../sass/_typography.sass */
+/* line 98, ../sass/_typography.sass */
 p, ul, ol {
   margin: 1em 0 0 0;
 }
 
-/* line 99, ../sass/_typography.sass */
+/* line 101, ../sass/_typography.sass */
 .intro {
   font-size: 1.6em;
   line-height: 1.6em;
@@ -804,23 +809,23 @@ p, ul, ol {
   color: #3e9bc3;
 }
 
-/* line 105, ../sass/_typography.sass */
+/* line 107, ../sass/_typography.sass */
 .intro + p {
   margin-top: 2em;
 }
 
-/* line 108, ../sass/_typography.sass */
+/* line 110, ../sass/_typography.sass */
 .secondary {
   font-size: 0.75em;
   line-height: 1.5em;
 }
 
-/* line 114, ../sass/_typography.sass */
+/* line 116, ../sass/_typography.sass */
 em, cite, i {
   font-style: italic;
 }
 
-/* line 117, ../sass/_typography.sass */
+/* line 119, ../sass/_typography.sass */
 strong, b {
   font-weight: bold;
 }
@@ -1655,6 +1660,73 @@ p.indicators > .registration_indicator {
 #hed .byline {
   font-size: 1.5em;
   margin: 0 0 0 0;
+}
+
+/* line 352, ../sass/_inside.sass */
+.topic_block {
+  float: left;
+  width: 28.333%;
+  margin: 1em 5% 5em 0;
+}
+/* line 356, ../sass/_inside.sass */
+.topic_block .image_container {
+  height: 190px;
+}
+/* line 358, ../sass/_inside.sass */
+.topic_block ul {
+  margin: 0.5em 0;
+  padding: 0;
+  border-top: 1px solid #dddddd;
+}
+/* line 362, ../sass/_inside.sass */
+.topic_block li {
+  list-style: none;
+  margin: 0;
+  padding: 0.4em 0;
+  border-bottom: 1px solid #dddddd;
+  font-size: 0.85em;
+  line-height: 1.2em;
+}
+/* line 369, ../sass/_inside.sass */
+.topic_block a {
+  border: none;
+}
+
+/* line 375, ../sass/_inside.sass */
+.button_link {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0 0;
+  padding: 0.4em 0.7em;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0);
+  font-style: normal;
+  font-weight: 600;
+  background: #3e9bc3;
+  border-radius: 4px;
+}
+/* line 386, ../sass/_inside.sass */
+.button_link:hover {
+  color: #2b6d8a !important;
+  background-color: #9fcde1;
+  border: 1px solid #378cb1 !important;
+}
+
+/* line 391, ../sass/_inside.sass */
+button.button_link {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0.5em 0 0 0;
+}
+
+/* line 395, ../sass/_inside.sass */
+.button_link.alt {
+  background: #fb2710;
+}
+/* line 397, ../sass/_inside.sass */
+.button_link.alt:hover {
+  color: #bb1503 !important;
+  background-color: #fd988d;
+  border: 1px solid #ee1b04 !important;
 }
 
 /* line 3, ../sass/_page_wide.sass */

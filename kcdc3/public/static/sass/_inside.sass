@@ -343,3 +343,58 @@ p.indicators > .registration_indicator
 	font-size: 1.5em
 	margin: 0 0 0 0
 
+
+// graphical pages ---------------------
+// wide pages like Contribute
+
+// topic blocks are the three-wide 
+// containers for content
+.topic_block
+	float: left
+	width: 28.333%
+	margin: 1em 5% 5em 0
+	.image_container
+		height: 190px
+	ul
+		margin: 0.5em 0
+		padding: 0
+		border-top: 1px solid #ddd
+	li
+		list-style: none
+		margin: 0
+		padding: 0.4em 0
+		border-bottom: 1px solid #ddd
+		font-size: 0.85em
+		line-height: 1.2em
+	a
+		border: none
+
+
+// action buttons ---------------------
+
+.button_link
+	font-size: 1.0em
+	font-weight: bold
+	margin: 0 0
+	padding: 0.4em 0.7em
+	color: #fff !important
+	border: 1px solid rgba(255,255,255,0.0)
+	font-style: normal
+	font-weight: 600
+	background: $colorB
+	border-radius: 4px
+	&:hover
+		color: darken($colorB, 15%) !important
+		background-color: lighten($colorB, 25%)
+		border: 1px solid darken($colorB, 5%) !important
+
+button.button_link
+	font-family: $font_family_main
+	margin: 0.5em 0 0 0
+	
+.button_link.alt
+	background: $colorA
+	&:hover
+		color: darken($colorA, 15%) !important
+		background-color: lighten($colorA, 25%)
+		border: 1px solid darken($colorA, 5%) !important
