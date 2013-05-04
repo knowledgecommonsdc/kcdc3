@@ -1664,21 +1664,30 @@ p.indicators > .registration_indicator {
 
 /* line 6, ../sass/_page_wide.sass */
 .hed_wide {
+  width: 100%;
   max-width: 960px;
   margin-top: 4em;
-  padding-left: 10%;
 }
 
 /* line 11, ../sass/_page_wide.sass */
 .main_wide {
-  width: 60%;
-  margin: 0 30% 0 10%;
+  width: 100%;
+  max-width: 960px;
+  margin-top: 4em;
+}
+/* line 15, ../sass/_page_wide.sass */
+.main_wide p {
+  margin-left: 20%;
 }
 @media screen and (max-width: 680px) {
   /* line 11, ../sass/_page_wide.sass */
   .main_wide {
     width: 100%;
     margin: 0;
+  }
+  /* line 20, ../sass/_page_wide.sass */
+  .main_wide p {
+    margin-left: 0;
   }
 }
 
