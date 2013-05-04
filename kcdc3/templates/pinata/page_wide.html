@@ -45,23 +45,3 @@
 
 
 
-{% block sidebar_content %}
-	{{ sidebar_text|safe }}
-{% endblock %}
-
-
-
-{% block sidebar_nav %}
-
-	<div class="local_nav">
-		<ul>
-			{% for page in siblings %}
-				<li><a href="{{ page.path }}" class="{% if page.id == id %}active{% endif %}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ page.short_title }}</a></li>
-			{% endfor %}
-			{% for page in children %}
-				<li><a href="{{ page.path }}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ page.short_title }}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
-
-{% endblock %}
