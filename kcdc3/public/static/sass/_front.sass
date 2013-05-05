@@ -173,15 +173,13 @@
 	width: 25%
 	float: left
 	padding-right: 1em
-	@media screen and (max-width: 920px)
-		width: 50%
-	@media screen and (max-width: 600px)
+	@media screen and (max-width: 800px)
 		width: 100%
 		clear: both
 		border-top: 1px solid $colorE1
 
-.features > div:nth-child(n+4)
-	padding-right: 0
+// .features > div:nth-child(n+4)
+// 	padding-right: 0
 
 .features > div > a
 	display: block
@@ -216,12 +214,16 @@
 	@media screen and (max-width: 600px)
 		border-top: none
 	.front_more_link
-		margin: 4.8em 0 0 0
-		padding: 0 0 0 0
+		margin: 0 0 0 0
+		padding: 0 2em 0 0
+		position: relative
 		text-align: right
-		@media screen and (max-width: 860px)
-			width: 100%
-			clear: both
+		width: 100%
+		clear: both
+		border-top: 1px solid $colorE1
+		@media screen and (max-width: 600px)
+			margin: 0 0 0 0
+			top: 2em
 		a
 			font-size: 1.1em
 			font-style: normal
@@ -233,6 +235,8 @@
 			font-weight: 600
 			background: #fff
 			border-radius: 4px
+			position: relative
+			top: -0.6em
 		a:hover
 			color: #fff
 			background-color: $colorA
@@ -254,13 +258,10 @@
 	i
 		color: $color_text_lighter
 	& > p
-		border-top: 1px solid #ccc
-		border-left: 1px solid #ccc
+		border: 1px solid #ddd
 		white-space: nowrap
 		float: left
-		margin: 0
-		position: relative
-		left: -1px
+		margin: -1px 0 0 -1px
 		@media screen and (max-width: 920px)
 			width: 100%
 			clear: both
