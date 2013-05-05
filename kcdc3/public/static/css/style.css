@@ -1691,8 +1691,16 @@ p.indicators > .registration_indicator {
 .topic_block a {
   border: none;
 }
+@media screen and (max-width: 600px) {
+  /* line 352, ../sass/_inside.sass */
+  .topic_block {
+    clear: both;
+    width: 100%;
+    margin: 1em 0 2em 0;
+  }
+}
 
-/* line 375, ../sass/_inside.sass */
+/* line 378, ../sass/_inside.sass */
 .button_link {
   font-size: 1em;
   font-weight: bold;
@@ -1705,24 +1713,24 @@ p.indicators > .registration_indicator {
   background: #3e9bc3;
   border-radius: 4px;
 }
-/* line 386, ../sass/_inside.sass */
+/* line 389, ../sass/_inside.sass */
 .button_link:hover {
   color: #2b6d8a !important;
   background-color: #9fcde1;
   border: 1px solid #378cb1 !important;
 }
 
-/* line 391, ../sass/_inside.sass */
+/* line 394, ../sass/_inside.sass */
 button.button_link {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0.5em 0 0 0;
 }
 
-/* line 395, ../sass/_inside.sass */
+/* line 398, ../sass/_inside.sass */
 .button_link.alt {
   background: #fb2710;
 }
-/* line 397, ../sass/_inside.sass */
+/* line 400, ../sass/_inside.sass */
 .button_link.alt:hover {
   color: #bb1503 !important;
   background-color: #fd988d;
