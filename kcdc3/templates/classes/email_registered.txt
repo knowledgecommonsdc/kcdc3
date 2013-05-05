@@ -6,7 +6,7 @@ advance as you can. Many of our classes have waitlists, and our teachers need
 to know how many students to expect.
 
 You can cancel your registration at:
-http://c.knowledgecommonsdc.org/classes/{{ slug }}
+http://knowledgecommonsdc.org/classes/{{ slug }}
 
 CLASS: {{ title }}
 
@@ -27,7 +27,7 @@ LOCATION:
 {{ location_hint }}{% endif %}
 
 COURSE WEBPAGE:
-http://c.knowledgecommonsdc.org/classes/{{ slug }}
+http://knowledgecommonsdc.org/classes/{{ slug }}
 
 
 Please email us if you need special accommodations. 

@@ -5,7 +5,7 @@ It’s your lucky day! There is a space for you in a Knowledge Commons DC class.
 We've added you to the class roster. We hope that you can attend. 
 If you can't, please cancel your registration at:
 
-   http://c.knowledgecommonsdc.org/classes/{{ slug }}
+   http://knowledgecommonsdc.org/classes/{{ slug }}
 
 {% if is_late_promotion %}We realize that you are receiving this message quite late.
 We want to give you a chance to attend, but we understand 
@@ -31,7 +31,7 @@ LOCATION:
 {{ location_hint }}{% endif %}
 
 COURSE WEBPAGE:
-http://c.knowledgecommonsdc.org/classes/{{ slug }}
+http://knowledgecommonsdc.org/classes/{{ slug }}
 
 If you'd like to participate more actively in this gift economy, 
 drop us a line at knowledgecomonsdc@gmail.com to volunteer.
