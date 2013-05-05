@@ -2159,8 +2159,9 @@ img {
 }
 /* line 111, ../sass/_front.sass */
 #front_motd i {
+  display: inline-block;
   font-style: normal;
-  margin: 0 0.15em;
+  margin: 0.5em 0.15em;
   padding: 0.4em 0.4em;
   color: #3e9bc3;
   border: 1px solid #d2d2d2;
@@ -2169,56 +2170,56 @@ img {
   background: white;
   border-radius: 4px;
 }
-/* line 121, ../sass/_front.sass */
+/* line 122, ../sass/_front.sass */
 #front_motd i:hover {
   color: white;
   background-color: #fb2710;
 }
-/* line 124, ../sass/_front.sass */
+/* line 125, ../sass/_front.sass */
 #front_motd .front_motd_button_decoration {
   font-size: 0.8em;
   margin: 0;
 }
-/* line 127, ../sass/_front.sass */
+/* line 128, ../sass/_front.sass */
 #front_motd p {
   margin: 0;
   color: #666666;
   font-size: 1.2em;
   line-height: 1.4em;
 }
-/* line 132, ../sass/_front.sass */
+/* line 133, ../sass/_front.sass */
 #front_motd .more {
   font-style: italic;
 }
-/* line 134, ../sass/_front.sass */
+/* line 135, ../sass/_front.sass */
 #front_motd a {
   color: #666666;
   border: none;
 }
-/* line 137, ../sass/_front.sass */
+/* line 138, ../sass/_front.sass */
 #front_motd a:hover {
   color: #0f7eb2;
   background: none;
 }
-/* line 140, ../sass/_front.sass */
+/* line 141, ../sass/_front.sass */
 #front_motd .motd_icon {
   position: relative;
   top: 0.25em;
   font-size: 1.25em;
   color: #3e9bc3;
 }
-/* line 145, ../sass/_front.sass */
+/* line 146, ../sass/_front.sass */
 #front_motd .motd_action {
   color: #3e9bc3;
 }
 
 @media screen and (max-width: 550px) {
-  /* line 150, ../sass/_front.sass */
+  /* line 151, ../sass/_front.sass */
   #motd p {
     font-size: 1em;
   }
 }
-/* line 155, ../sass/_front.sass */
+/* line 156, ../sass/_front.sass */
 .features {
   *zoom: 1;
   padding: 0 0 0 0;
@@ -2232,43 +2233,43 @@ img {
 .features:after {
   clear: both;
 }
-/* line 158, ../sass/_front.sass */
+/* line 159, ../sass/_front.sass */
 .features h3 {
   font-size: 1.2em;
   color: #666666;
   margin: 0;
 }
-/* line 162, ../sass/_front.sass */
+/* line 163, ../sass/_front.sass */
 .features .date {
   margin: 0 0 0.25em 0;
 }
-/* line 164, ../sass/_front.sass */
+/* line 165, ../sass/_front.sass */
 .features .instructor {
   margin-top: 0.25em;
 }
-/* line 166, ../sass/_front.sass */
+/* line 167, ../sass/_front.sass */
 .features i {
   color: #0f7eb2;
 }
-/* line 168, ../sass/_front.sass */
+/* line 169, ../sass/_front.sass */
 .features .indicators {
   margin-top: 0.75em;
 }
 
-/* line 171, ../sass/_front.sass */
+/* line 172, ../sass/_front.sass */
 .features > div {
   width: 25%;
   float: left;
   padding-right: 1em;
 }
 @media screen and (max-width: 920px) {
-  /* line 171, ../sass/_front.sass */
+  /* line 172, ../sass/_front.sass */
   .features > div {
     width: 50%;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 171, ../sass/_front.sass */
+  /* line 172, ../sass/_front.sass */
   .features > div {
     width: 100%;
     clear: both;
@@ -2276,12 +2277,12 @@ img {
   }
 }
 
-/* line 182, ../sass/_front.sass */
+/* line 183, ../sass/_front.sass */
 .features > div:nth-child(n+4) {
   padding-right: 0;
 }
 
-/* line 185, ../sass/_front.sass */
+/* line 186, ../sass/_front.sass */
 .features > div > a {
   display: block;
   border: none;
@@ -2289,7 +2290,7 @@ img {
   color: #666666;
 }
 
-/* line 191, ../sass/_front.sass */
+/* line 192, ../sass/_front.sass */
 .features > div > a:hover,
 .features > div > a:hover > h3 {
   background: white;
@@ -2297,7 +2298,7 @@ img {
   border-bottom: none;
 }
 
-/* line 197, ../sass/_front.sass */
+/* line 198, ../sass/_front.sass */
 .features-ss-icon-clock {
   margin-right: 0.1em;
   position: relative;
@@ -2305,7 +2306,7 @@ img {
   color: #3e9bc3;
 }
 
-/* line 203, ../sass/_front.sass */
+/* line 204, ../sass/_front.sass */
 .features-ss-icon-eye {
   font-size: 1.3em;
   position: relative;
@@ -2313,31 +2314,31 @@ img {
   color: #3e9bc3;
 }
 
-/* line 212, ../sass/_front.sass */
+/* line 213, ../sass/_front.sass */
 #classes {
   margin: 4em 0 0 0;
   border-top: 6px solid #f5f6f1;
 }
 @media screen and (max-width: 600px) {
-  /* line 212, ../sass/_front.sass */
+  /* line 213, ../sass/_front.sass */
   #classes {
     border-top: none;
   }
 }
-/* line 217, ../sass/_front.sass */
+/* line 218, ../sass/_front.sass */
 #classes .front_more_link {
   margin: 4.8em 0 0 0;
   padding: 0 0 0 0;
   text-align: right;
 }
 @media screen and (max-width: 860px) {
-  /* line 217, ../sass/_front.sass */
+  /* line 218, ../sass/_front.sass */
   #classes .front_more_link {
     width: 100%;
     clear: both;
   }
 }
-/* line 224, ../sass/_front.sass */
+/* line 225, ../sass/_front.sass */
 #classes .front_more_link a {
   font-size: 1.1em;
   font-style: normal;
@@ -2350,37 +2351,37 @@ img {
   background: white;
   border-radius: 4px;
 }
-/* line 235, ../sass/_front.sass */
+/* line 236, ../sass/_front.sass */
 #classes .front_more_link a:hover {
   color: white;
   background-color: #fb2710;
 }
 
-/* line 241, ../sass/_front.sass */
+/* line 242, ../sass/_front.sass */
 #posts {
   margin: 4em 0 0 0;
 }
-/* line 243, ../sass/_front.sass */
+/* line 244, ../sass/_front.sass */
 #posts h3 {
   margin: 0 0.5em 1em 0;
   float: left;
   line-height: 2.2em;
 }
-/* line 247, ../sass/_front.sass */
+/* line 248, ../sass/_front.sass */
 #posts h3 a {
   border: none;
   color: #666666;
 }
-/* line 250, ../sass/_front.sass */
+/* line 251, ../sass/_front.sass */
 #posts h3 a:hover {
   color: #fb2710;
   background: none;
 }
-/* line 253, ../sass/_front.sass */
+/* line 254, ../sass/_front.sass */
 #posts i {
   color: #666666;
 }
-/* line 255, ../sass/_front.sass */
+/* line 256, ../sass/_front.sass */
 #posts > p {
   border-top: 1px solid #cccccc;
   border-left: 1px solid #cccccc;
@@ -2391,41 +2392,41 @@ img {
   left: -1px;
 }
 @media screen and (max-width: 920px) {
-  /* line 255, ../sass/_front.sass */
+  /* line 256, ../sass/_front.sass */
   #posts > p {
     width: 100%;
     clear: both;
     white-space: normal;
   }
 }
-/* line 267, ../sass/_front.sass */
+/* line 268, ../sass/_front.sass */
 #posts > p > a {
   display: block;
   border: none;
   padding: 0.5em 0.75em;
 }
-/* line 271, ../sass/_front.sass */
+/* line 272, ../sass/_front.sass */
 #posts > p > a:hover, #posts > p > a:hover i {
   color: white;
 }
 
-/* line 280, ../sass/_front.sass */
+/* line 281, ../sass/_front.sass */
 #minical {
   margin: 0 0 0 0;
 }
-/* line 282, ../sass/_front.sass */
+/* line 283, ../sass/_front.sass */
 #minical h2 {
   margin: 0 0 0.5em 0;
   float: left;
 }
-/* line 285, ../sass/_front.sass */
+/* line 286, ../sass/_front.sass */
 #minical h2 > a,
 #minical h2 > a:hover {
   color: #fb2710;
   border: none;
 }
 
-/* line 290, ../sass/_front.sass */
+/* line 291, ../sass/_front.sass */
 #minical-full {
   float: left;
   margin: 0 0 0 0.5em;
@@ -2433,20 +2434,20 @@ img {
   top: -0.1em;
   font-size: 0.85em;
 }
-/* line 296, ../sass/_front.sass */
+/* line 297, ../sass/_front.sass */
 #minical-full > a {
   background: #fb2710;
   color: white;
   padding: 4px 8px;
   border-radius: 12px;
 }
-/* line 301, ../sass/_front.sass */
+/* line 302, ../sass/_front.sass */
 #minical-full > a:hover {
   background: #f75f53;
   color: white;
 }
 
-/* line 305, ../sass/_front.sass */
+/* line 306, ../sass/_front.sass */
 .minical_month {
   margin-bottom: 0.5em;
   *zoom: 1;
@@ -2460,27 +2461,27 @@ img {
 .minical_month:after {
   clear: both;
 }
-/* line 308, ../sass/_front.sass */
+/* line 309, ../sass/_front.sass */
 .minical_month > h4 {
   float: left;
   margin: 0.5em 1em 0.5em 0;
   clear: left;
   color: #fb2710;
 }
-/* line 313, ../sass/_front.sass */
+/* line 314, ../sass/_front.sass */
 .minical_month > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   float: left;
 }
-/* line 318, ../sass/_front.sass */
+/* line 319, ../sass/_front.sass */
 .minical_month > ul > li {
   margin: 0 2px 2px 0;
   float: left;
   font-size: 0.8em;
 }
-/* line 322, ../sass/_front.sass */
+/* line 323, ../sass/_front.sass */
 .minical_month > ul > li > a {
   display: block;
   border: none;
@@ -2489,21 +2490,21 @@ img {
   padding: 0px 6px;
   border-radius: 9px;
 }
-/* line 329, ../sass/_front.sass */
+/* line 330, ../sass/_front.sass */
 .minical_month > ul > li > a:hover {
   background: #cccccc;
   color: #aaaaaa;
 }
-/* line 332, ../sass/_front.sass */
+/* line 333, ../sass/_front.sass */
 .minical_month > ul > .sunday {
   margin-right: 15px;
 }
-/* line 334, ../sass/_front.sass */
+/* line 335, ../sass/_front.sass */
 .minical_month .event_1x {
   background: #fb2710;
   color: white;
 }
-/* line 337, ../sass/_front.sass */
+/* line 338, ../sass/_front.sass */
 .minical_month .event_1x:hover {
   background: #f75f53;
   color: white;
