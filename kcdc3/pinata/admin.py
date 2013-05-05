@@ -1,4 +1,4 @@
-from pinata.models import Page, Notice, Slide, Sponsor, PressClipping
+from pinata.models import Page, Notice, Slide, Sponsor, PressClipping, Snippet
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -43,6 +43,27 @@ class PageAdmin(admin.ModelAdmin):
 		]
 
 admin.site.register(Page, PageAdmin)
+
+
+
+
+
+class SnippetAdmin(admin.ModelAdmin):
+	
+	fieldsets = [
+		(None, {'fields': [
+			'title', 'path',
+			]}),
+		('Text', {
+			'classes': ('grp-collapse grp-open',),
+			'fields': [
+			'main_text'
+			]}),
+	]
+
+	list_display = ('title', 'path')
+
+admin.site.register(Snippet, SnippetAdmin)
 
 
 

@@ -38,6 +38,26 @@ class Page(models.Model):
 
 
 
+class Snippet(models.Model):
+	""" Small pieces of content, inserted into special page templates.
+		The path should identify the snippet. Examples:
+		/contribute#section1
+		/contribute/details#intro
+		sitewide#copyright
+		"""
+
+	title = models.CharField(max_length=200)
+	main_text = models.TextField(blank=True)
+	path = models.CharField(max_length=200, unique=True)
+
+	class Meta:
+		ordering = ['path']
+
+	def __unicode__(self):
+		return self.title
+
+
+
 class Notice(models.Model):
 	""" Short-term notices that appear on the front page """
 
