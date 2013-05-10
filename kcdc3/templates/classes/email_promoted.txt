@@ -19,7 +19,7 @@ DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{
 {{ additional_dates_text|striptags }}{% endif %}
 
 {% if email_welcome_text %}ADDITIONAL INFORMATION:
-{{ email_welcome_text }}{% endif %}
+{{ email_welcome_text|safe }}{% endif %}
 
 LOCATION:
 {% ifnotequal location_name location_address1 %}{{ location_name }}{% endifnotequal %}
