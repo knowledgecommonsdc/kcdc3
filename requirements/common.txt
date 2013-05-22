@@ -1,0 +1,9 @@
+Django==1.5.1
+PIL==1.1.7
+South==0.7.6
+django-filebrowser==3.5.2
+django-grappelli==2.4.4
+django-guardian==1.1.0.beta
+django-userena==1.2.0
+easy-thumbnails==1.2
+requests==1.2.2
