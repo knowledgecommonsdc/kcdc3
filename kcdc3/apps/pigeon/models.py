@@ -1,5 +1,5 @@
 from django.db import models
-from classes.models import Bio
+from kcdc3.apps.classes.models import Bio
 import datetime
 
 

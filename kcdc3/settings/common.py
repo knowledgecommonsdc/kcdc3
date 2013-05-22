@@ -125,10 +125,7 @@ LOGOUT_URL = '/accounts/signout/'
 USERENA_MUGSHOT_DEFAULT = 'mm'
 USERENA_ACTIVATION_REQUIRED = False
 
-ROOT_URLCONF = 'kcdc3.urls'
-
-# Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'kcdc3.wsgi.application'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -149,10 +146,10 @@ INSTALLED_APPS = (
 	'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
-	'classes',
-	'pinata',
-	'pigeon',
-	'accounts',
+	'kcdc3.apps.classes',
+	'kcdc3.apps.pinata',
+	'kcdc3.apps.pigeon',
+	'kcdc3.apps.accounts',
 	'south',
 	'userena',
 	'guardian',
