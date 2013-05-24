@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from userena.forms import SignupForm
-from accounts.models import ExtendedProfile
+from models import ExtendedProfile
 
 class SignupFormExtra(SignupForm):
 	"""

@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from accounts.views import SignupFormExtra
+from apps.accounts.views import SignupFormExtra
 from filebrowser.sites import site
 from django.conf import settings
 
@@ -12,15 +12,15 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 
-	url(r'^$', 'pinata.views.home'),
-	url(r'^classes/', include('classes.urls')),
-	url(r'^blog/', include('pigeon.urls')),
+	url(r'^$', 'kcdc3.apps.pinata.views.home'),
+	url(r'^classes/', include('kcdc3.apps.classes.urls')),
+	url(r'^blog/', include('kcdc3.apps.pigeon.urls')),
 	url(r'^contribute/$', 'pinata.views.contribute'),
 	url(r'^teach/proposal/$', 'pinata.views.proposal'),
 	url(r'^about/$', 'pinata.views.staff'),
 	url(r'^about/sponsors/$', 'pinata.views.sponsors'),
 	url(r'^press/$', 'pinata.views.pressclippings'),
-	url(r'^about/|teach/|contribute/', include('pinata.urls')),
+	url(r'^about/|teach/|contribute/', include('kcdc3.apps.pinata.urls')),
 	url(r'^admin/filebrowser/', include(site.urls)),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^admin/', include(admin.site.urls)),
