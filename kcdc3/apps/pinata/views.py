@@ -4,9 +4,9 @@ from datetime import datetime
 from django.template import Context
 from django.views.generic import DetailView, TemplateView, ListView
 from django.db.models import Q
-from pinata.models import Page, Notice, Slide, Sponsor, PressClipping
-from classes.models import Bio, Role, Event, Session
-from pigeon.models import Post
+from models import Page, Notice, Slide, Sponsor, PressClipping
+from kcdc3.apps.classes.models import Bio, Role, Event, Session
+from kcdc3.apps.pigeon.models import Post
 
 
 def page_view(request):
@@ -45,7 +45,7 @@ def page_view(request):
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 	
 	# set up templates
-	template_path = 'pinata/' + e.template
+	template_path = 'templates/' + e.template
 		
 	if e.status == 'PUBLISHED' or e.status == 'HIDDEN':
 		return render_to_response(template_path, context)
@@ -89,7 +89,7 @@ def staff(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('pinata/staff.html',context)
+	return render_to_response('templates/staff.html',context)
 
 
 
@@ -107,7 +107,7 @@ def home(request):
 	context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT", featured=True).order_by('date')[:4]
 	context['posts'] = Post.objects.filter(status='PUBLISHED').filter(featured=True).exclude(date__gte=datetime.now())[:4]
 
-	return render_to_response('pinata/home.html',context)
+	return render_to_response('templates/home.html',context)
 
 
 
@@ -137,7 +137,7 @@ def proposal(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('pinata/proposal.html',context)
+	return render_to_response('templates/proposal.html',context)
 
 
 
@@ -162,7 +162,7 @@ def contribute(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('pinata/contribute.html',context)
+	return render_to_response('templates/contribute.html',context)
 
 
 
@@ -193,7 +193,7 @@ def sponsors(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('pinata/sponsors.html',context)
+	return render_to_response('templates/sponsors.html',context)
 
 
 
@@ -222,7 +222,7 @@ def pressclippings(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('pinata/pressclippings.html',context)
+	return render_to_response('templates/pressclippings.html',context)
 
 
 

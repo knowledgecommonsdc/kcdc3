@@ -1,5 +1,5 @@
-from pigeon.models import Post
-from classes.models import Bio
+from models import Post
+from kcdc3.apps.classes.models import Bio
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site

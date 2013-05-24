@@ -2,7 +2,7 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from datetime import datetime
 from django.views.generic import DetailView, TemplateView, ListView
-from classes.models import Event, Registration, Bio, Session
+from models import Event, Registration, Bio, Session
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template import Context

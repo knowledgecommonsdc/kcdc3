@@ -4,8 +4,8 @@ from datetime import datetime
 from django.template import Context
 from django.db.models import Q
 from django.contrib.syndication.views import Feed
-from pigeon.models import Post
-from classes.models import Bio
+from models import Post
+from kcdc3.apps.classes.models import Bio
 
 
 

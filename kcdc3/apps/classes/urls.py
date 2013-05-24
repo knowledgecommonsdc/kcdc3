@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
-from classes.models import Event, Registration
-from classes.views import EventListView, EventDetailView, ResponseTemplateView, EventArchiveView, SessionView, RegistrationListView
+from models import Event, Registration
+from views import EventListView, EventDetailView, ResponseTemplateView, EventArchiveView, SessionView, RegistrationListView
 
 urlpatterns = patterns('classes.views',
 

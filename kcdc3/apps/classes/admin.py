@@ -1,4 +1,4 @@
-from classes.models import Event, Location, Bio, Registration, Session, Role
+from models import Event, Location, Bio, Registration, Session, Role
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site

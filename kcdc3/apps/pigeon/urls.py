@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
-from pigeon.models import Post
-from pigeon.views import PostListView, PostArchiveView, PostDetailView, BlogFeed
+from models import Post
+from views import PostListView, PostArchiveView, PostDetailView, BlogFeed
 
 urlpatterns = patterns('pigeon.views',
 
