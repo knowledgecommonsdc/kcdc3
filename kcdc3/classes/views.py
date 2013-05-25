@@ -1,4 +1,4 @@
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
 from datetime import datetime
 from django.views.generic import DetailView, TemplateView, ListView
@@ -95,7 +95,7 @@ class EventDetailView(DetailView):
 			user = None
 
 		event = self.get_object()
-
+			
 		context['registration_count'] = event.registration_count()
 		context['waitlist_count'] = event.waitlist_count()
 		context['user_is_waitlisted'] = is_waitlisted(user, event)
@@ -108,7 +108,10 @@ class EventDetailView(DetailView):
 			if Event.objects.filter(slug=self.object.slug, facilitators=self.request.user).count() > 0 or self.request.user.is_staff:
 				context['show_facilitator'] = True
 			
-		return context
+		if event.status == 'PUBLISHED' or event.status == 'HIDDEN':
+			return context
+		else:
+			raise Http404
 			
 
 
