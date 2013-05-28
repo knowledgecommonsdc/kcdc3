@@ -83,13 +83,13 @@
 
 		<h3><a href="/blog">Blog</a></h3>
 
-		{% for post in posts reversed %}
+		{% for post in posts %}
 			<p>
 			<a href="/blog/{{ post.slug }}">
 				{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
 				<strong>{{ post.title }}</strong>, 
 				{{ post.date|date:"j N" }}
-				{% if post.author|length > 0 %}
+				{% if post.author.count > 0 %}
 					<i class="byline">
 					By 
 					{% for bio in post.author.all %}							
