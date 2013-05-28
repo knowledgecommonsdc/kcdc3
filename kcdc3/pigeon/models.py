@@ -28,7 +28,7 @@ class Post(models.Model):
 	allow_comments = models.BooleanField(default=False)
 
 	class Meta:
-		ordering = ['date']
+		ordering = ['-date']
 
 	def __unicode__(self):
 		return self.title
