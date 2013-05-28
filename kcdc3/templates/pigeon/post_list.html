@@ -34,7 +34,7 @@
 						{{ post.title }}
 					</h3>
 
-					{% if post.author|length > 0 %}
+					{% if post.author.count > 0 %}
 						<p>By 
 						{% for bio in post.author.all %}							
 							{% if forloop.last %}{% if forloop.counter > 1 %} and {% endif %}{% endif %}
