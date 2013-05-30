@@ -215,7 +215,7 @@ kbd,
 pre,
 samp {
   font-family: monospace, serif;
-  _font-family: "courier new", monospace;
+  _font-family: 'courier new', monospace;
   font-size: 1em;
 }
 
@@ -366,7 +366,7 @@ form {
  */
 /* line 361, normalize.scss */
 fieldset {
-  border: 1px solid silver;
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
@@ -556,7 +556,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0;
 }
@@ -1788,20 +1788,21 @@ button.button_link {
 /* line 40, ../sass/style.sass */
 img {
   max-width: 100%;
+  height: auto;
 }
 
 /* ----- layout  -------------------------------------------- */
-/* line 46, ../sass/style.sass */
+/* line 47, ../sass/style.sass */
 #mobile_jump {
   display: none;
 }
 
-/* line 48, ../sass/style.sass */
+/* line 49, ../sass/style.sass */
 #mobile_nav {
   display: none;
 }
 
-/* line 53, ../sass/style.sass */
+/* line 54, ../sass/style.sass */
 #header {
   width: 80%;
   max-width: 960px;
@@ -1821,18 +1822,18 @@ img {
   clear: both;
 }
 
-/* line 62, ../sass/style.sass */
+/* line 63, ../sass/style.sass */
 #logo {
   margin: 1em 0 1em 0;
   width: 10%;
   float: left;
 }
-/* line 66, ../sass/style.sass */
+/* line 67, ../sass/style.sass */
 #logo a:hover {
   background: none;
 }
 
-/* line 69, ../sass/style.sass */
+/* line 70, ../sass/style.sass */
 #desktop_nav {
   margin-top: 0;
   width: 90%;
@@ -1850,7 +1851,7 @@ img {
   clear: both;
 }
 
-/* line 76, ../sass/style.sass */
+/* line 77, ../sass/style.sass */
 #content {
   width: 80%;
   max-width: 960px;
@@ -1869,7 +1870,7 @@ img {
   clear: both;
 }
 
-/* line 84, ../sass/style.sass */
+/* line 85, ../sass/style.sass */
 #main {
   width: 60%;
   float: left;
@@ -1886,7 +1887,7 @@ img {
   clear: both;
 }
 
-/* line 90, ../sass/style.sass */
+/* line 91, ../sass/style.sass */
 #main_fullwidth {
   width: 100%;
   margin: 1em 0 3em 0;
@@ -1902,7 +1903,7 @@ img {
   clear: both;
 }
 
-/* line 95, ../sass/style.sass */
+/* line 96, ../sass/style.sass */
 #sidebar {
   width: 30%;
   float: left;
@@ -1918,22 +1919,22 @@ img {
   clear: both;
 }
 
-/* line 101, ../sass/style.sass */
+/* line 102, ../sass/style.sass */
 .sidebar_section {
   margin: 0 0 0 0;
 }
 
-/* line 105, ../sass/style.sass */
+/* line 106, ../sass/style.sass */
 .sidebar_inside {
   margin: 0 0 0 0;
 }
 
-/* line 108, ../sass/style.sass */
+/* line 109, ../sass/style.sass */
 #register {
   margin-top: 2em;
 }
 
-/* line 111, ../sass/style.sass */
+/* line 112, ../sass/style.sass */
 #footer {
   margin-top: 4em;
   width: 80%;
@@ -1945,58 +1946,58 @@ img {
 }
 
 @media screen and (max-width: 800px) {
-  /* line 122, ../sass/style.sass */
+  /* line 123, ../sass/style.sass */
   #content {
     margin-top: 1em;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 127, ../sass/style.sass */
+  /* line 128, ../sass/style.sass */
   #logo {
     clear: both;
     width: 80px;
     margin: 0 auto 0 auto;
   }
 
-  /* line 131, ../sass/style.sass */
+  /* line 132, ../sass/style.sass */
   #desktop_nav {
     display: none;
   }
 
-  /* line 133, ../sass/style.sass */
+  /* line 134, ../sass/style.sass */
   #mobile_jump {
     display: block;
     margin-top: 1em;
   }
 
-  /* line 136, ../sass/style.sass */
+  /* line 137, ../sass/style.sass */
   #mobile_nav {
     display: block;
   }
 
-  /* line 138, ../sass/style.sass */
+  /* line 139, ../sass/style.sass */
   #content {
     width: 80%;
   }
 
-  /* line 140, ../sass/style.sass */
+  /* line 141, ../sass/style.sass */
   #footer {
     width: 80%;
     margin-top: 0;
     border: none;
   }
 
-  /* line 144, ../sass/style.sass */
+  /* line 145, ../sass/style.sass */
   #content {
     margin-top: 0;
   }
 
-  /* line 146, ../sass/style.sass */
+  /* line 147, ../sass/style.sass */
   #hed {
     margin-top: 1em;
   }
 
-  /* line 148, ../sass/style.sass */
+  /* line 149, ../sass/style.sass */
   #main,
   #sidebar {
     width: 100%;
@@ -2004,12 +2005,12 @@ img {
     margin: 2em 0 0 0;
   }
 
-  /* line 153, ../sass/style.sass */
+  /* line 154, ../sass/style.sass */
   #main {
     margin-top: 1em;
   }
 
-  /* line 155, ../sass/style.sass */
+  /* line 156, ../sass/style.sass */
   #sidebar_section {
     margin-top: 4em;
   }
