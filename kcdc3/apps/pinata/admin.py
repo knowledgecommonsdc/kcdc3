@@ -1,4 +1,4 @@
-from models import Page, Notice, Slide, Sponsor, PressClipping, Snippet
+from kcdc3.apps.pinata.models import Page, Notice, Slide, Sponsor, PressClipping, Snippet
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
