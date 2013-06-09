@@ -89,7 +89,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
 )
 
-GRAPPELLI_INDEX_DASHBOARD = 'kcdc3.dashboard.CustomIndexDashboard'
+GRAPPELLI_INDEX_DASHBOARD = 'kcdc3.settings.dashboard.CustomIndexDashboard'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',

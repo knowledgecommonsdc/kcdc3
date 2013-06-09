@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from models import Event, Registration
 from views import EventListView, EventDetailView, ResponseTemplateView, EventArchiveView, SessionView, RegistrationListView
 
-urlpatterns = patterns('classes.views',
+urlpatterns = patterns('kcdc3.apps.classes.views',
 
 	url(r'^$', EventListView.as_view()),
 	url(r'^dashboard/registrations/(?P<slug>[A-Za-z0-9_-]+)$', RegistrationListView.as_view()),
