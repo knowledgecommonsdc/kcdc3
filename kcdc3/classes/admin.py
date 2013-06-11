@@ -158,8 +158,10 @@ class SessionAdmin(admin.ModelAdmin):
 		('Text', {
 			'classes': ('grp-collapse grp-open',),
 			'fields': [
+			'kicker',
 			'description',
 			'sidebar_text',
+			'show_sidebar_text',
 			]}),
 		('Extended Text', {
 			'classes': ('grp-collapse grp-open',),

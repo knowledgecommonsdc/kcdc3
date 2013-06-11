@@ -6,7 +6,11 @@
 
 	<div id="hed">
 		<h1 class="section_hed">Classes + Events</h1>
-		<p>As always, KCDC classes are free – and they fill up fast!</p>
+		{% for session in selected_session %}
+			{% if forloop.last %}
+				<p>{{ session.kicker|safe }}</p>
+			{% endif %}
+		{% endfor %}
 	</div>
 
 	<div id="main">
@@ -145,7 +149,9 @@
 		<div class="sidebar_text sidebar_contrast">
 
 			{% for session in selected_session %}
-				{{ session.sidebar_text|safe }}
+				{% if session.show_sidebar_text %}
+					{{ session.sidebar_text|safe }}
+				{% endif %}
 			{% endfor %}
 
 		</div>
