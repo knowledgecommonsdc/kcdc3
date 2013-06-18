@@ -45,7 +45,7 @@ def page_view(request):
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 	
 	# set up templates
-	template_path = 'templates/' + e.template
+	template_path = 'pinata/' + e.template
 		
 	if e.status == 'PUBLISHED' or e.status == 'HIDDEN':
 		return render_to_response(template_path, context)
@@ -89,7 +89,7 @@ def staff(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('templates/staff.html',context)
+	return render_to_response('pinata/staff.html',context)
 
 
 
@@ -137,7 +137,7 @@ def proposal(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('templates/proposal.html',context)
+	return render_to_response('pinata/proposal.html',context)
 
 
 
@@ -162,7 +162,7 @@ def contribute(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('templates/contribute.html',context)
+	return render_to_response('pinata/contribute.html',context)
 
 
 
@@ -193,7 +193,7 @@ def sponsors(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('templates/sponsors.html',context)
+	return render_to_response('pinata/sponsors.html',context)
 
 
 
@@ -222,7 +222,7 @@ def pressclippings(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('templates/pressclippings.html',context)
+	return render_to_response('pinata/pressclippings.html',context)
 
 
 
