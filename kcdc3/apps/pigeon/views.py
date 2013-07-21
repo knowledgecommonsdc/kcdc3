@@ -67,7 +67,7 @@ class BlogFeed(Feed):
 	description = "Knowledge Commons DC Blog"
 
 	def items(self):
-		return Post.objects.order_by('-date')[:10]
+		return Post.objects.filter(status='PUBLISHED').exclude(date__gte=datetime.now()).order_by('-date')[:10]
 
 	def item_title(self, item):
 		return item.title
