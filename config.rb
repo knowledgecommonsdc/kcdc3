@@ -5,6 +5,6 @@ http_path = "/"
 sass_dir = "kcdc3/public/static/sass"
 images_dir = "kcdc3/public/static/images"
 javascripts_dir = "kcdc3/public/static/assets/js"
-output_style = :expanded
+output_style = :compressed
 css_dir = "kcdc3/public/static/css"
 

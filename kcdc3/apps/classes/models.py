@@ -20,8 +20,10 @@ class Session(models.Model):
 	)
 	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='CURRENT')
 
+	kicker = models.CharField('Kicker (for Classes page hed)', max_length=200, blank=True)
 	description = models.TextField('Intro/Description', blank=True)
 	sidebar_text = models.TextField('Sidebar', blank=True)
+	show_sidebar_text = models.BooleanField(default=True)
 	documentation = models.TextField('Documentation/Extended Text', blank=True)
 
 	REGISTRATION_STATUS_CHOICES = (

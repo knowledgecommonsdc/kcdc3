@@ -7,7 +7,7 @@
 		<p class="front_intro_text">
 			<b>Knowledge Commons DC</b> is a free school for thinkers, doers, and tinkerers &ndash; taught anywhere, by anyone, for everyone.
 		</p>
-		<p class="front_intro_call"><a href="/teach">teach</a> or <a href="http://c.knowledgecommonsdc.org/classes">take a class</a></p>
+		<p class="front_intro_call"><a href="/teach">teach</a> or <a href="/classes">take a class</a></p>
 	</div>
 	
 	<div id="slideshow-frame">
@@ -83,13 +83,13 @@
 
 		<h3><a href="/blog">Blog</a></h3>
 
-		{% for post in posts reversed %}
+		{% for post in posts %}
 			<p>
 			<a href="/blog/{{ post.slug }}">
 				{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
 				<strong>{{ post.title }}</strong>, 
 				{{ post.date|date:"j N" }}
-				{% if post.author|length > 0 %}
+				{% if post.author.count > 0 %}
 					<i class="byline">
 					By 
 					{% for bio in post.author.all %}							
