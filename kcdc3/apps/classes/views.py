@@ -236,6 +236,7 @@ def facilitator(request, slug):
 # display a list of registrations for a given session
 class RegistrationListView(ListView):
 
+	template_name = "classes/staff_registration_list.html"
 	context_object_name = "registration_list"
 	model = Registration
 	
@@ -261,7 +262,7 @@ class RegistrationListView(ListView):
 # display a list of registrations for a given session
 class SessionAdminListView(ListView):
 
-	template_name = "classes/session_admin_list.html"
+	template_name = "classes/staff_session_list.html"
 	context_object_name = "session_list"
 	model = Session
 	
@@ -288,7 +289,7 @@ class SessionAdminListView(ListView):
 # display a list of teacher (bios) in the system
 class TeacherAdminListView(ListView):
 
-	template_name = "classes/teacher_admin_list.html"
+	template_name = "classes/staff_teacher_list.html"
 	context_object_name = "teacher_list"
 	model = Bio
 	

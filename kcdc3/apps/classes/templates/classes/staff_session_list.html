@@ -1,6 +1,10 @@
+{% extends "classes/staff.html" %}
+
 
 {% block content %}
-	
+		
+	<hr />
+
 	<h2>Sessions</h2>	
 	<table>
 		<tr>
@@ -8,9 +12,6 @@
 			</td>
 			<td>
 				Session
-			</td>
-			<td>
-				Slug
 			</td>
 			<td>
 				Status
@@ -24,6 +25,9 @@
 			<td>
 				Attended
 			</td>
+			<td colspan="2">
+				Reports
+			</td>
 		</tr>
 	{% for session in session_list %}
 		<tr>
@@ -32,9 +36,6 @@
 			</td>
 			<td>
 				<a href="/classes/{{ session.slug }}">{{ session.long_title }}</a>
-			</td>
-			<td>
-				{{ session.slug }} 
 			</td>
 			<td>
 				{{ session.status }} 
@@ -57,6 +58,10 @@
 		</tr>
 	{% endfor %}
 	</table>
+
+	<hr />
+	
+	<p><a href="/classes/staff/teachers">All Teachers</a></p>
 
 	
 {% endblock %}
