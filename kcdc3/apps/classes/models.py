@@ -87,6 +87,11 @@ class Bio(models.Model):
 	staff_description = models.TextField('Staff bio text', blank=True)
 	role = models.ForeignKey(Role, blank=True, null=True, on_delete=models.SET_NULL, related_name='role')
 
+	# Fields for internal use
+	rating = models.IntegerField('Rating', null=True, blank=True)
+	comments = models.TextField('Comments', null=True, blank=True)
+	bio_email = models.EmailField(null=True, blank=True)
+
 	# Provide a filled-out description if one is available
 	def get_staff_description(self):
 		
@@ -95,6 +100,21 @@ class Bio(models.Model):
 		else: 	
 			return self.description
 
+	# Provide email from user; otherwise use bio email
+	def get_email(self):
+		
+		if self.user:
+			return self.user.email
+		elif self.bio_email:
+			return self.bio_email
+		else:
+			return ""
+			
+	# Which classes is this person teaching?
+	def get_classes(self):
+		
+		return Event.objects.filter(teacher_bios=self)
+			
 	class Meta:
 		verbose_name=u'Staff/Teacher Bio'
 

@@ -255,3 +255,50 @@ class RegistrationListView(ListView):
 	def dispatch(self, *args, **kwargs):
 		return super(RegistrationListView, self).dispatch(*args, **kwargs)
 	
+
+
+
+
+# display a list of teacher (bios) in the system
+class TeacherAdminListView(ListView):
+
+	template_name = "classes/teacher_admin_list.html"
+	context_object_name = "teacher_list"
+	model = Bio
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(TeacherAdminListView, self).get_context_data(**kwargs)
+		context['teacher_list'] = Bio.objects.all().order_by('name')
+
+		# is the user staff?
+		if self.request.user.is_staff:
+			return context
+		else:
+			# TODO this should really return a 403
+			return HttpResponse()
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(TeacherAdminListView, self).dispatch(*args, **kwargs)
+	
+
+
+
+class FilteredTeacherAdminListView(TeacherAdminListView):
+
+	def get_context_data(self, **kwargs):
+		
+		context = super(TeacherAdminListView, self).get_context_data(**kwargs)
+		context['teacher_list'] = Bio.objects.filter(event__session__slug__iexact=self.kwargs['slug']).order_by('name')
+
+		# is the user staff?
+		if self.request.user.is_staff:
+			return context
+		else:
+			# TODO this should really return a 403
+			return HttpResponse()
+
+		# if self.kwargs['slug'] is not None:
+		# 	context['teacher_list'] = Bio.objects.filter(name__contains="teacher")
+
