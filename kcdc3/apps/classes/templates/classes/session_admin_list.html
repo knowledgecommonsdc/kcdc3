@@ -1,0 +1,63 @@
+
+{% block content %}
+	
+	<h2>Sessions</h2>	
+	<table>
+		<tr>
+			<td>
+			</td>
+			<td>
+				Session
+			</td>
+			<td>
+				Slug
+			</td>
+			<td>
+				Status
+			</td>
+			<td>
+				Regular classes
+			</td>
+			<td>
+				Registrations
+			</td>
+			<td>
+				Attended
+			</td>
+		</tr>
+	{% for session in session_list %}
+		<tr>
+			<td>
+				<a href="/admin/classes/session/{{ session.id }}">Edit</a>
+			</td>
+			<td>
+				<a href="/classes/{{ session.slug }}">{{ session.long_title }}</a>
+			</td>
+			<td>
+				{{ session.slug }} 
+			</td>
+			<td>
+				{{ session.status }} 
+			</td>
+			<td>
+				{{ session.get_live_classes.count }}
+			</td>
+			<td>
+				{{ session.get_registrations.count }}
+			</td>
+			<td>
+				{{ session.get_attended_registrations.count }}
+			</td>
+			<td>
+				<a href="/classes/staff/teachers/session/{{ session.slug }}">Teachers</a>
+			</td>
+			<td>
+				<a href="/classes/staff/registrations/session/{{ session.slug }}">Registrations</a>
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+	
+{% endblock %}
+
