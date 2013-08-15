@@ -1,0 +1,58 @@
+
+{% block content %}
+	
+	<h2>Teachers</h2>	
+	<table>
+		<tr>
+			<td>
+			</td>
+			<td>
+				name
+			</td>
+			<td>
+				email
+			</td>
+			<td>
+				rating
+			</td>
+			<td>
+				comments
+			</td>
+			<td>
+			</td>
+			<td>
+				classes
+			</td>
+		</tr>
+	{% for bio in teacher_list %}
+		<tr>
+			<td>
+				<a href="/admin/classes/bio/{{ bio.id }}">Edit</a>
+			</td>
+			<td>
+				{{ bio.name }} 
+			</td>
+			<td>
+				<a href="mailto:{{ bio.get_email }}">{{ bio.get_email }}</a>
+			</td>
+			<td>
+				{% if bio.rating %}{{ bio.rating }}{% endif %}
+			</td>
+			<td>
+				{% if bio.comments %}{{ bio.comments }}{% endif %}
+			</td>
+			<td>
+				{{ bio.get_classes.count }}
+			</td>
+			<td>
+				{% for event in bio.get_classes.all %}
+					<a href="/classes/{{ event.slug }}">{{ event.title }}</a>
+				{% endfor %}
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+	
+{% endblock %}
+
