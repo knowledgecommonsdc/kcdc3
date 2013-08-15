@@ -254,6 +254,32 @@ class RegistrationListView(ListView):
 	@method_decorator(login_required)
 	def dispatch(self, *args, **kwargs):
 		return super(RegistrationListView, self).dispatch(*args, **kwargs)
+
+
+
+
+# display a list of registrations for a given session
+class SessionAdminListView(ListView):
+
+	template_name = "classes/session_admin_list.html"
+	context_object_name = "session_list"
+	model = Session
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(SessionAdminListView, self).get_context_data(**kwargs)
+		context['session_list'] = Session.objects.all()
+
+		# is the user staff?
+		if self.request.user.is_staff:
+			return context
+		else:
+			# TODO this should really return a 403
+			return HttpResponse()
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(SessionAdminListView, self).dispatch(*args, **kwargs)
 	
 
 

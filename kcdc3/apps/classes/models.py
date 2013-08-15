@@ -39,6 +39,18 @@ class Session(models.Model):
 	def __unicode__(self):
 		return self.title
 
+	# Report regular, published classes
+	def get_live_classes(self):
+		return Event.objects.filter(session=self,status="PUBLISHED",type="CLASS")
+
+	# Report regular, published classes
+	def get_registrations(self):
+		return Registration.objects.filter(event__session=self,cancelled=False,waitlist=False)
+
+	# Report regular, published classes
+	def get_attended_registrations(self):
+		return Registration.objects.filter(event__session=self,cancelled=False,attended=True)
+
 
 
 class Location(models.Model):
