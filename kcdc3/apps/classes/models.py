@@ -53,6 +53,7 @@ class Session(models.Model):
 
 
 
+
 class Location(models.Model):
 	name = models.CharField('Description', max_length=100, blank=True)
 	neighborhood = models.CharField('Neighborhood', max_length=100, blank=True)

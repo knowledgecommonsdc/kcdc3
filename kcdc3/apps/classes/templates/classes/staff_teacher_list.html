@@ -1,9 +1,12 @@
 
+
 {% block content %}
 	
 	<h2>Teachers</h2>	
 	<table>
 		<tr>
+			<td>
+			</td>
 			<td>
 			</td>
 			<td>
@@ -19,7 +22,7 @@
 				comments
 			</td>
 			<td>
-				# taught
+				total
 			</td>
 			<td>
 				classes
@@ -29,6 +32,9 @@
 		<tr>
 			<td>
 				<a href="/admin/classes/bio/{{ bio.id }}">Edit</a>
+			</td>
+			<td>
+				{{ forloop.counter }}
 			</td>
 			<td>
 				{{ bio.name }} 
@@ -53,6 +59,13 @@
 		</tr>
 	{% endfor %}
 	</table>
+
+	<hr />
+
+	{% for bio in teacher_list %}
+		{{ bio.get_email }}, 
+	{% endfor %}
+
 
 	
 {% endblock %}
