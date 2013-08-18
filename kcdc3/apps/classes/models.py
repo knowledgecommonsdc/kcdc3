@@ -194,6 +194,9 @@ class Event(models.Model):
 	facilitators = models.ManyToManyField(User, blank=True, null=True, related_name='facilitators')
 	students = models.ManyToManyField(User, through='Registration', blank=True, null=True, related_name='students')
 
+	# optional, course-by-course bio text
+	bio_text = models.TextField('Alternative teacher bio text for this class',blank=True)	
+
 	# legacy fields
 	teacher_text = models.CharField('Teacher (text)', max_length=200, blank=True)
 	location_text = models.CharField('Location (text)', max_length=300, blank=True)

@@ -107,18 +107,19 @@ class EventAdmin(admin.ModelAdmin):
 			]
 		}),
 		('Registration',	{'fields': [('registration_status', 'registration_opens',), ('max_students', 'waitlist_status', 'registration_count','waitlist_count'),]}),
-		('Automatic email messages', {
-			'classes': ('grp-collapse grp-open',), 
-			'fields': ['email_welcome_text',]
-		}),
-		('More pre-class details and additional dates', {
+		('More details', {
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': [
 				'details',
 				'additional_dates_text',
+				'bio_text',
 			]
 		}),
-		('Post-class documentation', {
+		('Automatic email messages', {
+			'classes': ('grp-collapse grp-open',), 
+			'fields': ['email_welcome_text',]
+		}),
+		('Documentation', {
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': ['documentation']
 		}),
