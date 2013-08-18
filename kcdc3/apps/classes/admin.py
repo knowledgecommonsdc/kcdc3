@@ -143,7 +143,7 @@ class EventAdmin(admin.ModelAdmin):
 
 	list_display = ('title', 'status','date','session', 'featured', 'registration_status', 'registration_opens', 'waitlist_status','max_students', 'registration_count', 'waitlist_count',)
 	list_editable = ('registration_status', 'featured', 'registration_opens',)
-	list_filter = ('session', 'status', 'registration_status',)
+	list_filter = ('session', 'status', 'registration_status','type',)
 	search_fields = ('title',)
 
 admin.site.register(Event, EventAdmin)
