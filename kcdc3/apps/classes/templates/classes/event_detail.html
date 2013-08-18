@@ -173,10 +173,14 @@
 	<div id="sidebar" class="sidebar_inside">
 
 		<div class="sidebar_text">
-			{% for bio in event.teacher_bios.all %}
-				{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
-				{{ bio.description|safe }}
-			{% endfor %}
+			{% if event.bio_text %}
+				{{ event.bio_text|safe }}
+			{% else %}
+				{% for bio in event.teacher_bios.all %}
+					{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
+					{{ bio.description|safe }}
+				{% endfor %}
+			{% endif %}
 		</div>
 
 	</div>
