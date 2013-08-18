@@ -168,7 +168,7 @@ class Event(models.Model):
 	summary = models.TextField(blank=True)
 	description = models.TextField(blank=True)
 	details = models.TextField('Pre-class details', blank=True)
-	thumbnail = models.ImageField('Thumbnail (60x60px)', upload_to='event_images', blank=True, null=True)
+	thumbnail = models.ImageField('Thumbnail (max 432px wide)', upload_to='event_images', blank=True, null=True)
 	main_image = models.ImageField('Main image (max 660px wide)', upload_to='event_images', blank=True, null=True)
 
 	email_welcome_text = models.TextField('Extra text for welcome email', blank=True)
