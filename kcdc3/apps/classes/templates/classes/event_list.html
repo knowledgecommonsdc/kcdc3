@@ -47,13 +47,18 @@
 						</dt>
 					{% endifchanged %}
 
-					<dd>
+					<dd class="{% if event.type == "EXTERNAL" %}partner_event{% endif %}">
 						<a href="/classes/{{ event.slug }}">
 							<h3>
-								<!--<b class="event">Event:</b>-->
+								{% if event.type == "EXTERNAL" %}<i>Partner Event:</i>{% endif %}
 								{{ event.title }}
 							</h3>
 							<p class="meta">
+
+								{% if event.type == "EVENT" %}
+									<b class="event_type_indicator"><i class="ss-icon">&#x266B;</i> KCDC Event</b>
+								{% endif %}
+
 								<i class="ss-icon">time</i> {{ event.date|date:"P" }}
 							
 								{% if event.has_passed %}
@@ -113,17 +118,24 @@
 							{% endifchanged %}
 						</dt>
 					{% endifchanged %}
-					<dd>
+					<dd class="{% if event.type == "EXTERNAL" %}partner_event{% endif %}">
 						<a href="/classes/{{ event.slug }}">
 							<h3>
-								<!--<b class="event">Event:</b>-->
+								{% if event.type == "EXTERNAL" %}<i>Partner Event:</i>{% endif %}
 								{{ event.title }}
 							</h3>
 							<p class="meta">
+
+								{% if event.type == "EVENT" %}
+									<b class="event_type_indicator"><i class="ss-icon">&#x266B;</i> KCDC Event</b>
+								{% endif %}
+
 								<i class="ss-icon">time</i> {{ event.date|date:"P" }}
+
 								{% if event.documentation %}
 									<span class="registration_indicator documentation"><i class="ss-icon indicator_documentation">&#x1F4F7;</i> Documentation</span>			
 								{% endif %}
+
 							</p>
 							{% if event.thumbnail %}<img src="/media/{{ event.thumbnail }}" alt="" class="event_thumbnail" />{% endif %}
 							{{ event.summary|safe }}
