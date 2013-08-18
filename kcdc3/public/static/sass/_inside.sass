@@ -168,27 +168,27 @@ p.indicators > .registration_indicator
 			border: none
 			margin-top: 0
 
-// special events indicators
+// special events
 
-#hed .event_type_hed
-	color: $colorB
-	font-size: 1.25em
-	margin: 1em 0 0 0
+.calendar > .partner_event
+	background: lighten($colorE,2%)
+	padding: 1em 1em 1em 1em
+	@media screen and (max-width: 600px)
+		margin-top: 1em
+	p
+		color: $color_text_lighter
 
-#hed .event_type_hed + h1
-	margin-top: 0
-			
-.calendar .event_type_hed
-	margin: 0.25em 0 0 0
-	color: $colorB
-	font-size: 1em
-	font-weight: 600
-	
-.event_type_partner
-	border-left: 6px solid $colorE !important
-	padding-left: 0.75em !important
+.event_type_indicator
+	font-weight: normal
+	margin-right: 1em
 
-
+.partner_event_note
+	color: $color_text_lighter
+	border: 1px solid $colorA
+	border-left: 6px solid $colorA
+	padding: 0.75em 1em 0.75em 1em
+	& > strong
+		color: $colorA
 			
 // page head areas -------------------------
 	
