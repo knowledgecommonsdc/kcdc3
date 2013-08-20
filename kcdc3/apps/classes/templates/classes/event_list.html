@@ -60,7 +60,7 @@
 								{% endif %}
 
 								<i class="ss-icon">time</i> {{ event.date|date:"P" }}
-							
+
 								{% if event.has_passed %}
 									<!-- past event -->
 								{% elif event.registration_status == "HIDE" %}
