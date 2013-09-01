@@ -167,7 +167,7 @@ def contribute(request):
 
 
 
-def sponsors(request):
+def partners(request):
 	""" List of sponsors. """
 
 	""" TODO: This really ought to be a class-based view """
@@ -175,7 +175,7 @@ def sponsors(request):
 	context = Context()
 	context['user'] = request.user
 
-	e = Page.objects.get(path='/about/sponsors')
+	e = Page.objects.get(path='/about/partners')
 	print(e.main_text)
 	context['main_text'] = e.main_text
 	context['short_title'] = e.short_title
@@ -193,7 +193,7 @@ def sponsors(request):
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
-	return render_to_response('pinata/sponsors.html',context)
+	return render_to_response('pinata/partners.html',context)
 
 
 

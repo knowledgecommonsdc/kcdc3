@@ -94,7 +94,7 @@ class Slide(models.Model):
 
 
 class Sponsor(models.Model):
-	""" Sponsor and partner organizations """
+	""" Partners and sponsors """
 
 	title = models.CharField(max_length=200)
 	main_text = models.TextField(blank=True)
@@ -117,6 +117,7 @@ class Sponsor(models.Model):
 	sort_order = models.IntegerField(blank=True, null=True, default=50)
 
 	class Meta:
+		verbose_name = 'Partner'
 		ordering = ['group','sort_order','title']
 
 	def __unicode__(self):
