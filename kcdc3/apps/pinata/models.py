@@ -27,6 +27,7 @@ class Page(models.Model):
 		('page.html', 'Basic'),
 		('page_wide.html', 'Wide'),
 		('page_nosidebar.html', 'No Sidebar'),
+		('page_multipart.html', 'Multipart'),
 	)
 	template = models.CharField(max_length=48, choices=TEMPLATE_CHOICES, default='basic.html')
 
