@@ -142,30 +142,6 @@ def proposal(request):
 
 
 
-def contribute(request):
-	""" Contribute page """
-
-	context = Context()
-	context['user'] = request.user
-
-	e = Page.objects.get(path='/contribute')
-	print(e.main_text)
-	context['main_text'] = e.main_text
-	context['short_title'] = e.short_title
-	context['title'] = e.title
-	context['id'] = e.id
-
-	# get all other pages with the same parent
-	if e.parent:
-		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
-		
-	# get all children
-	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
-
-	return render_to_response('pinata/contribute.html',context)
-
-
-
 
 def partners(request):
 	""" List of sponsors. """
