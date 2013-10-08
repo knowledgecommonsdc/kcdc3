@@ -1,5 +1,6 @@
 {% extends "pinata/base.html" %}
 
+{% load pinata_filters %}
 
 {% block pre_content %}
 
@@ -18,7 +19,7 @@
 						{% if slide.image %}
 						<li><img src="/media/{{ slide.image }}" alt="{{ slide.title }}" /></li>
 						{% else %}
-						<li>{{ slide.main_text|safe }}</li>
+						<li>{{ slide.main_text | smartquotes | safe }}</li>
 						{% endif %}
 					{% endfor %}
 				</ul>
@@ -34,7 +35,7 @@
 									
 	<div id="front_motd">
 		{% for notice in notices %}
-			{{ notice.main_text|safe }}
+			{{ notice.main_text | smartquotes | safe }}
 		{% endfor %}
 	</div>
 
@@ -44,7 +45,7 @@
 				<a href="/classes/{{ event.slug }}">
 					<h3>
 						<!--<b class="event">Event:</b>-->
-						{{ event.title }}
+						{{ event.title | smartquotes | safe }}
 					</h3>
 					<p class="meta">
 						{{ event.date|date:"j N, P" }}
@@ -87,7 +88,7 @@
 			<p>
 			<a href="/blog/{{ post.slug }}">
 				{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
-				<strong>{{ post.title }}</strong>, 
+				<strong>{{ post.title | smartquotes | safe }}</strong>, 
 				{{ post.date|date:"j N" }}
 				{% if post.author.count > 0 %}
 					<i class="byline">
