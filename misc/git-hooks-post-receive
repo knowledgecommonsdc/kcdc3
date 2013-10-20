@@ -1,0 +1,110 @@
+#!/bin/bash
+ 
+# CONSTS:
+# Which server prefix should be used for this post-recieve hook
+SERVER="production"
+ 
+# Which port the local gunicorn instance should use (need to use a different
+# port per server).
+PORT=8001
+ 
+ 
+# Checkout a new version of the code
+#
+# We checkout a fresh version of the code in /home/git/tmp every time we
+# get a commit pushed to this server. Once we checkout the new version
+# we copy it over to the virtual environment (specified by our server).
+function checkout() {
+	local checkout_status=
+	local copy_status=
+ 
+	GIT_WORK_TREE=/srv/git/tmp git checkout -f
+	checkout_status=$?
+ 
+	if [ $checkout_status -eq 0 ]; then
+		echo "successfully checked out the repository"
+	else
+		echo "failed to checkout fresh repository, aborting..."
+		return 1
+	fi
+ 
+#	cp -r /srv/git/tmp/* /srv/www/${SERVER}/kcdc/kcdc3
+	copy_status=$?
+ 
+	if [ $copy_status -eq 0 ]; then
+		echo "successfully copied the repository to the virtual env"
+	else
+		echo "failed to copy to the repository virtual env, aborting..."
+		return 1
+	fi
+}
+ 
+# Starts Gunicorn
+#
+# We log into our virtual env and startup the middleware so we can start
+# handling requests!
+function gunicorn() {
+	# This pid file holds the parent pid of all of the gunicorn instances
+	local gunicorn_pid="/srv/www/${SERVER}/kcdc/srv/gunicorn.pid"
+ 
+	local kill_status=
+	local gunicorn_status=
+ 
+	pushd /srv/www/${SERVER}/kcdc
+	source bin/activate
+ 
+	if [ -e "$gunicorn_pid" ]; then
+		kill $( cat $gunicorn_pid )
+		rm $gunicorn_pid
+	fi
+	kill_status=$?
+ 
+	if [ $kill_status -eq 0 ]; then
+		echo "successfully killed the existing gunicorn process"
+	else
+		echo "failed to kill the exitsing gunicorn process, aborting..."
+		return 1
+	fi
+ 
+	python kcdc3/manage.py run_gunicorn \
+		--workers=4 \
+		--daemon \
+		--pid=/srv/www/${SERVER}/kcdc/var/gunicorn.pid \
+		--access-logfile=/srv/www/${SERVER}/kcdc/var/access.log \
+		--bind=127.0.0.1:${PORT}
+	gunicorn_status=$?
+ 
+	if [ $gunicorn_status -eq 0 ]; then
+		echo "successfully started gunicorn"
+	else
+		echo "gunicorn failed, aborting..."
+	fi
+ 
+	deactivate 
+	popd
+}
+ 
+# Where the magic happens
+function main() {
+	# Checkout stage
+	local checkout_status=
+ 
+	checkout
+	checkout_status=$?
+ 
+	if [ $checkout_status -ne 0 ]; then
+		return 1
+	fi
+ 
+	# Gunicorn stage
+	local gunicorn_status=
+	
+	gunicorn
+	gunicorn_status=$?
+	
+	if [ $gunicorn_status -ne 0 ]; then
+		return 1
+	fi
+}
+ 
+main
