@@ -9,6 +9,11 @@ kcdc3/kcdc3/settings.py
 kcdc3/kcdc3/settings.py
 
 
+# media/, static/, uploads/,  - stuff very
+# unlikely at this point in time to need
+# to be tracked by git
+kcdc3/public
+
 venv_kcdc
 
 codekit-config.json
