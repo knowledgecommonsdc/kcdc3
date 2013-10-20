@@ -39,6 +39,19 @@ class Session(models.Model):
 	def __unicode__(self):
 		return self.title
 
+	# Report regular, published classes
+	def get_live_classes(self):
+		return Event.objects.filter(session=self,status="PUBLISHED",type="CLASS")
+
+	# Report regular, published classes
+	def get_registrations(self):
+		return Registration.objects.filter(event__session=self,cancelled=False,waitlist=False)
+
+	# Report regular, published classes
+	def get_attended_registrations(self):
+		return Registration.objects.filter(event__session=self,cancelled=False,attended=True)
+
+
 
 
 class Location(models.Model):
@@ -87,6 +100,11 @@ class Bio(models.Model):
 	staff_description = models.TextField('Staff bio text', blank=True)
 	role = models.ForeignKey(Role, blank=True, null=True, on_delete=models.SET_NULL, related_name='role')
 
+	# Fields for internal use
+	rating = models.IntegerField('Rating', null=True, blank=True)
+	comments = models.TextField('Comments', null=True, blank=True)
+	bio_email = models.EmailField(null=True, blank=True)
+
 	# Provide a filled-out description if one is available
 	def get_staff_description(self):
 		
@@ -95,6 +113,21 @@ class Bio(models.Model):
 		else: 	
 			return self.description
 
+	# Provide email from user; otherwise use bio email
+	def get_email(self):
+		
+		if self.user:
+			return self.user.email
+		elif self.bio_email:
+			return self.bio_email
+		else:
+			return ""
+			
+	# Which classes is this person teaching?
+	def get_classes(self):
+		
+		return Event.objects.filter(teacher_bios=self)
+			
 	class Meta:
 		verbose_name=u'Staff/Teacher Bio'
 
@@ -135,7 +168,7 @@ class Event(models.Model):
 	summary = models.TextField(blank=True)
 	description = models.TextField(blank=True)
 	details = models.TextField('Pre-class details', blank=True)
-	thumbnail = models.ImageField('Thumbnail (60x60px)', upload_to='event_images', blank=True, null=True)
+	thumbnail = models.ImageField('Thumbnail (max 432px wide)', upload_to='event_images', blank=True, null=True)
 	main_image = models.ImageField('Main image (max 660px wide)', upload_to='event_images', blank=True, null=True)
 
 	email_welcome_text = models.TextField('Extra text for welcome email', blank=True)
@@ -160,6 +193,9 @@ class Event(models.Model):
 	teachers = models.ManyToManyField(User, blank=True, null=True, related_name='teachers')
 	facilitators = models.ManyToManyField(User, blank=True, null=True, related_name='facilitators')
 	students = models.ManyToManyField(User, through='Registration', blank=True, null=True, related_name='students')
+
+	# optional, course-by-course bio text
+	bio_text = models.TextField('Alternative teacher bio text for this class',blank=True)	
 
 	# legacy fields
 	teacher_text = models.CharField('Teacher (text)', max_length=200, blank=True)

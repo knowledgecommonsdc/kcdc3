@@ -7,12 +7,17 @@
 {% block content %}
 
 	<div id="hed">
+		{% if event.type == "EXTERNAL" %}<p class="department_label">Partner Event</p>{% endif %}
 		<h1>{{ event.title }}</h1>
 	</div>
 	
 	<div id="main">
 	
 		<p class="meta">
+			
+			{% if event.type == "EVENT" %}
+				<b class="event_type_indicator"><i class="ss-icon">&#x266B;</i> KCDC Event</b>
+			{% endif %}
 			
 			<i class="ss-icon">date</i> 
 			{{ event.date|date:"l, j F Y" }}
@@ -58,9 +63,16 @@
 			
 		</p>
 		
-		{% if event.main_image %}<p><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
+		{% if event.main_image %}<p><img src="/media/uploads/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
 	
 		{{ event.description|safe }}
+
+		{% if event.type == "EXTERNAL" %}
+			<p class="partner_event_note">
+				<strong>This is not a KCDC event.</strong> It is produced by another organization.
+				We include it because we think that it will be of interest to our students.
+			</p>
+		{% endif %}
 
 		{% if event.documentation %} 
 			<h3>Documentation</h3>
@@ -173,10 +185,14 @@
 	<div id="sidebar" class="sidebar_inside">
 
 		<div class="sidebar_text">
-			{% for bio in event.teacher_bios.all %}
-				{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
-				{{ bio.description|safe }}
-			{% endfor %}
+			{% if event.bio_text %}
+				{{ event.bio_text|safe }}
+			{% else %}
+				{% for bio in event.teacher_bios.all %}
+					{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
+					{{ bio.description|safe }}
+				{% endfor %}
+			{% endif %}
 		</div>
 
 	</div>

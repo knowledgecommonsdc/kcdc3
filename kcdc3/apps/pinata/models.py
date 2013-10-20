@@ -27,6 +27,7 @@ class Page(models.Model):
 		('page.html', 'Basic'),
 		('page_wide.html', 'Wide'),
 		('page_nosidebar.html', 'No Sidebar'),
+		('page_multipart.html', 'Multipart'),
 	)
 	template = models.CharField(max_length=48, choices=TEMPLATE_CHOICES, default='basic.html')
 
@@ -94,7 +95,7 @@ class Slide(models.Model):
 
 
 class Sponsor(models.Model):
-	""" Sponsor and partner organizations """
+	""" Partners and sponsors """
 
 	title = models.CharField(max_length=200)
 	main_text = models.TextField(blank=True)
@@ -117,6 +118,7 @@ class Sponsor(models.Model):
 	sort_order = models.IntegerField(blank=True, null=True, default=50)
 
 	class Meta:
+		verbose_name = 'Partner'
 		ordering = ['group','sort_order','title']
 
 	def __unicode__(self):

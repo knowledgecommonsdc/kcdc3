@@ -236,6 +236,7 @@ def facilitator(request, slug):
 # display a list of registrations for a given session
 class RegistrationListView(ListView):
 
+	template_name = "classes/staff_registration_list.html"
 	context_object_name = "registration_list"
 	model = Registration
 	
@@ -254,4 +255,77 @@ class RegistrationListView(ListView):
 	@method_decorator(login_required)
 	def dispatch(self, *args, **kwargs):
 		return super(RegistrationListView, self).dispatch(*args, **kwargs)
+
+
+
+
+# display a list of registrations for a given session
+class SessionAdminListView(ListView):
+
+	template_name = "classes/staff_session_list.html"
+	context_object_name = "session_list"
+	model = Session
 	
+	def get_context_data(self, **kwargs):
+		
+		context = super(SessionAdminListView, self).get_context_data(**kwargs)
+		context['session_list'] = Session.objects.all()
+
+		# is the user staff?
+		if self.request.user.is_staff:
+			return context
+		else:
+			# TODO this should really return a 403
+			return HttpResponse()
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(SessionAdminListView, self).dispatch(*args, **kwargs)
+	
+
+
+
+
+# display a list of teacher (bios) in the system
+class TeacherAdminListView(ListView):
+
+	template_name = "classes/staff_teacher_list.html"
+	context_object_name = "teacher_list"
+	model = Bio
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(TeacherAdminListView, self).get_context_data(**kwargs)
+		context['teacher_list'] = Bio.objects.all().order_by('name')
+
+		# is the user staff?
+		if self.request.user.is_staff:
+			return context
+		else:
+			# TODO this should really return a 403
+			return HttpResponse()
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(TeacherAdminListView, self).dispatch(*args, **kwargs)
+	
+
+
+
+class FilteredTeacherAdminListView(TeacherAdminListView):
+
+	def get_context_data(self, **kwargs):
+		
+		context = super(TeacherAdminListView, self).get_context_data(**kwargs)
+		context['teacher_list'] = Bio.objects.filter(event__session__slug__iexact=self.kwargs['slug']).order_by('name')
+
+		# is the user staff?
+		if self.request.user.is_staff:
+			return context
+		else:
+			# TODO this should really return a 403
+			return HttpResponse()
+
+		# if self.kwargs['slug'] is not None:
+		# 	context['teacher_list'] = Bio.objects.filter(name__contains="teacher")
+
