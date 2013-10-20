@@ -57,14 +57,16 @@ img
 	margin: 0 auto 0 auto	
 	padding: 0 0 0 0
 	clear: both
-	border-top: 7px solid $colorE2
+	// border-top: 7px solid $colorE2
 	@include clearfix
 
 #logo
 	margin: 1em 0 1em 0
 	width: 10%
 	float: left
-	a:hover
+	& > a
+		border: none
+	& > a:hover
 		background: none
 
 #desktop_nav
@@ -138,6 +140,8 @@ img
 		display: block
 	#content
 		width: 80%
+	#header
+		margin-top: 10px
 	#footer
 		width: 80%
 		margin-top: 0

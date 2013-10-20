@@ -50,3 +50,7 @@ kcdc3/apps/pinata/.views.py.swp
 kcdc3/settings/prod.py
 kcdc3/tmp/
 
+
+kcdc3/public/static/fonts/ss-social/ss-social.min.js
+
+kcdc3/public/static/fonts/ss-standard/ss-standard.min.js

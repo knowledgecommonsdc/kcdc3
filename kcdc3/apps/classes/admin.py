@@ -61,13 +61,19 @@ class BioAdmin(admin.ModelAdmin):
 		('Teacher bio', {
 			'classes': ('grp-collapse grp-open',), 
 			'fields': [
-				'description', 'website',
+				'description', 'website','bio_email',
 			]
 		}),
 		('Staff bio', {
 			'classes': ('grp-collapse grp-open',), 
 			'fields': [
 				'role', 'title', 'staff_description', 
+			],
+		}),
+		('Admin', {
+			'classes': ('grp-collapse grp-open',), 
+			'fields': [
+				'rating', 'comments', 
 			],
 		}),
 	]
@@ -101,18 +107,19 @@ class EventAdmin(admin.ModelAdmin):
 			]
 		}),
 		('Registration',	{'fields': [('registration_status', 'registration_opens',), ('max_students', 'waitlist_status', 'registration_count','waitlist_count'),]}),
-		('Automatic email messages', {
-			'classes': ('grp-collapse grp-open',), 
-			'fields': ['email_welcome_text',]
-		}),
-		('More pre-class details and additional dates', {
+		('More details', {
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': [
 				'details',
 				'additional_dates_text',
+				'bio_text',
 			]
 		}),
-		('Post-class documentation', {
+		('Automatic email messages', {
+			'classes': ('grp-collapse grp-open',), 
+			'fields': ['email_welcome_text',]
+		}),
+		('Documentation', {
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': ['documentation']
 		}),
@@ -136,7 +143,7 @@ class EventAdmin(admin.ModelAdmin):
 
 	list_display = ('title', 'status','date','session', 'featured', 'registration_status', 'registration_opens', 'waitlist_status','max_students', 'registration_count', 'waitlist_count',)
 	list_editable = ('registration_status', 'featured', 'registration_opens',)
-	list_filter = ('session', 'status', 'registration_status',)
+	list_filter = ('session', 'status', 'registration_status','type',)
 	search_fields = ('title',)
 
 admin.site.register(Event, EventAdmin)

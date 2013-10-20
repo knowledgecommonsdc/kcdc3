@@ -8,6 +8,21 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
+        # Adding field 'Bio.rating'
+        db.add_column('classes_bio', 'rating',
+                      self.gf('django.db.models.fields.IntegerField')(null=True, blank=True),
+                      keep_default=False)
+
+        # Adding field 'Bio.comments'
+        db.add_column('classes_bio', 'comments',
+                      self.gf('django.db.models.fields.TextField')(null=True, blank=True),
+                      keep_default=False)
+
+        # Adding field 'Bio.bio_email'
+        db.add_column('classes_bio', 'bio_email',
+                      self.gf('django.db.models.fields.EmailField')(max_length=75, null=True, blank=True),
+                      keep_default=False)
+
         # Adding field 'Session.kicker'
         db.add_column('classes_session', 'kicker',
                       self.gf('django.db.models.fields.CharField')(default='', max_length=200, blank=True),
@@ -20,6 +35,15 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
+        # Deleting field 'Bio.rating'
+        db.delete_column('classes_bio', 'rating')
+
+        # Deleting field 'Bio.comments'
+        db.delete_column('classes_bio', 'comments')
+
+        # Deleting field 'Bio.bio_email'
+        db.delete_column('classes_bio', 'bio_email')
+
         # Deleting field 'Session.kicker'
         db.delete_column('classes_session', 'kicker')
 
@@ -59,10 +83,13 @@ class Migration(SchemaMigration):
         },
         'classes.bio': {
             'Meta': {'object_name': 'Bio'},
+            'bio_email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'null': 'True', 'blank': 'True'}),
+            'comments': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '100'}),
+            'rating': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
             'role': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'role'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['classes.Role']"}),
             'staff_description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100', 'blank': 'True'}),
