@@ -1,61 +1,11 @@
-www/static
-www/uploads
-*.tmproj
 *.pyc
 kcdc3/django.db
 kcdc3/settings.py
 kcdc3/kcdc3/settings.py
-
-kcdc3/kcdc3/settings.py
-
-
-# media/, static/, uploads/,  - stuff very
-# unlikely at this point in time to need
-# to be tracked by git
-kcdc3/public
-
-venv_kcdc
-
-codekit-config.json
-.sass-cache
-kcdc3/public/media/uploads/event_images/IMG_5082a.jpg
-kcdc3/public/static/fonts/ss-social/ss-social-circle.eot
-kcdc3/public/static/fonts/ss-social/ss-social-circle.svg
-kcdc3/public/static/fonts/ss-social/ss-social-circle.ttf
-kcdc3/public/static/fonts/ss-social/ss-social-circle.woff
-kcdc3/public/static/fonts/ss-social/ss-social-regular.eot
-kcdc3/public/static/fonts/ss-social/ss-social-regular.svg
-kcdc3/public/static/fonts/ss-social/ss-social-regular.ttf
-kcdc3/public/static/fonts/ss-social/ss-social-regular.woff
-kcdc3/public/static/fonts/ss-social/ss-social.css
-kcdc3/public/static/fonts/ss-social/ss-social.js
-kcdc3/public/static/fonts/ss-standard/ss-standard.css
-kcdc3/public/static/fonts/ss-standard/ss-standard.eot
-kcdc3/public/static/fonts/ss-standard/ss-standard.js
-kcdc3/public/static/fonts/ss-standard/ss-standard.svg
-kcdc3/public/static/fonts/ss-standard/ss-standard.ttf
-kcdc3/public/static/fonts/ss-standard/ss-standard.woff
-
-kcdc3/public/media/bio
-kcdc3/public/media/blog
-kcdc3/public/media/event_images
-kcdc3/public/media/front_slides
-kcdc3/public/media/mugshots
-kcdc3/public/media/press
-kcdc3/public/media/uploads
-
-kcdc3/public/media/csv/export_2013-02-24.csv
-
-kcdc3/public/static/tmp/index.html
-
-kcdc3/kcdc3/settings/prod.py
-kcdc3/kcdc3/settings/prod.py
-
-kcdc3/apps/pinata/.views.py.swp
-kcdc3/settings/prod.py
-kcdc3/tmp/
-
-
-kcdc3/public/static/fonts/ss-social/ss-social.min.js
-
-kcdc3/public/static/fonts/ss-standard/ss-standard.min.js
+# as per dave:
+# Matt Lesko wrote:
+# 1) Clean up what's kept in git vs. what isn't. Right now I think static
+# content /isn't/, but it probably should be.
+# My suggestion: put static/ under Git, and media/ not. After the move, I'll fix file locations so that media/ is just user data.
+# ergo, track kcdc3/public/static
+kcdc3/public/media
