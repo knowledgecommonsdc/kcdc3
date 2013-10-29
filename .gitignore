@@ -2,6 +2,7 @@
 kcdc3/django.db
 kcdc3/settings.py
 kcdc3/kcdc3/settings.py
+kcdc3/settings/prod.py
 # as per dave:
 # Matt Lesko wrote:
 # 1) Clean up what's kept in git vs. what isn't. Right now I think static
