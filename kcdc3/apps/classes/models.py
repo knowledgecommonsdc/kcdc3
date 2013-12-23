@@ -68,6 +68,20 @@ class Location(models.Model):
 		return self.name
 
 
+# Organizations with whom KCDC is working
+class Partner(models.Model):
+	name = models.CharField('Name', max_length=100, blank=False, unique=True)
+	description = models.TextField('Description', blank=True)
+	website = models.URLField(blank=True)
+	image = models.ImageField('Image (150x150px max)', upload_to='partners', blank=True, null=True)
+
+	class Meta:
+		verbose_name=u'Partner Organization'
+
+	def __unicode__(self):
+		return self.name
+
+
 
 class Role(models.Model):
 	
@@ -156,6 +170,7 @@ class Event(models.Model):
 	additional_dates_text = models.TextField('Notes about additional meetings', blank=True)
 
 	location = models.ForeignKey(Location, blank=True, null=True, on_delete=models.SET_NULL, related_name='location')
+	partner = models.ForeignKey(Partner, blank=True, null=True, on_delete=models.SET_NULL, related_name='partner')
 	
 	#TODO: `type' keyword is reserved, and using it is considered naughty.
 	TYPE_CHOICES = (
@@ -287,3 +302,5 @@ class Registration(models.Model):
 			("record_attendance", "Can mark student attendance"),
 			("edit_students", "Can add or remove students"),
 		)
+
+
