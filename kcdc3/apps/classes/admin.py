@@ -1,4 +1,4 @@
-from kcdc3.apps.classes.models import Event, Location, Bio, Registration, Session, Role
+from kcdc3.apps.classes.models import Event, Location, Bio, Registration, Session, Role, Partner
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.sites import site
@@ -98,7 +98,7 @@ admin.site.register(Bio, BioAdmin)
 # lets someone create/edit a Event
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None,			{'fields': ['title', 'slug',('date','end_time','session'),('location','type'),('status', 'featured',)]}),
+		(None,			{'fields': ['title', 'slug',('date','end_time','session'),('location','partner',),('status', 'featured','type',)]}),
 		('Teachers/facilitators',	{'fields': [('teacher_bios','facilitators')]}),
 		('Description', {
 			'classes': ('grp-collapse grp-open',), 
@@ -130,7 +130,7 @@ class EventAdmin(admin.ModelAdmin):
 	]
 	readonly_fields = ('registration_count','waitlist_count')
 	prepopulated_fields = {"slug": ("title",)}
-	raw_id_fields = ['location','teacher_bios','facilitators']
+	raw_id_fields = ['location','partner','teacher_bios','facilitators']
 	related_lookup_fields = {
 	    'm2m': ['teacher_bios', 'facilitators'],
 	}
@@ -187,4 +187,17 @@ admin.site.register(Session, SessionAdmin)
 
 
 
+class PartnerAdmin(admin.ModelAdmin):
+	model = Partner
+	list_display = ('name',)
+	fieldsets = [
+		(None, {'fields': ['name','description', 'website', 'image',]}),
+	]
+	class Media:
+		js = [
+			'tiny_mce/tiny_mce.js',
+			'tinymce_setup.js',
+		]
+
+admin.site.register(Partner, PartnerAdmin)
 

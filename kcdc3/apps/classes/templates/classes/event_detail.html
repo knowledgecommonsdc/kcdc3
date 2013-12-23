@@ -107,6 +107,12 @@
 			{{ event.details|safe }}
 		{% endif %}
 
+		{% if event.partner %}
+		<div class="event_partner">
+			<div class="event_partner_logo"><a href="{{ event.partner.website }}"><img src="/media/uploads/{{ event.partner.image }}" alt="partner logo" class="event_partner_image" /></a></div>
+			{{ event.partner.description|safe }}
+		</div>
+		{% endif %}
 
 			
 		{% if event.has_passed %}
