@@ -10,3 +10,16 @@ kcdc3/settings/prod.py
 # My suggestion: put static/ under Git, and media/ not. After the move, I'll fix file locations so that media/ is just user data.
 # ergo, track kcdc3/public/static
 kcdc3/public/media
+
+*.scssc
+.sass-cache/
+
+*.tmproj
+
+kcdc3/tmp/django.db
+
+kcdc3/public/static/fonts/ss-standard/
+kcdc3/public/static/fonts/ss-social/
+
+
+codekit-config.json
