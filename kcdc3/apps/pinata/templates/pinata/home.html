@@ -1,6 +1,7 @@
 {% extends "pinata/base.html" %}
 
 {% load pinata_filters %}
+{% load shuffle %}
 
 {% block pre_content %}
 
@@ -15,7 +16,7 @@
 		<div id="front_slideshow">
 			<div id="flexslider">
 				<ul class="slides">
-					{% for slide in slides %}
+					{% for slide in slides|shuffle %}
 						{% if slide.image %}
 						<li><img src="/media/{{ slide.image }}" alt="{{ slide.title }}" /></li>
 						{% else %}
