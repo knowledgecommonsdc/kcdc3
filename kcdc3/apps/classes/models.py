@@ -76,7 +76,7 @@ class Partner(models.Model):
 	image = models.ImageField('Image (150x150px max)', upload_to='partners', blank=True, null=True)
 
 	class Meta:
-		verbose_name=u'Partner Organization'
+		verbose_name=u'Class Partner'
 
 	def __unicode__(self):
 		return self.name
