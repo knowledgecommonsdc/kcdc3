@@ -199,8 +199,8 @@
 					{% if bio.show_email %}
 						<p class="bio_email"><a href="mailto:{{ bio.get_email }}">{{ bio.get_email }}</a></p>
 					{% endif %}
-					{% if bio.website %}
-						<p class="bio_website"><a href="{{ bio.website }}">{{ bio.get_plain_website }}</a></p>
+					{% if bio.web %}
+						<p class="bio_website"><a href="{{ bio.web }}">{{ bio.get_plain_web }}</a></p>
 					{% endif %}
 					{% if bio.twitter %}
 						<p class="bio_twitter"><a href="http://twitter.com/{{ bio.get_twitter }}">@{{ bio.get_twitter }}</a></p>
