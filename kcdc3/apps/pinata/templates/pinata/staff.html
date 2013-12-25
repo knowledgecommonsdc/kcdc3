@@ -43,8 +43,15 @@
 		<div class="bios">				
 			{% for bio in volunteers %}
 				<div class="minibio">
+					{% if bio.website %}<a href="{{ bio.website }}">{% endif %}
+					<div class="bio_image">
+						{% if bio.image %}
+							<img src="/media/{{ bio.image }}" />
+						{% endif %}
+					</div>	
 					<h5>{{ bio.name }}</h5>		
 					<p>{{ bio.title }}</p>				
+					{% if bio.website %}</a>{% endif %}
 				</div>
 			{% endfor %}			
 		</div>
