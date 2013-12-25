@@ -106,10 +106,14 @@ class Bio(models.Model):
 	# Basic information, used in class descriptions and elsewhere by default
 	name = models.CharField('Name', max_length=100, blank=False, unique=True)
 	description = models.TextField('Bio text', blank=True)
-	website = models.URLField(blank=True)
+	web = models.CharField('Website', max_length=255, blank=True)
 	image = models.ImageField('Image (60x60px)', upload_to='bio', blank=True, null=True)
 	twitter = models.CharField('Twitter Handle', max_length=16, blank=True)
 	show_email = models.BooleanField('Show email to public?', default=False)
+
+	# No longer in use. Why? Because Django insists on adding a slash
+	# to the end of URLFields, and defining my own field type seems excessive
+	website = models.URLField(blank=True)
 
 	# Fields for staff bios
 	title = models.CharField(max_length=100, blank=True)
@@ -137,17 +141,17 @@ class Bio(models.Model):
 	# Provide website with http:// removed
 	# If someone's determined enough to run their homepage
 	# with HTTPS, we'll let the full ugliness stand
-	def get_plain_website(self):
-		tmp = self.website.replace("http://","")
+	def get_plain_web(self):
+		tmp = self.web.replace("http://","")
 		return tmp
 
-	# Provide email from user; otherwise use bio email
+	# Provide email from bio; otherwise email from user
 	def get_email(self):
 		
-		if self.user:
-			return self.user.email
-		elif self.bio_email:
+		if self.bio_email:
 			return self.bio_email
+		elif self.user:
+			return self.user.email
 		else:
 			return ""
 	    		
