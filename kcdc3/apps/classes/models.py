@@ -108,6 +108,8 @@ class Bio(models.Model):
 	description = models.TextField('Bio text', blank=True)
 	website = models.URLField(blank=True)
 	image = models.ImageField('Image (60x60px)', upload_to='bio', blank=True, null=True)
+	twitter = models.CharField('Twitter Handle', max_length=16, blank=True)
+	show_email = models.BooleanField('Show email to public?', default=False)
 
 	# Fields for staff bios
 	title = models.CharField(max_length=100, blank=True)
@@ -127,6 +129,18 @@ class Bio(models.Model):
 		else: 	
 			return self.description
 
+	# Provide Twitter handle with at-sign removed
+	def get_twitter(self):
+		tmp = self.twitter.replace("@","")
+		return tmp
+
+	# Provide website with http:// removed
+	# If someone's determined enough to run their homepage
+	# with HTTPS, we'll let the full ugliness stand
+	def get_plain_website(self):
+		tmp = self.website.replace("http://","")
+		return tmp
+
 	# Provide email from user; otherwise use bio email
 	def get_email(self):
 		
@@ -136,7 +150,7 @@ class Bio(models.Model):
 			return self.bio_email
 		else:
 			return ""
-			
+	    		
 	# Which classes is this person teaching?
 	def get_classes(self):
 		
