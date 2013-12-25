@@ -29,6 +29,7 @@ class RegistrationInline(admin.TabularInline):
 class LocationAdmin(admin.ModelAdmin):
 	model = Location
 	list_display = ('name','neighborhood','show_exact',)
+	list_filter = ('neighborhood',)
 	search_fields = ('name',)
 
 admin.site.register(Location, LocationAdmin)
