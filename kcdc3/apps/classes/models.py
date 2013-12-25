@@ -143,6 +143,7 @@ class Bio(models.Model):
 		return Event.objects.filter(teacher_bios=self)
 			
 	class Meta:
+		ordering = ['name']
 		verbose_name=u'Staff/Teacher Bio'
 
 	def __unicode__(self):
