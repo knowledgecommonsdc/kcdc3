@@ -196,15 +196,19 @@
 				{% for bio in event.teacher_bios.all %}
 					{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
 					{{ bio.description|safe }}
+
+					<div class="bio_detail">
 					{% if bio.show_email %}
-						<p class="bio_email"><a href="mailto:{{ bio.get_email }}">{{ bio.get_email }}</a></p>
+							<p class="bio_email"><a href="mailto:{{ bio.get_email }}"><i class="ss-icon ss-social">email</i> {{ bio.get_email }}</a></p>
 					{% endif %}
 					{% if bio.web %}
-						<p class="bio_website"><a href="{{ bio.web }}">{{ bio.get_plain_web }}</a></p>
+						<p class="bio_website"><a href="{{ bio.web }}"><i class="ss-icon">&#x1F30E;</i> {{ bio.get_plain_web }}</a></p>
 					{% endif %}
 					{% if bio.twitter %}
-						<p class="bio_twitter"><a href="http://twitter.com/{{ bio.get_twitter }}">@{{ bio.get_twitter }}</a></p>
+						<p class="bio_twitter"><a href="http://twitter.com/{{ bio.get_twitter }}"><i class="ss-icon ss-social">twitter</i> @{{ bio.get_twitter }}</a></p>
 					{% endif %}
+					</div>
+					
 				{% endfor %}
 			{% endif %}
 		</div>
