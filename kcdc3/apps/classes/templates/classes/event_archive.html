@@ -10,7 +10,7 @@
 	<div id="hed">
 		<h1>
 			{% for session in selected_session %}
-			{{ session.long_title }}
+			{{ session.long_title | smartlines }}
 			{% endfor %}
 		</h1>
 	</div>
@@ -20,7 +20,7 @@
 		{% for session in selected_session %}
 			<div class="local_intro">
 
-				{{ session.description|safe }}
+				{{ session.description | smartlines | safe }}
 
 				{% if session.documentation %}
 					<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>
@@ -48,7 +48,7 @@
 						<a href="/classes/{{ event.slug }}">
 							<h3>
 								{% if event.type == "EXTERNAL" %}<i>Partner Event:</i>{% endif %}
-								{{ event.title }}
+								{{ event.title | smartlines }}
 							</h3>
 							<p class="meta">
 

@@ -13,7 +13,7 @@
 
 	<div id="hed" class="blog_hed">
 		{% if post.department_label %}<p class="department_label">{{ post.department_label }}</p>{% endif %}
-		<h1>{{ post.title }}</h1>
+		<h1>{{ post.title | smartlines }}</h1>
 		<p class="byline">
 			{% if post.author.count > 0 %}
 				By 

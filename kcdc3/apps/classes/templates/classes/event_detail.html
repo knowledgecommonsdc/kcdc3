@@ -10,7 +10,7 @@
 
 	<div id="hed">
 		{% if event.type == "EXTERNAL" %}<p class="department_label">Partner Event</p>{% endif %}
-		<h1>{{ event.title }}</h1>
+		<h1>{{ event.title | smartlines }}</h1>
 	</div>
 	
 	<div id="main">
