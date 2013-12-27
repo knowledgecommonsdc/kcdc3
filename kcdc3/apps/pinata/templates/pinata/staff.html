@@ -1,5 +1,5 @@
 {% extends "pinata/page.html" %}
-
+{% load pinata_filters %}
 
 
 {% block title %}
@@ -16,10 +16,10 @@
 	
 	<div id="main">
 				
-		{{ main_text|safe }}
+		{{ main_text | smartlines | safe }}
 
 		<h3>The Wonder Dojo</h3>
-		{{ dojo_role.description|safe }}
+		{{ dojo_role.description | smartlines | safe }}
 		<div class="bios">				
 			{% for bio in dojo %}
 				<div class="minibio">
@@ -35,10 +35,10 @@
 				</div>
 			{% endfor %}			
 		</div>
-		{{ dojo_role.extended_description|safe }}
+		{{ dojo_role.extended_description | smartlines | safe }}
 
 		<h3>Volunteers</h3>
-		{{ volunteers_role.description|safe }}
+		{{ volunteers_role.description | smartlines | safe }}
 		{% if volunteers %}
 		<div class="bios">				
 			{% for bio in volunteers %}
@@ -56,12 +56,12 @@
 			{% endfor %}			
 		</div>
 		{% endif %}
-		{{ volunteers_role.extended_description|safe }}
+		{{ volunteers_role.extended_description | smartlines | safe }}
 
 		<h3>Dojo-at-Large and Emeritus</h3>
 
 		{# <h4>Dojo-at-Large</h4> #}
-		{# {{ dojo_at_large_role.description|safe }} #}
+		{{ dojo_at_large_role.description | smartlines | safe }}
 		{% if dojo_at_large %}
 		<p>				
 			<strong>At-Large: </strong> 			
@@ -70,10 +70,10 @@
 			{% endfor %}			
 		</p>
 		{% endif %}
-		{{ dojo_at_large_role.extended_description|safe }}
+		{{ dojo_at_large_role.extended_description | smartlines | safe }}
 
 		{# <h4>Dojo Emeritus</h4> #}
-		{# {{ dojo_emeritus_role.description|safe }} #}
+		{{ dojo_emeritus_role.description | smartlines | safe }}
 		{% if dojo_emeritus %}
 		<p>	
 			<strong>Emeritus: </strong> 			
@@ -82,7 +82,7 @@
 			{% endfor %}			
 		</p>
 		{% endif %}
-		{{ dojo_emeritus_role.extended_description|safe }}
+		{{ dojo_emeritus_role.extended_description | smartlines | safe }}
 
 	</div>
 	
@@ -91,6 +91,6 @@
 
 
 {% block sidebar_text %}
-	{{ sidebar_text|safe }}
+	{{ sidebar_text | smartlines | safe }}
 {% endblock %}
 

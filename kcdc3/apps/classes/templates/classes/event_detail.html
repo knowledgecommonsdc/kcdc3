@@ -67,7 +67,7 @@
 		
 		{% if event.main_image %}<p><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
 	
-		{{ event.description | smartquotes | remove_double_linebreaks | safe }}
+		{{ event.description | smartlines | safe }}
 
 		{% if event.type == "EXTERNAL" %}
 			<p class="partner_event_note">
@@ -78,18 +78,18 @@
 
 		{% if event.documentation %} 
 			<h3>Documentation</h3>
-			{{ event.documentation|safe }}
+			{{ event.documentation | smartlines | safe }}
 		{% endif %}
 
 		{% if event.additional_dates_text %}
 			<h3>Additional meetings</h3>
-			{{ event.additional_dates_text|safe }}
+			{{ event.additional_dates_text | smartquotes | safe }}
 		{% endif %}
 
 		{% if event.partner %}
 		<div class="event_partner">
 			<div class="event_partner_logo"><a href="{{ event.partner.website }}" class="noborder"><img src="/media/{{ event.partner.image }}" alt="partner logo" class="event_partner_image" /></a></div>
-			{{ event.partner.description|safe }}
+			{{ event.partner.description | smartquotes | safe }}
 		</div>
 		{% endif %}
 
@@ -113,7 +113,7 @@
 	
 		{% if event.details %}
 			<h3>Details</h3>
-			{{ event.details|safe }}
+			{{ event.details | smartlines | safe }}
 		{% endif %}
 			
 		{% if event.has_passed %}
@@ -197,7 +197,7 @@
 			{% else %}
 				{% for bio in event.teacher_bios.all %}
 					{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
-					{{ bio.description|safe }}
+					{{ bio.description | smartlines | safe }}
 
 					<div class="bio_detail">
 					{% if bio.show_email %}

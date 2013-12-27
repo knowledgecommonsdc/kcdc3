@@ -1,4 +1,5 @@
 {% extends "pigeon/base.html" %}
+{% load pinata_filters %}
 
 
 
@@ -27,12 +28,12 @@
 	
 	<div id="main">
 		
-		{{ post.main_text|safe }}
+		{{ post.main_text | smartlines | safe }}
 
 		{% if post.author.count > 0 %}
 			<hr />
 			{% for bio in post.author.all %}
-				{{ bio.get_staff_description|safe }}
+				{{ bio.get_staff_description | smartlines | safe }}
 			{% endfor %}
 		{% endif %}
 

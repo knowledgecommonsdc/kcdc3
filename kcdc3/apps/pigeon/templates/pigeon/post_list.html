@@ -1,5 +1,5 @@
 {% extends "pigeon/base.html" %}
-
+{% load pinata_filters %}
 
 
 {% block title %}
@@ -43,7 +43,7 @@
 						</p>
 					{% endif %}
 					
-					{{ post.teaser|safe }}
+					{{ post.teaser | smartquotes | safe }}
 
 				</a>
 			</dd>

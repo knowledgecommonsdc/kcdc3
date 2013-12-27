@@ -1,5 +1,5 @@
 {% extends "pinata/base.html" %}
-
+{% load pinata_filters %}
 
 
 {% block title %}
@@ -35,7 +35,7 @@
 			</div>
 
 			<div class="main_wide">
-				{{ main_text|safe }}
+				{{ main_text | smartlines | safe }}
 			</div>
 		
 		{% endblock %}
