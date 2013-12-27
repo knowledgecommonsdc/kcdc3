@@ -31,7 +31,7 @@
 					
 					<h3>
 						{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
-						{{ post.title }}
+						{{ post.title | smartlines }}
 					</h3>
 
 					{% if post.author.count > 0 %}

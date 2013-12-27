@@ -46,7 +46,7 @@
 				<a href="/classes/{{ event.slug }}">
 					<h3>
 						<!--<b class="event">Event:</b>-->
-						{{ event.title | smartquotes | safe }}
+						{{ event.title | smartlines | safe }}
 					</h3>
 					<p class="meta">
 						{{ event.date|date:"j N, P" }}
@@ -89,7 +89,7 @@
 			<p>
 			<a href="/blog/{{ post.slug }}">
 				{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
-				<strong>{{ post.title | smartquotes | safe }}</strong>, 
+				<strong>{{ post.title | smartlines | safe }}</strong>, 
 				{{ post.date|date:"j N" }}
 				{% if post.author.count > 0 %}
 					<i class="byline">

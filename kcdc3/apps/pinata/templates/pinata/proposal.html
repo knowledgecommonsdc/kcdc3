@@ -1,15 +1,15 @@
 {% extends "pinata/page.html" %}
-
+{% load pinata_filters %}
 
 {% block content %}
 
 	<div id="hed">
-		<h1>{{ title }}</h1>
+		<h1>{{ title | smartlines }}</h1>
 	</div>
 	
 	<div id="main">
 				
-		{{ main_text|safe }}
+		{{ main_text | smartlines | safe }}
 
 
 		<div id="wufoo-m7x3q1" style="padding-top: 3em;" class="form_proposal">
