@@ -86,7 +86,7 @@
 
 		{% if event.partner %}
 		<div class="event_partner">
-			<div class="event_partner_logo"><a href="{{ event.partner.website }}"><img src="/media/{{ event.partner.image }}" alt="partner logo" class="event_partner_image" /></a></div>
+			<div class="event_partner_logo"><a href="{{ event.partner.website }}" class="noborder"><img src="/media/{{ event.partner.image }}" alt="partner logo" class="event_partner_image" /></a></div>
 			{{ event.partner.description|safe }}
 		</div>
 		{% endif %}
