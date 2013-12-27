@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load pinata_filters %}
+
 
 {% block title %}
  / {{ event.title }}
@@ -65,7 +67,7 @@
 		
 		{% if event.main_image %}<p><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
 	
-		{{ event.description|safe }}
+		{{ event.description | smartquotes | remove_double_linebreaks | safe }}
 
 		{% if event.type == "EXTERNAL" %}
 			<p class="partner_event_note">
