@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from datetime import timedelta
+from format_helpers import *
 
 # TODO this shouldn't be here but don't have settings import working yet
 # In hours, how long before a class do late promotion rules apply?
@@ -138,12 +139,13 @@ class Bio(models.Model):
 		tmp = self.twitter.replace("@","")
 		return tmp
 
+	# Provide website address; add http:// if no protocol is specified
+	def get_web(self):
+		return add_protocol(self.web)
+
 	# Provide website with http:// removed
-	# If someone's determined enough to run their homepage
-	# with HTTPS, we'll let the full ugliness stand
 	def get_plain_web(self):
-		tmp = self.web.replace("http://","")
-		return tmp
+		return remove_protocol(self.web)
 
 	# Provide email from bio; otherwise email from user
 	def get_email(self):
