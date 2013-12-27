@@ -7,8 +7,10 @@ register = template.Library()
 def smartquotes(text):
     return smartypants(text)
 
+# Clean up text to match house style
 # This might need to be marked as safe
 @register.filter
-def remove_double_linebreaks(text):
-    return text.replace("<br /><br />","</p><p>")
-
+def smartlines(text):
+	text = smartypants(text)
+	text = text.replace("<br /><br />","</p><p>")
+	return text
