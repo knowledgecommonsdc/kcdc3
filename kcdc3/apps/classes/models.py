@@ -108,7 +108,7 @@ class Bio(models.Model):
 	name = models.CharField('Name', max_length=100, blank=False, unique=True)
 	description = models.TextField('Bio text', blank=True)
 	web = models.CharField('Website', max_length=255, blank=True)
-	image = models.ImageField('Image (60x60px)', upload_to='bio', blank=True, null=True)
+	image = models.ImageField('Image (160x160px)', upload_to='bio', blank=True, null=True)
 	twitter = models.CharField('Twitter Handle', max_length=16, blank=True)
 	show_email = models.BooleanField('Show email to public?', default=False)
 
