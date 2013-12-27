@@ -23,7 +23,7 @@
 		<div class="bios">				
 			{% for bio in dojo %}
 				<div class="minibio">
-					{% if bio.website %}<a href="{{ bio.website }}">{% endif %}
+					{% if bio.web %}<a href="{{ bio.get_web }}">{% endif %}
 					<div class="bio_image">
 						{% if bio.image %}
 							<img src="/media/{{ bio.image }}" />
@@ -31,7 +31,7 @@
 					</div>	
 					<h5>{{ bio.name }}</h5>		
 					<p>{{ bio.title }}</p>				
-					{% if bio.website %}</a>{% endif %}
+					{% if bio.web %}</a>{% endif %}
 				</div>
 			{% endfor %}			
 		</div>
@@ -43,7 +43,7 @@
 		<div class="bios">				
 			{% for bio in volunteers %}
 				<div class="minibio">
-					{% if bio.website %}<a href="{{ bio.website }}">{% endif %}
+					{% if bio.web %}<a href="{{ bio.get_web }}">{% endif %}
 					<div class="bio_image">
 						{% if bio.image %}
 							<img src="/media/{{ bio.image }}" />
@@ -51,7 +51,7 @@
 					</div>	
 					<h5>{{ bio.name }}</h5>		
 					<p>{{ bio.title }}</p>				
-					{% if bio.website %}</a>{% endif %}
+					{% if bio.web %}</a>{% endif %}
 				</div>
 			{% endfor %}			
 		</div>

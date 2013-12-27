@@ -34,6 +34,17 @@
 			<hr />
 			{% for bio in post.author.all %}
 				{{ bio.get_staff_description | smartlines | safe }}
+				<div class="bio_detail">
+				{% if bio.show_email %}
+						<p class="bio_email"><a href="mailto:{{ bio.get_email }}"><i class="ss-icon ss-social">email</i> {{ bio.get_email }}</a></p>
+				{% endif %}
+				{% if bio.web %}
+					<p class="bio_website"><a href="{{ bio.get_web }}"><i class="ss-icon">&#x1F30E;</i> {{ bio.get_plain_web }}</a></p>
+				{% endif %}
+				{% if bio.twitter %}
+					<p class="bio_twitter"><a href="http://twitter.com/{{ bio.get_twitter }}"><i class="ss-icon ss-social">twitter</i> @{{ bio.get_twitter }}</a></p>
+				{% endif %}
+				</div>
 			{% endfor %}
 		{% endif %}
 
