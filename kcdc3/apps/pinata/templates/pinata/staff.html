@@ -24,9 +24,9 @@
 			{% for bio in dojo %}
 				<div class="minibio">
 					{% if bio.web %}<a href="{{ bio.get_web }}">{% endif %}
-					<div class="bio_image">
+					<div class="minibio_image">
 						{% if bio.image %}
-							<img src="/media/{{ bio.image }}" />
+							<img src="/media/{{ bio.image }}" alt="" />
 						{% endif %}
 					</div>	
 					<h5>{{ bio.name }}</h5>		
