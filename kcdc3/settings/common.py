@@ -115,7 +115,6 @@ LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 USERENA_MUGSHOT_DEFAULT = 'mm'
-USERENA_ACTIVATION_REQUIRED = False
 
 DEFAULT_FROM_EMAIL = 'contact@knowledgecommonsdc.org'
 
