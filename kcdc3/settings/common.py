@@ -5,7 +5,7 @@ import os
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('KCDC', 'contact@knowledgecommonsdc.org'),
 )
 
 MANAGERS = ADMINS
@@ -115,7 +115,9 @@ LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 USERENA_MUGSHOT_DEFAULT = 'mm'
-USERENA_ACTIVATION_REQUIRED = True
+USERENA_ACTIVATION_REQUIRED = False
+
+DEFAULT_FROM_EMAIL = 'contact@knowledgecommonsdc.org'
 
 ROOT_URLCONF = 'kcdc3.urls'
 
