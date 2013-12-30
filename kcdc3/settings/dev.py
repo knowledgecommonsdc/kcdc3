@@ -3,6 +3,8 @@ from common import *
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+USERENA_ACTIVATION_REQUIRED = False
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SECRET_KEY = 'mysupersecret'
