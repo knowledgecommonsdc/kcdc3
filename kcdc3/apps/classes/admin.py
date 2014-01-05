@@ -203,3 +203,22 @@ class PartnerAdmin(admin.ModelAdmin):
 
 admin.site.register(Partner, PartnerAdmin)
 
+
+
+
+
+# view all registrations
+class RegistrationAdmin(admin.ModelAdmin):
+	can_delete = False
+	readonly_fields = ('date_registered','date_cancelled', 'late_promotion', 'date_promoted')
+	raw_id_fields = ['student']
+	fieldsets = [
+		(None, {'fields': [
+			'student', 'event', 'date_registered', 'waitlist', 'cancelled', 'date_cancelled', 'attended', 'late_promotion', 'date_promoted',
+			]}),
+	]
+	list_display = ('student', 'event', 'date_registered', 'waitlist', 'cancelled', 'date_cancelled', 'attended', 'late_promotion', 'date_promoted', )
+	list_filter = ('waitlist', 'cancelled', 'attended','late_promotion',)
+	search_fields = ('student',)
+
+admin.site.register(Registration, RegistrationAdmin)
