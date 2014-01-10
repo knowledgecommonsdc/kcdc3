@@ -36,7 +36,7 @@ class EventListView(ListView):
 # display a list of archived (past or future) events
 class EventArchiveView(ListView):
 
-	template_name = "classes/event_archive.html"
+	template_name = "event_archive.html"
 	context_object_name = "event_list"
 	model = Event
 	
@@ -58,7 +58,7 @@ class EventArchiveView(ListView):
 # more about a particular session
 class SessionView(ListView):
 
-	template_name = "classes/event_session.html"
+	template_name = "event_session.html"
 	context_object_name = "event_list"
 	model = Event
 	
@@ -189,7 +189,7 @@ def cancel(request, slug):
 # redirect the user to a thank you/results sceen after they take an action
 class ResponseTemplateView(TemplateView):
 
-	template_name = "classes/response.html"
+	template_name = "response.html"
 	 
 	def get_context_data(self, **kwargs):
 		if self.kwargs['slug'] == "registered":
@@ -226,7 +226,7 @@ def facilitator(request, slug):
 
 	# is the user staff or assigned as a facilitator for this class?
 	if Event.objects.filter(slug=slug, facilitators=request.user).count() > 0 or request.user.is_staff:
-		return render_to_response('classes/facilitator_event_detail.html',context)
+		return render_to_response('facilitator_event_detail.html',context)
 	else:
 		# TODO this should really return a 403
 		return HttpResponse()
@@ -236,7 +236,7 @@ def facilitator(request, slug):
 # display a list of registrations for a given session
 class RegistrationListView(ListView):
 
-	template_name = "classes/staff_registration_list.html"
+	template_name = "staff_registration_list.html"
 	context_object_name = "registration_list"
 	model = Registration
 	
@@ -262,7 +262,7 @@ class RegistrationListView(ListView):
 # display a list of registrations for a given session
 class SessionAdminListView(ListView):
 
-	template_name = "classes/staff_session_list.html"
+	template_name = "staff_session_list.html"
 	context_object_name = "session_list"
 	model = Session
 	
@@ -289,7 +289,7 @@ class SessionAdminListView(ListView):
 # display a list of teacher (bios) in the system
 class TeacherAdminListView(ListView):
 
-	template_name = "classes/staff_teacher_list.html"
+	template_name = "staff_teacher_list.html"
 	context_object_name = "teacher_list"
 	model = Bio
 	
