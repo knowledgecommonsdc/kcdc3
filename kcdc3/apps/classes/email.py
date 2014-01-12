@@ -9,15 +9,15 @@ from models import Event
 
 KCDC_EMAIL = 'contact@knowledgecommonsdc.org'
 
-SUBJECT_REGISTERED = 'email_registered_subject.txt'
-SUBJECT_WAITLISTED = 'email_waitlisted_subject.txt'
-SUBJECT_CANCELLED = 'email_cancelled_subject.txt'
-SUBJECT_PROMOTED = 'email_promoted_subject.txt'
+SUBJECT_REGISTERED = 'classes/email_registered_subject.txt'
+SUBJECT_WAITLISTED = 'classes/email_waitlisted_subject.txt'
+SUBJECT_CANCELLED = 'classes/email_cancelled_subject.txt'
+SUBJECT_PROMOTED = 'classes/email_promoted_subject.txt'
 
-BODY_REGISTERED = 'email_registered.txt'
-BODY_WAITLISTED = 'email_waitlisted.txt'
-BODY_CANCELLED = 'email_cancelled.txt'
-BODY_PROMOTED = 'email_promoted.txt'
+BODY_REGISTERED = 'classes/email_registered.txt'
+BODY_WAITLISTED = 'classes/email_waitlisted.txt'
+BODY_CANCELLED = 'classes/email_cancelled.txt'
+BODY_PROMOTED = 'classes/email_promoted.txt'
 
 class RegistrationEmail(EmailMessage):
 	""" Wrapper class for the builtin EmailMessage class provided
