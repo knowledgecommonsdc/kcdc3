@@ -243,7 +243,7 @@ class RegistrationListView(ListView):
 	def get_context_data(self, **kwargs):
 		
 		context = super(RegistrationListView, self).get_context_data(**kwargs)
-		context['registration_list'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
+		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
 
 		# is the user staff?
 		if self.request.user.is_staff:
