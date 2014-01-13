@@ -43,6 +43,10 @@
 						</p>
 					{% endif %}
 					
+					{% if post.thumbnail %}
+						<p class="post_thumbnail"><img src="/media/{{ post.thumbnail }}" alt="" class="" /></p>
+					{% endif %}
+					
 					{{ post.teaser | smartquotes | safe }}
 
 				</a>
