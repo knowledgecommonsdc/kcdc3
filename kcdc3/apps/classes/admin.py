@@ -218,7 +218,7 @@ class RegistrationAdmin(admin.ModelAdmin):
 			]}),
 	]
 	list_display = ('student', 'event', 'date_registered', 'waitlist', 'cancelled', 'late_promotion', 'attended', 'date_cancelled', 'date_promoted', )
-	list_filter = ('waitlist', 'cancelled', 'attended','late_promotion',)
+	list_filter = ('date_registered', 'waitlist', 'cancelled', 'attended','late_promotion',)
 	search_fields = ( 'student__username', 'student__email', )
 
 admin.site.register(Registration, RegistrationAdmin)
