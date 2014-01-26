@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load pinata_filters %}
+
 {% block title %}
  / {{ event.title }}
 {% endblock %}
@@ -8,7 +10,7 @@
 
 	<div id="hed">
 		{% if event.type == "EXTERNAL" %}<p class="department_label">Partner Event</p>{% endif %}
-		<h1>{{ event.title }}</h1>
+		<h1>{{ event.title | smartquotes | safe }}</h1>
 	</div>
 	
 	<div id="main">
