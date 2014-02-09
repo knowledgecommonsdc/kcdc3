@@ -65,6 +65,12 @@ class Location(models.Model):
 	zip = models.CharField('ZIP', max_length=5, blank=True)
 	hint = models.CharField('Hint', max_length=300, blank=True)
 	show_exact = models.BooleanField('Show details/exact address on public site?', default=True)
+	LOCATION_ACCESS_CHOICES = (
+		('public', 'Public'),
+		('semipublic', 'Semi-Public'),
+		('private', 'Private'),
+	)
+	access = models.CharField(max_length=11, choices=LOCATION_ACCESS_CHOICES, default='SEMIPUBLIC')
 	lat = models.FloatField('Latitude',blank=True,null=True)
 	lng = models.FloatField('Longitude',blank=True,null=True)
 	def __unicode__(self):
