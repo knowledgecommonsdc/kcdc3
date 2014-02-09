@@ -65,6 +65,8 @@ class Location(models.Model):
 	zip = models.CharField('ZIP', max_length=5, blank=True)
 	hint = models.CharField('Hint', max_length=300, blank=True)
 	show_exact = models.BooleanField('Show details/exact address on public site?', default=True)
+	lat = models.FloatField('Latitude',blank=True,null=True)
+	lng = models.FloatField('Longitude',blank=True,null=True)
 	def __unicode__(self):
 		return self.name
 
