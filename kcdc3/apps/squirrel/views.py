@@ -29,7 +29,6 @@ class MeetingListView(ListView):
 	
 # display a single meeting	
 # Any user who knows the URL should be able to view and sign up.
-# TODO restrict names and emails to staff
 class MeetingDetailView(DetailView):
 
 	context_object_name = "meeting"
@@ -49,13 +48,11 @@ class MeetingDetailView(DetailView):
 			
 		context['registration_count'] = meeting.registration_count()
 		context['user_is_registered'] = is_registered(user, meeting)
-
 		context['registrations'] = Meeting_Registration.objects.filter(meeting=self.get_object(), cancelled=False)
 
 		# TODO: move this
-		if self.request.user.is_authenticated():
-			if self.request.user.is_staff:
-				context['show_contacts'] = True
+		if self.request.user.is_authenticated() and self.request.user.is_staff:
+			context['show_sensitive_info'] = True
 			
 		if meeting.status == 'PUBLISHED' or meeting.status == 'HIDDEN':
 			return context
