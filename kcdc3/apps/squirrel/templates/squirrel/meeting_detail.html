@@ -9,7 +9,7 @@
 {% block content %}
 
 	<nav class="action-nav">
-		<a href="/staff/meetings/">Meeting List</a>
+		<a href="/staff/meetings/">Back to Meeting List</a>
 	</nav>
 
 	<div id="hed">
@@ -44,7 +44,7 @@
  		{% if meeting.location_text %}<p>{{ meeting.location_text|safe }}</p>{% endif %}
 		<p itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
 			{% ifnotequal meeting.location.name meeting.location.address1 %}{{ meeting.location.name }}<br />{% endifnotequal %}
-			{% if meeting.location.address1 %}
+			{% if meeting.location.address1 and show_sensitive_info %}
 				<span itemprop="street-address">
 				{{ meeting.location.address1 }}
 				{% if meeting.location.address2 %}<br />{{ meeting.location.address2 }}{% endif %}
@@ -99,22 +99,26 @@
 
 	<div id="sidebar" class="sidebar_inside">
 
-		<ul>
-		{% for registration in registrations %}
-			<li>
-				<p><a href="mailto:{{ registration.user.email }}">{{ registration.user.first_name }} {{ registration.user.last_name }}</a></p>
-				{% if registration.note %}
-					{{ registration.note | safe }}
-				{% endif %}
-			</li>
-		{% endfor %}
-		</ul>
-
-		<p class="report-email-block">
+		{% if show_sensitive_info %}
+		
+			<ul>
 			{% for registration in registrations %}
-				{{ registration.user.email }},
+				<li>
+					<p><a href="mailto:{{ registration.user.email }}">{{ registration.user.first_name }} {{ registration.user.last_name }}</a></p>
+					{% if registration.note %}
+						{{ registration.note | safe }}
+					{% endif %}
+				</li>
 			{% endfor %}
-		</p>
+			</ul>
+
+			<p class="report-email-block">
+				{% for registration in registrations %}
+					{{ registration.user.email }},
+				{% endfor %}
+			</p>
+		
+		{% endif %}
 
 	</div>
 
