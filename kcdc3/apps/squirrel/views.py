@@ -47,8 +47,10 @@ class MeetingDetailView(DetailView):
 		meeting = self.get_object()
 			
 		context['registration_count'] = meeting.registration_count()
-		context['user_is_registered'] = is_registered(user, meeting)
-		context['registrations'] = Meeting_Registration.objects.filter(meeting=self.get_object(), cancelled=False)
+		context['user_rsvp'] = get_user_rsvp(self.request.user,self.get_object())
+		context['registrations_yes'] = Meeting_Registration.objects.filter(meeting=self.get_object(), status='YES')
+		context['registrations_maybe'] = Meeting_Registration.objects.filter(meeting=self.get_object(), status='MAYBE')
+		context['registrations_no'] = Meeting_Registration.objects.filter(meeting=self.get_object(), status='NO')
 			
 		if meeting.status == 'PUBLISHED' or meeting.status == 'HIDDEN':
 			return context
@@ -62,19 +64,27 @@ def register(request, slug):
 
 	e = Meeting.objects.get(slug=slug)
 	u = request.user
-	if request.POST["note"]:
-		n = request.POST["note"]
-	else:
-		n = ""
+	n = request.POST["note"]
+	s = request.POST["status"]
 
-	# go ahead and register this person
-	# no need to check registration status
-	t = Meeting_Registration(user=u, 
-		meeting=e, 
-		note=n,
-		date_registered=datetime.now())
-	t.save()
-	return HttpResponseRedirect("/staff/response/registered")
+	if is_registered(request.user, e):
+		t = Meeting_Registration.objects.filter(
+					meeting=e, 
+					user=u
+					)[0]
+		t.status=s
+		t.note=n
+		t.save()
+	else:
+		# create or update RSVP
+		t = Meeting_Registration(user=u, 
+			meeting=e, 
+			note=n,
+			status=s,
+			date_registered=datetime.now())
+		t.save()
+	
+	return HttpResponseRedirect("/staff/response/recorded")
 
 
 
@@ -99,10 +109,10 @@ class ResponseTemplateView(TemplateView):
 	def get_context_data(self, **kwargs):
 		if self.kwargs['slug'] == "registered":
 			message_text = "You've been registered"
-		elif self.kwargs['slug'] == "waitlisted":
-			message_text = "You've been added to the waitlist"
 		elif self.kwargs['slug'] == "cancelled":
 			message_text = "Registration cancelled"
+		elif self.kwargs['slug'] == "recorded":
+			message_text = "Thanks!"
 		else:
 			message_text = "Error"
 		return {'message': message_text}
