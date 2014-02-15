@@ -1,0 +1,121 @@
+{% extends "squirrel_base.html" %}
+
+{% block content %}
+
+	<h1>{{ title }}</h1>
+	
+	<h2>Registered students ({{ registration_count }})</h2>	
+	<table>
+		<tr>
+			<td>
+				name
+			</td>
+			<td>
+				username
+			</td>
+			<td>
+				email
+			</td>
+			<td>
+				phone
+			</td>
+			<td>
+				date registered
+			</td>
+			<td>
+				attendance
+			</td>
+		</tr>
+	{% for registration in registered_students %}
+		<tr>
+			<td>
+				{{ registration.student.first_name }} {{ registration.student.last_name }}
+			</td>
+			<td>
+				{{ registration.student.username }}
+			</td>
+			<td>
+				<a href="mailto:{{ registration.student.email }}">{{ registration.student.email }}</a>
+			</td>
+			<td>
+				{{ registration.student.extendedprofile.phone_number }}
+			</td>
+			<td>
+				{{ registration.date_registered }} 
+			</td>
+			<td>
+				{{ registration.attended }} 
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+	<h4>Registered student emails:</h4>
+
+	<p>
+	{% for registration in registered_students %}
+		{{ registration.student.email }}, 
+	{% endfor %}
+	contact@knowledgecommonsdc.org
+	</p>
+
+	<h2>Waitlisted students ({{ waitlist_count }})</h2>	
+	<table>
+		<tr>
+			<td>
+				name
+			</td>
+			<td>
+				username
+			</td>
+			<td>
+				email
+			</td>
+			<td>
+				phone
+			</td>
+			<td>
+				date registered
+			</td>
+		</tr>
+	{% for registration in waitlisted_students %}
+		<tr>
+			<td>
+				{{ registration.student.first_name }} {{ registration.student.last_name }}
+			</td>
+			<td>
+				{{ registration.student.username }}
+			</td>
+			<td>
+				<a href="mailto:{{ registration.student.email }}">{{ registration.student.email }}</a>
+			</td>
+			<td>
+				{{ registration.student.extendedprofile.phone_number }}
+			</td>
+			<td>
+				{{ registration.date_registered }} 
+			</td>
+			<td>
+				{{ registration.attended }} 
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+	
+	<h4>Waitlisted student emails:</h4>
+
+	<p>
+	{% for registration in waitlisted_students %}
+		{{ registration.student.email }}, 
+	{% endfor %}
+	contact@knowledgecommonsdc.org
+	</p>
+
+
+
+	<hr />
+
+	<p><a href="/classes/{{ slug }}">main class page</a></p>
+	
+{% endblock %}
+

@@ -1,0 +1,122 @@
+{% extends "squirrel/base.html" %}
+{% load pinata_filters %}
+
+
+{% block title %}
+ / {{ meeting.title }}
+{% endblock %}
+
+{% block content %}
+
+	<nav class="action-nav">
+		<a href="/staff/meetings/">Meeting List</a>
+	</nav>
+
+	<div id="hed">
+		<h1>{{ meeting.title | smartlines }}</h1>
+	</div>
+	
+	<div id="main">
+	
+		<p class="meta">
+						
+			<i class="ss-icon">date</i> 
+			{{ meeting.date|date:"l, j F Y" }}
+
+			<i class="ss-icon icon_push_right">time</i> 
+			{{ meeting.date|date:"P" }}
+			{% if meeting.end_time %} to {{ meeting.end_time|date:"P" }}{% endif %}
+			
+		</p>
+
+		<p class="meta">
+
+			{% if meeting.location %}
+			<i class="ss-icon icon_push_right">&#x1F3E2;</i> 
+			{{ meeting.location }}
+			{% endif %}
+
+		</p>	
+	
+		{{ meeting.description | smartlines | safe }}
+
+		<h3>Location</h3>
+ 		{% if meeting.location_text %}<p>{{ meeting.location_text|safe }}</p>{% endif %}
+		<p itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+			{% ifnotequal meeting.location.name meeting.location.address1 %}{{ meeting.location.name }}<br />{% endifnotequal %}
+			{% if meeting.location.address1 %}
+				<span itemprop="street-address">
+				{{ meeting.location.address1 }}
+				{% if meeting.location.address2 %}<br />{{ meeting.location.address2 }}{% endif %}
+				</span>
+				<br />
+			{% endif %}
+			{% if meeting.location.city %}<span itemprop="locality">{{ meeting.location.city }}</span>, {% endif %}
+			{% if meeting.location.state %}<span itemprop="region">{{ meeting.location.state }}</span>{% endif %}
+			{% if meeting.location.zip %}<span itemprop="postal-code">{{ meeting.location.zip }}</span>{% endif %}
+			{% if meeting.location.neighborhood %}<br />Neighborhood: {{ meeting.location.neighborhood }} {% endif %}
+			{% if meeting.location.hint %}<br /><em>{{ meeting.location.hint }}</em>{% endif %}
+		</p>
+	
+		{% if meeting.details %}
+			<h3>Details</h3>
+			{{ meeting.details | smartlines | safe }}
+		{% endif %}
+			
+		{% if meeting.has_passed %}
+			<h3>Past meeting</h3>
+		{% else %}
+			<h3>Register</h3>
+		{% endif %}
+			
+		{% if user_is_authenticated %}
+			{% if user_is_registered %}
+				<p><i class="ss-icon registration_open">&#x2713;</i> <em>You are registered.</em></p>
+				{% if not meeting.has_passed %}
+					<form action="/staff/meetings/{{ meeting.slug }}/cancel" method="post">
+						{% csrf_token %}
+						<input type="submit" value="I've changed my mind. Unregister me." id="submit_button" />
+					</form>
+				{% endif %}
+			{% elif not meeting.has_passed %}
+				<form action="/staff/meetings/{{ meeting.slug }}/register" method="post">
+					{% csrf_token %}
+					<label for="field-note" style="display: none;">Note:</label>
+					<textarea name="note" id="field-note" placeholder="Note" /></textarea>
+					<div><input type="submit" value="Register for this class" id="submit_button" /></div>
+				</form>
+			{% endif %}
+		{% else %}
+			<p>
+				To sign up for classes, please 
+				<a href="/accounts/signin">log in</a> or 
+				<a href="/accounts/signup">create a new account</a>.
+			</p>
+		{% endif %}
+			
+				
+	</div>
+
+	<div id="sidebar" class="sidebar_inside">
+
+		<ul>
+		{% for registration in registrations %}
+			<li>
+				<p><a href="mailto:{{ registration.user.email }}">{{ registration.user.first_name }} {{ registration.user.last_name }}</a></p>
+				{% if registration.note %}
+					{{ registration.note | safe }}
+				{% endif %}
+			</li>
+		{% endfor %}
+		</ul>
+
+		<p class="report-email-block">
+			{% for registration in registrations %}
+				{{ registration.user.email }},
+			{% endfor %}
+		</p>
+
+	</div>
+
+{% endblock %}
+

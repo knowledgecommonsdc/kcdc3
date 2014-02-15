@@ -26,6 +26,7 @@ urlpatterns = patterns('',
 	url(r'^grappelli/', include('grappelli.urls')),
 	url(r'^accounts/signup/$', 'userena.views.signup', {'signup_form': SignupFormExtra}),
 	url(r'^accounts/', include('userena.urls')),
+	url(r'^staff/', include('kcdc3.apps.squirrel.urls')),
 
 )
 
