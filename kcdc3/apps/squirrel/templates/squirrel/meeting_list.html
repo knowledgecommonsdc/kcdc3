@@ -1,0 +1,120 @@
+{% extends "squirrel/base.html" %}
+{% load pinata_filters %}
+
+{% block title %} / Staff{% endblock %}
+
+{% block content %}
+
+	<div id="hed">
+		<h1 class="section_hed">Meetings</h1>
+	</div>
+
+	<div id="main">
+	
+		{% for session in selected_session %}
+			{% if forloop.last %}
+				<div class="local_intro type_section">
+					{{ session.description | smartlines | safe }}
+					
+					{% if session.documentation %}
+						<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>
+					{% endif %}
+									
+				</div>
+			{% endif %}
+		{% endfor %}
+
+
+		<h2 id="upcoming">Upcoming meetings</h2>
+
+		<dl class="calendar">
+
+			{% for meeting in meetings reversed %}
+
+				{% if not meeting.has_passed and meeting.status == "PUBLISHED" %}
+
+					{% ifchanged meeting.date.toordinal %}
+						<dt>
+							{{ meeting.date|date:"l" }}<br />
+							<strong>{{ meeting.date|date:"j" }}</strong> {{ meeting.date|date:"F" }}
+							{% ifchanged meeting.date.year %}
+								<br />{{ meeting.date|date:"Y" }}
+							{% endifchanged %}
+						</dt>
+					{% endifchanged %}
+
+					<dd class="">
+						<a href="/staff/meetings/{{ meeting.slug }}">
+							<h3>
+								{{ meeting.title | smartlines }}
+							</h3>
+							<p class="meta">
+								<i class="ss-icon">time</i> {{ meeting.date|date:"P" }}
+							</p>
+						</a>
+					</dd>
+
+
+
+
+				{% endif %}
+
+			{% endfor %}
+
+		</dl>
+
+		<h2 id="past">Past meetings</h2>
+
+		<dl class="calendar">
+
+			{% for meeting in meetings %}
+
+				{% if meeting.has_passed and meeting.status == "PUBLISHED" %}
+
+					{% ifchanged meeting.date.toordinal %}
+						<dt>
+							{{ meeting.date|date:"l" }}<br />
+							<strong>{{ meeting.date|date:"j" }}</strong> {{ meeting.date|date:"F" }}
+							{% ifchanged meeting.date.year %}
+								<br />{{ meeting.date|date:"Y" }}
+							{% endifchanged %}
+						</dt>
+					{% endifchanged %}
+
+					<dd class="">
+						<a href="/staff/meetings/{{ meeting.slug }}">
+							<h3>
+								{{ meeting.title | smartlines }}
+							</h3>
+							<p class="meta">
+								<i class="ss-icon">time</i> {{ meeting.date|date:"P" }}
+							</p>
+						</a>
+					</dd>
+
+				{% endif %}
+
+			{% endfor %}
+
+		</dl>
+
+	</div>
+
+{% endblock %}
+
+
+
+
+{% block sidebar_content %}
+
+		<div class="sidebar_text sidebar_contrast">
+
+			{% for session in selected_session %}
+				{% if session.show_sidebar_text %}
+					{{ session.sidebar_text|safe }}
+				{% endif %}
+			{% endfor %}
+
+		</div>
+
+{% endblock %}
