@@ -73,8 +73,18 @@ class Meeting_Registration(models.Model):
 	user = models.ForeignKey(User, null=True, related_name='squirrel_user')
 	meeting = models.ForeignKey(Meeting, null=True)
 	date_registered = models.DateTimeField(auto_now_add=True)
-	cancelled = models.BooleanField(default=False)
+	cancelled = models.BooleanField(default=False) # no longer in use
 	note = models.TextField(blank=True)
+
+	YES = 'YES'
+	MAYBE = 'MAYBE'
+	NO = 'NO'
+	RSVP_CHOICES = (
+		(YES, 'Yes'),
+		(MAYBE, 'Maybe'),
+		(NO, 'No'),
+	)
+	status = models.CharField(max_length=9, choices=RSVP_CHOICES, default='')
 
 	class Meta:
 		ordering = ['date_registered']

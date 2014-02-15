@@ -65,30 +65,29 @@
 			
 		{% if meeting.has_passed %}
 			<h3>Past meeting</h3>
+		{% elif user_rsvp %}
+			<h3>Change your RSVP</h3>
 		{% else %}
-			<h3>Register</h3>
+			<h3>Will you attend?</h3>
 		{% endif %}
-			
+					
 		{% if user_is_authenticated %}
-			{% if user_is_registered %}
-				<p><i class="ss-icon registration_open">&#x2713;</i> <em>You are registered.</em></p>
-				{% if not meeting.has_passed %}
-					<form action="/staff/meetings/{{ meeting.slug }}/cancel" method="post">
-						{% csrf_token %}
-						<input type="submit" value="I've changed my mind. Unregister me." id="submit_button" />
-					</form>
-				{% endif %}
-			{% elif not meeting.has_passed %}
+			{% if not meeting.has_passed %}
 				<form action="/staff/meetings/{{ meeting.slug }}/register" method="post">
 					{% csrf_token %}
 					<label for="field-note" style="display: none;">Note:</label>
 					<textarea name="note" id="field-note" placeholder="Note" /></textarea>
-					<div><input type="submit" value="Register for this class" id="submit_button" /></div>
+					<select name="status">
+						<option value="YES" {% if user_rsvp == "YES" %}selected{% endif %}>Yes</option>
+						<option value="MAYBE" {% if user_rsvp == "MAYBE" %}selected{% endif %}>Maybe</option>
+						<option value="NO" {% if user_rsvp == "NO" %}selected{% endif %}>No</option>
+					</select>
+					<div><input type="submit" value="RSVP" id="submit_button" /></div>
 				</form>
 			{% endif %}
 		{% else %}
 			<p>
-				To sign up for classes, please 
+				To sign up, please 
 				<a href="/accounts/signin">log in</a> or 
 				<a href="/accounts/signup">create a new account</a>.
 			</p>
@@ -101,19 +100,48 @@
 
 		{% if perms.squirrel.view_sensitive %}
 		
+			<h4>Yes</h4>
 			<ul>
-			{% for registration in registrations %}
+			{% for registration in registrations_yes %}
 				<li>
 					<p><a href="mailto:{{ registration.user.email }}">{{ registration.user.first_name }} {{ registration.user.last_name }}</a></p>
 					{% if registration.note %}
-						{{ registration.note | safe }}
+						<p>{{ registration.note | safe }}</p>
 					{% endif %}
 				</li>
 			{% endfor %}
 			</ul>
 
+			<h4>Maybe</h4>
+			<ul>
+			{% for registration in registrations_maybe %}
+				<li>
+					<p><a href="mailto:{{ registration.user.email }}">{{ registration.user.first_name }} {{ registration.user.last_name }}</a></p>
+					{% if registration.note %}
+						<p>{{ registration.note | safe }}</p>
+					{% endif %}
+				</li>
+			{% endfor %}
+			</ul>
+
+			<h4>No</h4>
+			<ul>
+			{% for registration in registrations_no %}
+				<li>
+					<p><a href="mailto:{{ registration.user.email }}">{{ registration.user.first_name }} {{ registration.user.last_name }}</a></p>
+					{% if registration.note %}
+						<p>{{ registration.note | safe }}</p>
+					{% endif %}
+				</li>
+			{% endfor %}
+			</ul>
+
+			<h4>Yes/Maybe Emails</h4>
 			<p class="report-email-block">
-				{% for registration in registrations %}
+				{% for registration in registrations_yes %}
+					{{ registration.user.email }},
+				{% endfor %}
+				{% for registration in registrations_maybe %}
 					{{ registration.user.email }},
 				{% endfor %}
 			</p>

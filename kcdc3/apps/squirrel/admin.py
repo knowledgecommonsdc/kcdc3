@@ -19,7 +19,7 @@ class RegistrationInline(admin.TabularInline):
 	extra = 0
 	classes = ('grp-collapse grp-closed',)
 	# inline_classes = ('grp-collapse grp-open',)
-	fields = ('user', 'date_registered', 'cancelled',)
+	fields = ('user', 'date_registered', 'status',)
 	can_delete = False
 	readonly_fields = ('date_registered',)
 	raw_id_fields = ['user']
