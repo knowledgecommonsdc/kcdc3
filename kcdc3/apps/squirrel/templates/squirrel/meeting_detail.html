@@ -44,7 +44,7 @@
  		{% if meeting.location_text %}<p>{{ meeting.location_text|safe }}</p>{% endif %}
 		<p itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
 			{% ifnotequal meeting.location.name meeting.location.address1 %}{{ meeting.location.name }}<br />{% endifnotequal %}
-			{% if meeting.location.address1 and show_sensitive_info %}
+			{% if meeting.location.address1 and perms.squirrel.view_sensitive %}
 				<span itemprop="street-address">
 				{{ meeting.location.address1 }}
 				{% if meeting.location.address2 %}<br />{{ meeting.location.address2 }}{% endif %}
@@ -99,7 +99,7 @@
 
 	<div id="sidebar" class="sidebar_inside">
 
-		{% if show_sensitive_info %}
+		{% if perms.squirrel.view_sensitive %}
 		
 			<ul>
 			{% for registration in registrations %}

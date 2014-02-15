@@ -44,6 +44,9 @@ class Meeting(models.Model):
 		
 	class Meta:
 		ordering = ['-date']
+		permissions = (
+			("view_sensitive", "Can view sensitive information"),
+		)
 
 	def __unicode__(self):
 		return self.title
