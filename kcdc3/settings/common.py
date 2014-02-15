@@ -98,6 +98,7 @@ INSTALLED_APPS = (
 	'kcdc3.apps.pinata',
 	'kcdc3.apps.pigeon',
 	'kcdc3.apps.accounts',
+	'kcdc3.apps.squirrel',
 	'south',
 	'userena',
 	'guardian',
