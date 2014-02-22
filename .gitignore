@@ -25,8 +25,8 @@ kcdc3/public/static/fonts/ss-social/
 codekit-config.json
 
 
-static/node_modules
-static/.tmp
-static/.sass-cache
-static/app/bower_components
-static/test/bower_components
+frontend/node_modules
+frontend/.tmp
+frontend/.sass-cache
+frontend/app/bower_components
+frontend/test/bower_components
