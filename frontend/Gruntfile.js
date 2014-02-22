@@ -248,14 +248,14 @@ module.exports = function (grunt) {
         htmlmin: {
             dist: {
                 options: {
-                    collapseBooleanAttributes: true,
-                    collapseWhitespace: true,
-                    removeAttributeQuotes: true,
-                    removeCommentsFromCDATA: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true
+                    collapseBooleanAttributes: false,
+                    collapseWhitespace: false,
+                    removeAttributeQuotes: false,
+                    removeCommentsFromCDATA: false,
+                    removeEmptyAttributes: false,
+                    removeOptionalTags: false,
+                    removeRedundantAttributes: false,
+                    useShortDoctype: false
                 },
                 files: [{
                     expand: true,
@@ -395,7 +395,7 @@ module.exports = function (grunt) {
         'uglify',
         'copy:dist',
         'modernizr',
-        'rev',
+        // 'rev',
         'usemin',
         'htmlmin'
     ]);
