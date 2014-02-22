@@ -3,14 +3,17 @@
 @import 'vendor/_h5bp.scss'
 @import 'vendor/_normalize.scss'
 
-// project
+// basics
+@import '_resets.sass'
+@import '_settings.sass'
+@import '_helpers.sass'
+@import '_typography.sass'
 
+// project modules
+@import 'modules/_buttons.sass'
 
+// project layouts
+@import 'layouts/_base.sass'
 
-
-
-
-
-
-// trailing dependencies
-@import 'vendor/_h5bp_print.scss'
+// media
+@import '_print.scss'
