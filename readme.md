@@ -12,8 +12,8 @@ See [this repository's wiki](https://github.com/knowledgecommonsdc/kcdc3/wiki) f
 	- kcdc3/  _Django_
 		- apps/  _apps_
 		- public/ 
-			-	media/  _user uploads, served from `MEDIA_URL`_
-			-	static/  _application static files, served from `STATIC_URL`_
+			-	media/  _user uploads, served from_ `MEDIA_URL`
+			-	static/  _application static files, served from_ `STATIC_URL`
 		-	settings/  _configuration_
 		-	templates/  _base templates and overrides for apps_
 		-	tmp/
@@ -27,7 +27,7 @@ See [this repository's wiki](https://github.com/knowledgecommonsdc/kcdc3/wiki) f
 		- app/  _work_
 		- bower.json
 		- dist/  _output of Grunt build_
-			-	assets/  _CSS/JavaScript/fonts, to be served from `ASSET_URL`_
+			-	assets/  _CSS/JavaScript/fonts, to be served from_ `ASSET_URL`
 		- Gruntfile.js
 		- node_modules/  _Grunt plugins_
 		- package.json
