@@ -1,0 +1,111 @@
+
+html,
+button,
+input,
+select,
+textarea
+	color: $cT
+
+body
+	font-size: $font-size
+	line-height: 1.6em
+	font-family: $font-family-main
+	color: $cT
+	font-weight: 400
+	text-align: left
+	
+
+// headers
+
+@for $i from 1 through 6
+	h#{$i}
+		margin: 1.5em 0 0.5em 0
+		font-size: 1em
+		line-height: 1.0em
+		font-weight: bold
+		color: $cA
+	h#{$i} a,
+	h#{$i} a:visited
+	h#{$i} a:hover
+		background: none
+		border: none
+
+h3 a
+	color: $cA
+	border: none
+	background: none
+h3 a:hover
+	color: #fff
+	background: $cA
+
+h1
+	font-size: 3.5em
+	font-weight: 600
+	margin: 0.75em 0 0 0
+	color: $cT-light
+	@media screen and (max-width: 600px)
+		font-size: 2.5em
+	
+h2
+	font-size: 1.75em
+	margin-top: 2.5em
+h2:first-child
+	margin-top: 0
+
+h3
+	font-size: 1.25em
+	font-weight: bold
+	line-height: 1.25em
+	margin-top: 2em
+
+h3.alt
+	color: $cB
+
+h4
+	margin: 1.5em 0 0.5em 0
+	font-size: 0.9em
+	font-weight: bold
+	text-transform: uppercase
+	letter-spacing: 0.1em
+
+h5
+	font-weight: normal
+
+h6
+	font-style: italic
+	font-weight: bold
+	font-weight: 400
+
+	
+// blocks
+
+p, ul, ol
+	margin: 1em 0 0 0
+
+.intro
+	font-size: 1.6em
+	line-height: 1.6em
+	font-weight: 400
+	color: $cB
+
+.intro + p
+	margin-top: 2em
+
+.secondary
+	font-size: 0.75em
+	line-height: 1.5em
+
+blockquote
+	border-left: 1px solid $cN2
+	padding: 0.25em 1em 1em 1em
+	
+
+// inline elements
+
+em, cite, i
+	font-style: italic
+
+strong, b
+	font-weight: bold
+	
+	

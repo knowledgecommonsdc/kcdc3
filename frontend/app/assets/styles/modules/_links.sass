@@ -1,0 +1,37 @@
+
+// links
+
+
+// basic links
+
+a
+	color: $c-link
+	text-decoration: none
+	padding: 1px 2px
+	border-bottom: 1px solid $c-link-border
+	
+a:visited
+	color: $c-link-visited
+	border: $c-link-visited-border
+
+a:hover
+	color: $c-link_hover
+	background: $c-link-hover-background
+	border-bottom: 1px solid $c-link-hover-background
+
+
+
+
+// no borders
+
+@mixin noborder
+	background: none
+	border: none
+	color: inherit
+
+a.noborder, a.noborder:hover
+	+noborder
+
+a img
+	+noborder
+
