@@ -19,6 +19,9 @@ BODY_WAITLISTED = 'classes/email_waitlisted.txt'
 BODY_CANCELLED = 'classes/email_cancelled.txt'
 BODY_PROMOTED = 'classes/email_promoted.txt'
 
+REMINDER_SUBJECT = 'classes/email_reminder_subject.txt'
+REMINDER_BODY = 'classes/email_reminder_body.txt'
+
 class RegistrationEmail(EmailMessage):
 	""" Wrapper class for the builtin EmailMessage class provided
 	by django."""
@@ -123,4 +126,13 @@ def send_registration_mail(event, registration_flag, student):
 	"""Helper function to facilitate the sending of email. Keeps things
 	DRY."""
 	email = RegistrationEmail(event, registration_flag, to=student)
+	email.send()
+
+# supah hack-- piggybacks on registration emails since they are almost identical
+def send_reminder_email(reg):
+	email = RegistrationEmail(reg.event, 'registered', to=reg.student.email)
+# Gets a random newline somehow even though there isnt one in the template?
+#	email.subject = render_to_string(REMINDER_SUBJECT, email.generate_context(reg.event))
+	email.subject = 'Knowledge Commons reminder: upcoming class!'
+	email.body = render_to_string(REMINDER_BODY, email.generate_context(reg.event))
 	email.send()
