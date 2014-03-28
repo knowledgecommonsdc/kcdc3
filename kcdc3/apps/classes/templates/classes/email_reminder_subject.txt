@@ -1,0 +1,1 @@
+KCDC Reminder: You are registered for {{ title }}!

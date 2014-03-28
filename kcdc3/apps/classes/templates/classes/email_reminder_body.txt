@@ -1,0 +1,35 @@
+Just a reminder that your Knowledge Commons class is coming up!
+
+CLASS: {{ title }}
+
+DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{% endif %}
+
+{% if additional_dates_text %}ADDITIONAL MEETINGS: {{ additional_dates_text|striptags }}{% endif %}
+
+{% if email_welcome_text %}ADDITIONAL INFORMATION:
+{{ email_welcome_text }}{% endif %}
+
+LOCATION:
+{% ifnotequal location_name location_address1 %}{{ location_name }}{% endifnotequal %}
+{{ location_address1 }}
+{% if location_address2 %}{{ location_address2 }}{% endif %}
+{% if location_city %}{{ location_city }}, {% endif %} {% if location_state %}{{ location_state }}{% endif %}{% if location_zip %}{{ location_zip }}{% endif %}
+{% if location_neighborhood %}Neighborhood: {{ location_neighborhood }} {% endif %}
+{% if location_hint %}
+{{ location_hint }}{% endif %}
+
+COURSE WEBPAGE:
+http://knowledgecommonsdc.org/classes/{{ slug }}
+
+Our teachers and organizers have volunteered their time and resources to
+create this experience, so if you're unable to attend please cancel as far in
+advance as you can. Many of our classes have waitlists, and our teachers need
+to know how many students to expect.
+
+You can cancel your registration at:
+http://knowledgecommonsdc.org/classes/{{ slug }}
+
+With best wishes,
+Knowledge Commons DC
+
+http://knowledgecommonsdc.org
