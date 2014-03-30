@@ -6,6 +6,9 @@ from django.core.mail import EmailMessage
 from kcdc3.apps.classes.models import Event
 from kcdc3.apps.classes.email import send_reminder_email
 
+# TODO: use Event's email_welcome_text, email_reminder, email_reminder_text
+# TODO: move all logic into separate class
+
 class Command(BaseCommand):
     args = '<days_ahead>'
     help = 'Sends out email alerts to participants of all events that will occur <days_ahead> days from today (midnight to 11.59pm of that day, regardless of the current time today)'
