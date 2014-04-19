@@ -209,9 +209,26 @@ class Event(models.Model):
 	)
 	type = models.CharField(max_length=9, choices=TYPE_CHOICES, default='CLASS')
 
-	summary = models.TextField(blank=True)
+	summary = models.TextField('Teaser', blank=True)
 	description = models.TextField(blank=True)
 	details = models.TextField('Pre-class details', blank=True)
+	
+	TN_SMALL = 'small'
+	TN_LARGE = 'large'
+	LIST_LAYOUT_CHOICES = (
+		(TN_SMALL, 'Small'),
+		(TN_LARGE, 'Large'),
+	)
+	list_layout = models.CharField(max_length=5, choices=LIST_LAYOUT_CHOICES, default=TN_LARGE)
+
+	IMG_SMALL = 'small'
+	IMG_LARGE = 'large'
+	IMG_LAYOUT_CHOICES = (
+		(IMG_SMALL, 'Small'),
+		(IMG_LARGE, 'Large'),
+	)
+	img_layout = models.CharField(max_length=5, choices=IMG_LAYOUT_CHOICES, default=IMG_LARGE)
+
 	thumbnail = models.ImageField('Thumbnail (max 432px wide)', upload_to='event_images', blank=True, null=True)
 	main_image = models.ImageField('Main image (max 660px wide)', upload_to='event_images', blank=True, null=True)
 	caption = models.TextField(blank=True)
