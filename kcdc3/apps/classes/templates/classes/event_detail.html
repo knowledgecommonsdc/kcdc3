@@ -66,6 +66,7 @@
 		</p>
 		
 		{% if event.main_image %}<p><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
+		{% if event.caption %}<div class="caption">{{ event.caption | smartlines | safe }}</div>{% endif %}
 	
 		{{ event.description | smartlines | safe }}
 
