@@ -34,6 +34,8 @@
 
 		<dl class="calendar">
 
+			{# TODO this basic event listing appears in three places #}
+
 			{% for event in events reversed %}
 
 				{% if not event.has_passed and event.status == "PUBLISHED" %}
