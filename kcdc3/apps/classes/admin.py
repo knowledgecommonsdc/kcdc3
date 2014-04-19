@@ -106,7 +106,13 @@ class EventAdmin(admin.ModelAdmin):
 		('Description', {
 			'classes': ('grp-collapse grp-open',), 
 			'fields': [
-				'summary', 'description', ('thumbnail', 'main_image'), 'caption',
+				'summary', 'description',
+			]
+		}),
+		('Visuals', {
+			'classes': ('grp-collapse grp-open',), 
+			'fields': [
+				('list_layout','img_layout'), ('thumbnail', 'main_image'), 'caption',
 			]
 		}),
 		('Registration',	{'fields': [('registration_status', 'registration_opens',), ('max_students', 'waitlist_status', 'registration_count','waitlist_count'),]}),
