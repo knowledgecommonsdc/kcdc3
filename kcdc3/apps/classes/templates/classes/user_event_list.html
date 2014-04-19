@@ -1,0 +1,80 @@
+{% extends "classes/event_base.html" %}
+{% load pinata_filters %}
+
+{% block title %} / Classes and Events{% endblock %}
+
+{% block content %}
+
+	<div id="hed_wide">
+		<h1>My Classes</h1>
+	</div>
+
+	<div id="main_wide">
+	
+		<table class="user_event_list">
+			<thead>
+				<tr>
+					<td class="user_event_list__class">
+						Class
+					</td>
+					<td class="user_event_list__date">
+						Date
+					</td>
+					<td class="user_event_list__time">
+						Time
+					</td>
+					<td class="user_event_list__status">
+						My Registration
+					</td>
+					<td class="user_event_list__attendance">
+						My Attendance
+					</td>
+				</tr>
+			</thead>
+			
+			<tbody>
+			{% for registration in registration_list %}
+				<tr class="{% if registration.cancelled %}user_event--cancelled{% endif %}">
+					<td class="user_event_list__class">
+						<a href="/classes/{{ registration.event.slug }}">{{ registration.event.title }}</a>
+					</td>
+					<td class="user_event_list__date">
+						{{ registration.event.date | date:"D. j N Y" }}
+					</td>
+					<td class="user_event_list__time">
+						{{ registration.event.date | date:"P" }}
+					</td>
+					<td class="user_event_list__status">
+						{% if registration.cancelled %}
+							cancelled
+						{% elif registration.waitlist %}
+							waitlist
+						{% elif registration.late_promotion %}
+							late promotion
+						{% else %}
+							registered
+						{% endif %}
+					</td>
+					<td class="user_event_list__attendance">
+						{% if registration.attended = True %}
+							Attended
+						{% elif registration.attended = False %}
+							Absent
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		
+		</table>
+	
+	</div>
+
+{% endblock %}
+
+
+
+
+{% block sidebar %}
+	{# empty sidebar #}
+{% endblock %}
