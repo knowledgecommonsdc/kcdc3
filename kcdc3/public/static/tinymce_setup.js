@@ -33,7 +33,7 @@ tinyMCE.init({
     accessibility_warnings: false,
     browsers: 'gecko,msie,safari,opera',
     dialog_type: 'window',
-	elements: 'id_summary,id_description,id_details,id_additional_dates_text,id_documentation,id_teaser,id_main_text,id_sidebar_text,id_staff_description,id_extended_description,id_bio_text',
+	elements: 'id_caption,id_summary,id_description,id_details,id_additional_dates_text,id_documentation,id_teaser,id_main_text,id_sidebar_text,id_staff_description,id_extended_description,id_bio_text',
     keep_styles: false,
     language: 'en',
     object_resizing: false,
