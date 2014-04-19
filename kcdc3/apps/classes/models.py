@@ -214,6 +214,7 @@ class Event(models.Model):
 	details = models.TextField('Pre-class details', blank=True)
 	thumbnail = models.ImageField('Thumbnail (max 432px wide)', upload_to='event_images', blank=True, null=True)
 	main_image = models.ImageField('Main image (max 660px wide)', upload_to='event_images', blank=True, null=True)
+	caption = models.TextField(blank=True)
 
 	email_welcome_text = models.TextField('Extra text for welcome email', blank=True)
 	email_reminder = models.BooleanField('Send reminder email?', default=True)
