@@ -38,6 +38,7 @@
 					<li><a href="/blog">Blog</a></li>
 
 					{% if user.is_authenticated %}
+					<li class="user_logout"><a href="/my/classes" class="">My Schedule</a></li>
 					<li class="user_logout"><a href="/accounts/{{ user }}" class="username">{{ user }}</a> <a href="/accounts/signout" class="login">(log out)</a></li>
 					{% else %}
 					<li  class="user_logout"><a href="/accounts/signup" class="login">Join</a> / <a href="/accounts/signin" class="login">Log in</a></li>
@@ -73,6 +74,7 @@
 					<li><a href="/blog">Blog</a></li>
 
 				{% if user.is_authenticated %}
+					<li class="user_logout"><a href="/my/classes" class="">My Schedule</a></li>
 					<li class="user_logout"><a href="/accounts/{{ user }}" class="username">{{ user }}</a></li>
 					<li class="user_logout"><a href="/accounts/signout" class="login">(log out)</a></li>
 				{% else %}
