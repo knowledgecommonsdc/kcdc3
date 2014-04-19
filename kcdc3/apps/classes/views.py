@@ -233,6 +233,29 @@ def facilitator(request, slug):
 
 
 
+# each student can see a list of courses for which they are registered
+# eventually will expand into a list of courses for each student/teacher
+# display a list of registrations for a given session
+class UserEventListView(ListView):
+
+	template_name = "classes/user_event_list.html"
+	model = Registration
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(UserEventListView, self).get_context_data(**kwargs)
+
+		context['registration_list'] = Registration.objects.filter(student=self.request.user).order_by('-event__date')
+
+		return context
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(UserEventListView, self).dispatch(*args, **kwargs)
+
+		
+
+
 # display a list of registrations for a given session
 class RegistrationListView(ListView):
 

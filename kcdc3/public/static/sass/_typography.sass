@@ -31,6 +31,15 @@ a.noborder, a.noborder:hover
 a img
 	+noborder
 
+
+// reusable
+
+@mixin smallcaps
+	font-size: 0.9em
+	text-transform: uppercase
+	letter-spacing: 0.1em
+
+
 // headers
 
 @for $i from 1 through 6
@@ -118,5 +127,6 @@ em, cite, i
 	
 strong, b
 	font-weight: bold
+	
 	
 	
