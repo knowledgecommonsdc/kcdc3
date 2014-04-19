@@ -78,7 +78,13 @@
 								{% endif %}
 							
 							</p>
-							{% if event.thumbnail %}<img src="/media/{{ event.thumbnail }}" alt="" class="event_thumbnail" />{% endif %}
+
+							{% if event.thumbnail %}
+								<div class="event_thumbnail {% if event.list_layout == 'small' %}event_thumbnail_small{% endif %}">
+									<img src="/media/{{ event.thumbnail }}" alt="" class="" />
+								</div>
+							{% endif %}
+
 							{{ event.summary | smartquotes | safe }}
 							<p>
 								<i class="ss-icon">user</i> Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
