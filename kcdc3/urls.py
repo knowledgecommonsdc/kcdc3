@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 
 	url(r'^$', 'kcdc3.apps.pinata.views.home'),
 	url(r'^classes/', include('kcdc3.apps.classes.urls')),
+	url(r'^my/', include('kcdc3.apps.classes.urls')),
 	url(r'^blog/', include('kcdc3.apps.pigeon.urls')),
 	url(r'^teach/proposal/$', 'kcdc3.apps.pinata.views.proposal'),
 	url(r'^about/$', 'kcdc3.apps.pinata.views.staff'),
