@@ -182,6 +182,7 @@ class Bio(models.Model):
 # an Event is a single class or other event
 class Event(models.Model):
 	
+	# fundamentals
 	title = models.CharField(max_length=200)
 	slug = models.SlugField(unique=True)
 	STATUS_CHOICES = (
@@ -191,13 +192,17 @@ class Event(models.Model):
 		('REMOVED', 'Removed'),
 	)
 	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='PUBLISHED')
+	
+	# show on front page
 	featured = models.BooleanField(default=False)
 	
+	# dates
 	session = models.ForeignKey(Session, blank=False, null=True, on_delete=models.SET_NULL, related_name='session')
 	date = models.DateTimeField('First meeting')
 	end_time = models.TimeField('End time', blank=True, null=True)
 	additional_dates_text = models.TextField('Notes about additional meetings', blank=True)
 
+	# locational
 	location = models.ForeignKey(Location, blank=True, null=True, on_delete=models.SET_NULL, related_name='location')
 	partner = models.ForeignKey(Partner, blank=True, null=True, on_delete=models.SET_NULL, related_name='partner')
 	
@@ -209,10 +214,13 @@ class Event(models.Model):
 	)
 	type = models.CharField(max_length=9, choices=TYPE_CHOICES, default='CLASS')
 
+	# descriptive text
 	summary = models.TextField('Teaser', blank=True)
 	description = models.TextField(blank=True)
 	details = models.TextField('Pre-class details', blank=True)
+	documentation = models.TextField(blank=True)
 	
+	# list view
 	TN_SMALL = 'small'
 	TN_LARGE = 'large'
 	LIST_LAYOUT_CHOICES = (
@@ -220,7 +228,9 @@ class Event(models.Model):
 		(TN_LARGE, 'Large'),
 	)
 	list_layout = models.CharField(max_length=5, choices=LIST_LAYOUT_CHOICES, default=TN_LARGE)
+	thumbnail = models.ImageField('Thumbnail (max 432px wide)', upload_to='event_images', blank=True, null=True)
 
+	# detail view
 	IMG_SMALL = 'small'
 	IMG_LARGE = 'large'
 	IMG_LAYOUT_CHOICES = (
@@ -228,20 +238,19 @@ class Event(models.Model):
 		(IMG_LARGE, 'Large'),
 	)
 	img_layout = models.CharField(max_length=5, choices=IMG_LAYOUT_CHOICES, default=IMG_LARGE)
-
-	thumbnail = models.ImageField('Thumbnail (max 432px wide)', upload_to='event_images', blank=True, null=True)
 	main_image = models.ImageField('Main image (max 660px wide)', upload_to='event_images', blank=True, null=True)
 	caption = models.TextField(blank=True)
 
-	email_welcome_text = models.TextField('Extra text for welcome email', blank=True)
-	email_reminder = models.BooleanField('Send reminder email?', default=True)
-	email_reminder_text = models.TextField('Extra text for reminder email', blank=True)
+	# email reminders
+	email_welcome_text = models.TextField('Extra text for welcome email', blank=True)  
+	email_reminder = models.BooleanField('Send reminder email?', default=True)  # unused
+	email_reminder_text = models.TextField('Extra text for reminder email', blank=True)  # unused
 
-	documentation = models.TextField(blank=True)
-	
+	# student numbers and waitlist
 	max_students = models.IntegerField('Max students', blank=True, null=True, default=999)
 	waitlist_status = models.BooleanField('Use waitlist', default=True)
 	
+	# registration control
 	REGISTRATION_STATUS_CHOICES = (
 		('AUTO', 'Auto'),
 		('ALLOW', 'Allow (+)'),
@@ -251,6 +260,7 @@ class Event(models.Model):
 	registration_status = models.CharField(max_length=7, choices=REGISTRATION_STATUS_CHOICES, default='AUTO')
 	registration_opens = models.DateTimeField(blank=True, null=True)
 
+	# people associated with this class
 	teacher_bios = models.ManyToManyField(Bio, blank=True, null=True, related_name='event')
 	teachers = models.ManyToManyField(User, blank=True, null=True, related_name='teachers')
 	facilitators = models.ManyToManyField(User, blank=True, null=True, related_name='facilitators')
