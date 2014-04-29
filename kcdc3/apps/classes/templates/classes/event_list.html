@@ -94,8 +94,13 @@
 							{{ event.summary | smartquotes | safe }}
 
 							<p>
-								<i class="ss-icon">user</i> Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
+								<i class="ss-icon">&#x1F464;</i> Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
 							</p>
+							
+							{% if event.registration_status == "AUTO" and not event.is_registration_open and not event.has_passed %}	
+								<p class="registration-open-info"><i class="ss-icon">&#xF072;</i> Registration opens at {{ event.registration_opens|time:"P" }} on {{ event.registration_opens|date:"j F" }}</p>
+							{% endif %}
+							
 						</a>
 					</dd>
 
