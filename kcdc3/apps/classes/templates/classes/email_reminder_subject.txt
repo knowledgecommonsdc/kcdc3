@@ -1,1 +1,1 @@
-KCDC Reminder: You are registered for {{ title|safe }}!
+KCDC reminder: {{ title|safe }}

@@ -133,7 +133,7 @@ def send_registration_mail(event, registration_flag, student):
 def send_reminder_email(reg):
 	email = RegistrationEmail(reg.event, 'registered', to=reg.student.email)
 # Gets a random newline somehow even though there isnt one in the template?
-#	email.subject = render_to_string(REMINDER_SUBJECT, email.generate_context(reg.event))
-	email.subject = 'KCDC reminder: upcoming class!'
+	email.subject = render_to_string(REMINDER_SUBJECT, email.generate_context(reg.event))
+	# email.subject = 'KCDC reminder: upcoming class!'
 	email.body = render_to_string(REMINDER_BODY, email.generate_context(reg.event))
 	email.send()
