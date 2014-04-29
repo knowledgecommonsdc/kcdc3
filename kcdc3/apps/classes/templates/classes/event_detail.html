@@ -123,7 +123,7 @@
 			<!-- hide registration info -->
 		{% else %}
 			{% if event.registration_status == "AUTO" and not event.is_registration_open %}	
-				<h3>Registration for this class opens {{ event.registration_opens|date:"l, j F, P" }}</h3>
+				<h3>Registration for this class opens at {{ event.registration_opens|time:"P" }} on {{ event.registration_opens|date:"l, j F" }}</h3>
 			{% elif event.registration_status == "PREVENT" %}	
 				<h3>Registration is closed.</h3>
 			{% elif registration_count >=  event.max_students %}
