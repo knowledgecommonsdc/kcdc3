@@ -30,7 +30,7 @@ LOCATION:
 {% if location_hint %}
 {{ location_hint }}{% endif %}
 
-COURSE WEBPAGE:
+COURSE PAGE:
 http://knowledgecommonsdc.org/classes/{{ slug }}
 
 If you'd like to participate more actively in this gift economy, 

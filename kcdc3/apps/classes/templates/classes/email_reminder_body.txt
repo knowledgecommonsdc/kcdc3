@@ -1,11 +1,17 @@
-Just a reminder that your Knowledge Commons class is coming up!
+Your Knowledge Commons DC class is coming up!
 
-CLASS: {{ title }}
-
+CLASS: {{ title|safe }}
 DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{% endif %}
 
-{% if additional_dates_text %}ADDITIONAL MEETINGS: {{ additional_dates_text|striptags }}{% endif %}
+We look forward to seeing you there.
 
+Most of our classes have waitlists. If you can no longer attend, 
+please cancel your registration. (Do this now, not ten minutes 
+before the class starts.) You can cancel your registration at:
+
+http://knowledgecommonsdc.org/classes/{{ slug }}
+
+{% if additional_dates_text %}ADDITIONAL MEETINGS: {{ additional_dates_text|striptags }}{% endif %}
 {% if email_welcome_text %}ADDITIONAL INFORMATION:
 {{ email_welcome_text }}{% endif %}
 
@@ -15,21 +21,16 @@ LOCATION:
 {% if location_address2 %}{{ location_address2 }}{% endif %}
 {% if location_city %}{{ location_city }}, {% endif %} {% if location_state %}{{ location_state }}{% endif %}{% if location_zip %}{{ location_zip }}{% endif %}
 {% if location_neighborhood %}Neighborhood: {{ location_neighborhood }} {% endif %}
-{% if location_hint %}
-{{ location_hint }}{% endif %}
+{% if location_hint %}{{ location_hint }}{% endif %}
 
-COURSE WEBPAGE:
+FACILITATOR (get in touch if you have questions):
+{% for facilitator in facilitators %}{{ facilitator.first_name }} {{ facilitator.last_name }}
+{{ facilitator.email }}
+{{ facilitator.extendedprofile.phone_number }}{% endfor %}
+
+COURSE PAGE:
 http://knowledgecommonsdc.org/classes/{{ slug }}
 
-Our teachers and organizers have volunteered their time and resources to
-create this experience, so if you're unable to attend please cancel as far in
-advance as you can. Many of our classes have waitlists, and our teachers need
-to know how many students to expect.
-
-You can cancel your registration at:
-http://knowledgecommonsdc.org/classes/{{ slug }}
-
-With best wishes,
+Onward and upward!
 Knowledge Commons DC
-
 http://knowledgecommonsdc.org
