@@ -24,10 +24,11 @@ LOCATION:
 {% if location_hint %}{{ location_hint }}{% endif %}
 
 FACILITATOR (get in touch if you have questions):
-{% for facilitator in facilitators %}{{ facilitator.first_name }} {{ facilitator.last_name }}
+{% for facilitator in facilitators %}
+{{ facilitator.first_name }} {{ facilitator.last_name }}
 {{ facilitator.email }}
-{{ facilitator.extendedprofile.phone_number }}{% endfor %}
-
+{{ facilitator.extendedprofile.phone_number }}
+{% endfor %}
 COURSE PAGE:
 http://knowledgecommonsdc.org/classes/{{ slug }}
 
