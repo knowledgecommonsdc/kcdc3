@@ -6,7 +6,7 @@ DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{
 We look forward to seeing you there.
 
 Most of our classes have waitlists. If you can no longer attend, 
-please cancel your registration. (Do this now, not ten minutes 
+please cancel your registration. (Do this now, not an hour 
 before the class starts.) You can cancel your registration at:
 
 http://knowledgecommonsdc.org/classes/{{ slug }}
