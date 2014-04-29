@@ -62,8 +62,8 @@ class RegistrationEmail(EmailMessage):
 		djrill and the Mandrill API, but the regular Django SMTP backend
 		does expect the header to be set. """
 
-		self.extra_headers = kwargs.get('extra_headers')
-		# self.extra_headers = {'From': self.from_email}
+		# self.extra_headers = kwargs.get('extra_headers')
+		self.extra_headers = {'From': self.from_email}
 				
 	def generate_context(self, event):
 		"""Generate the set of key value pairs that will be used
@@ -87,6 +87,7 @@ class RegistrationEmail(EmailMessage):
 			'details': event.details,
 			'email_welcome_text': event.email_welcome_text,	
 			'is_late_promotion': event.is_late_promotion,	
+			'facilitators': event.facilitators.all,
 			}
 
 	def generate_subject(self, registration_flag):
@@ -133,6 +134,6 @@ def send_reminder_email(reg):
 	email = RegistrationEmail(reg.event, 'registered', to=reg.student.email)
 # Gets a random newline somehow even though there isnt one in the template?
 #	email.subject = render_to_string(REMINDER_SUBJECT, email.generate_context(reg.event))
-	email.subject = 'Knowledge Commons reminder: upcoming class!'
+	email.subject = 'KCDC reminder: upcoming class!'
 	email.body = render_to_string(REMINDER_BODY, email.generate_context(reg.event))
 	email.send()
