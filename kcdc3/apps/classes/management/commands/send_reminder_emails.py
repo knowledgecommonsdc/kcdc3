@@ -2,6 +2,7 @@ from datetime import date, timedelta
 
 from django.core.management.base import BaseCommand, CommandError
 from django.core.mail import EmailMessage
+from django.db.models import Q
 
 from kcdc3.apps.classes.models import Event
 from kcdc3.apps.classes.email import send_reminder_email
@@ -18,7 +19,10 @@ class Command(BaseCommand):
             raise CommandError('Please specify the number of days from today that you want to send reminders for.')
         alert_day = date.today() + timedelta(days=int(args[0]))
         print '{0}: Finding events for {1}...'.format(date.today(), alert_day)
-        events = Event.objects.filter(date__year=alert_day.year, date__month=alert_day.month, date__day=alert_day.day)
+        events = Event.objects.filter(
+				Q(status='PUBLISHED') | Q(status='HIDDEN'),
+				date__year=alert_day.year, date__month=alert_day.month, date__day=alert_day.day
+			)
         for event in events:
             self.send_emails_for_event(event)                    
         print 'Success!'
