@@ -57,9 +57,9 @@
 					</td>
 					<td class="user_event_list__attendance">
 						{% if registration.attended = True %}
-							Attended
-						{% elif registration.attended = False %}
-							Absent
+							<i class="status-inline status-attended">Attended</i>
+						{% elif registration.attended = False and not registration.waitlist and not registration.cancelled %}
+							<i class="status-inline status-absent">Absent</i>
 						{% endif %}
 					</td>
 				</tr>
