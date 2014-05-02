@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.contrib.syndication.views import Feed
 from models import Post
 from kcdc3.apps.classes.models import Bio
-
+from django.conf import settings
 
 
 # display a list of posts
@@ -62,9 +62,9 @@ class PostDetailView(DetailView):
 
 # RSS feed
 class BlogFeed(Feed):
-	title = "KCDC Blog"
+	title = settings.PROJECT_NAME + " Blog"
 	link = "/blog/"
-	description = "Knowledge Commons DC Blog"
+	description = settings.PROJECT_NAME + " Blog"
 
 	def items(self):
 		return Post.objects.filter(status='PUBLISHED').exclude(date__gte=datetime.now()).order_by('-date')[:10]
