@@ -10,6 +10,13 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+
+# KCDC3 settings
+PROJECT_NAME = 'Knowledge Commons DC'
+PROJECT_SHORT_NAME = 'KCDC'
+PROJECT_EMAIL = 'contact@knowledgecommonsdc.org'
+
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -46,6 +53,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.core.context_processors.i18n",
     'django.contrib.messages.context_processors.messages',
+	'kcdc3.apps.classes.context_processors.global_settings',
 )
 
 GRAPPELLI_INDEX_DASHBOARD = 'kcdc3.settings.dashboard.CustomIndexDashboard'

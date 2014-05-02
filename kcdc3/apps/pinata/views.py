@@ -1,7 +1,7 @@
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
 from datetime import datetime
-from django.template import Context
+from django.template import RequestContext
 from django.views.generic import DetailView, TemplateView, ListView
 from django.db.models import Q
 from models import Page, Notice, Slide, Sponsor, PressClipping
@@ -12,7 +12,7 @@ from kcdc3.apps.pigeon.models import Post
 def page_view(request):
 	""" Handle requests for pages. """
 
-	context = Context()
+	context = RequestContext()
 	context['user'] = request.user
 
 	# debug
@@ -48,7 +48,7 @@ def page_view(request):
 	template_path = 'pinata/' + e.template
 		
 	if e.status == 'PUBLISHED' or e.status == 'HIDDEN':
-		return render_to_response(template_path, context)
+		return render_to_response(template_path, context, context_instance=RequestContext(context))
 	else:
 		raise Http404
 		
