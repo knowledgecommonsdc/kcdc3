@@ -1,9 +1,11 @@
+{% load pinata_filters %}
+
 <!DOCTYPE html>
 <html class="no-js">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Knowledge Commons DC {% block title %}{% endblock %}</title>
+		<title>{% boilerplate 'project_name' %} {% block title %}{% endblock %}</title>
         <meta name="description" content="Knowledge Commons DC (KCDC) is a free school for thinkers, doers, and tinkerers - taught anywhere, by anyone, for everyone.">
         <meta name="viewport" content="width=device-width">
 

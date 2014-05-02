@@ -4,6 +4,14 @@
 import os
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
+
+# Project content settings
+PROJECT_NAME = 'Knowledge Commons DC'
+PROJECT_SHORT_NAME = 'KCDC'
+
+
+
+
 ADMINS = (
     ('KCDC', 'contact@knowledgecommonsdc.org'),
 )
