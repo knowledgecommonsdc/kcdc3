@@ -1,3 +1,5 @@
+{% load pinata_filters %}
+
 {% extends 'userena/base_userena.html' %}
 {% load i18n %}
 
@@ -29,7 +31,7 @@
 		{% endfor %}
 	</fieldset>
 
-	<p>When you create an account, we will add you to the Knowledge Commons DC mailing list. (That takes time, though, so if you want to receive updates immediately, sign up for the list yourself &ndash; the form is in the footer.)</p>
+	<p>When you create an account, we will add you to the {% boilerplate 'project_name' %} mailing list. (That takes time, though, so if you want to receive updates immediately, sign up for the list yourself &ndash; the form is in the footer.)</p>
 
 	<input type="submit" value="{% trans "Signup"%}" />
 </form>
