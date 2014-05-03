@@ -5,7 +5,8 @@
 	<h1>{{ title }}</h1>
 	
 	<h2>Registered students ({{ registration_count }})</h2>	
-	<table>
+	<table class="basic_table facilitator_student_list">
+		<thead>
 		<tr>
 			<td>
 				name
@@ -26,6 +27,8 @@
 				attendance
 			</td>
 		</tr>
+		</thead>
+		<tbody>
 	{% for registration in registered_students %}
 		<tr>
 			<td>
@@ -47,6 +50,7 @@
 				{{ registration.attended }} 
 			</td>
 		</tr>
+		</tbody>
 	{% endfor %}
 	</table>
 
@@ -60,7 +64,8 @@
 	</p>
 
 	<h2>Waitlisted students ({{ waitlist_count }})</h2>	
-	<table>
+	<table class="basic_table facilitator_student_list">
+		<thead>
 		<tr>
 			<td>
 				name
@@ -78,6 +83,8 @@
 				date registered
 			</td>
 		</tr>
+		</thead>
+		<tbody>
 	{% for registration in waitlisted_students %}
 		<tr>
 			<td>
@@ -100,6 +107,7 @@
 			</td>
 		</tr>
 	{% endfor %}
+		</tbody>
 	</table>
 	
 	<h4>Waitlisted student emails:</h4>
@@ -110,7 +118,6 @@
 	{% endfor %}
 	contact@knowledgecommonsdc.org
 	</p>
-
 
 
 	<hr />

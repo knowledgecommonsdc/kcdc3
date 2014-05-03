@@ -471,9 +471,9 @@ button.button_link
 
 
 
-// user dashboard and event listings --------------------------
 
-.user_event_list
+// basic table ------------------------------------------
+.basic_table
 	margin: 2em 0 2em 0
 	width: 100%
 	a
@@ -484,6 +484,25 @@ button.button_link
 		padding: 0.75em
 	tbody > tr:nth-child(odd)
 		background-color: $colorE
+	tbody
+		.user_event_list__class
+			font-weight: bold
+			font-weight: 700
+	thead td
+		+smallcaps
+	.basic_table--cancelled td,
+	.basic_table--cancelled a
+		color: $color_text_lighter3
+		font-weight: normal
+		font-weight: 400
+	a:hover
+		color: $color_link
+		background: none
+
+
+
+// user dashboard and event listings --------------------------
+.user_event_list
 	.user_event_list__class
 		width: 40%
 	.user_event_list__date
@@ -497,18 +516,5 @@ button.button_link
 	.user_event_list__attendance
 		width: 20%
 		border-left: 1px solid $colorE1
-	tbody
-		.user_event_list__class
-			font-weight: bold
-			font-weight: 700
-	thead td
-		+smallcaps
-	.user_event--cancelled td,
-	.user_event--cancelled a
-		color: $color_text_lighter3
-		font-weight: normal
-		font-weight: 400
-	a:hover
-		color: $color_link
-		background: none
+
 
