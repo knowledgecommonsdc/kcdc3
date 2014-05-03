@@ -62,8 +62,8 @@ class RegistrationEmail(EmailMessage):
 		djrill and the Mandrill API, but the regular Django SMTP backend
 		does expect the header to be set. """
 
-		self.extra_headers = kwargs.get('extra_headers')
-		# self.extra_headers = {'From': self.from_email}
+		# self.extra_headers = kwargs.get('extra_headers')
+		self.extra_headers = {'From': self.from_email}
 				
 	def generate_context(self, event):
 		"""Generate the set of key value pairs that will be used
@@ -132,8 +132,17 @@ def send_registration_mail(event, registration_flag, student):
 # supah hack-- piggybacks on registration emails since they are almost identical
 def send_reminder_email(reg):
 	email = RegistrationEmail(reg.event, 'registered', to=reg.student.email)
-# Gets a random newline somehow even though there isnt one in the template?
 	email.subject = render_to_string(REMINDER_SUBJECT, email.generate_context(reg.event))
-	# email.subject = 'KCDC reminder: upcoming class!'
 	email.body = render_to_string(REMINDER_BODY, email.generate_context(reg.event))
 	email.send()
+
+# Sends a copy of a reminder message to specified address for quality control purposes.
+# This is erribly duplicative, but keeping this separate will minimize the need for 
+# testing during the session. 
+def send_reminder_qc_email(event, address):
+	email = RegistrationEmail(event, 'registered', to=address)
+	email.subject = render_to_string(REMINDER_SUBJECT, email.generate_context(event))
+	email.body = render_to_string(REMINDER_BODY, email.generate_context(event))
+	email.send()
+	
+	
