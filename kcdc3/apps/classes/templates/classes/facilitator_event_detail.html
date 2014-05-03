@@ -53,6 +53,9 @@
 		</tbody>
 	{% endfor %}
 	</table>
+	
+	
+	<section class="noprint">
 
 	<h4>Registered student emails:</h4>
 
@@ -62,6 +65,9 @@
 	{% endfor %}
 	contact@knowledgecommonsdc.org
 	</p>
+	
+	</section>
+	
 
 	<h2>Waitlisted students ({{ waitlist_count }})</h2>	
 	<table class="basic_table facilitator_student_list">
@@ -110,6 +116,9 @@
 		</tbody>
 	</table>
 	
+	
+	<section class="noprint">
+		
 	<h4>Waitlisted student emails:</h4>
 
 	<p>
@@ -118,11 +127,13 @@
 	{% endfor %}
 	contact@knowledgecommonsdc.org
 	</p>
+	
+	</section>
 
 
 	<hr />
 
-	<p><a href="/classes/{{ slug }}">main class page</a></p>
+	<p class="noprint"><a href="/classes/{{ slug }}">main class page</a></p>
 	
 {% endblock %}
 
