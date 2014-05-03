@@ -85,13 +85,14 @@ class Partner(models.Model):
 	image = models.ImageField('Image (150x150px max)', upload_to='partners', blank=True, null=True)
 
 	class Meta:
-		verbose_name=u'Class Partner'
+		verbose_name=u'Location Partner'
 
 	def __unicode__(self):
 		return self.name
 
 
 
+# A group that a person is part of
 class Role(models.Model):
 	
 	name = models.CharField('Name', max_length=48)
@@ -101,10 +102,13 @@ class Role(models.Model):
 
 	class Meta:
 		ordering = ['sort_order']
-		verbose_name=u'Staff Role'
+		verbose_name=u'Staff Team/Group'
+		verbose_name_plural=u'Staff Teams/Groups'
 
 	def __unicode__(self):
 		return self.name
+
+	
 
 
 
@@ -172,7 +176,7 @@ class Bio(models.Model):
 			
 	class Meta:
 		ordering = ['name']
-		verbose_name=u'Staff/Teacher Bio'
+		verbose_name=u'Teacher/Staff Bio'
 
 	def __unicode__(self):
 		return self.name

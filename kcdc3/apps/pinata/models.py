@@ -118,7 +118,7 @@ class Sponsor(models.Model):
 	sort_order = models.IntegerField(blank=True, null=True, default=50)
 
 	class Meta:
-		verbose_name = 'Partner'
+		verbose_name = 'Partner Organization'
 		ordering = ['group','sort_order','title']
 
 	def __unicode__(self):

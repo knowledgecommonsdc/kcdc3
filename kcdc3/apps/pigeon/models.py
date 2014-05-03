@@ -29,6 +29,7 @@ class Post(models.Model):
 
 	class Meta:
 		ordering = ['-date']
+		verbose_name=u'Blog Post'
 
 	def __unicode__(self):
 		return self.title
