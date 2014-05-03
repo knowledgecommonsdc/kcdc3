@@ -1,7 +1,10 @@
 
 /* based on h5bp print styles */
 
-@media print 
+@media print
+
+	body
+		font-size: 9pt
 
 	* 
 		background: transparent !important
@@ -70,7 +73,7 @@
 	#footer
 		display: none
 
-	#content
+	#content p
 		width: 80%
 		margin: 0 4em
 
@@ -96,3 +99,18 @@
 			font-size: 1.4em
 		a
 			display: none
+			
+			
+	/* hide nonprinting content */
+	
+	.noprint
+		visibility: hidden
+	
+	
+	/* tables */
+	
+	tbody tr
+		border-top: 1px solid #eee
+
+		
+	
