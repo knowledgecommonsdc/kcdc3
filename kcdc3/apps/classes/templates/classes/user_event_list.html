@@ -34,7 +34,7 @@
 			
 			<tbody>
 			{% for registration in registration_list %}
-				<tr class="{% if registration.cancelled %}user_event--cancelled{% endif %}">
+				<tr class="{% if registration.cancelled %}basic_table--subdued{% endif %}">
 					<td class="user_event_list__class">
 						<a href="/classes/{{ registration.event.slug }}">{{ registration.event.title }}</a>
 					</td>
