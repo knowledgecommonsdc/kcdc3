@@ -35,6 +35,10 @@ class Command(BaseCommand):
 		for reg in regs:
 			send_reminder_email(reg)
 			
+		# email the assigned facilitators
+		for facilitator in event.facilitators.all():
+			send_reminder_qc_email(event, facilitator.email)
+			
 		# also send a copy to the organization's main email address
 		send_reminder_qc_email(event, settings.DEFAULT_FROM_EMAIL)
 
