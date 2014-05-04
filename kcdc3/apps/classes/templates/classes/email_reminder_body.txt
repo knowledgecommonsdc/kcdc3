@@ -5,9 +5,9 @@ DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{
 
 We look forward to seeing you there.
 
-Most of our classes have waitlists. If you can no longer attend, 
-please cancel your registration. (Do this now, not an hour 
-before the class starts.) You can cancel your registration at:
+Most of our classes have waitlists. If you can no longer 
+attend, please cancel your registration at least a day 
+ahead of time. You can cancel your registration at:
 
 http://knowledgecommonsdc.org/classes/{{ slug }}
 
@@ -22,6 +22,9 @@ LOCATION:
 {% if location_city %}{{ location_city }}, {% endif %} {% if location_state %}{{ location_state }}{% endif %}{% if location_zip %}{{ location_zip }}{% endif %}
 {% if location_neighborhood %}Neighborhood: {{ location_neighborhood }} {% endif %}
 {% if location_hint %}{{ location_hint }}{% endif %}
+
+Class starts at {{ date|time:"P" }} Give yourself time 
+to find the location and check in.
 
 FACILITATOR (get in touch if you have questions):
 {% for facilitator in facilitators %}
