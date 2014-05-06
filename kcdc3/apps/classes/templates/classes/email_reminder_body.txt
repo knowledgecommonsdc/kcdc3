@@ -11,6 +11,9 @@ ahead of time. You can cancel your registration at:
 
 http://knowledgecommonsdc.org/classes/{{ slug }}
 
+Class starts promptly at {{ date|time:"P" }} Give yourself 
+time to find the location and check in.
+
 {% if additional_dates_text %}ADDITIONAL MEETINGS: {{ additional_dates_text|striptags }}{% endif %}
 {% if email_welcome_text %}ADDITIONAL INFORMATION:
 {{ email_welcome_text }}{% endif %}
@@ -23,10 +26,8 @@ LOCATION:
 {% if location_neighborhood %}Neighborhood: {{ location_neighborhood }} {% endif %}
 {% if location_hint %}{{ location_hint }}{% endif %}
 
-Class starts at {{ date|time:"P" }} Give yourself time 
-to find the location and check in.
-
-FACILITATOR (get in touch if you have questions):
+FACILITATOR (get in touch if you have questions
+or need help finding the class location):
 {% for facilitator in facilitators %}
 {{ facilitator.first_name }} {{ facilitator.last_name }}
 {{ facilitator.email }}
