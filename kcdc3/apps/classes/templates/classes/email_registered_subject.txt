@@ -1,1 +1,1 @@
-Signed up for {{ title }}
+Signed up for {{ title|safe }}

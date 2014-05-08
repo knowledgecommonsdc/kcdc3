@@ -1,1 +1,1 @@
-Cancelled registration for {{ title }}
+Cancelled registration for {{ title|safe }}

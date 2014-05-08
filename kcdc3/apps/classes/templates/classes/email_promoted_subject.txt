@@ -1,1 +1,1 @@
-You're now in {{ title }}
+You're now in {{ title|safe }}

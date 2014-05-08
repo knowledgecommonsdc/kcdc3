@@ -16,7 +16,7 @@ time to find the location and check in.
 
 {% if additional_dates_text %}ADDITIONAL MEETINGS: {{ additional_dates_text|striptags }}{% endif %}
 {% if email_welcome_text %}ADDITIONAL INFORMATION:
-{{ email_welcome_text }}{% endif %}
+{{ email_welcome_text|safe }}{% endif %}
 
 LOCATION:
 {% ifnotequal location_name location_address1 %}{{ location_name }}{% endifnotequal %}

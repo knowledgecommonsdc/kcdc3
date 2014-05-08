@@ -8,14 +8,14 @@ to know how many students to expect.
 You can cancel your registration at:
 http://knowledgecommonsdc.org/classes/{{ slug }}
 
-CLASS: {{ title }}
+CLASS: {{ title|safe }}
 
 DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{% endif %}
 
 {% if additional_dates_text %}ADDITIONAL MEETINGS: {{ additional_dates_text|striptags }}{% endif %}
 
 {% if email_welcome_text %}ADDITIONAL INFORMATION:
-{{ email_welcome_text }}{% endif %}
+{{ email_welcome_text|safe }}{% endif %}
 
 LOCATION:
 {% ifnotequal location_name location_address1 %}{{ location_name }}{% endifnotequal %}

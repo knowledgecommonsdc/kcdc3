@@ -1,7 +1,7 @@
 Thank you. We've added you to the waitlist for a Knowledge Commons DC class. 
 We'll send you an email if a space becomes available.
 
-CLASS: {{ title }}
+CLASS: {{ title|safe }}
 
 DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{% endif %}
 

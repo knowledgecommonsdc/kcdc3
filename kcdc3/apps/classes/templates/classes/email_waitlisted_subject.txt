@@ -1,1 +1,1 @@
-Waitlisted for {{ title }}
+Waitlisted for {{ title|safe }}
