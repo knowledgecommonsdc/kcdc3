@@ -7,7 +7,7 @@ from format_helpers import *
 # TODO this shouldn't be here but don't have settings import working yet
 # In hours, how long before a class do late promotion rules apply?
 WAITLIST_LATE_PROMOTION_TIME = 24
-
+CLASSES_IDEAL_STUDENT_MULTIPLIER = 0.667
 
 # a Session is a collection of classes
 class Session(models.Model):
@@ -304,6 +304,14 @@ class Event(models.Model):
 	def waitlist_count(self):
 		""" Determines the total number of waitlisted registrations."""
 		return self.get_registrations(waitlist=True).count()
+
+	def attended_count(self):
+		""" Determines the total number of waitlisted registrations."""
+		return self.get_registrations(attended=True).count()
+
+	def ideal_students(self):
+		""" Returns ideal number of students. """
+		return int(round(self.max_students * CLASSES_IDEAL_STUDENT_MULTIPLIER))
 
 	def add_to_waitlist(self):
 		""" Checks to see if the class is full and has a waitlist.

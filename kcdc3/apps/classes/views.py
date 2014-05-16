@@ -352,3 +352,21 @@ class FilteredTeacherAdminListView(TeacherAdminListView):
 		# if self.kwargs['slug'] is not None:
 		# 	context['teacher_list'] = Bio.objects.filter(name__contains="teacher")
 
+
+
+# staff data access
+# provide JSON of classes and registrations
+class JSONSessionAttendanceListView(ListView):
+
+	template_name = "classes/data/session_attendance_list.json"
+	context_object_name = "event_list"
+	model = Event
+	
+	def get_context_data(self, **kwargs):
+		
+		context = super(JSONSessionAttendanceListView, self).get_context_data(**kwargs)
+
+		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
+
+		return context
+

@@ -1,15 +1,19 @@
 from django.conf.urls import patterns, include, url
 from models import Event, Registration
-from views import EventListView, EventDetailView, ResponseTemplateView, EventArchiveView, SessionView, RegistrationListView, SessionAdminListView, TeacherAdminListView, FilteredTeacherAdminListView, UserEventListView
+from views import EventListView, EventDetailView, ResponseTemplateView, EventArchiveView, SessionView, RegistrationListView, SessionAdminListView, TeacherAdminListView, FilteredTeacherAdminListView, UserEventListView, JSONSessionAttendanceListView
 
 urlpatterns = patterns('kcdc3.apps.classes.views',
 
 	url(r'^$', EventListView.as_view()),
 
+	# staff dashboard
 	url(r'^staff/$', SessionAdminListView.as_view()),
 	url(r'^staff/teachers/$', TeacherAdminListView.as_view()),
 	url(r'^staff/teachers/session/(?P<slug>[A-Za-z0-9_-]+)/$', FilteredTeacherAdminListView.as_view()),
 	url(r'^staff/registrations/session/(?P<slug>[A-Za-z0-9_-]+)/$', RegistrationListView.as_view()),
+
+	# data
+	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+).json/$', JSONSessionAttendanceListView.as_view()),
 
 	url(r'^classes$', UserEventListView.as_view()),
 
