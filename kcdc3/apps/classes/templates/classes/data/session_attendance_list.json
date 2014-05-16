@@ -12,7 +12,7 @@
 				"measures":[ 
 						{% if event.attended_count %}{{ event.attended_count }}{% else %}0{% endif %}, 
 						{% if event.registration_count %}{{ event.registration_count }}{% else %}0{% endif %}, 
-						{% if event.waitlist_count %}{{ event.waitlist_count | add:event.registration_count }}{% else %}0{% endif %}
+						{% if event.registration_count %}{{ event.waitlist_count | add:event.registration_count }}{% else %}0{% endif %}
 					],
 				"markers":[{% if event.attended_count %}{{ event.attended_count }}{% else %}0{% endif %}]
 			} {% if not forloop.last %},{% endif %}
