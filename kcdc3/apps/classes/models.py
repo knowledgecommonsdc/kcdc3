@@ -306,8 +306,8 @@ class Event(models.Model):
 		return self.get_registrations(waitlist=True).count()
 
 	def attended_count(self):
-		""" Determines the total number of waitlisted registrations."""
-		return self.get_registrations(attended=True).count()
+		""" Determines the total number of registrations marked as attended."""
+		return Registration.objects.filter(event__slug=self.slug, attended=True, cancelled=False).count()
 
 	def ideal_students(self):
 		""" Returns ideal number of students. """
