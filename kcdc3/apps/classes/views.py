@@ -1,3 +1,4 @@
+import unicodecsv, datetime
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
 from datetime import datetime
@@ -11,6 +12,7 @@ from django.utils.decorators import method_decorator
 from email import send_registration_mail
 from helpers import *
 from django.db.models import Q
+from django.conf import settings
 
 # display a list of events
 class EventListView(ListView):
@@ -369,4 +371,38 @@ class JSONSessionAttendanceListView(ListView):
 		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
 
 		return context
+
+
+# staff data access
+# provide CSV of classes and registrations
+def CSVSessionAttendanceView(request, slug):
+
+	response = HttpResponse(content_type='text/csv')
+	response['Content-Disposition'] = 'attachment; filename="export.csv"'
+	
+	events = Event.objects.filter(status='PUBLISHED', session__slug=slug)
+	
+	writer = unicodecsv.writer(response)
+
+	writer.writerow([ 
+				'title', 
+				'date', 
+				'registered',
+				'attended',
+				'not attended',
+				'waitlist',
+				])
+	
+	for event in events:
+		writer.writerow([ 
+					event.title, 
+					event.date.strftime(settings.DATE_FORMAT_DT_INTERCHANGE), 
+					event.registration_count(),
+					event.attended_count(),
+					event.registration_count() - event.attended_count(),
+					event.waitlist_count(),
+					])
+	
+	return response
+
 

@@ -8,7 +8,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # Project content settings
 PROJECT_NAME = 'Knowledge Commons DC'
 PROJECT_SHORT_NAME = 'KCDC'
-
+DATE_FORMAT_DT_INTERCHANGE = '%Y-%m-%d %H%M'
 
 
 
