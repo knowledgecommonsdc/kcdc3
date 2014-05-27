@@ -6,8 +6,9 @@ that situation.
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from models import Event
+from django.conf import settings
 
-KCDC_EMAIL = 'contact@knowledgecommonsdc.org'
+KCDC_EMAIL = settings.DEFAULT_FROM_EMAIL
 
 SUBJECT_REGISTERED = 'classes/email_registered_subject.txt'
 SUBJECT_WAITLISTED = 'classes/email_waitlisted_subject.txt'

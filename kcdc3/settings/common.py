@@ -80,7 +80,7 @@ LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 USERENA_MUGSHOT_DEFAULT = 'mm'
 
-DEFAULT_FROM_EMAIL = 'contact@knowledgecommonsdc.org'
+DEFAULT_FROM_EMAIL = 'Knowledge Commons DC <contact@knowledgecommonsdc.org>'
 
 ROOT_URLCONF = 'kcdc3.urls'
 
