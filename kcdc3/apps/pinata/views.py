@@ -104,7 +104,7 @@ def home(request):
 	context['slides'] = Slide.objects.filter(live=True)
 		
 	# Pull content from elsewhere in the site
-	context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT", featured=True).order_by('date')[:4]
+	context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT", featured=True, cancelled=False).order_by('date')[:4]
 	context['posts'] = Post.objects.filter(status='PUBLISHED').filter(featured=True).exclude(date__gte=datetime.now())[:4]
 
 	return render_to_response('pinata/home.html',context)

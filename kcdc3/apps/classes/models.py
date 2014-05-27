@@ -196,6 +196,7 @@ class Event(models.Model):
 		('REMOVED', 'Removed'),
 	)
 	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='PUBLISHED')
+	cancelled = models.BooleanField(default=False)
 	
 	# show on front page
 	featured = models.BooleanField(default=False)

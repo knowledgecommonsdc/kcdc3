@@ -22,6 +22,7 @@ class Command(BaseCommand):
 		print '{0}: Finding events for {1}...'.format(date.today(), alert_day)
 		events = Event.objects.filter(
 				Q(status='PUBLISHED') | Q(status='HIDDEN'),
+				cancelled=False,
 				date__year=alert_day.year, date__month=alert_day.month, date__day=alert_day.day
 			)
 		for event in events:

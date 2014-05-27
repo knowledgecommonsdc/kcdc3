@@ -101,7 +101,8 @@ admin.site.register(Bio, BioAdmin)
 # lets someone create/edit a Event
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None,			{'fields': ['title', 'slug',('date','end_time','session'),('location','partner',),('status', 'featured','type',)]}),
+		(None,			{'fields': ['title', 'slug',('date','end_time','session'),('status', 'type', 'featured', 'cancelled',)]}),
+		('Teachers/facilitators',	{'fields': [('location','partner',)]}),
 		('Teachers/facilitators',	{'fields': [('teacher_bios','facilitators')]}),
 		('Description', {
 			'classes': ('grp-collapse grp-open',), 
@@ -116,6 +117,10 @@ class EventAdmin(admin.ModelAdmin):
 			]
 		}),
 		('Registration',	{'fields': [('registration_status', 'registration_opens',), ('max_students', 'waitlist_status', 'registration_count','waitlist_count'),]}),
+		('Automatic email messages', {
+			'classes': ('grp-collapse grp-open',), 
+			'fields': ['email_welcome_text',]
+		}),
 		('More details', {
 			'classes': ('grp-collapse grp-closed',), 
 			'fields': [
@@ -123,10 +128,6 @@ class EventAdmin(admin.ModelAdmin):
 				'additional_dates_text',
 				'bio_text',
 			]
-		}),
-		('Automatic email messages', {
-			'classes': ('grp-collapse grp-open',), 
-			'fields': ['email_welcome_text',]
 		}),
 		('Documentation', {
 			'classes': ('grp-collapse grp-closed',), 
@@ -150,9 +151,9 @@ class EventAdmin(admin.ModelAdmin):
 			'tinymce_setup.js',
 		]
 
-	list_display = ('title', 'status','date','session', 'featured', 'registration_status', 'registration_opens', 'waitlist_status','max_students', 'registration_count', 'waitlist_count',)
-	list_editable = ('registration_status', 'featured', 'registration_opens',)
-	list_filter = ('session', 'status', 'registration_status','type',)
+	list_display = ('title', 'status','date','session', 'featured', 'registration_status', 'registration_opens', 'cancelled','max_students', 'registration_count', 'waitlist_count',)
+	list_editable = ('registration_status', 'featured', 'registration_opens', 'cancelled')
+	list_filter = ('session', 'status', 'registration_status','type', 'cancelled')
 	search_fields = ('title',)
 
 admin.site.register(Event, EventAdmin)

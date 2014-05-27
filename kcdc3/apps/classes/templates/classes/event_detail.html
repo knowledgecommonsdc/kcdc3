@@ -9,6 +9,7 @@
 {% block content %}
 
 	<div id="hed">
+		{% if event.cancelled %}<p class="department_label">Canceled</p>{% endif %}
 		{% if event.type == "EXTERNAL" %}<p class="department_label">Partner Event</p>{% endif %}
 		<h1>{{ event.title | smartlines }}</h1>
 	</div>
@@ -16,7 +17,7 @@
 	<div id="main">
 	
 		<p class="meta">
-			
+
 			{% if event.type == "EVENT" %}
 				<b class="event_type_indicator"><i class="ss-icon">&#x266B;</i> KCDC Event</b>
 			{% endif %}
@@ -117,7 +118,9 @@
 			{{ event.details | smartlines | safe }}
 		{% endif %}
 			
-		{% if event.has_passed %}
+		{% if event.cancelled %}
+			<h3>This class is canceled</h3>
+		{% elif event.has_passed %}
 			<h3>Past event</h3>
 		{% elif event.registration_status == "HIDE" %}
 			<!-- hide registration info -->
@@ -140,7 +143,7 @@
 		{% if user_is_authenticated %}
 			{% if user_is_registered %}
 				<p><i class="ss-icon registration_open">&#x2713;</i> <em>You are registered.</em></p>
-				{% if not event.has_passed %}
+				{% if not event.has_passed and not event.cancelled %}
 					<form action="/classes/{{ event.slug }}/cancel" method="post">
 						{% csrf_token %}
 						<input type="submit" value="I've changed my mind. Unregister me." id="submit_button" />
@@ -148,7 +151,7 @@
 				{% endif %}
 			{% elif user_is_waitlisted %}
 				<p><i class="ss-icon registration_waitlist">&#x22C6;</i> <em>You are on the waitlist.</em></p>
-				{% if not event.has_passed %}
+				{% if not event.has_passed and not event.cancelled %}
 					<form action="/classes/{{ event.slug }}/cancel" method="post">
 						{% csrf_token %}
 						<input type="submit" value="I've changed my mind. Remove me from the list." id="submit_button" />

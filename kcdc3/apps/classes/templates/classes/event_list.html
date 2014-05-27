@@ -53,6 +53,7 @@
 					<dd class="{% if event.type == "EXTERNAL" %}partner_event{% endif %}">
 						<a href="/classes/{{ event.slug }}">
 							<h3>
+								{% if event.cancelled %}<i class="label-cancelled">Canceled<br></i>{% endif %}
 								{% if event.type == "EXTERNAL" %}<i>Partner Event:</i>{% endif %}
 								{{ event.title | smartlines }}
 							</h3>
@@ -67,6 +68,8 @@
 								{% if event.has_passed %}
 									<!-- past event -->
 								{% elif event.registration_status == "HIDE" %}
+									<!-- hide registration info -->
+								{% elif event.cancelled %}
 									<!-- hide registration info -->
 								{% else %}
 									{% if event.registration_status == "AUTO" and not event.is_registration_open %}	
@@ -133,6 +136,7 @@
 					<dd class="{% if event.type == "EXTERNAL" %}partner_event{% endif %}">
 						<a href="/classes/{{ event.slug }}">
 							<h3>
+								{% if event.cancelled %}<i class="label-cancelled">Cancelled<br></i>{% endif %}
 								{% if event.type == "EXTERNAL" %}<i>Partner Event:</i>{% endif %}
 								{{ event.title | smartlines }}
 							</h3>
