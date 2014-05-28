@@ -102,7 +102,7 @@ admin.site.register(Bio, BioAdmin)
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
 		(None,			{'fields': ['title', 'slug',('date','end_time','session'),('status', 'type', 'featured', 'cancelled',)]}),
-		('Teachers/facilitators',	{'fields': [('location','partner',)]}),
+		('Locations',	{'fields': [('location','partner',)]}),
 		('Teachers/facilitators',	{'fields': [('teacher_bios','facilitators')]}),
 		('Description', {
 			'classes': ('grp-collapse grp-open',), 
