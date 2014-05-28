@@ -45,7 +45,9 @@
 		<p class="meta indicators">
 			
 			{% if event.has_passed %}
-				<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Past</span>			
+				<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Past</span>		
+			{% elif event.cancelled %}
+				<!-- hide info -->
 			{% elif event.registration_status == "HIDE" %}
 				<!-- hide registration info -->
 			{% else %}
@@ -157,7 +159,7 @@
 						<input type="submit" value="I've changed my mind. Remove me from the list." id="submit_button" />
 					</form>
 				{% endif %}
-			{% elif is_registration_open %}
+			{% elif is_registration_open and not event.cancelled %}
 				<form action="/classes/{{ event.slug }}/register" method="post">
 					<label for="needs">Let us know if you require any disability accommodations:</label>
 					<input type="text" name="student_needs" id="needs" placeholder="None needed" />
