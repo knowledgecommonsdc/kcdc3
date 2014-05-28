@@ -7,7 +7,7 @@ from models import Event, Registration, Bio, Session
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template import Context
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.utils.decorators import method_decorator
 from email import send_registration_mail
 from helpers import *
@@ -258,6 +258,7 @@ class UserEventListView(ListView):
 		
 
 
+# staff dashboard
 # display a list of registrations for a given session
 class RegistrationListView(ListView):
 
@@ -265,52 +266,41 @@ class RegistrationListView(ListView):
 	context_object_name = "registration_list"
 	model = Registration
 	
+	@method_decorator(permission_required('classes.view_students', raise_exception=True))
+	def dispatch(self, *args, **kwargs):
+		return super(RegistrationListView, self).dispatch(*args, **kwargs)
+
 	def get_context_data(self, **kwargs):
 		
 		context = super(RegistrationListView, self).get_context_data(**kwargs)
 		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
-
-		# is the user staff?
-		if self.request.user.is_staff:
-			return context
-		else:
-			# TODO this should really return a 403
-			return HttpResponse()
-
-	@method_decorator(login_required)
-	def dispatch(self, *args, **kwargs):
-		return super(RegistrationListView, self).dispatch(*args, **kwargs)
+		return context
 
 
 
 
-# display a list of registrations for a given session
+# staff dashboard
+# display a list of sessions
 class SessionAdminListView(ListView):
 
 	template_name = "classes/staff_session_list.html"
 	context_object_name = "session_list"
 	model = Session
 	
+	@method_decorator(permission_required('classes.view_students', raise_exception=True))
+	def dispatch(self, *args, **kwargs):
+		return super(SessionAdminListView, self).dispatch(*args, **kwargs)
+
 	def get_context_data(self, **kwargs):
 		
 		context = super(SessionAdminListView, self).get_context_data(**kwargs)
 		context['session_list'] = Session.objects.all()
-
-		# is the user staff?
-		if self.request.user.is_staff:
-			return context
-		else:
-			# TODO this should really return a 403
-			return HttpResponse()
-
-	@method_decorator(login_required)
-	def dispatch(self, *args, **kwargs):
-		return super(SessionAdminListView, self).dispatch(*args, **kwargs)
+		return context
 	
 
 
 
-
+# staff dashboard
 # display a list of teacher (bios) in the system
 class TeacherAdminListView(ListView):
 
@@ -318,38 +308,30 @@ class TeacherAdminListView(ListView):
 	context_object_name = "teacher_list"
 	model = Bio
 	
+	@method_decorator(permission_required('classes.view_students', raise_exception=True))
+	def dispatch(self, *args, **kwargs):
+		return super(TeacherAdminListView, self).dispatch(*args, **kwargs)
+
 	def get_context_data(self, **kwargs):
 		
 		context = super(TeacherAdminListView, self).get_context_data(**kwargs)
 		context['teacher_list'] = Bio.objects.all().order_by('name')
-
-		# is the user staff?
-		if self.request.user.is_staff:
-			return context
-		else:
-			# TODO this should really return a 403
-			return HttpResponse()
-
-	@method_decorator(login_required)
-	def dispatch(self, *args, **kwargs):
-		return super(TeacherAdminListView, self).dispatch(*args, **kwargs)
+		return context
 	
 
 
-
+# staff dashboard
 class FilteredTeacherAdminListView(TeacherAdminListView):
+
+	@method_decorator(permission_required('classes.view_students', raise_exception=True))
+	def dispatch(self, *args, **kwargs):
+		return super(FilteredTeacherAdminListView, self).dispatch(*args, **kwargs)
 
 	def get_context_data(self, **kwargs):
 		
 		context = super(TeacherAdminListView, self).get_context_data(**kwargs)
 		context['teacher_list'] = Bio.objects.filter(event__session__slug__iexact=self.kwargs['slug']).order_by('name')
-
-		# is the user staff?
-		if self.request.user.is_staff:
-			return context
-		else:
-			# TODO this should really return a 403
-			return HttpResponse()
+		return context
 
 		# if self.kwargs['slug'] is not None:
 		# 	context['teacher_list'] = Bio.objects.filter(name__contains="teacher")
@@ -364,6 +346,10 @@ class JSONSessionAttendanceListView(ListView):
 	context_object_name = "event_list"
 	model = Event
 	
+	@method_decorator(permission_required('classes.view_students', raise_exception=True))
+	def dispatch(self, *args, **kwargs):
+		return super(JSONSessionAttendanceListView, self).dispatch(*args, **kwargs)
+	
 	def get_context_data(self, **kwargs):
 		
 		context = super(JSONSessionAttendanceListView, self).get_context_data(**kwargs)
@@ -375,6 +361,7 @@ class JSONSessionAttendanceListView(ListView):
 
 # staff data access
 # provide CSV of classes and registrations
+@permission_required('classes.view_students')
 def CSVSessionAttendanceView(request, slug):
 
 	response = HttpResponse(content_type='text/csv')
