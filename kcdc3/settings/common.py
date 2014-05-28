@@ -57,6 +57,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 GRAPPELLI_INDEX_DASHBOARD = 'kcdc3.settings.dashboard.CustomIndexDashboard'
+GRAPPELLI_ADMIN_TITLE = PROJECT_NAME + ': Admin'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
