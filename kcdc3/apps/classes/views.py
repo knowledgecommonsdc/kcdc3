@@ -383,7 +383,7 @@ def CSVSessionAttendanceView(request, slug):
 	for event in events:
 		writer.writerow([ 
 					event.title, 
-					event.date.strftime(settings.DATE_FORMAT_DT_INTERCHANGE), 
+					event.date.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE), 
 					event.registration_count(),
 					event.attended_count(),
 					event.registration_count() - event.attended_count(),
@@ -416,6 +416,9 @@ def CSVSessionRegistrationView(request, slug):
 				'date promoted',
 				'waitlist',
 				'attended',
+				'registered hours',
+				'promoted hours',
+				'canceled hours',
 				'date user joined',
 				])
 	
@@ -425,26 +428,29 @@ def CSVSessionRegistrationView(request, slug):
 		# Ensure we're passing empty strings instead of trying to format nulls
 
 		if registration.date_cancelled is not None:
-			date_cancelled = registration.date_cancelled.strftime(settings.DATE_FORMAT_DT_INTERCHANGE)
+			date_cancelled = registration.date_cancelled.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE)
 		else:
 			date_cancelled = ''
 
 		if registration.date_promoted is not None:
-			date_promoted = registration.date_promoted.strftime(settings.DATE_FORMAT_DT_INTERCHANGE)
+			date_promoted = registration.date_promoted.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE)
 		else:
 			date_promoted = ''
 
 		writer.writerow([
 					registration.event.session.slug,
 					registration.event,
-					registration.event.date.strftime(settings.DATE_FORMAT_DT_INTERCHANGE), 
+					registration.event.date.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE), 
 					registration.student.username,
-					registration.date_registered.strftime(settings.DATE_FORMAT_DT_INTERCHANGE), 
+					registration.date_registered.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE), 
 					date_cancelled,
 					date_promoted,
 					registration.waitlist,
 					registration.attended,
-					registration.student.date_joined.strftime(settings.DATE_FORMAT_DT_INTERCHANGE),
+					registration.get_registered_interval(),
+					registration.get_promoted_interval(),
+					registration.get_cancelled_interval(),
+					registration.student.date_joined.strftime(settings.DATE_FORMAT_DATE_INTERCHANGE),
 					])
 	
 	return response

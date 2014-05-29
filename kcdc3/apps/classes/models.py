@@ -372,4 +372,29 @@ class Registration(models.Model):
 			("edit_students", "Can add or remove students"),
 		)
 
+	""" how long before the event was this created
+	    in hours, rounded to one decimal place """
+	def get_registered_interval(self):
+		interval = self.event.date - self.date_registered
+		return round(interval.total_seconds()/3600, 1)
+
+	""" how long before the event was this canceled
+	    in hours, rounded to one decimal place
+		return None if not canceled """
+	def get_cancelled_interval(self):
+		if self.date_cancelled:
+			interval = self.event.date - self.date_cancelled
+			return round(interval.total_seconds()/3600, 1)
+		else:
+			return None
+
+	""" how long before the event was this promoted
+	    in hours, rounded to one decimal place
+		return None if not promoted """
+	def get_promoted_interval(self):
+		if self.date_promoted:
+			interval = self.event.date - self.date_promoted
+			return round(interval.total_seconds()/3600, 1)
+		else:
+			return None
 
