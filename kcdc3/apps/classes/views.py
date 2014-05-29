@@ -393,3 +393,60 @@ def CSVSessionAttendanceView(request, slug):
 	return response
 
 
+
+# staff data access
+# provide CSV of individual registrations
+@permission_required('classes.view_students')
+def CSVSessionRegistrationView(request, slug):
+
+	response = HttpResponse(content_type='text/csv')
+	response['Content-Disposition'] = 'attachment; filename="export.csv"'
+	
+	registrations = Registration.objects.filter(event__session__slug__iexact=slug)
+	
+	writer = unicodecsv.writer(response)
+
+	writer.writerow([ 
+				'session', 
+				'event', 
+				'event date',
+				'username', 
+				'date registered',
+				'date canceled',
+				'date promoted',
+				'waitlist',
+				'attended',
+				'date user joined',
+				])
+	
+
+	for registration in registrations:
+
+		# Ensure we're passing empty strings instead of trying to format nulls
+
+		if registration.date_cancelled is not None:
+			date_cancelled = registration.date_cancelled.strftime(settings.DATE_FORMAT_DT_INTERCHANGE)
+		else:
+			date_cancelled = ''
+
+		if registration.date_promoted is not None:
+			date_promoted = registration.date_promoted.strftime(settings.DATE_FORMAT_DT_INTERCHANGE)
+		else:
+			date_promoted = ''
+
+		writer.writerow([
+					registration.event.session.slug,
+					registration.event,
+					registration.event.date.strftime(settings.DATE_FORMAT_DT_INTERCHANGE), 
+					registration.student.username,
+					registration.date_registered.strftime(settings.DATE_FORMAT_DT_INTERCHANGE), 
+					date_cancelled,
+					date_promoted,
+					registration.waitlist,
+					registration.attended,
+					registration.student.date_joined.strftime(settings.DATE_FORMAT_DT_INTERCHANGE),
+					])
+	
+	return response
+
+
