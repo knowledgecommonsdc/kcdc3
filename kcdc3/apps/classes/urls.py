@@ -1,7 +1,6 @@
 from django.conf.urls import patterns, include, url
 from models import Event, Registration
-from views import EventListView, EventDetailView, ResponseTemplateView, EventArchiveView, SessionView, RegistrationListView, SessionAdminListView, TeacherAdminListView, FilteredTeacherAdminListView, UserEventListView, JSONSessionAttendanceDataListView, CSVSessionRegistrationDataView, TXTLocationData
-
+from views import EventListView, EventDetailView, ResponseTemplateView, EventArchiveView, SessionView, RegistrationListView, SessionAdminListView, TeacherAdminListView, FilteredTeacherAdminListView, UserEventListView, JSONVizSessionAttendanceDataListView
 urlpatterns = patterns('kcdc3.apps.classes.views',
 
 	url(r'^$', EventListView.as_view()),
@@ -13,10 +12,10 @@ urlpatterns = patterns('kcdc3.apps.classes.views',
 	url(r'^staff/registrations/session/(?P<slug>[A-Za-z0-9_-]+)/$', RegistrationListView.as_view()),
 
 	# data
-	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+)/json/$', JSONSessionAttendanceDataListView.as_view()),
-	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'CSVSessionAttendanceDataView'),
-	url(r'^data/registration/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'CSVSessionRegistrationDataView'),
-	url(r'^data/location/txt/$', 'TXTLocationData'),
+	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+)/json/$', JSONVizSessionAttendanceDataListView.as_view()),
+	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'csv_session_attendance_data'),
+	url(r'^data/registration/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'csv_session_registration_data'),
+	url(r'^data/location/txt/$', 'txt_location_data'),
 
 	url(r'^classes$', UserEventListView.as_view()),
 

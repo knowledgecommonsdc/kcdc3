@@ -340,7 +340,8 @@ class FilteredTeacherAdminListView(TeacherAdminListView):
 
 # staff data access
 # provide JSON of classes and registrations
-class JSONSessionAttendanceDataListView(ListView):
+# intended to back up attendance visualization
+class JSONVizSessionAttendanceDataListView(ListView):
 
 	template_name = "classes/data/session_attendance_list.json"
 	context_object_name = "event_list"
@@ -348,11 +349,11 @@ class JSONSessionAttendanceDataListView(ListView):
 	
 	@method_decorator(permission_required('classes.view_students', raise_exception=True))
 	def dispatch(self, *args, **kwargs):
-		return super(JSONSessionAttendanceDataListView, self).dispatch(*args, **kwargs)
+		return super(JSONVizSessionAttendanceDataListView, self).dispatch(*args, **kwargs)
 	
 	def get_context_data(self, **kwargs):
 		
-		context = super(JSONSessionAttendanceDataListView, self).get_context_data(**kwargs)
+		context = super(JSONVizSessionAttendanceDataListView, self).get_context_data(**kwargs)
 
 		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
 
@@ -362,7 +363,7 @@ class JSONSessionAttendanceDataListView(ListView):
 # staff data access
 # provide CSV of classes and registrations
 @permission_required('classes.view_students')
-def CSVSessionAttendanceDataView(request, slug):
+def csv_session_attendance_data(request, slug):
 
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="export.csv"'
@@ -397,7 +398,7 @@ def CSVSessionAttendanceDataView(request, slug):
 # staff data access
 # provide CSV of individual registrations
 @permission_required('classes.view_students')
-def CSVSessionRegistrationDataView(request, slug):
+def csv_session_registration_data(request, slug):
 
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="export.csv"'
@@ -456,36 +457,11 @@ def CSVSessionRegistrationDataView(request, slug):
 	return response
 
 
-# staff data access
-# provide TXT of locations for a session
-def TXTLocationDataListView(SingleObjectMixin, ListView):
-
-	template_name = "classes/data/location_list.txt"
-	context_object_name = "locations"
-	model = Location
-	
-	@method_decorator(permission_required('classes.view_students', raise_exception=True))
-	def dispatch(self, *args, **kwargs):
-		return super(TXTLocationDataListView, self).dispatch(*args, **kwargs)
-	
-	# def get_context_data(self, **kwargs):
-	# 	
-	# 	context = super(TXTLocationDataListView, self).get_context_data(**kwargs)
-	# 	return context
-		
-	def get(self, request, *args, **kwargs):
-		myinstance = self.get_object()
-		content = myinstance.render_text_content()
-		return HttpResponse(content, content_type='text/plain; charset=utf8')
-
-
-
-
 
 # staff data access
 # provide TXT of locations for a session
 @permission_required('classes.view_students')
-def TXTLocationData(request):
+def txt_location_data(request):
 
 	context = Context()
 	context['locations'] = Location.objects.all()
