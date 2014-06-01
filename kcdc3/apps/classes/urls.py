@@ -13,9 +13,9 @@ urlpatterns = patterns('kcdc3.apps.classes.views',
 	url(r'^staff/registrations/session/(?P<slug>[A-Za-z0-9_-]+)/$', RegistrationListView.as_view()),
 
 	# data
-	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+).json/$', JSONSessionAttendanceListView.as_view()),
-	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+).csv/$', 'CSVSessionAttendanceView'),
-	url(r'^data/registration/session/(?P<slug>[A-Za-z0-9_-]+).csv/$', 'CSVSessionRegistrationView'),
+	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+)/json/$', JSONSessionAttendanceListView.as_view()),
+	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'CSVSessionAttendanceView'),
+	url(r'^data/registration/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'CSVSessionRegistrationView'),
 
 	url(r'^classes$', UserEventListView.as_view()),
 

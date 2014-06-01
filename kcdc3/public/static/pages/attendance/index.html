@@ -42,7 +42,7 @@ var chart = d3.bullet()
     .width(width)
     .height(height);
 
-d3.json("/classes/data/attendance/session/1405/json/", function(error, data) {
+d3.json("/classes/data/attendance/session/1310/json/", function(error, data) {
   var svg = d3.select("body").selectAll("svg")
       .data(data)
     .enter().append("svg")
