@@ -340,7 +340,7 @@ class FilteredTeacherAdminListView(TeacherAdminListView):
 
 # staff data access
 # provide JSON of classes and registrations
-class JSONSessionAttendanceListView(ListView):
+class JSONSessionAttendanceDataListView(ListView):
 
 	template_name = "classes/data/session_attendance_list.json"
 	context_object_name = "event_list"
@@ -348,11 +348,11 @@ class JSONSessionAttendanceListView(ListView):
 	
 	@method_decorator(permission_required('classes.view_students', raise_exception=True))
 	def dispatch(self, *args, **kwargs):
-		return super(JSONSessionAttendanceListView, self).dispatch(*args, **kwargs)
+		return super(JSONSessionAttendanceDataListView, self).dispatch(*args, **kwargs)
 	
 	def get_context_data(self, **kwargs):
 		
-		context = super(JSONSessionAttendanceListView, self).get_context_data(**kwargs)
+		context = super(JSONSessionAttendanceDataListView, self).get_context_data(**kwargs)
 
 		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
 
@@ -362,7 +362,7 @@ class JSONSessionAttendanceListView(ListView):
 # staff data access
 # provide CSV of classes and registrations
 @permission_required('classes.view_students')
-def CSVSessionAttendanceView(request, slug):
+def CSVSessionAttendanceDataView(request, slug):
 
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="export.csv"'
@@ -397,7 +397,7 @@ def CSVSessionAttendanceView(request, slug):
 # staff data access
 # provide CSV of individual registrations
 @permission_required('classes.view_students')
-def CSVSessionRegistrationView(request, slug):
+def CSVSessionRegistrationDataView(request, slug):
 
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="export.csv"'
