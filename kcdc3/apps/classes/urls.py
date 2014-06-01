@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from models import Event, Registration
-from views import EventListView, EventDetailView, ResponseTemplateView, EventArchiveView, SessionView, RegistrationListView, SessionAdminListView, TeacherAdminListView, FilteredTeacherAdminListView, UserEventListView, JSONSessionAttendanceDataListView, CSVSessionRegistrationDataView
+from views import EventListView, EventDetailView, ResponseTemplateView, EventArchiveView, SessionView, RegistrationListView, SessionAdminListView, TeacherAdminListView, FilteredTeacherAdminListView, UserEventListView, JSONSessionAttendanceDataListView, CSVSessionRegistrationDataView, TXTLocationData
 
 urlpatterns = patterns('kcdc3.apps.classes.views',
 
@@ -16,7 +16,7 @@ urlpatterns = patterns('kcdc3.apps.classes.views',
 	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+)/json/$', JSONSessionAttendanceDataListView.as_view()),
 	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'CSVSessionAttendanceDataView'),
 	url(r'^data/registration/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'CSVSessionRegistrationDataView'),
-	# url(r'^data/location/(?P<slug>[A-Za-z0-9_-]+)/txt/$', 'TXTLocationDataView'),
+	url(r'^data/location/txt/$', 'TXTLocationData'),
 
 	url(r'^classes$', UserEventListView.as_view()),
 

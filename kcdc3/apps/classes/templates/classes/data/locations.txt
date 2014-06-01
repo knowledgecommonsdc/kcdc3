@@ -1,0 +1,8 @@
+
+{% for location in locations reversed %}
+{{ location.name }}
+{{ location.address1 }}{% if location.address2 %}, {{ location.address2 }}{% endif %}, {{ location.city }}, {{ location.state }}
+{{ location.lat }}{% if location.lng %} / {{ location.lng }}{% endif %}
+
+{% endfor %}
+

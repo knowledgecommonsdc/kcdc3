@@ -3,7 +3,7 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
 from datetime import datetime
 from django.views.generic import DetailView, TemplateView, ListView
-from models import Event, Registration, Bio, Session
+from models import Event, Registration, Bio, Session, Location
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template import Context
@@ -455,4 +455,40 @@ def CSVSessionRegistrationDataView(request, slug):
 	
 	return response
 
+
+# staff data access
+# provide TXT of locations for a session
+def TXTLocationDataListView(SingleObjectMixin, ListView):
+
+	template_name = "classes/data/location_list.txt"
+	context_object_name = "locations"
+	model = Location
+	
+	@method_decorator(permission_required('classes.view_students', raise_exception=True))
+	def dispatch(self, *args, **kwargs):
+		return super(TXTLocationDataListView, self).dispatch(*args, **kwargs)
+	
+	# def get_context_data(self, **kwargs):
+	# 	
+	# 	context = super(TXTLocationDataListView, self).get_context_data(**kwargs)
+	# 	return context
+		
+	def get(self, request, *args, **kwargs):
+		myinstance = self.get_object()
+		content = myinstance.render_text_content()
+		return HttpResponse(content, content_type='text/plain; charset=utf8')
+
+
+
+
+
+# staff data access
+# provide TXT of locations for a session
+@permission_required('classes.view_students')
+def TXTLocationData(request):
+
+	context = Context()
+	context['locations'] = Location.objects.all()
+
+	return render_to_response('classes/data/locations.txt', context, mimetype="text/plain")
 
