@@ -78,18 +78,22 @@ class Location(models.Model):
 	def __unicode__(self):
 		return self.name
 
+	# add random noise to coordinates
+	def add_noise_to_coord(self, coord, noise):
+		return coord + random.uniform(-noise,noise)
+		
 	# return latitude, with random noise for locations for which show_exact is false
 	def get_lat(self):
 		lat = self.lat
 		if not self.show_exact:
-			lat = lat + random.uniform(-RANDOM_GEOCODE_NOISE,RANDOM_GEOCODE_NOISE)
+			lat = self.add_noise_to_coord(lat,RANDOM_GEOCODE_NOISE)
 		return lat
 
-	# return latitude, with random noise for locations for which show_exact is false
+	# return longitude, with random noise for locations for which show_exact is false
 	def get_lng(self):
 		lng = self.lng
 		if not self.show_exact:
-			lng = lng + random.uniform(-RANDOM_GEOCODE_NOISE,RANDOM_GEOCODE_NOISE)
+			lng = self.add_noise_to_coord(lng,RANDOM_GEOCODE_NOISE)
 		return lng
 
 

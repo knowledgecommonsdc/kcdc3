@@ -1,20 +1,21 @@
 {
     "features": [
 		
-		{% for location in locations reversed %}
+		{% for event in events reversed %}
 		
         {
+            "type": "Feature",
             "geometry": {
                 "coordinates": [
-                    {{ location.get_lng }},
-                    {{ location.get_lat }}
+                    {{ event.location.get_lng }},
+                    {{ event.location.get_lat }}
                 ],
                 "type": "Point"
             },
             "properties": {
-                "name": "{{ location.name | escapejs }}"
-            },
-            "type": "Feature"
+                "name": "{{ event.title | escapejs }}",
+				"year": "{{ event.date|date:"Y" }}"
+            }
         }{% if not forloop.last %},{% endif %}
 		
 		{% endfor %}

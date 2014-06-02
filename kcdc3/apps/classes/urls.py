@@ -16,7 +16,7 @@ urlpatterns = patterns('kcdc3.apps.classes.views',
 	url(r'^data/attendance/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'csv_session_attendance_data'),
 	url(r'^data/registration/session/(?P<slug>[A-Za-z0-9_-]+)/csv/$', 'csv_session_registration_data'),
 	url(r'^data/location/txt/$', 'txt_location_data'),
-	url(r'^data/location/json/$', 'json_location_data'),
+	url(r'^data/event_location/json/$', 'json_event_location_data'),
 
 	url(r'^classes$', UserEventListView.as_view()),
 

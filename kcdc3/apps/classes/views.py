@@ -481,3 +481,16 @@ def json_location_data(request):
 
 	return render_to_response('classes/data/locations.json', context, mimetype="text/plain")
 
+
+# staff/public data access
+# provide JSON of classes and registrations
+# intended to back up attendance visualization
+def json_event_location_data(request):
+
+	context = Context()
+	
+	# only returns locations that have a specified lat/lng
+	context['events'] = Event.objects.filter(status = 'PUBLISHED', cancelled = False, location__lat__isnull=False, location__lng__isnull=False)
+
+	return render_to_response('classes/data/event_locations.json', context, mimetype="text/plain")
+
