@@ -3,11 +3,12 @@ from django.contrib.auth.models import User
 import datetime
 from datetime import timedelta
 from format_helpers import *
+import random
 
-# TODO this shouldn't be here but don't have settings import working yet
 # In hours, how long before a class do late promotion rules apply?
 WAITLIST_LATE_PROMOTION_TIME = 24
 CLASSES_IDEAL_STUDENT_MULTIPLIER = 0.667
+RANDOM_GEOCODE_NOISE = 0.003
 
 # a Session is a collection of classes
 class Session(models.Model):
@@ -73,8 +74,23 @@ class Location(models.Model):
 	access = models.CharField(max_length=11, choices=LOCATION_ACCESS_CHOICES, default='SEMIPUBLIC')
 	lat = models.FloatField('Latitude',blank=True,null=True)
 	lng = models.FloatField('Longitude',blank=True,null=True)
+	
 	def __unicode__(self):
 		return self.name
+
+	# return latitude, with random noise for locations for which show_exact is false
+	def get_lat(self):
+		lat = self.lat
+		if not self.show_exact:
+			lat = lat + random.uniform(-RANDOM_GEOCODE_NOISE,RANDOM_GEOCODE_NOISE)
+		return lat
+
+	# return latitude, with random noise for locations for which show_exact is false
+	def get_lng(self):
+		lng = self.lng
+		if not self.show_exact:
+			lng = lng + random.uniform(-RANDOM_GEOCODE_NOISE,RANDOM_GEOCODE_NOISE)
+		return lng
 
 
 # Organizations with whom KCDC is working
