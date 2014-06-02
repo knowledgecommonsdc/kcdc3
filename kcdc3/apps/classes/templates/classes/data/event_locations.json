@@ -1,6 +1,9 @@
-{
+var eventLocations = {
+	
+	"type": "FeatureCollection",
+
     "features": [
-		
+				
 		{% for event in events reversed %}
 		
         {
@@ -20,6 +23,6 @@
 		
 		{% endfor %}
 				
-    ],
-    "type": "FeatureCollection"
+    ]
+	
 }

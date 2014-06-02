@@ -1,4 +1,7 @@
-{
+var allLocations = {
+
+    "type": "FeatureCollection",
+
     "features": [
 		
 		{% for location in locations reversed %}
@@ -19,6 +22,6 @@
 		
 		{% endfor %}
 				
-    ],
-    "type": "FeatureCollection"
+    ]
+	
 }
