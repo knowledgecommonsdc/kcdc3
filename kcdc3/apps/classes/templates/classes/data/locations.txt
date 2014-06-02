@@ -5,4 +5,3 @@
 {{ location.lat }}{% if location.lng %} / {{ location.lng }}{% endif %}
 
 {% endfor %}
-

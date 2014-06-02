@@ -1,0 +1,24 @@
+{
+    "features": [
+		
+		{% for location in locations reversed %}
+		
+        {
+            "geometry": {
+                "coordinates": [
+                    {{ location.lng }},
+                    {{ location.lat }}
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "name": "{{ location.name | escapejs }}"
+            },
+            "type": "Feature"
+        }{% if not forloop.last %},{% endif %}
+		
+		{% endfor %}
+				
+    ],
+    "type": "FeatureCollection"
+}

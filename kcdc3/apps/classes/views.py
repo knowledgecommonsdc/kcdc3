@@ -468,3 +468,16 @@ def txt_location_data(request):
 
 	return render_to_response('classes/data/locations.txt', context, mimetype="text/plain")
 
+
+# staff data access
+# provide GeoJSON of locations for a session
+@permission_required('classes.view_students')
+def json_location_data(request):
+
+	context = Context()
+	
+	# return only locations that have a specified lat/lng
+	context['locations'] = Location.objects.filter(lat__isnull=False,lng__isnull=False)
+
+	return render_to_response('classes/data/locations.json', context, mimetype="text/plain")
+
