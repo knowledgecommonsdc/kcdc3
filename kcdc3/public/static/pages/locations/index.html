@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>	   <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>		   <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>		   <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<meta name="description" content="">
+	
+	<!-- Enable responsive layouts; tell browsers not to shrink pages to fit small screens -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Load styles -->
+	<!-- for production, combine all of these stylesheets -->
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+
+	<!-- 
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	 -->
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<style>
+		#map { height: 700px; }
+		.leaflet-container {
+			background: #3c3c3c;
+		}
+	</style>
+
+	<!-- load live data -->
+	<script src="/classes/data/location/json/"></script>
+	
+</head>
+<body>
+
+
+	<!-- page content goes inside the container -->
+	<div class="container">
+
+
+		 <div id="map"></div>
+
+		<div id="legend">
+			<p>Every location where we have held a KCDC class.</p>			
+		</div>
+
+	</div><!-- end container -->
+	
+
+	<!-- Load scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+	
+	<script>
+	
+		var map = L.map('map').setView([38.914, -76.992], 12);
+		
+		L.tileLayer('http://{s}.tiles.mapbox.com/v3/imaginaryterrain.kcdc-tilemill/{z}/{x}/{y}.png', {
+		    attribution: 'Base map from Open Street Map and DC GIS',
+		    maxZoom: 13,
+			minZoom: 12
+		}).addTo(map);
+		  			
+		
+
+		geojsonLayer = L.geoJson(allLocations, {
+		    pointToLayer: function(feature, latlng) {
+		        return new L.CircleMarker(latlng, {radius: 3, stroke: false, fillColor: '#d4ff00', fillOpacity: 0.55});
+		    }
+		});
+
+		map.addLayer(geojsonLayer);
+
+
+
+		
+	
+	</script>
+
+</body>
+<<<<<<< HEAD
+</html>
+=======
+</html>
+>>>>>>> FETCH_HEAD
