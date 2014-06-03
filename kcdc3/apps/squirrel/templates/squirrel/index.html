@@ -1,0 +1,24 @@
+{% extends "squirrel/base.html" %}
+{% load pinata_filters %}
+
+
+{% block content %}
+
+	<div id="hed">
+		<h1>Staff Dashboard</h1>
+	</div>
+	
+	<div id="main">
+	
+		<ul>
+			<li><a href="/staff/meetings">Meeting RSVPs</a></li>
+			<li><a href="/classes/staff/">Sessions, Teachers, and Registration Data</a></li>
+			<li><a href="/static/pages/attendance/index.html">Class Attendance Graph</a></li>
+			<li><a href="/static/pages/locations/index.html">Locations Map</a></li>
+			<li><a href="/static/pages/locations/all.html">Every Class, Mapped</a></li>
+		</ul>
+		
+	</div>
+
+{% endblock %}
+

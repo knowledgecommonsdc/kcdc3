@@ -4,13 +4,24 @@ from datetime import datetime
 from django.views.generic import DetailView, TemplateView, ListView
 from django.template.loader import render_to_string
 from django.template import Context
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.utils.decorators import method_decorator
 from django.db.models import Q
 from models import Meeting, Meeting_Registration
 from kcdc3.apps.classes.models import Bio
 from helpers import *
 
+
+
+
+
+# teacher/facilitator view
+@permission_required('classes.view_students')
+def home(request):
+
+	context = Context()
+
+	return render_to_response('squirrel/index.html',context)
 
 
 
