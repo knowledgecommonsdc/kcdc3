@@ -17,7 +17,8 @@ var eventLocations = {
             },
             "properties": {
                 "name": "{{ event.title | escapejs }}",
-				"year": "{{ event.date|date:"Y" }}"
+				"year": "{{ event.date|date:"Y" }}",
+				"session": "{{ event.session.slug }}"
             }
         }{% if not forloop.last %},{% endif %}
 		

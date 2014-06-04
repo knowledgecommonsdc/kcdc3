@@ -44,7 +44,7 @@
 		 <div id="map"></div>
 		
 		<div id="legend">
-			<p>Location of every KCDC class. Positions are approximate. purple = 2012, yellow = 2013, cyan = 2014.</p>			
+			<p>Location of every KCDC class. Positions are approximate. purple = 2012, cyan = Jan. 2013, green = rest of 2013, yellow = 2014.</p>			
 		</div>
 
 
@@ -85,11 +85,14 @@
 						markerColor = "#ff00f2";
 						break;
 					case "2013": 
-						markerColor = "#fff600";
+						markerColor = "#6cff00";
 						break;
 					case "2014": 
-						markerColor = "#00caff";
+						markerColor = "#fff600";
 						break;
+				}
+				if (feature.properties.session == "1301") {
+					markerColor = "#00caff";
 				}
 				
 		        return new L.CircleMarker(latlng, {radius: 1.7, stroke: false, fillColor: markerColor, fillOpacity: 0.95});
