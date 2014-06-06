@@ -67,14 +67,19 @@
 			minZoom: 12
 		}).addTo(map);
 		
-		var noise = 0.003
-			
+		var noise = 0.002
+					
   		// return random number
 		function getRandom(min, max) {
 		  return Math.random() * (max - min) + min;
 		}
 
 		var geojsonLayer = L.geoJson(eventLocations, {
+			
+			onEachFeature: function(feature, layer) {
+				layer.bindPopup(feature.properties.location_name);
+			},
+			
 		    pointToLayer: function(feature, rawLatlng) {
 				
 				var latlng = L.latLng(rawLatlng.lat+getRandom(-noise,noise), rawLatlng.lng+getRandom(-noise,noise));
@@ -95,7 +100,12 @@
 					markerColor = "#00caff";
 				}
 				
-		        return new L.CircleMarker(latlng, {radius: 1.7, stroke: false, fillColor: markerColor, fillOpacity: 0.95});
+		        return new L.CircleMarker(latlng, {
+							radius: 1.7, 
+							stroke: false, 
+							fillColor: markerColor, 
+							fillOpacity: 0.95
+						});
 				
 		    }
 		});

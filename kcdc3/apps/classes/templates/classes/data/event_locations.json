@@ -16,6 +16,7 @@ var eventLocations = {
                 "type": "Point"
             },
             "properties": {
+                "location_name": "{{ event.location.name | escapejs }}",
                 "name": "{{ event.title | escapejs }}",
 				"year": "{{ event.date|date:"Y" }}",
 				"session": "{{ event.session.slug }}"
