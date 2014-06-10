@@ -27,13 +27,15 @@ DATABASES = {
 }
 
 
+# Absolute filesystem path to the directory that will hold site design files
+ASSETS_ROOT = PROJECT_ROOT + '/../../frontend/dist/assets/'
+
+# URL that handles the media served from ASSETS_ROOT
+ASSETS_URL = 'http://localhost:8000/assets/'
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = PROJECT_ROOT + '/../public/media/uploads/'
-
-# Absolute filesystem path to the directory that will hold site design files
-# dave@imaginaryterrain.com
-ASSETS_ROOT = PROJECT_ROOT + '/../public/assets/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -58,6 +60,7 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 	# PROJECT_ROOT + "/public/static",
 	PROJECT_ROOT + "/../public/static",
+	ASSETS_ROOT,
 )
 
 # List of finder classes that know how to find static files in
