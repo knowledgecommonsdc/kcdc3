@@ -23,7 +23,8 @@ body
 		font-size: 1em
 		line-height: 1.0em
 		font-weight: bold
-		color: $cA
+		font-weight: 700
+		color: $cT-light
 	h#{$i} a,
 	h#{$i} a:visited
 	h#{$i} a:hover
@@ -42,18 +43,17 @@ h1
 	font-size: 3.5em
 	font-weight: 600
 	margin: 0.75em 0 0 0
-	color: $cT-light
 	@media screen and (max-width: 600px)
 		font-size: 2.5em
 	
 h2
-	font-size: 1.75em
-	margin-top: 2.5em
+	font-size: 2.5em
+	margin-top: 1.5em
 h2:first-child
 	margin-top: 0
 
 h3
-	font-size: 1.25em
+	font-size: 1.4em
 	font-weight: bold
 	line-height: 1.25em
 	margin-top: 2em
@@ -62,19 +62,21 @@ h3.alt
 	color: $cB
 
 h4
-	margin: 1.5em 0 0.5em 0
-	font-size: 0.9em
-	font-weight: bold
+	margin: 1.75em 0 0.5em 0
+	font-size: 1.0em
 	text-transform: uppercase
 	letter-spacing: 0.1em
 
 h5
-	font-weight: normal
+	margin: 2.25em 0 0.5em 0
+	font-style: italic
 
 h6
+	margin: 2.25em 0 0.5em 0
 	font-style: italic
-	font-weight: bold
+	font-weight: normal
 	font-weight: 400
+	font-color: $cT
 
 	
 // blocks
@@ -86,10 +88,10 @@ p, ul, ol
 	font-size: 1.6em
 	line-height: 1.6em
 	font-weight: 400
-	color: $cB
+	color: $cT-light
 
 .intro + p
-	margin-top: 2em
+	margin-top: 0.75em
 
 .secondary
 	font-size: 0.75em
@@ -107,5 +109,7 @@ em, cite, i
 
 strong, b
 	font-weight: bold
+	font-weight: 700
+	color: $cT-light
 	
 	

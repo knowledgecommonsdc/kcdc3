@@ -10,8 +10,14 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="assets/styles/vendor.css">
+        <!-- build:css assets/styles/vendor.css -->
+        <!-- bower:css -->
+
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) assets/styles/main.css -->
         <link rel="stylesheet" href="assets/styles/main.css">
+        <!-- endbuild -->
         <script src="bower_components/modernizr/modernizr.js"></script>
 
     </head>
@@ -28,7 +34,11 @@
         </div>
 
 
-        <script src="assets/scripts/vendor.js"></script>
+        <!-- build:js assets/scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -40,6 +50,8 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
+        <!-- build:js({app,.tmp}) assets/scripts/main.js -->
         <script src="assets/scripts/main.js"></script>
+        <!-- endbuild -->
 </body>
 </html>
