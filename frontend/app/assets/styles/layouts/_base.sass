@@ -25,10 +25,13 @@ img
 		padding-right: 1.25em
 		
 .main
-	width: 60%
-	margin-left: 10%
+	width: 100%
 	@include respond-to($bp-mid)
 		width: 100%		
-		margin-left: 0
-		
-		
+
+	// control width of elements inside main
+	// set col width
+	h1, h2, h3, h4, h5, h6,
+	p, blockquote, ul, li, figure,
+	form
+		max-width: 700px

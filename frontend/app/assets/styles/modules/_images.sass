@@ -4,13 +4,47 @@ figure
 	
 figcaption
 	font-size: 0.80em
+	line-height: 1.5em
 	p
 		margin-top: 0.5em
 		
-.image-wide
-	width: 180%
-	margin-left: -20%
+.main .figure-wide
+	width: 100%
+	max-width: 100%
+	margin-left: 0
 	margin-top: 3em
 	@include respond-to($bp-midplus)
 		width: 100%		
 		margin-left: 0
+		
+.main .figure-side-caption
+	width: 100%
+	max-width: 100%
+	margin-left: 0
+	margin-top: 3em
+	@extend .clearfix
+	@include respond-to($bp-midplus)
+		width: 100%		
+		margin-left: 0
+	img
+		width: 680px
+		float: left
+		@include respond-to($bp-midplus)
+			width: 100%		
+			clear: both
+	figcaption
+		float: left
+		width: 200px
+		margin-left: 1em
+		@include respond-to($bp-midplus)
+			width: 100%		
+			clear: both
+			margin: 0
+	// figcaption::after
+	// 	@include respond-min($bp-midplus)
+	// 		content: ''
+	// 		position: absolute
+	// 		width: 70px
+	// 		height: 4px
+	// 		background: $cT
+		
