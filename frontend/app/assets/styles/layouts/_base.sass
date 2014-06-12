@@ -1,5 +1,15 @@
 
 
+#skip
+	position: absolute
+	left: -9000px
+
+// images no wider than container
+img
+	max-width: 100%
+	height: auto
+
+
 
 .container
 	max-width: 960px
@@ -7,6 +17,8 @@
 	margin: 0 auto
 	padding: 0 0 3em 0
 	@include respond-to($bp-mid)
+		width: 80%
+	@include respond-to($bp-small)
 		width: 100%
 		margin: 0
 		padding-left: 1.25em
@@ -14,5 +26,9 @@
 		
 .main
 	width: 60%
+	margin-left: 10%
 	@include respond-to($bp-mid)
-		width: 100%
+		width: 100%		
+		margin-left: 0
+		
+		

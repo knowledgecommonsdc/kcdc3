@@ -1,11 +1,14 @@
 
+// uncomment this rule to put a transparent background behind elements
+div, article
+//	background: $indicator
 
 // responsive
 @mixin respond-to($breakpoint)
 	@media only screen and (max-width: $breakpoint)
 		@content
 		
-// simple noticably slow transition
+// simple transition
 @mixin basic-transition
-	transition: all 0.75s
+	transition: all 0.5s
 
