@@ -1,4 +1,7 @@
 
+form
+	margin: 2em 0
+	
 label
 	margin: 0 0 0.25em 0
 
@@ -16,12 +19,33 @@ select
 	-webkit-appearance: none
 	-moz-appearance: none
 	appearance: none
+		
+input[type=text]
+	width: 100%
+	max-width: 25em
+	height: 2em
+	border: 1px solid $cN-xlight
+	background: $cN-xxlight
 
+input[type=submit]
+	@extend .btn-action
+	padding-right: 0.5em
+	padding-left: 0.5em
+	height: 3em
+
+label
+	width: 100%
+	max-width: 25em
+	padding-left: 0.0em
+	color: $cT
+	
 // DL that contains a form
 .form-stacked
+	margin: 0 0 2em 0
 	dd,
 	dt
 		margin: 0
 		padding: 0
-	label
-		padding-left: 0.4em
+		width: 100%
+	dt
+		margin: 1em 0 0.1em 0
