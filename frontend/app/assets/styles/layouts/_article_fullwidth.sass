@@ -1,0 +1,55 @@
+
+
+		
+.article-fullwidth
+	width: 100%
+	margin: 0 0 3em 0
+	@include respond-to($bp-mid)
+		width: 100%		
+
+	// control width of elements inside main
+	// set col width
+	h1, h2, h3, h4, h5, h6,
+	p, blockquote, ul, li, figure,
+	form
+		max-width: $textWidth
+
+
+	// asides in sidebar
+	.sidenote
+		float: right
+		width: 25%
+		padding: 0.5em 0 1em 1em
+		@include respond-to($bp-midplus)
+			clear: both
+			width: 100%
+			margin: 1.5em 0 1.5em 0
+			padding: 0
+		p
+			@extend .secondary
+		h4
+			@extend .secondary-hed
+
+	.sidenote__bd
+		@include respond-to($bp-midplus)
+			width: 100%
+			max-width: $textWidth
+			border-left: 5px solid $cN-xxlight
+			padding: 1em 1em 1em 1.2em
+			margin: 1em 0 1em 0
+			background: $cN-xxxlight
+
+
+	// pullquotes in sidebar
+	.sidequote
+		float: right
+		width: 25%
+		padding: 0.5em 0 1em 1em
+		@include respond-to($bp-midplus)
+			clear: both
+			width: 100%
+			padding: 0
+			margin: 0em 0 1.5em 0
+		p
+			@extend .pullquote
+			max-width: 300px

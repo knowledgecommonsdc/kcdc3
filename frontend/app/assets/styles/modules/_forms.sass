@@ -20,14 +20,20 @@ select
 	-moz-appearance: none
 	appearance: none
 		
-input[type=text]
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="url"],
+input[type="search"],
+input[type="password"],
 	width: 100%
 	max-width: 25em
 	height: 2em
 	border: 1px solid $cN-xxlight
 	background: $cN-xxxlight
 
-input[type=submit]
+input[type="submit"]
 	@extend .btn-action
 	padding-right: 0.5em
 	padding-left: 0.5em
@@ -49,3 +55,12 @@ label
 		width: 100%
 	dt
 		margin: 1em 0 0.1em 0
+
+
+
+
+// form layouts ------------------------
+
+// form that occupies space
+.major-form
+	margin: 3em 0 
