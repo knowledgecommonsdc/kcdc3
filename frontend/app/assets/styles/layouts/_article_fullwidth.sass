@@ -1,9 +1,15 @@
 
 
+
+.local-nav-fw
+	width: 25%
+	float: left
+
 		
-.article-fullwidth
-	width: 100%
+.article-fw
+	width: 75%
 	margin: 0 0 3em 0
+	float: left
 	@include respond-to($bp-mid)
 		width: 100%		
 
@@ -12,17 +18,20 @@
 	h1, h2, h3, h4, h5, h6,
 	p, blockquote, ul, li, figure,
 	form
-		max-width: $textWidth
+		width: 75%
+		@include respond-to($bp-mid)
+			width: 100%		
 
 
 	// asides in sidebar
 	.sidenote
 		float: right
 		width: 25%
-		padding: 0.5em 0 1em 1em
+		padding: 1em 0 1em 1em
 		@include respond-to($bp-midplus)
 			clear: both
 			width: 100%
+			max-width: 100%
 			margin: 1.5em 0 1.5em 0
 			padding: 0
 		p
@@ -32,19 +41,19 @@
 
 	.sidenote__bd
 		@include respond-to($bp-midplus)
-			width: 100%
-			max-width: $textWidth
+			width: 75%
 			border-left: 5px solid $cN-xxlight
 			padding: 1em 1em 1em 1.2em
 			margin: 1em 0 1em 0
 			background: $cN-xxxlight
-
+		@include respond-to($bp-mid)
+			width: 100%
 
 	// pullquotes in sidebar
 	.sidequote
 		float: right
 		width: 25%
-		padding: 0.5em 0 1em 1em
+		padding: 1em 0 1em 1em
 		@include respond-to($bp-midplus)
 			clear: both
 			width: 100%
@@ -53,3 +62,41 @@
 		p
 			@extend .pullquote
 			max-width: 300px
+
+
+	.figure-wide
+		width: 100%
+		max-width: 100%
+		margin-left: 0
+		margin-top: 3em
+		@include respond-to($bp-midplus)
+			width: 100%		
+			margin-left: 0
+		figcaption
+			clear: both
+			margin-top: 0.5em
+
+	.figure-side-caption
+		width: 100%
+		max-width: 100%
+		margin-left: 0
+		margin-top: 3em
+		@extend .clearfix
+		@include respond-to($bp-midplus)
+			width: 100%		
+			margin-left: 0
+		img
+			width: 75%
+			float: left
+			@include respond-to($bp-midplus)
+				width: 100%		
+				clear: both
+		figcaption
+			float: right
+			width: 25%
+			padding: 1em 0 1em 1em
+			@include respond-to($bp-midplus)
+				clear: both
+				width: 100%
+				margin: 0.5em 0 0 0
+				padding: 0
