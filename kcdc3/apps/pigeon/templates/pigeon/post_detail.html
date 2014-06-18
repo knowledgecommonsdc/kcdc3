@@ -1,8 +1,6 @@
 {% extends "pigeon/base.html" %}
 {% load pinata_filters %}
 
-
-
 {% block title %}
  / {{ post.title }}
 {% endblock %}
@@ -13,7 +11,7 @@
 
 	<div id="hed" class="blog_hed">
 		{% if post.department_label %}<p class="department_label">{{ post.department_label }}</p>{% endif %}
-		<h1>{{ post.title | smartlines }}</h1>
+		<h1>{{ post.title | smartquotes }}</h1>
 		<p class="byline">
 			{% if post.author.count > 0 %}
 				By 
@@ -28,12 +26,12 @@
 	
 	<div id="main">
 		
-		{{ post.main_text | smartlines | safe }}
+		{{ post.main_text | smartdown }}
 
 		{% if post.author.count > 0 %}
 			<hr />
 			{% for bio in post.author.all %}
-				{{ bio.get_staff_description | smartlines | safe }}
+				{{ bio.get_staff_description | smartlines }}
 				<div class="bio_detail">
 				{% if bio.show_email %}
 						<p class="bio_email"><a href="mailto:{{ bio.get_email }}"><i class="ss-icon ss-social">email</i> {{ bio.get_email }}</a></p>

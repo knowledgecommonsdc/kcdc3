@@ -31,7 +31,7 @@
 					
 					<h3>
 						{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
-						{{ post.title | smartlines }}
+						{{ post.title | smartquotes }}
 					</h3>
 
 					{% if post.author.count > 0 %}
@@ -47,7 +47,7 @@
 						<p class="post_thumbnail"><img src="/media/{{ post.thumbnail }}" alt="" class="" /></p>
 					{% endif %}
 					
-					{{ post.teaser | smartquotes | safe }}
+					{{ post.teaser | smartdown }}
 
 				</a>
 			</dd>

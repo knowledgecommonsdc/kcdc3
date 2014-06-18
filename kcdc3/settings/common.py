@@ -57,6 +57,15 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
 )
 
+MARKDOWN_DEUX_STYLES = {
+    "default": {
+        "extras": {
+            "code-friendly": None,
+        },
+        "safe_mode": False, # We are not escaping HTML tags in this style!
+    },
+}
+
 GRAPPELLI_INDEX_DASHBOARD = 'kcdc3.settings.dashboard.CustomIndexDashboard'
 GRAPPELLI_ADMIN_TITLE = PROJECT_NAME + ': Admin'
 
@@ -114,6 +123,9 @@ INSTALLED_APPS = (
 	'guardian',
 	'easy_thumbnails',
 	'djrill',
+	'django_markdown',
+	'markdown_deux',
+	'pagedown',
 	# 'csvimport',
 )
 

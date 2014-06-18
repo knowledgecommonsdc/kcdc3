@@ -7,10 +7,11 @@ from django.contrib.admin.widgets import ManyToManyRawIdWidget
 from django.core.urlresolvers import reverse
 from django.utils.encoding import smart_unicode
 from django.utils.html import escape
+from django_markdown.admin import MarkdownModelAdmin
 
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(MarkdownModelAdmin):
 	
 	fieldsets = [
 		(None, {'fields': [
@@ -39,12 +40,6 @@ class PostAdmin(admin.ModelAdmin):
 
 	list_display = ('title', 'date', 'status', 'featured', 'allow_comments', 'tags',)
 	list_editable = ('status', 'featured',)
-
-	class Media:
-		js = [
-			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
-		]
 
 admin.site.register(Post, PostAdmin)
 
