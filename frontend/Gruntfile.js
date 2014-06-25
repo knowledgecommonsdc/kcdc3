@@ -301,11 +301,11 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
-                        '*.{ico,png,txt}',
+                        '*.{ico,png,txt,gif,jpg,jpeg}',
                         '.htaccess',
-                        'images/{,*/}*.webp',
+                        'assets/images/{,*/}*',
                         '{,*/}*.html',
-                        'styles/fonts/{,*/}*.*'
+                        'assets/styles/fonts/{,*/}*.*'
                     ]
                 }]
             },
@@ -344,7 +344,7 @@ module.exports = function (grunt) {
             dist: [
                 'compass',
                 'copy:styles',
-                'imagemin',
+                // 'imagemin',
                 'svgmin'
             ]
         }
