@@ -471,7 +471,6 @@ def txt_location_data(request):
 
 # staff data access
 # provide GeoJSON of locations for a session
-@permission_required('classes.view_students')
 def json_location_data(request):
 
 	context = Context()
