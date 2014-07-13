@@ -77,7 +77,7 @@
 		var geojsonLayer = L.geoJson(eventLocations, {
 			
 			onEachFeature: function(feature, layer) {
-				layer.bindPopup(feature.properties.location_name);
+				layer.bindPopup(feature.properties.location_name + ", " + feature.properties.year);
 			},
 			
 		    pointToLayer: function(feature, rawLatlng) {
