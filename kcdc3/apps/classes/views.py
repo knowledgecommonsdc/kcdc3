@@ -482,8 +482,7 @@ def json_location_data(request):
 
 
 # staff/public data access
-# provide JSON of classes and registrations
-# intended to back up attendance visualization
+# provide JSON of classes and locations
 def json_event_location_data(request):
 
 	context = Context()
@@ -493,3 +492,38 @@ def json_event_location_data(request):
 
 	return render_to_response('classes/data/event_locations.json', context, mimetype="text/plain")
 
+
+# staff/public data access
+# provide TSV of locations and classes in each location
+def tsv_events_by_location_data(request):
+
+	response = HttpResponse(content_type='text/csv')
+	response['Content-Disposition'] = 'attachment; filename="export.csv"'
+	
+	events = Event.objects.filter(status = 'PUBLISHED', cancelled = False)
+
+	writer = unicodecsv.writer(response)
+
+	writer.writerow([ 
+				'session', 
+				'class', 
+				'location',
+				])
+	
+
+	for event in events:
+
+		# Ensure we're passing empty strings instead of trying to format nulls
+
+		if event.location:
+			location_name = event.location
+		else:
+			location_name = ''
+
+		writer.writerow([
+					event.session.slug,
+					event.title,
+					event.location,
+					])
+	
+	return response
