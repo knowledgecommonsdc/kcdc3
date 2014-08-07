@@ -71,7 +71,7 @@ module.exports = function (grunt) {
             },
             livereload: {
                 options: {
-                    open: true,
+                    open: false,
                     base: [
                         '.tmp',
                         '<%= yeoman.app %>'
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    open: true,
+                    open: false,
                     base: '<%= yeoman.dist %>',
                     livereload: false
                 }
@@ -149,7 +149,7 @@ module.exports = function (grunt) {
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/assets/styles/fonts',
-                importPath: '<%= yeoman.app %>/bower_components',
+                importPath: '<%= yeoman.app %>/assets/bower_components',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/assets/images/generated',
                 httpFontsPath: '/assets/styles/fonts',
@@ -322,8 +322,8 @@ module.exports = function (grunt) {
         // Generates a custom Modernizr build that includes only the tests you
         // reference in your app
         modernizr: {
-            devFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
-            outputFile: '<%= yeoman.dist %>/bower_components/modernizr/modernizr.js',
+            devFile: '<%= yeoman.app %>/assets/bower_components/modernizr/modernizr.js',
+            outputFile: '<%= yeoman.dist %>/assets/bower_components/modernizr/modernizr.js',
             files: [
                 '<%= yeoman.dist %>/assets/scripts/{,*/}*.js',
                 '<%= yeoman.dist %>/assets/styles/{,*/}*.css',
