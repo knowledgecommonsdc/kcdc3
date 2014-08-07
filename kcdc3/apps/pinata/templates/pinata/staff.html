@@ -25,7 +25,9 @@
 				<div class="minibio">
 					{% if bio.web %}<a href="{{ bio.get_web }}">{% endif %}
 					<div class="minibio_image">
-						{% if bio.image %}
+						{% if bio.staff_image %}
+							<img src="/media/{{ bio.staff_image }}" alt="" />
+						{% elif bio.image %}
 							<img src="/media/{{ bio.image }}" alt="" />
 						{% endif %}
 					</div>	
@@ -45,8 +47,10 @@
 				<div class="minibio">
 					{% if bio.web %}<a href="{{ bio.get_web }}">{% endif %}
 					<div class="minibio_image">
-						{% if bio.image %}
-							<img src="/media/{{ bio.image }}" />
+						{% if bio.staff_image %}
+							<img src="/media/{{ bio.staff_image }}" alt="" />
+						{% elif bio.image %}
+							<img src="/media/{{ bio.image }}" alt="" />
 						{% endif %}
 					</div>	
 					<h5>{{ bio.name }}</h5>		
