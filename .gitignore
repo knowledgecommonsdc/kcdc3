@@ -28,5 +28,4 @@ codekit-config.json
 frontend/node_modules
 frontend/.tmp
 frontend/.sass-cache
-frontend/app/bower_components
-frontend/test/bower_components
+frontend/test
