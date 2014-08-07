@@ -141,6 +141,7 @@ class Bio(models.Model):
 	description = models.TextField('Bio text', blank=True)
 	web = models.CharField('Website', max_length=255, blank=True)
 	image = models.ImageField('Image (160x160px)', upload_to='bio', blank=True, null=True)
+	staff_image = models.ImageField('Image (160x160px)', upload_to='staff_bio', blank=True, null=True)
 	twitter = models.CharField('Twitter Handle', max_length=16, blank=True)
 	show_email = models.BooleanField('Show email to public?', default=False)
 
