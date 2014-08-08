@@ -199,9 +199,10 @@ admin.site.register(Session, SessionAdmin)
 
 class PartnerAdmin(admin.ModelAdmin):
 	model = Partner
-	list_display = ('name',)
+	list_display = ('name','featured')
+	list_editable = ('featured',)
 	fieldsets = [
-		(None, {'fields': ['name','description', 'website', 'image',]}),
+		(None, {'fields': ['name','description', 'website', 'image','featured',]}),
 	]
 	class Media:
 		js = [

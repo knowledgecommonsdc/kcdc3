@@ -103,6 +103,7 @@ class Partner(models.Model):
 	description = models.TextField('Description', blank=True)
 	website = models.URLField(blank=True)
 	image = models.ImageField('Image (150x150px max)', upload_to='partners', blank=True, null=True)
+	featured = models.BooleanField('Featured', default=True)
 
 	class Meta:
 		verbose_name=u'Location Partner'
