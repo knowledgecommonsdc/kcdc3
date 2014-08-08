@@ -13,8 +13,9 @@
 	
 		{{ main_text|safe }}
 	
+		{% if sponsors_A %}
 		<div class="partner_group" id="partner_group_a">	
-			<h3>Community Partners</h3>			
+			<h3>Major Partners</h3>			
 			{% for sponsor in sponsors_A %}
 				<div class="partner">
 					{% if sponsor.destination_url %}<a href="{{ sponsor.destination_url }}">{% endif %}
@@ -23,18 +24,10 @@
 				</div>
 			{% endfor %}			
 		</div>		
-
-		<div class="partner_group" id="partner_group_b">				
-			{% for sponsor in sponsors_B %}
-				<div class="partner">
-					{% if sponsor.destination_url %}<a href="{{ sponsor.destination_url }}">{% endif %}
-					<img src="/media/{{ sponsor.image }}" />
-					{% if sponsor.destination_url %}</a>{% endif %}
-				</div>
-			{% endfor %}			
-		</div>		
+		{% endif %}
 
 		<div class="partner_group" id="partner_group_s">				
+			<h3>Class Location Partners</h3>			
 			{% for sponsor in sponsors_S %}
 				<div class="partner">
 					{% if sponsor.destination_url %}<a href="{{ sponsor.destination_url }}">{% endif %}
@@ -42,10 +35,6 @@
 					{% if sponsor.destination_url %}</a>{% endif %}
 				</div>
 			{% endfor %}			
-		</div>		
-
-		<div class="partner_group" id="partner_group_loc">				
-			<h3>Class Location Partners</h3>			
 			{% for partner in partners %}
 				<div class="partner">
 					{% if partner.website %}<a href="{{ partner.website }}">{% endif %}
@@ -54,6 +43,19 @@
 				</div>
 			{% endfor %}			
 		</div>		
+
+		{% if sponsors_B %}
+		<div class="partner_group" id="partner_group_b">				
+			<h3>Community Partners</h3>			
+			{% for sponsor in sponsors_B %}
+				<div class="partner">
+					{% if sponsor.destination_url %}<a href="{{ sponsor.destination_url }}">{% endif %}
+					<img src="/media/{{ sponsor.image }}" />
+					{% if sponsor.destination_url %}</a>{% endif %}
+				</div>
+			{% endfor %}			
+		</div>		
+		{% endif %}
 		
 	</div>
 	
