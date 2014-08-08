@@ -5,7 +5,7 @@ from django.template import Context
 from django.views.generic import DetailView, TemplateView, ListView
 from django.db.models import Q
 from models import Page, Notice, Slide, Sponsor, PressClipping
-from kcdc3.apps.classes.models import Bio, Role, Event, Session
+from kcdc3.apps.classes.models import Bio, Role, Event, Session, Partner
 from kcdc3.apps.pigeon.models import Post
 
 
@@ -161,6 +161,7 @@ def partners(request):
 	context['sponsors_A'] = Sponsor.objects.filter(group='A').filter(status='PUBLISHED')
 	context['sponsors_B'] = Sponsor.objects.filter(group='B').filter(status='PUBLISHED')
 	context['sponsors_S'] = Sponsor.objects.filter(group='S').filter(status='PUBLISHED')
+	context['partners'] = Partner.objects.filter(featured=True)
 	
 	# get all other pages with the same parent
 	if e.parent:
