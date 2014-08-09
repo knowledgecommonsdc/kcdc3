@@ -1,12 +1,15 @@
 
 
+// wide column with narrow sidebar on left
+// and space on right for hanging photos and notes
 
-.local-nav-fw
+.fw-sidebar
 	width: 25%
+	padding: 0 3em 0 0
 	float: left
 
 		
-.article-fw
+.fw-main
 	width: 75%
 	margin: 0 0 3em 0
 	float: left
@@ -16,7 +19,7 @@
 	// control width of elements inside main
 	// set col width
 	h1, h2, h3, h4, h5, h6,
-	p, blockquote, ul, li, figure,
+	p, blockquote, ul, ol, figure,
 	form
 		width: 75%
 		@include respond-to($bp-mid)
