@@ -35,3 +35,9 @@ a.noborder, a.noborder:hover
 a img
 	+noborder
 
+
+@mixin quietlink
+	border-bottom: 1px solid rgba(255,255,255,0)
+	&:hover
+		border-bottom: 1px solid $c-link-hover
+		@include basic-transition

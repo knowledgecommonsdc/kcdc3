@@ -1,0 +1,89 @@
+
+// page header and
+// global navbar
+
+
+.page-head
+	margin: 0 auto 0 auto
+	width: 100%
+	max-width: $pageWidth
+	+clearfix
+
+.global-nav
+	width: 100%
+	background: $cN-xxxlight
+	& > ul
+		margin: 0 0 0em 0
+		padding: 0 0 0.75em 1.5em
+	& > ul > li
+		display: inline-block
+	a,
+	a:visited
+		display: inline-block
+		margin: 0 0.75em 0 0
+		padding: 0.65em 0em 0.1em 0em
+		font-size: 1.15em
+		border: 0
+		border-bottom: 1px solid $cN-xxxlight
+		color: $cT-mid
+	a:hover
+		color: $cA
+		border-bottom: 1px solid $cA
+		+basic-transition
+	.active
+		color: $cA
+		border-bottom: 1px solid $cA
+	.name
+		margin-right: 2em
+		
+
+.logo
+	float: left
+	width: 20%
+	&>a
+		display: block
+		width: 80px
+		margin: 0.75em 0 0 1.4em
+		border: none
+
+.utility-nav
+	float: left
+	width: 80%
+	&>ul
+		margin: 0.25em 0 0 0
+		padding: 0
+		text-align: right
+	li
+		display: inline-block
+	a
+		margin: 0 0.25em 0 0.25em
+		font-size: 0.8em
+		+quietlink
+
+.show-mobile-nav
+	display: block
+	width: 50%
+	float: right
+	text-align: right
+	color: $cT
+	
+.mobile-nav
+	display: none
+	@include respond-to($bp-mid)
+		display: block
+		ul
+			margin: 0
+			padding: 0
+		li
+			margin: 0
+			padding: 0
+		a
+			display: block
+			width: 100%
+			clear: both
+			display: block
+			padding: 0.25em 0.5em 0.25em 1.5em
+			border-bottom: 1px solid $cN-xxxlight
+			color: $cT
+			&:hover
+				background: $cN-xxlight

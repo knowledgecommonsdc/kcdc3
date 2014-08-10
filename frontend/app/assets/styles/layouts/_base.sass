@@ -1,8 +1,7 @@
 
 
 #skip
-	position: absolute
-	left: -9000px
+	@extend .visuallyhidden
 
 // images no wider than container
 img
@@ -12,6 +11,7 @@ img
 
 
 .container
+	clear: both
 	max-width: $pageWidth
 	width: 90%
 	margin: 0 auto
