@@ -1,6 +1,5 @@
 
 .nav-stacked
-	// border: 2px solid $cN-xxlight
 	ul
 		margin: 0
 		padding: 0
@@ -23,6 +22,26 @@
 	.active
 		background: $cN-xlight !important
 		// font-weight: bold
+		
+	@include respond-to($bp-mid)
+		li
+			display: inline-block
+		a,
+		a:visited
+			margin: 0 0.1em 0.1em 0
+			padding: 0.2em 0.4em 0.2em 0.4em 
+			color: $cT
+			border: 1px solid $cN-xxlight
+			background-color: $cN-xxlight
+			display: block
+			border-radius: 2px
+			font-size: 0.75em
+		a:hover
+			background-color: #fff
+			border: 1px solid $cN-light
+		.active
+			background-color: #fff !important
+			border: 1px solid $cN-light !important
 
 
 
@@ -46,13 +65,21 @@
 		display: block
 		border-radius: 3px
 	a:hover
-		background-color: $cN-light
-		border: 1px solid $cN-mid
+		background-color: #fff
+		border: 1px solid $cN-light
 		+basic-transition
 	.active
-		// font-weight: bold
-		background-color: $cN-light !important
-		border: 1px solid $cN-mid !important
+		background-color: #fff !important
+		border: 1px solid $cN-light !important
+
+	// @include respond-to($bp-mid)
+	// 	a,
+	// 	a:visited
+	// 		margin: 0 0.1em 0.1em 0
+	// 		padding: 0.2em 0.4em 0.2em 0.4em
+	// 		line-height: 1.25em
+	// 		border-radius: 2px
+	// 		font-size: 0.75em
 
 
 
