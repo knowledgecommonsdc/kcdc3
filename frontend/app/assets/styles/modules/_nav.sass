@@ -4,14 +4,21 @@
 
 
 .page-head
+	width: 90%
 	margin: 0 auto 0 auto
-	width: 100%
 	max-width: $pageWidth
 	+clearfix
-
+	@include respond-to($bp-mid)
+		width: 80%
+	@include respond-to($bp-small)
+		width: 100%
+		margin: 0
+		
 .global-nav
 	width: 100%
 	background: $cN-xxxlight
+	@include respond-to($bp-small)
+		display: none
 	& > ul
 		margin: 0 0 0em 0
 		padding: 0 0 0.75em 1.5em
@@ -40,15 +47,19 @@
 .logo
 	float: left
 	width: 20%
+	@include respond-to($bp-small)
+		width: 40%
 	&>a
 		display: block
-		width: 80px
+		width: 70px
 		margin: 0.75em 0 0 1.4em
 		border: none
 
 .utility-nav
 	float: left
 	width: 80%
+	@include respond-to($bp-small)
+		display: none
 	&>ul
 		margin: 0.25em 0 0 0
 		padding: 0
@@ -60,18 +71,34 @@
 		font-size: 0.8em
 		+quietlink
 
+.page-head__ft
+	width: 100%
+	+clearfix
+	@include respond-to($bp-small)
+		padding-bottom: 0.65em
+		border-bottom: 2px solid $cN-xxlight
+
 .show-mobile-nav
-	display: block
+	display: none
+	margin: 0 0 0 0 
+	padding: 60px 1em 0 0
 	width: 50%
 	float: right
 	text-align: right
 	color: $cT
+	border: none
+	&:hover
+		border: none
+	@include respond-to($bp-small)
+		display: block
+		
 	
 .mobile-nav
 	display: none
-	@include respond-to($bp-mid)
+	@include respond-to($bp-small)
 		display: block
 		ul
+			clear: both
 			margin: 0
 			padding: 0
 		li
@@ -82,8 +109,12 @@
 			width: 100%
 			clear: both
 			display: block
-			padding: 0.25em 0.5em 0.25em 1.5em
-			border-bottom: 1px solid $cN-xxxlight
+			padding: 0.4em 0.5em 0.4em 1.5em
+			border-bottom: 1px solid $cN-xxlight
 			color: $cT
+			background: $cN-xxxlight
 			&:hover
 				background: $cN-xxlight
+		.utility-nav-mobile-item
+			font-style: italic
+			

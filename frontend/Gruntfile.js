@@ -1,5 +1,5 @@
 // Generated on 2014-02-21 using generator-webapp 0.4.7
-'use strict';
+// 'use strict';
 
 // # Globbing
 // for performance reasons we're only matching one level down:
