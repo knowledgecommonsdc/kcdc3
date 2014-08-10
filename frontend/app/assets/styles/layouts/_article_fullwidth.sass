@@ -21,10 +21,19 @@
 
 	// control width of elements inside main
 	// set col width
-	h1, h2, h3, h4, h5, h6,
-	p, blockquote, ul, ol, figure,
-	form
-		width: 75%
+	article > h1, 
+	article > h2, 
+	article > h3, 
+	article > h4, 
+	article > h5, 
+	article > h6,
+	article > p, 
+	article > blockquote, 
+	article > ul, 
+	article > ol, 
+	article > figure,
+	article > form
+		width: 65%
 		@include respond-to($bp-mid)
 			width: 100%		
 
@@ -32,7 +41,7 @@
 	// asides in sidebar
 	.sidenote
 		float: right
-		width: 25%
+		width: 35%
 		padding: 1em 0 1em 1em
 		@include respond-to($bp-midplus)
 			clear: both
@@ -58,7 +67,7 @@
 	// pullquotes in sidebar
 	.sidequote
 		float: right
-		width: 25%
+		width: 35%
 		padding: 1em 0 1em 1em
 		@include respond-to($bp-midplus)
 			clear: both
@@ -92,14 +101,14 @@
 			width: 100%		
 			margin-left: 0
 		img
-			width: 75%
+			width: 65%
 			float: left
 			@include respond-to($bp-midplus)
 				width: 100%		
 				clear: both
 		figcaption
 			float: right
-			width: 25%
+			width: 35%
 			padding: 1em 0 1em 1em
 			@include respond-to($bp-midplus)
 				clear: both
