@@ -4,21 +4,12 @@
 
 
 .page-head
-	width: 90%
-	margin: 0 auto 0 auto
-	max-width: $pageWidth
+	width: 100%
 	+clearfix
-	@include respond-to($bp-mid)
-		width: 80%
-	@include respond-to($bp-small)
-		width: 100%
-		margin: 0
 		
 .global-nav
 	width: 100%
-	background: $cN-xxxlight
-	@include respond-to($bp-small)
-		display: none
+	background: $cN-xxxlight		
 	& > ul
 		margin: 0 0 0em 0
 		padding: 0 0 0.75em 1.5em
@@ -42,24 +33,42 @@
 		border-bottom: 1px solid $cA
 	.name
 		margin-right: 2em
-		
+
+.global-nav
+	@include respond-to($bp-small)
+		ul
+			padding: 0.35em 0 0.35em 0.5em
+		a,
+		a:visited
+			font-size: 0.75em
+			padding: 0.5em 0.5em 0.5em 0.5em
+			margin: 0
+			border: none
+			line-height: 0.8em
+			border-bottom: 1px solid $cN-xxlight
+			background: #fff
+			border-radius: 2px
+		.active
+			border-bottom: 1px solid $cN-xxlight
+		.name
+			margin-right: 0
+			font-weight: bold
+			font-weight: 600
 
 .logo
 	float: left
 	width: 20%
 	@include respond-to($bp-small)
-		width: 40%
+		width: 30%
 	&>a
 		display: block
-		width: 70px
+		width: 65px
 		margin: 0.75em 0 0 1.4em
 		border: none
 
 .utility-nav
 	float: left
-	width: 80%
-	@include respond-to($bp-small)
-		display: none
+	width: 70%
 	&>ul
 		margin: 0.25em 0 0 0
 		padding: 0
@@ -76,45 +85,7 @@
 	+clearfix
 	@include respond-to($bp-small)
 		padding-bottom: 0.65em
-		border-bottom: 2px solid $cN-xxlight
 
-.show-mobile-nav
-	display: none
-	margin: 0 0 0 0 
-	padding: 60px 1em 0 0
-	width: 50%
-	float: right
-	text-align: right
-	color: $cT
-	border: none
-	&:hover
-		border: none
-	@include respond-to($bp-small)
-		display: block
-		
-	
-.mobile-nav
-	display: none
-	@include respond-to($bp-small)
-		display: block
-		ul
-			clear: both
-			margin: 0
-			padding: 0
-		li
-			margin: 0
-			padding: 0
-		a
-			display: block
-			width: 100%
-			clear: both
-			display: block
-			padding: 0.4em 0.5em 0.4em 1.5em
-			border-bottom: 1px solid $cN-xxlight
-			color: $cT
-			background: $cN-xxxlight
-			&:hover
-				background: $cN-xxlight
-		.utility-nav-mobile-item
-			font-style: italic
+
+
 			
