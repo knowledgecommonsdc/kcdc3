@@ -12,14 +12,14 @@
 	background: $cN-xxxlight		
 	& > ul
 		margin: 0 0 0em 0
-		padding: 0 0 0.75em 1.5em
+		padding: 0.75em 0 0.75em 1.5em
 	& > ul > li
 		display: inline-block
 	a,
 	a:visited
 		display: inline-block
 		margin: 0 0.75em 0 0
-		padding: 0.65em 0em 0.1em 0em
+		padding: 0.5em 0em 0.1em 0em
 		font-size: 1.15em
 		border: 0
 		border-bottom: 1px solid $cN-xxxlight
@@ -37,44 +37,55 @@
 .global-nav
 	@include respond-to($bp-small)
 		ul
-			padding: 0.35em 0 0.35em 0.5em
+			padding: 0.35em 0 2.0em 0.5em
 		a,
 		a:visited
-			font-size: 0.75em
-			padding: 0.5em 0.5em 0.5em 0.5em
-			margin: 0
-			border: none
+			font-size: 0.85em
+			padding: 0.5em 0em 0.5em 0em
+			margin: 0 0.5em 0 0
 			line-height: 0.8em
-			border-bottom: 1px solid $cN-xxlight
-			background: #fff
-			border-radius: 2px
+			border-bottom: 1px solid $cN-xxxlight
+			// background: #fff
+			// border-radius: 2px
 		a:hover
 			border-bottom: 1px solid $cA
-			background: $cA
-			color: #fff
 		.active
 			border-bottom: 1px solid $cA
-			background: $cA
-			color: #fff
 		.name
-			margin-right: 0
+			margin-right: 0.5em
 			font-weight: bold
 			font-weight: 600
 
+.global-nav
+	@include respond-to($bp-navthree)
+		ul
+			padding-bottom: 0.5em
+
 .logo
 	float: left
-	width: 20%
+	padding-right: 3em
 	@include respond-to($bp-small)
-		width: 30%
+		width: 7em
 	&>a
 		display: block
-		width: 65px
-		margin: 0.75em 0 0 1.4em
+		width: 85px
+		margin: 0.75em 0 0 2.6em
 		border: none
+		@include respond-to($bp-navbreak)
+			width: 75px
+			margin: 0.5em 0 0 2em
+		@include respond-to($bp-small)
+			margin: 0.25em 0 0 1em
 
 .utility-nav
-	float: left
+	float: right
 	width: 70%
+	padding: 0 2em 0 0
+	@include respond-to($bp-small)
+		width: 100%
+		+clearfix
+		padding-bottom: 0.65em
+		padding-right: 0.5em
 	&>ul
 		margin: 0.25em 0 0 0
 		padding: 0
@@ -86,11 +97,6 @@
 		font-size: 0.8em
 		+quietlink
 
-.page-head__ft
-	width: 100%
-	+clearfix
-	@include respond-to($bp-small)
-		padding-bottom: 0.65em
 
 
 
