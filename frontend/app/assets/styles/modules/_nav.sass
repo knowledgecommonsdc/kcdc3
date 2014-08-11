@@ -24,6 +24,10 @@
 		border: 0
 		border-bottom: 1px solid $cN-xxxlight
 		color: $cT-mid
+		@include respond-to($bp-nav1)
+			font-size: 0.9em
+			padding: 0 0 0.1em 0
+			line-height: 1em
 	a:hover
 		color: $cA
 		border-bottom: 1px solid $cA
@@ -33,47 +37,55 @@
 		border-bottom: 1px solid $cA
 	.name
 		margin-right: 2em
+		@include respond-to($bp-nav2)
+			display: none
+	.home
+		@include respond-to($bp-small)
+			margin-left: -0.2em
+			
+// .global-nav
+// 	@include respond-to($bp-small)
+// 		ul
+// 			padding: 0.35em 0 1.0em 0.5em
+// 		a,
+// 		a:visited
+// 			padding: 0.5em 0em 0.5em 0em
+// 			margin: 0 0.5em 0 0
+// 			line-height: 0.8em
+// 		a:hover
+// 			border-bottom: 1px solid $cA
+// 		.active
+// 			border-bottom: 1px solid $cA
+// 		.name
+// 			margin-right: 0.5em
+// 			font-weight: bold
+// 			font-weight: 600
+// 	@include respond-to($bp-nav1)
+// 		font-size: 0.85em
+// 		a,
+// 		a:visited
+// 			border-bottom: 1px solid rgba(255,255,255,0)
+// 	@include respond-to($bp-nav2)
+// 		background: #fff
+// 		a,
+// 		a:visited
+// 			font-size: 0.85em
 
-.global-nav
-	@include respond-to($bp-small)
-		ul
-			padding: 0.35em 0 2.0em 0.5em
-		a,
-		a:visited
-			font-size: 0.85em
-			padding: 0.5em 0em 0.5em 0em
-			margin: 0 0.5em 0 0
-			line-height: 0.8em
-			border-bottom: 1px solid $cN-xxxlight
-			// background: #fff
-			// border-radius: 2px
-		a:hover
-			border-bottom: 1px solid $cA
-		.active
-			border-bottom: 1px solid $cA
-		.name
-			margin-right: 0.5em
-			font-weight: bold
-			font-weight: 600
-
-.global-nav
-	@include respond-to($bp-navthree)
-		ul
-			padding-bottom: 0.5em
 
 .logo
 	float: left
-	padding-right: 3em
-	@include respond-to($bp-small)
-		width: 7em
+	width: 9em
+	@include respond-to($bp-nav2)
+		width: 100%
+		clear: both
 	&>a
 		display: block
 		width: 85px
 		margin: 0.75em 0 0 2.6em
 		border: none
-		@include respond-to($bp-navbreak)
-			width: 75px
-			margin: 0.5em 0 0 2em
+		@include respond-to($bp-nav1)
+			width: 65px
+			margin: 0.5em 0 0 1em
 		@include respond-to($bp-small)
 			margin: 0.25em 0 0 1em
 
@@ -96,7 +108,8 @@
 		margin: 0 0.25em 0 0.25em
 		font-size: 0.8em
 		+quietlink
-
+		@include respond-to($bp-nav2)
+			font-size: 0.75em
 
 
 
