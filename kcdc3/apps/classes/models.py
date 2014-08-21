@@ -106,7 +106,7 @@ class Partner(models.Model):
 	featured = models.BooleanField('Featured', default=True)
 
 	class Meta:
-		verbose_name=u'Location Partner'
+		verbose_name=u'Location/Programming Partner'
 
 	def __unicode__(self):
 		return self.name
