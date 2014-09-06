@@ -13,6 +13,7 @@ from email import send_registration_mail
 from helpers import *
 from django.db.models import Q
 from django.conf import settings
+from django.contrib.auth.models import User	# for username export
 
 # display a list of events
 class EventListView(ListView):
@@ -524,6 +525,37 @@ def tsv_events_by_location_data(request):
 					event.session.slug,
 					event.title,
 					event.location,
+					])
+	
+	return response
+
+
+
+# staff data access
+# provide CSV of registered, active users
+# Really doesn't belong here but this is a good spot 
+# until we integrate Tastypie
+@permission_required('classes.view_students')
+def csv_users_data(request):
+
+	response = HttpResponse(content_type='text/csv')
+	response['Content-Disposition'] = 'attachment; filename="export.csv"'
+	
+	active_users = User.objects.filter(is_active=True)
+	
+	writer = unicodecsv.writer(response)
+
+	writer.writerow([ 
+				'first_name', 
+				'last_name', 
+				'email',
+				])
+	
+	for user in active_users:
+		writer.writerow([ 
+					user.first_name, 
+					user.last_name, 
+					user.email,
 					])
 	
 	return response
