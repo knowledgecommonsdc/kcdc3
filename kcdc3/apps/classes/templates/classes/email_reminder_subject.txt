@@ -1,1 +1,1 @@
-KCDC reminder: {{ title|safe }}
+Your KCDC class: {{ title|safe }}
