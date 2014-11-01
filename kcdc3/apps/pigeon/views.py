@@ -19,7 +19,7 @@ class PostListView(ListView):
 		
 		context = super(PostListView, self).get_context_data(**kwargs)
 		context['posts'] = Post.objects.filter(status='PUBLISHED').exclude(date__gte=datetime.now()).order_by('-date')
-		context['recent_posts'] = context['posts'][:15]
+		context['recent_posts'] = context['posts'][:30]
 
 		return context
 
