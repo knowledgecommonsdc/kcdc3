@@ -24,6 +24,7 @@ class Post(models.Model):
 	main_text = models.TextField(blank=True)
 
 	author = models.ManyToManyField(Bio, blank=True, null=True, related_name='author')
+	special_author = models.CharField(max_length=200, null=True)
 	tags = models.CharField(max_length=128, blank=True)
 	allow_comments = models.BooleanField(default=False)
 

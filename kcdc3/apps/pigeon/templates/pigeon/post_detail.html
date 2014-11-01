@@ -22,6 +22,10 @@
 					{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
 				{% endfor %}
 			{% endif %}
+			{% if post.author.count = 0 %}
+				{{ post.special_author | smartlines }}
+			{% endif %}
+			
 			({{ post.date|date:"j F Y" }})
 		</p>
 	</div>
