@@ -25,7 +25,7 @@ LOCATION:
 {% ifnotequal location_name location_address1 %}{{ location_name|safe }}{% endifnotequal %}
 {{ location_address1 }}
 {% if location_address2 %}{{ location_address2 }}{% endif %}
-{% if location_city %}{{ location_city }}, {% endif %} {% if location_state %}{{ location_state }}{% endif %}{% if location_zip %}{{ location_zip }}{% endif %}
+{% if location_city %}{{ location_city }}, {% endif %}{% if location_state %}{{ location_state }} {% endif %}{% if location_zip %}{{ location_zip }}{% endif %}
 {% if location_neighborhood %}Neighborhood: {{ location_neighborhood }} {% endif %}
 {% if location_hint %}
 {{ location_hint }}{% endif %}
