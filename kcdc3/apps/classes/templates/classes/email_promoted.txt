@@ -22,7 +22,7 @@ DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{
 {{ email_welcome_text|safe }}{% endif %}
 
 LOCATION:
-{% ifnotequal location_name location_address1 %}{{ location_name }}{% endifnotequal %}
+{% ifnotequal location_name location_address1 %}{{ location_name|safe }}{% endifnotequal %}
 {{ location_address1 }}
 {% if location_address2 %}{{ location_address2 }}{% endif %}
 {% if location_city %}{{ location_city }}, {% endif %} {% if location_state %}{{ location_state }}{% endif %}{% if location_zip %}{{ location_zip }}{% endif %}
