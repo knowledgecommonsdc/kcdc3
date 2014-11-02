@@ -43,9 +43,11 @@
 						</p>
 					{% endif %}
 					{% if post.author.count = 0 %}
-						<p>By 
-						{{ post.special_author | smartlines }}
-						</p>
+						{% if post.special_author %}
+							<p>By 
+							{{ post.special_author | smartlines }}
+							</p>
+						{% endif %}	
 					{% endif %}
 					
 					{% if post.thumbnail %}
