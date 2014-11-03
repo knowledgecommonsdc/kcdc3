@@ -21,8 +21,7 @@
 					{% if forloop.last %}{% if forloop.counter > 1 %} and {% endif %}{% endif %}
 					{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
 				{% endfor %}
-			{% endif %}
-			{% if post.author.count = 0 %}
+			{% elif post.author.count = 0 and post.special_author %}
 				{{ post.special_author | smartlines }}
 			{% endif %}
 			
