@@ -99,6 +99,13 @@
 						{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
 					{% endfor %}
 					</i>
+				{% elif post.author.count = 0 and post.special_author %}
+					{% if post.special_author %}
+						<i class="byline">
+						By 
+						{{ post.special_author | smartlines }}
+						</i>
+					{% endif %}
 				{% endif %}
 			</a>
 			</p>
