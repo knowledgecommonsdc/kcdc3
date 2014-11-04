@@ -100,12 +100,10 @@
 					{% endfor %}
 					</i>
 				{% elif post.author.count = 0 and post.special_author %}
-					{% if post.special_author %}
-						<i class="byline">
-						By 
-						{{ post.special_author | smartlines }}
-						</i>
-					{% endif %}
+					<i class="byline">
+					By 
+					{{ post.special_author | smartlines }}
+					</i>
 				{% endif %}
 			</a>
 			</p>
