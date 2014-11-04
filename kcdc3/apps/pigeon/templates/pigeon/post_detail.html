@@ -22,6 +22,7 @@
 					{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
 				{% endfor %}
 			{% elif post.author.count = 0 and post.special_author %}
+				By
 				{{ post.special_author | smartlines }}
 			{% endif %}
 			
