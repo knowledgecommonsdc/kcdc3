@@ -18,7 +18,7 @@
 				<ul class="slides">
 					{% for slide in slides|shuffle %}
 						{% if slide.image %}
-						<li><img src="/media/{{ slide.image }}" alt="{{ slide.title }}" /><font color="white"> {{ slide.main_text | smartquotes | safe }}</li>
+						<li><img src="/media/{{ slide.image }}" alt="{{ slide.title }}" /></li>
 						{% else %}
 						<li>{{ slide.main_text | smartquotes | safe }}</li>
 						{% endif %}
@@ -124,9 +124,9 @@
 			$('#flexslider').flexslider({
 				controlNav: false,
 				directionNav: false,
-				slideshowSpeed: 4000,         
+				slideshowSpeed: 9000,         
 				animationSpeed: 100, // doesn't work; set this in the script file         
-				randomize: false,              
+				randomize: true,              
 				keyboard: true,              
 				touch: true,              
 				pauseOnAction: true,              
