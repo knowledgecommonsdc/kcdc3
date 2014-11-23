@@ -4,8 +4,17 @@
 
 
 .page-head
-	width: 100%
+	width: 90%
+	max-width: 1200px
+	margin: 0 auto
 	+clearfix
+	@include respond-to($bp-mid)
+		width: 80%
+	@include respond-to($bp-small)
+		width: 100%
+		margin: 0
+		padding-left: 1.25em
+		padding-right: 1.25em
 		
 .global-nav
 	width: 100%
@@ -46,24 +55,24 @@
 
 .logo
 	float: left
-	width: 10em
+	width: 7em
 	@include respond-to($bp-nav1)
-		width: 8em
+		width: 5em
 	@include respond-to($bp-nav2)
-		width: 6.0em
+		width: 4.5em
 		clear: both
 	&>a
 		display: block
 		width: 85px
-		margin: -1.25em 0 0 2.7em
+		margin: -1.25em 0 0 0em
 		border: none
 		&:hover
 			border: none
 		@include respond-to($bp-nav1)
 			width: 65px
-			margin: -1.0em 0 0 3em
+			margin: -1.0em 0 0 0
 		@include respond-to($bp-nav2)
-			margin: -0.5em 0.25em 0 1.25em
+			margin: -0.5em 0.25em 0 0
 
 .utility-nav
 	float: right
