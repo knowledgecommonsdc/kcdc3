@@ -25,6 +25,8 @@
 		@include respond-to($bp-nav2)
 	& > ul > li
 		display: inline-block
+	@include respond-to($bp-small)
+		margin-top: 0.25em
 	a,
 	a:visited
 		display: inline-block
@@ -79,13 +81,13 @@
 	width: 100%
 	padding: 0
 	&>ul
-		margin: 0.0em 0 0 0
+		margin: 0
 		padding: 0
 		text-align: right
 	li
 		display: inline-block
 	a
-		margin: 0 0.25em 0 0.25em
+		margin: 0 0em 0 0
 		font-size: 0.75em
 		+quietlink
 
