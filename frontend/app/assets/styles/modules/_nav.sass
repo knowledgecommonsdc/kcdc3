@@ -10,76 +10,97 @@
 	+clearfix
 	@include respond-to($bp-mid)
 		width: 80%
-	@include respond-to($bp-small)
+	@include respond-to($bp-nav)
 		width: 100%
 		margin: 0
-		padding-left: 1.25em
-		padding-right: 1.25em
+		padding: 0
 		
 .global-nav
 	width: 100%
 	background: #fff	
 	& > ul
 		margin: 0 0 0em 0
-		padding: 2.0em 0 0.75em 1.5em
-		@include respond-to($bp-nav2)
+		padding: 1.5em 0 0.75em 1.5em
 	& > ul > li
 		display: inline-block
-	@include respond-to($bp-small)
-		margin-top: 0.25em
-	a,
-	a:visited
-		display: inline-block
-		margin: 0 0.75em 0 0
-		padding: 0.5em 0em 0.05em 0em
-		font-size: 1.1em
-		border: 0
-		border-bottom: 1px solid #fff
-		color: $cT-mid
-		@include respond-to($bp-nav1)
-			font-size: 0.9em
-			margin-right: 0.5em
-			padding: 0 0 0.1em 0
-			line-height: 1em
-	a:hover
-		color: $cA
-		border-bottom: 1px solid $cA
-		+basic-transition
+		a,
+		a:visited
+			display: inline-block
+			margin: 0 0.75em 0 0
+			padding: 0.5em 0em 0.05em 0em
+			font-size: 1.1em
+			border: 0
+			border-bottom: 1px solid #fff
+			color: $cT-mid
+			@include respond-to($bp-nav2)
+				font-size: 0.9em
+		a:hover
+			color: $cA
+			border-bottom: 1px solid $cA
+			+basic-transition
 	.active
 		color: $cA
 		border-bottom: 1px solid $cA
 	.name
 		@include respond-to($bp-nav2)
 			display: none
-	.home
-		@include respond-to($bp-small)
-			margin-left: -0.2em
 
+// mobile global nav
+.global-nav
+	@include respond-to($bp-nav)
+		margin-top: 0
+		width: 100%
+		& > ul
+			margin: 0
+			padding: 0
+		& > ul > li
+			display: block
+		& > ul > li
+			a,
+			a:visited
+				font-size: 0.9em
+				line-height: 1em
+				margin: 0
+				padding: 0.75em
+				display: block
+				clear: both
+				background: $cN-xxlight	
+				text-align: right
+				border: none
+			a:hover
+				background: $cN-light
+				color: $cT
+				border: none
+		.active
+			background: $cN-light
+			color: $cT
+			border: none
+			
 .logo
 	float: left
-	width: 7em
-	@include respond-to($bp-nav1)
-		width: 5em
-	@include respond-to($bp-nav2)
-		width: 4.5em
-		clear: both
+	width: 6em
+	@include respond-to($bp-nav)
+		margin: 0 0 1.5em 0.5em
 	&>a
+		position: relative
 		display: block
 		width: 85px
-		margin: -1.25em 0 0 0em
+		margin: 0
+		top: 5px
 		border: none
 		&:hover
 			border: none
-		@include respond-to($bp-nav1)
+			background: none
+		@include respond-to($bp-nav)
 			width: 65px
-			margin: -1.0em 0 0 0
-		@include respond-to($bp-nav2)
-			margin: -0.5em 0.25em 0 0
+			top: 0.8em
 
 .utility-nav
 	float: right
 	width: 100%
 	padding: 0
+	position: relative
+	top: -5em
 	&>ul
 		margin: 0
 		padding: 0
@@ -91,6 +112,42 @@
 		font-size: 0.75em
 		+quietlink
 
+// smartphone version
+.utility-nav
+	@include respond-to($bp-nav)
+		position: static
+		top: 0
+		margin-top: 0
+		width: 100%
+		& > ul
+			margin: 0
+			padding: 0
+		& > ul > li
+			display: block
+		& > ul > li > a,
+		& > ul > li > a:visited
+			padding: 0.25em
+			display: block
+			clear: both
+			background: $cN-xxxlight	
+			border: none
+		a:hover
+			background: $cN-light
+			color: $cT
+			border: none
+		.active
+			background: $cN-light
+			color: $cT			
+			border: none
 
-
-			
+.mobile-menu-toggle
+	display: none
+	@include respond-to($bp-nav)
+		display: block
+		
+.mobile-menu-toggle__bd
+	border: none !important
+	&:hover
+		color: $cA !important
+		border: none !important
+		background: none !important
