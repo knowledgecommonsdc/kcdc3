@@ -14,7 +14,12 @@
 		width: 100%
 		margin: 0
 		padding: 0
-		
+
+.navbar
+	@include respond-to($bp-nav)
+		display: none
+		clear: both
+			
 .global-nav
 	width: 100%
 	background: #fff	
@@ -44,9 +49,7 @@
 	.name
 		@include respond-to($bp-nav2)
 			display: none
-
-// mobile global nav
-.global-nav
+	// mobile global nav
 	@include respond-to($bp-nav)
 		margin-top: 0
 		width: 100%
@@ -111,9 +114,7 @@
 		margin: 0 0em 0 0
 		font-size: 0.75em
 		+quietlink
-
-// smartphone version
-.utility-nav
+	// smartphone version
 	@include respond-to($bp-nav)
 		position: static
 		top: 0
@@ -140,14 +141,18 @@
 			color: $cT			
 			border: none
 
-.mobile-menu-toggle
+.mobile-toggle
 	display: none
 	@include respond-to($bp-nav)
 		display: block
 		
-.mobile-menu-toggle__bd
-	border: none !important
+.mobile-toggle__bd
+	border: none
 	&:hover
-		color: $cA !important
-		border: none !important
-		background: none !important
+		color: $cA
+		border: none
+		background: none
+	
+.navbar--forced
+	@include respond-min($bp-nav)
+		display: block !important
