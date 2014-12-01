@@ -161,7 +161,10 @@
 				{% endif %}
 			{% elif is_registration_open and not event.cancelled %}
 				<form action="/classes/{{ event.slug }}/register" method="post">
-					<label for="needs">Let us know if you require any disability accommodations:</label>
+					<label for="needs">
+						Let us know if you require any disability accommodations,
+						such as large-print materials or ASL interpretation:
+					</label>
 					<input type="text" name="student_needs" id="needs" placeholder="None needed" />
 					{% csrf_token %}
 					{% if add_to_waitlist %}
