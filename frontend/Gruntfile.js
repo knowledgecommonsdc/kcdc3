@@ -34,10 +34,10 @@ module.exports = function (grunt) {
                     livereload: true
                 }
             },
-            jstest: {
-                files: ['test/spec/{,*/}*.js'],
-                tasks: ['test:watch']
-            },
+            // jstest: {
+            //     files: ['test/spec/{,*/}*.js'],
+            //     tasks: ['test:watch']
+            // },
             gruntfile: {
                 files: ['Gruntfile.js']
             },
@@ -128,14 +128,14 @@ module.exports = function (grunt) {
 
 
         // Mocha testing framework configuration options
-        mocha: {
-            all: {
-                options: {
-                    run: true,
-                    urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-                }
-            }
-        },
+        // mocha: {
+        //     all: {
+        //         options: {
+        //             run: true,
+        //             urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
+        //         }
+        //     }
+        // },
 
 
 

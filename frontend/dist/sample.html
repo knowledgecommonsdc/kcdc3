@@ -25,26 +25,29 @@
 		</div>
 
 		<header class="page-head">
-			<nav class="utility-nav">
-				<ul>
-					<li class=""><a href="#"><i class="ss-icon ss-notifications icon-space icon-menu-my-classes"></i> My Classes</a></li>
-					<li class=""><a href="#">Clara Oswald</a></li>
-					<li class=""><a href="#">(Sign Out)</a></li>
-				</ul>
-			</nav>
-			<nav class="global-nav">
-				<div class="logo"><a href="/"><img src="/assets/images/logo-bg.png" alt=""></a></div>
-				<ul>
-					<li><a href="/" class="name">Knowledge Commons DC</a></li>
-					<li><a href="/about" class="active">About</a></li>
-					<li><a href="/classes">Upcoming Classes</a></li>
-					<li><a href="/classes/past">Past</a></li>
-					<li><a href="/teach">Teach</a></li>
-					<li><a href="/contribute">Contribute</a></li>
-					<li><a href="/store">Store</a></li>
-					<li><a href="/blog">Blog</a></li>
-				</ul>
-			</nav>
+			<div class="logo"><a href="/"><img src="/assets/images/logo-bg.png" alt=""></a></div>
+			<div class="mobile-toggle"><a href="#" class="mobile-toggle__bd"><i class="ss-icon ss-rows icon-space icon-mobile-menu"></i> menu</a></div>
+			<div class="navbar">
+				<nav class="global-nav">
+					<ul>
+						<li><a href="/" class="name">Knowledge Commons DC</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/classes">Upcoming Classes</a></li>
+						<li><a href="/classes/past">Past</a></li>
+						<li><a href="/teach">Teach</a></li>
+						<li><a href="/contribute">Contribute</a></li>
+						<li><a href="/store">Store</a></li>
+						<li><a href="/blog" class="active">Blog</a></li>
+					</ul>
+				</nav>
+				<nav class="utility-nav">
+					<ul>
+						<li class=""><a href="#"><i class="ss-icon ss-notifications icon-space icon-menu-my-classes"></i> My Classes</a></li>
+						<li class=""><a href="#">Clara Oswald</a></li>
+						<li class=""><a href="#">(Sign Out)</a></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
 
         <div class="container">
@@ -320,8 +323,6 @@
 		<!-- END container -->
 
         <script src="assets/scripts/vendor.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -330,7 +331,7 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
-
         <script src="assets/scripts/main.js"></script>
+			
 </body>
 </html>
