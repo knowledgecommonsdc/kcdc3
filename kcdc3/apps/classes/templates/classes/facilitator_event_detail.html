@@ -26,6 +26,9 @@
 				name
 			</td>
 			<td>
+				
+			</td>
+			<td>
 				username
 			</td>
 			<td>
@@ -46,7 +49,10 @@
 	{% for registration in registered_students %}
 		<tr>
 			<td>
-				{{ registration.student.first_name }} {{ registration.student.last_name }}
+				{{ registration.student.first_name }} 
+			</td>
+			<td>
+				{{ registration.student.last_name }}
 			</td>
 			<td>
 				{{ registration.student.username }}
