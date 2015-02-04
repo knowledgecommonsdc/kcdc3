@@ -7,7 +7,7 @@ class SignupFormExtra(SignupForm):
 	"""
 	See http://docs.django-userena.org/en/latest/faq.html#how-do-i-add-extra-fields-to-forms
 	"""
-	first_name = forms.CharField(label=_(u'What name would you like us to use?'),
+	first_name = forms.CharField(label=_(u'By what name do you introduce yourself?'),
 								 max_length=50,
 								 required=True)
 
