@@ -83,6 +83,12 @@
 	{% for registration in registered_students %}
 		{{ registration.student.email }}, 
 	{% endfor %}
+	{% for bio in teacher_bios.all %}
+		{{ bio.get_email }},
+	{% endfor %}
+	{% for facilitator in facilitators.all %}
+		{{ facilitator.email }},
+	{% endfor %}
 	contact@knowledgecommonsdc.org
 	</p>
 	
@@ -144,6 +150,12 @@
 	<p>
 	{% for registration in waitlisted_students %}
 		{{ registration.student.email }}, 
+	{% endfor %}
+	{% for bio in teacher_bios.all %}
+		{{ bio.get_email }},
+	{% endfor %}
+	{% for facilitator in facilitators.all %}
+		{{ facilitator.email }},
 	{% endfor %}
 	contact@knowledgecommonsdc.org
 	</p>
