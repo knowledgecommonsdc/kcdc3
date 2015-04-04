@@ -131,11 +131,13 @@
 				<h3>Registration for this class opens at {{ event.registration_opens|time:"P" }} on {{ event.registration_opens|date:"l, j F" }}</h3>
 			{% elif event.registration_status == "PREVENT" %}	
 				<h3>Registration is closed.</h3>
+				<p>No waitlist slots are available.</p>
 			{% elif registration_count >=  event.max_students %}
 				{% if event.waitlist_status %}
 					<h3>This class is full, but there is a waitlist available.</h3>
 				{% else %}
 					<h3>This class is full.</h3>
+					<p>No waitlist slots are available.</p>
 				{% endif %}
 			{% else%}
 					<h3>Register</h3>
