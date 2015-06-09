@@ -20,9 +20,9 @@ class EventListView(ListView):
 
 	context_object_name = "event_list"
 	model = Event
-	
+
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(EventListView, self).get_context_data(**kwargs)
 
 		context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT")
@@ -42,9 +42,9 @@ class EventArchiveView(ListView):
 	template_name = "classes/event_archive.html"
 	context_object_name = "event_list"
 	model = Event
-	
+
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(EventArchiveView, self).get_context_data(**kwargs)
 
 		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
@@ -64,9 +64,9 @@ class SessionView(ListView):
 	template_name = "classes/event_session.html"
 	context_object_name = "event_list"
 	model = Event
-	
+
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(SessionView, self).get_context_data(**kwargs)
 
 		context['selected_session'] = Session.objects.filter(slug=self.kwargs['slug'])
@@ -77,15 +77,15 @@ class SessionView(ListView):
 		return context
 
 
-	
-# display a single event	
+
+# display a single event
 class EventDetailView(DetailView):
 
 	context_object_name = "event"
 	model = Event
-	
+
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(EventDetailView, self).get_context_data(**kwargs)
 
 		# get list of sessions for use in local navigation
@@ -98,7 +98,7 @@ class EventDetailView(DetailView):
 			user = None
 
 		event = self.get_object()
-			
+
 		context['registration_count'] = event.registration_count()
 		context['waitlist_count'] = event.waitlist_count()
 		context['user_is_waitlisted'] = is_waitlisted(user, event)
@@ -110,12 +110,12 @@ class EventDetailView(DetailView):
 		if self.request.user.is_authenticated():
 			if Event.objects.filter(slug=self.object.slug, facilitators=self.request.user).count() > 0 or self.request.user.is_staff:
 				context['show_facilitator'] = True
-			
+
 		if event.status == 'PUBLISHED' or event.status == 'HIDDEN':
 			return context
 		else:
 			raise Http404
-			
+
 
 
 # handle registration/waitlist form
@@ -126,21 +126,21 @@ def register(request, slug):
 
 	# if there are no non-cancelled registrations for this user/event and
 	# registration is possible
-	if (is_registered(u, e) == False and 
-		is_waitlisted(u, e) == False and 
+	if (is_registered(u, e) == False and
+		is_waitlisted(u, e) == False and
 		e.is_registration_open() == True):
-		# Since the event object will become aware of this registration 
+		# Since the event object will become aware of this registration
 		# as soon as it saves, we need to cache the value. This might bite us?
 		#
 		# Check it:
 		#
-		# There's a class with a size of one with waitlist enabled. If 
+		# There's a class with a size of one with waitlist enabled. If
 		# we save now the check to send the email will happen after the
 		# class number gets counted and the waitlist email will be sent.
 		waitlist_status = e.add_to_waitlist()
-		t = Registration(student=u, 
-			event=e, 
-			date_registered=datetime.now(), 
+		t = Registration(student=u,
+			event=e,
+			date_registered=datetime.now(),
 			waitlist=waitlist_status)
 		t.save()
 
@@ -158,17 +158,17 @@ def register(request, slug):
 		else:
 			send_registration_mail(e, 'waitlisted', request.user.email)
 			return HttpResponseRedirect("/classes/response/waitlisted")
-				
-	else: 
+
+	else:
 		return HttpResponseRedirect("/classes/response/error")
 
 
 
 # handle cancel form
 def cancel(request, slug):
-	
+
 	e = Event.objects.get(slug=slug)
-	
+
 	if not is_cancelled(request.user, e) and (is_registered(request.user, e) or is_waitlisted(request.user, e)):
 		# Gotta cache again... There's gotta be another way
 		# to do this, this makes me feel gross.
@@ -176,15 +176,15 @@ def cancel(request, slug):
 		student_is_waitlisted = is_waitlisted(request.user, e)
 
 		cancel_registration(request.user, e)
-		if (add_to_waitlist == True and 
-			e.waitlist_status == True and 
+		if (add_to_waitlist == True and
+			e.waitlist_status == True and
 			not student_is_waitlisted and
 			e.waitlist_count() > 0):
 			student = promote_waitlistee(e)
 			send_registration_mail(e, 'promoted', student.email)
 		send_registration_mail(e, 'cancelled', request.user.email)
 		return HttpResponseRedirect("/classes/response/cancelled")
-	else: 
+	else:
 		return HttpResponseRedirect("/classes/response/error")
 
 
@@ -193,14 +193,14 @@ def cancel(request, slug):
 class ResponseTemplateView(TemplateView):
 
 	template_name = "classes/response.html"
-	 
+
 	def get_context_data(self, **kwargs):
 		if self.kwargs['slug'] == "registered":
-			message_text = "You've been registered"
+			message_text = "registered"
 		elif self.kwargs['slug'] == "waitlisted":
-			message_text = "You've been added to the waitlist"
+			message_text = "waitlisted"
 		elif self.kwargs['slug'] == "cancelled":
-			message_text = "Registration cancelled"
+			message_text = "cancelled"
 		else:
 			message_text = "Error"
 		return {'message': message_text}
@@ -245,9 +245,9 @@ class UserEventListView(ListView):
 
 	template_name = "classes/user_event_list.html"
 	model = Registration
-	
+
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(UserEventListView, self).get_context_data(**kwargs)
 
 		context['registration_list'] = Registration.objects.filter(student=self.request.user).order_by('-event__date')
@@ -258,7 +258,7 @@ class UserEventListView(ListView):
 	def dispatch(self, *args, **kwargs):
 		return super(UserEventListView, self).dispatch(*args, **kwargs)
 
-		
+
 
 
 # staff dashboard
@@ -268,13 +268,13 @@ class RegistrationListView(ListView):
 	template_name = "classes/staff_registration_list.html"
 	context_object_name = "registration_list"
 	model = Registration
-	
+
 	@method_decorator(permission_required('classes.view_students', raise_exception=True))
 	def dispatch(self, *args, **kwargs):
 		return super(RegistrationListView, self).dispatch(*args, **kwargs)
 
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(RegistrationListView, self).get_context_data(**kwargs)
 		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
 		return context
@@ -289,17 +289,17 @@ class SessionAdminListView(ListView):
 	template_name = "classes/staff_session_list.html"
 	context_object_name = "session_list"
 	model = Session
-	
+
 	@method_decorator(permission_required('classes.view_students', raise_exception=True))
 	def dispatch(self, *args, **kwargs):
 		return super(SessionAdminListView, self).dispatch(*args, **kwargs)
 
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(SessionAdminListView, self).get_context_data(**kwargs)
 		context['session_list'] = Session.objects.all()
 		return context
-	
+
 
 
 
@@ -310,17 +310,17 @@ class TeacherAdminListView(ListView):
 	template_name = "classes/staff_teacher_list.html"
 	context_object_name = "teacher_list"
 	model = Bio
-	
+
 	@method_decorator(permission_required('classes.view_students', raise_exception=True))
 	def dispatch(self, *args, **kwargs):
 		return super(TeacherAdminListView, self).dispatch(*args, **kwargs)
 
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(TeacherAdminListView, self).get_context_data(**kwargs)
 		context['teacher_list'] = Bio.objects.all().order_by('name')
 		return context
-	
+
 
 
 # staff dashboard
@@ -331,7 +331,7 @@ class FilteredTeacherAdminListView(TeacherAdminListView):
 		return super(FilteredTeacherAdminListView, self).dispatch(*args, **kwargs)
 
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(TeacherAdminListView, self).get_context_data(**kwargs)
 		context['teacher_list'] = Bio.objects.filter(event__session__slug__iexact=self.kwargs['slug']).order_by('name')
 		return context
@@ -349,13 +349,13 @@ class JSONVizSessionAttendanceDataListView(ListView):
 	template_name = "classes/data/session_attendance_list.json"
 	context_object_name = "event_list"
 	model = Event
-	
+
 	@method_decorator(permission_required('classes.view_students', raise_exception=True))
 	def dispatch(self, *args, **kwargs):
 		return super(JSONVizSessionAttendanceDataListView, self).dispatch(*args, **kwargs)
-	
+
 	def get_context_data(self, **kwargs):
-		
+
 		context = super(JSONVizSessionAttendanceDataListView, self).get_context_data(**kwargs)
 
 		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
@@ -370,30 +370,30 @@ def csv_session_attendance_data(request, slug):
 
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="export.csv"'
-	
+
 	events = Event.objects.filter(status='PUBLISHED', session__slug=slug)
-	
+
 	writer = unicodecsv.writer(response)
 
-	writer.writerow([ 
-				'title', 
-				'date', 
+	writer.writerow([
+				'title',
+				'date',
 				'registered',
 				'attended',
 				'not attended',
 				'waitlist',
 				])
-	
+
 	for event in events:
-		writer.writerow([ 
-					event.title, 
-					event.date.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE), 
+		writer.writerow([
+					event.title,
+					event.date.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE),
 					event.registration_count(),
 					event.attended_count(),
 					event.registration_count() - event.attended_count(),
 					event.waitlist_count(),
 					])
-	
+
 	return response
 
 
@@ -405,16 +405,16 @@ def csv_session_registration_data(request, slug):
 
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="export.csv"'
-	
+
 	registrations = Registration.objects.filter(event__session__slug__iexact=slug)
-	
+
 	writer = unicodecsv.writer(response)
 
-	writer.writerow([ 
-				'session', 
-				'event', 
+	writer.writerow([
+				'session',
+				'event',
 				'event date',
-				'username', 
+				'username',
 				'date registered',
 				'date canceled',
 				'date promoted',
@@ -425,7 +425,7 @@ def csv_session_registration_data(request, slug):
 				'canceled hours',
 				'date user joined',
 				])
-	
+
 
 	for registration in registrations:
 
@@ -444,9 +444,9 @@ def csv_session_registration_data(request, slug):
 		writer.writerow([
 					registration.event.session.slug,
 					registration.event,
-					registration.event.date.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE), 
+					registration.event.date.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE),
 					registration.student.username,
-					registration.date_registered.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE), 
+					registration.date_registered.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE),
 					date_cancelled,
 					date_promoted,
 					registration.waitlist,
@@ -456,7 +456,7 @@ def csv_session_registration_data(request, slug):
 					registration.get_cancelled_interval(),
 					registration.student.date_joined.strftime(settings.DATE_FORMAT_DATE_INTERCHANGE),
 					])
-	
+
 	return response
 
 
@@ -477,7 +477,7 @@ def txt_location_data(request):
 def json_location_data(request):
 
 	context = Context()
-	
+
 	# return only locations that have a specified lat/lng
 	context['locations'] = Location.objects.filter(lat__isnull=False,lng__isnull=False)
 
@@ -489,7 +489,7 @@ def json_location_data(request):
 def json_event_location_data(request):
 
 	context = Context()
-	
+
 	# only returns locations that have a specified lat/lng
 	context['events'] = Event.objects.filter(status = 'PUBLISHED', cancelled = False, location__lat__isnull=False, location__lng__isnull=False)
 
@@ -502,17 +502,17 @@ def tsv_events_by_location_data(request):
 
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="export.csv"'
-	
+
 	events = Event.objects.filter(status = 'PUBLISHED', cancelled = False)
 
 	writer = unicodecsv.writer(response)
 
-	writer.writerow([ 
-				'session', 
-				'class', 
+	writer.writerow([
+				'session',
+				'class',
 				'location',
 				])
-	
+
 
 	for event in events:
 
@@ -528,36 +528,36 @@ def tsv_events_by_location_data(request):
 					event.title,
 					event.location,
 					])
-	
+
 	return response
 
 
 
 # staff data access
 # provide CSV of registered, active users
-# Really doesn't belong here but this is a good spot 
+# Really doesn't belong here but this is a good spot
 # until we integrate Tastypie
 @permission_required('classes.view_students')
 def csv_users_data(request):
 
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="export.csv"'
-	
+
 	active_users = User.objects.filter(is_active=True)
-	
+
 	writer = unicodecsv.writer(response)
 
-	writer.writerow([ 
-				'first_name', 
-				'last_name', 
+	writer.writerow([
+				'first_name',
+				'last_name',
 				'email',
 				])
-	
+
 	for user in active_users:
-		writer.writerow([ 
-					user.first_name, 
-					user.last_name, 
+		writer.writerow([
+					user.first_name,
+					user.last_name,
 					user.email,
 					])
-	
+
 	return response
