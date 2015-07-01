@@ -21,11 +21,11 @@ module.exports = {
     }
   },
   images: {
-    src: src + "/htdocs/**/*.{jpg,jpeg,gif,png,svg}",
+    src: src + "/static/**/*.{jpg,jpeg,gif,png,svg}",
     dest: dest
   },
   markup: {
-    src: src + "/htdocs/**/*.{html,js,json}",
+    src: src + "/static/**/*.{html,js,json}",
     dest: dest
   },
   iconFonts: {
