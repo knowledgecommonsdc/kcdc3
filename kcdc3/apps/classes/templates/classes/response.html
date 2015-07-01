@@ -3,7 +3,31 @@
 
 {% block content %}
 
-	<p>message:</p>
-	<p>{{ message }}</p>
-	
+	{% if message = "registered" %}
+
+		<h3>Thank you. You&rsquo;ve been registered.</h3>
+		<p>We sent you a confirmation email with details about the class.</p>
+
+		<!-- donation call -->
+		<div style="margin-top: 2em; padding: 0.25em 1em 2em 1em; max-width: 440px; border: 1px solid #eee; ">
+			<h4>Donate to KCDC</h4>
+			<p>
+				This school relies on your support.
+				A gift of even $10 will help us deliver superb, participatory classes all over the city. 
+			</p>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick" /> <input type="hidden" name="hosted_button_id" value="H9ENKNZVLPU4W" /> <button class="button_link alt" type="submit">Donate now</button></form>
+		</div>
+			
+	{% elif message = "waitlisted" %}
+		<h3>You&rsquo;ve been added to the waitlist</h3>
+		<p>We sent you a confirmation email with details about the class.</p>
+	{% elif message = "cancelled" %}
+		<h3>Thank you. We canceled your registration.</h3>
+		<p>We sent you a confirmation email.</p>
+	{% else %}
+		{{ message }}
+	{% endif %}
+
+	<p style="margin-top: 4em;"><a class="button_link" href="/classes">Back to class list</a></p>
+
 {% endblock %}
