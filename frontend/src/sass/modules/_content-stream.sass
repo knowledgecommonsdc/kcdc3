@@ -1,0 +1,38 @@
+// content stream model (sv)
+// related to content container and to article
+
+// unit that holds a stream of content
+.sv-slice
+
+// individual story
+// structure is related to .sc-story
+
+.sv-story
+	border: 1px solid $cN-xlight
+	border-top: 5px solid $cN-xlight
+	margin-bottom: 2em
+	&__hd
+		margin-top: -5px
+	&__bd
+		padding: 1.5em 1em 1em 1em
+	&__ft
+		padding: 0 1em 1em 1em
+	h2
+		margin: 0 0 0 0
+	.dateline
+		i
+			font-style: italic
+	.byline
+		margin: 0 0 0 0
+	.kicker
+		margin: 0 0.5em 0 0
+		font-size: 0.85em
+	.more
+		text-align: right
+		i
+			font-style: italic
+
+// bug in gulp-sass means this has to be separate
+.sv-story
+	h2:before
+		display: none
