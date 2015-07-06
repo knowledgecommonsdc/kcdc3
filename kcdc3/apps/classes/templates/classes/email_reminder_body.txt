@@ -1,13 +1,12 @@
 Your Knowledge Commons DC class is coming up!
+{% if email_welcome_text %}Read this message for important instructions.{% endif %}
 
 CLASS: {{ title|safe }}
 DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{% endif %}
 
-We look forward to seeing you there.
-
 Most of our classes have waitlists. If you can no longer
 attend, please cancel your registration at least a day
-ahead of time. You can cancel your registration at:
+ahead of time. Visit the website to cancel:
 
 http://knowledgecommonsdc.org/classes/{{ slug }}
 
@@ -29,7 +28,7 @@ LOCATION:
 FACILITATOR (get in touch if you have questions
 or need help finding the class location):
 {% for facilitator in facilitators %}
-{{ facilitator.first_name }} {{ facilitator.last_name }}
+{{ facilitator.first_name }}
 {{ facilitator.email }}
 {{ facilitator.extendedprofile.phone_number }}
 {% endfor %}
