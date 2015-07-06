@@ -221,7 +221,7 @@ def facilitator(request, slug):
 	context['slug'] = slug
 	context['title'] = e.title
 	context['teacher_bios'] = e.teacher_bios
-	context['facilitators'] = e.facilitators
+	context['facilitators'] = e.facilitators.all
 
 	context['registration_count'] = e.registration_count()
 	context['waitlist_count'] = e.waitlist_count()

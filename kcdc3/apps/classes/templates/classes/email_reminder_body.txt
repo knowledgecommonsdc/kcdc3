@@ -5,13 +5,13 @@ DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{
 
 We look forward to seeing you there.
 
-Most of our classes have waitlists. If you can no longer 
-attend, please cancel your registration at least a day 
+Most of our classes have waitlists. If you can no longer
+attend, please cancel your registration at least a day
 ahead of time. You can cancel your registration at:
 
 http://knowledgecommonsdc.org/classes/{{ slug }}
 
-Class starts promptly at {{ date|time:"P" }} Give yourself 
+Class starts promptly at {{ date|time:"P" }} Give yourself
 time to find the location and check in.
 
 {% if additional_dates_text %}ADDITIONAL MEETINGS: {{ additional_dates_text|striptags }}{% endif %}

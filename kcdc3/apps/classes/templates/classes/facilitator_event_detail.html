@@ -3,13 +3,13 @@
 {% block content %}
 
 	<h1>{{ title }}</h1>
-	
+
 	<p style="max-width: 45em;">
 		<strong>This is confidential information.</strong>
 		Do not share student contact data with teachers or other students.<br />
 		If a teacher wants to keep in touch with students, you should send out the teacher's email address.
 	</p>
-	
+
 	<p style="max-width: 45em;">
 		<strong>We need student usernames.</strong> When you send back this attendance sheet, <br />
 		include usernames, not just names and emails.
@@ -17,8 +17,19 @@
 	<p>
 		<a href="javascript:window.print()" style="border: none;"><span class="ss-icon">&#x1F4E0;</span> Print this page</a>
 	</p>
+	<p>
+		Facilitator:
+		{% for facilitator in facilitators %}
+			{% if not forloop.first %}, {% endif %}
+			<i>{{ facilitator.first_name }}</i> {{ facilitator.last_name }}
+			<a href="mailto:{{ facilitator.email }}">{{ facilitator.email }}</a>
+			{% if facilitator.extendedprofile.phone_number %}
+				{{ facilitator.extendedprofile.phone_number }}
+			{% endif %}
+		{% endfor %}
+	</p>
 
-	<h2>Registered students ({{ registration_count }})</h2>	
+	<h2>Registered students ({{ registration_count }})</h2>
 	<table class="basic_table facilitator_student_list">
 		<thead>
 		<tr>
@@ -26,7 +37,7 @@
 				name
 			</td>
 			<td>
-				
+
 			</td>
 			<td>
 				username
@@ -49,7 +60,7 @@
 	{% for registration in registered_students %}
 		<tr>
 			<td>
-				{{ registration.student.first_name }} 
+				{{ registration.student.first_name }}
 			</td>
 			<td>
 				{{ registration.student.last_name }}
@@ -64,24 +75,24 @@
 				{{ registration.student.extendedprofile.phone_number }}
 			</td>
 			<td class="noprint">
-				{{ registration.date_registered }} 
+				{{ registration.date_registered }}
 			</td>
 			<td class="noprint">
-				{{ registration.attended }} 
+				{{ registration.attended }}
 			</td>
 		</tr>
 	{% endfor %}
 		</tbody>
 	</table>
-	
-	
+
+
 	<section class="noprint">
 
 	<h4>Registered student emails:</h4>
 
 	<p>
 	{% for registration in registered_students %}
-		{{ registration.student.email }}, 
+		{{ registration.student.email }},
 	{% endfor %}
 	{% for bio in teacher_bios.all %}
 		{{ bio.get_email }},
@@ -91,11 +102,11 @@
 	{% endfor %}
 	contact@knowledgecommonsdc.org
 	</p>
-	
-	</section>
-	
 
-	<h2>Waitlisted students ({{ waitlist_count }})</h2>	
+	</section>
+
+
+	<h2>Waitlisted students ({{ waitlist_count }})</h2>
 	<table class="basic_table facilitator_student_list">
 		<thead>
 		<tr>
@@ -132,24 +143,24 @@
 				{{ registration.student.extendedprofile.phone_number }}
 			</td>
 			<td class="noprint">
-				{{ registration.date_registered }} 
+				{{ registration.date_registered }}
 			</td>
 			<td class="noprint">
-				{{ registration.attended }} 
+				{{ registration.attended }}
 			</td>
 		</tr>
 	{% endfor %}
 		</tbody>
 	</table>
-	
-	
+
+
 	<section class="noprint">
-		
+
 	<h4>Waitlisted student emails:</h4>
 
 	<p>
 	{% for registration in waitlisted_students %}
-		{{ registration.student.email }}, 
+		{{ registration.student.email }},
 	{% endfor %}
 	{% for bio in teacher_bios.all %}
 		{{ bio.get_email }},
@@ -159,13 +170,12 @@
 	{% endfor %}
 	contact@knowledgecommonsdc.org
 	</p>
-	
+
 	</section>
 
 
 	<hr />
 
 	<p class="noprint"><a href="/classes/{{ slug }}">main class page</a></p>
-	
-{% endblock %}
 
+{% endblock %}
