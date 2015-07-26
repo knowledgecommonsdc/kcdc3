@@ -5,5 +5,7 @@ urlpatterns = patterns('kcdc3.apps.pinata.views',
 
 	url(r'^$', 'page_view'),
 	url(r'^[0-9a-zA-Z_-]+/$', 'page_view'),
+	url(r'^[0-9a-zA-Z_-]+/[0-9a-zA-Z_-]+/$', 'page_view'),
+	# Surely there's a better way to handle paths that contain several slashes
 
 )
