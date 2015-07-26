@@ -8,11 +8,15 @@
 
 <h1>Create a new account</h1>
 
-<p>You&rsquo;re signing up for classes. We need to know your real first and last names.</p>
+<p style="max-width: 500px;">
+	We <a href="/about/policies/">do not share your information</a>.
+	Real names, please; we&rsquo;re a school, not a social network.
+	<a href="mailto:contact@knowledgecommonsdc.org">Email us</a> if you need to use a psuedonym.
+</p>
 
 <form action="" method="post">
 	{% csrf_token %}
-	
+
 	<fieldset>
 		{% comment %}<legend>{% trans "Signup" %}</legend>{% endcomment %}
 		{{ form.non_field_errors }}
@@ -25,14 +29,14 @@
 		</p>
 		{% else %}
 		<p>
-		{{ field.label_tag }} 
+		{{ field.label_tag }}
 		{{ field }}
 		</p>
 		{% endif %}
 		{% endfor %}
 	</fieldset>
 
-	<p>When you create an account, we will add you to the {% boilerplate 'project_name' %} mailing list. (That takes time, though, so if you want to receive updates immediately, sign up for the list yourself &ndash; the form is in the footer.)</p>
+	<p style="max-width: 500px; margin-bottom: 1.0em;">When you create an account, we will add you to the {% boilerplate 'project_name' %} mailing list. (That takes time, though, so if you want to receive updates immediately, sign up for the list yourself &ndash; the form is in the footer.)</p>
 
 	<input type="submit" value="{% trans "Signup"%}" />
 </form>
