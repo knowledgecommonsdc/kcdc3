@@ -16,7 +16,7 @@ def page_view(request):
 	context['user'] = request.user
 
 	# debug
-	# print('path: "'+request.path+'"')	
+	# print('path: "'+request.path+'"')
 
 	# Remove trailing slashes from incoming path.
 	# Probably best handled in urls.py,
@@ -24,10 +24,10 @@ def page_view(request):
 	search_path = request.path.rstrip('/')
 
 	# debug
-	# print('search path: "'+search_path+'"')	
+	# print('search path: "'+search_path+'"')
 
 	e = Page.objects.get(path=search_path)
-	
+
 	context['title'] = e.title
 	context['short_title'] = e.short_title
 	context['id'] = e.id
@@ -40,18 +40,18 @@ def page_view(request):
 	# get all other pages with the same parent
 	if e.parent:
 		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
-		
+
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
-	
+
 	# set up templates
 	template_path = 'pinata/' + e.template
-		
+
 	if e.status == 'PUBLISHED' or e.status == 'HIDDEN':
 		return render_to_response(template_path, context)
 	else:
 		raise Http404
-		
+
 
 
 def staff(request):
@@ -68,12 +68,12 @@ def staff(request):
 	context['main_text'] = e.main_text
 	context['short_title'] = e.short_title
 	context['title'] = e.title
-	
+
 	context['dojo'] = Bio.objects.filter(role__name='Dojo')
 	context['volunteers'] = Bio.objects.filter(role__name='Volunteers')
 	context['dojo_at_large'] = Bio.objects.filter(role__name='Dojo-at-Large')
 	context['dojo_emeritus'] = Bio.objects.filter(role__name='Dojo Emeritus')
-	
+
 	context['dojo_role'] = Role.objects.get(name='Dojo')
 	context['volunteers_role'] = Role.objects.get(name='Volunteers')
 	context['dojo_at_large_role'] = Role.objects.get(name='Dojo-at-Large')
@@ -82,10 +82,11 @@ def staff(request):
 	# get all other pages with the same parent
 	if e.parent:
 		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
-		
+		context['parent'] = e.parent
+
 	# todo: rewrite this so it returns section home and subpages
 	# todo: write new function that returns children only for non-section-homes
-		
+
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
@@ -102,7 +103,7 @@ def home(request):
 	# Get information for front page content
 	context['notices'] = Notice.objects.filter(live=True)
 	context['slides'] = Slide.objects.filter(live=True)
-		
+
 	# Pull content from elsewhere in the site
 	context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT", featured=True, cancelled=False).order_by('date')[:4]
 	context['posts'] = Post.objects.filter(status='PUBLISHED').filter(featured=True).exclude(date__gte=datetime.now())[:4]
@@ -114,12 +115,12 @@ def home(request):
 
 def proposal(request):
 	""" Course proposal page """
-	
-	""" TODO: The observant reader may note that this method 
-	is identical to contribute(), except for the template name. 
-	Really, though, it would be best to modify page_view() and 
+
+	""" TODO: The observant reader may note that this method
+	is identical to contribute(), except for the template name.
+	Really, though, it would be best to modify page_view() and
 	Page so that admins could choose a template on the backend. """
-	
+
 	context = Context()
 	context['user'] = request.user
 
@@ -133,7 +134,7 @@ def proposal(request):
 	# get all other pages with the same parent
 	if e.parent:
 		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
-		
+
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
@@ -157,16 +158,16 @@ def partners(request):
 	context['short_title'] = e.short_title
 	context['title'] = e.title
 	context['id'] = e.id
-	
+
 	context['sponsors_A'] = Sponsor.objects.filter(group='A').filter(status='PUBLISHED')
 	context['sponsors_B'] = Sponsor.objects.filter(group='B').filter(status='PUBLISHED')
 	context['sponsors_S'] = Sponsor.objects.filter(group='S').filter(status='PUBLISHED')
 	context['partners'] = Partner.objects.filter(featured=True)
-	
+
 	# get all other pages with the same parent
 	if e.parent:
 		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
-		
+
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
@@ -189,17 +190,14 @@ def pressclippings(request):
 	context['short_title'] = e.short_title
 	context['title'] = e.title
 	context['id'] = e.id
-	
+
 	context['pressclippings'] = PressClipping.objects.filter(status='PUBLISHED')
-	
+
 	# get all other pages with the same parent
 	if e.parent:
 		context['siblings'] = Page.objects.filter(Q(parent=e.parent)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
-		
+
 	# get all children
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
 	return render_to_response('pinata/pressclippings.html',context)
-
-
-

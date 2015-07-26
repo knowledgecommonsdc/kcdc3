@@ -13,11 +13,11 @@
 	<div id="hed">
 		<h1>{{ title | smartlines }}</h1>
 	</div>
-	
+
 	<div id="main">
 		{{ main_text | smartlines | safe }}
 	</div>
-	
+
 {% endblock %}
 
 
@@ -30,14 +30,23 @@
 {% if siblings or children %}
 	{% block sidebar_nav %}
 		<div class="local_nav">
-			<ul>
-				{% for page in siblings %}
-					<li><a href="{{ page.path }}" class="{% if page.id == id %}active{% endif %}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ page.short_title }}</a></li>
-				{% endfor %}
-				{% for page in children %}
-					<li><a href="{{ page.path }}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ page.short_title }}</a></li>
-				{% endfor %}
-			</ul>
+            {% if siblings %}
+    			<ul class="local_nav__siblings">
+    				{% if parent %}
+                        <li><a href="{{ parent.path }}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ parent.short_title }}</a></li>
+                    {% endif %}
+                    {% for page in siblings %}
+    					<li><a href="{{ page.path }}" class="{% if page.id == id %}active{% endif %}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ page.short_title }}</a></li>
+    				{% endfor %}
+                </ul>
+            {% endif %}
+            {% if children %}
+                <ul class="local_nav__children">
+    				{% for page in children %}
+    					<li><a href="{{ page.path }}"><i class="ss-icon icon_decorative">&#x25BB;</i>{{ page.short_title }}</a></li>
+    				{% endfor %}
+    			</ul>
+            {% endif %}
 		</div>
 	{% endblock %}
 {% endif %}
