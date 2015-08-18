@@ -13,64 +13,66 @@
 		{% if event.type == "EXTERNAL" %}<p class="department_label">Partner Event</p>{% endif %}
 		<h1>{{ event.title | smartlines }}</h1>
 	</div>
-	
+
 	<div id="main">
-	
+
 		<p class="meta">
 
 			{% if event.type == "EVENT" %}
 				<b class="event_type_indicator"><i class="ss-icon">&#x266B;</i> KCDC Event</b>
 			{% endif %}
-			
-			<i class="ss-icon">date</i> 
+
+			<i class="ss-icon">date</i>
 			{{ event.date|date:"l, j F Y" }}
 
-			<i class="ss-icon icon_push_right">time</i> 
+			<i class="ss-icon icon_push_right">time</i>
 			{{ event.date|date:"P" }}
 			{% if event.end_time %} to {{ event.end_time|date:"P" }}{% endif %}
 		</p>
 
 		<p class="meta">
 
-			<i class="ss-icon">&#x1F464;</i> {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
+            {% if event.num_teachers > 0 %}
+		          <i class="ss-icon">&#x1F464;</i> {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
+            {% endif %}
 			{% if event.teacher_text %}{{ event.teacher_text|safe }}{% endif %}
 
 			{% if event.location %}
-			<i class="ss-icon icon_push_right">&#x1F3E2;</i> 
+			<i class="ss-icon icon_push_right">&#x1F3E2;</i>
 			{{ event.location }}
 			{% endif %}
 
-		</p>	
+		</p>
 
 		<p class="meta indicators">
-			
+
 			{% if event.has_passed %}
-				<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Past</span>		
+				<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Past</span>
 			{% elif event.cancelled %}
 				<!-- hide info -->
 			{% elif event.registration_status == "HIDE" %}
 				<!-- hide registration info -->
 			{% else %}
-				{% if event.registration_status == "AUTO" and not event.is_registration_open %}	
+				{% if event.registration_status == "AUTO" and not event.is_registration_open %}
 					<!-- registration opens later -->
-				{% elif event.registration_status == "PREVENT" %}	
-					<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
+				{% elif event.registration_status == "PREVENT" %}
+					<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>
 				{% elif event.registration_count >=  event.max_students %}
 					{% if event.waitlist_status %}
 						<span class="registration_indicator"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
 					{% else %}
-						<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>			
+						<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>
 					{% endif %}
 				{% else%}
 					<span class="registration_indicator"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
 				{% endif %}
-			{% endif %}							
-			
+			{% endif %}
+
 		</p>
-		
+
 		{% if event.main_image %}<p class="{% if event.img_layout == 'small' %}event_img_small{% endif %}"><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
 		{% if event.caption %}<div class="caption">{{ event.caption | smartlines | safe }}</div>{% endif %}
-	
+
 		{{ event.description | smartlines | safe }}
 
 		{% if event.type == "EXTERNAL" %}
@@ -80,7 +82,7 @@
 			</p>
 		{% endif %}
 
-		{% if event.documentation %} 
+		{% if event.documentation %}
 			<h3>Documentation</h3>
 			{{ event.documentation | smartlines | safe }}
 		{% endif %}
@@ -114,12 +116,12 @@
 			{% if event.location.neighborhood %}<br />Neighborhood: {{ event.location.neighborhood }} {% endif %}
 			{% if event.location.hint %}<br /><em>{{ event.location.hint }}</em>{% endif %}
 		</p>
-	
+
 		{% if event.details %}
 			<h3>Details</h3>
 			{{ event.details | smartlines | safe }}
 		{% endif %}
-			
+
 		{% if event.cancelled %}
 			<h3>This class is canceled</h3>
 		{% elif event.has_passed %}
@@ -127,9 +129,9 @@
 		{% elif event.registration_status == "HIDE" %}
 			<!-- hide registration info -->
 		{% else %}
-			{% if event.registration_status == "AUTO" and not event.is_registration_open %}	
+			{% if event.registration_status == "AUTO" and not event.is_registration_open %}
 				<h3>Registration for this class opens at {{ event.registration_opens|time:"P" }} on {{ event.registration_opens|date:"l, j F" }}</h3>
-			{% elif event.registration_status == "PREVENT" %}	
+			{% elif event.registration_status == "PREVENT" %}
 				<h3>Registration is closed.</h3>
 				<p>No waitlist slots are available.</p>
 			{% elif registration_count >=  event.max_students %}
@@ -143,7 +145,7 @@
 					<h3>Register</h3>
 			{% endif %}
 		{% endif %}
-			
+
 		{% if user_is_authenticated %}
 			{% if user_is_registered %}
 				<p><i class="ss-icon registration_open">&#x2713;</i> <em>You are registered.</em></p>
@@ -178,17 +180,17 @@
 			{% endif %}
 		{% else %}
 			<p>
-				To sign up for classes, please 
-				<a href="/accounts/signin">log in</a> or 
+				To sign up for classes, please
+				<a href="/accounts/signin">log in</a> or
 				<a href="/accounts/signup">create a new account</a>.
 			</p>
 		{% endif %}
-			
-			
-			
-					
-			
-		
+
+
+
+
+
+
 
 
 
@@ -197,41 +199,41 @@
 			<hr />
 			<p><a href="/classes/{{ event.slug }}/facilitator">view registrations</a></p>
 		{% endif %}
-	
+
 	</div>
 
 	<div id="sidebar" class="sidebar_inside">
 
-		<div class="sidebar_text bio">
-			{% if event.bio_text %}
-				{{ event.bio_text|safe }}
-			{% else %}
-				{% for bio in event.teacher_bios.all %}
-					{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
+		{% if event.bio_text %}
+            <div class="sidebar_text bio">
+			{{ event.bio_text|safe }}
+            </div>
+		{% elif event.num_teachers > 0 %}
+            <div class="sidebar_text bio">
+			{% for bio in event.teacher_bios.all %}
+				{% if forloop.first %}<h3>Instructor{{ event.num_teachers|pluralize }}</h3>{% endif %}
 
-					{% if bio.image %}
-						<div class="bio_photo"><img src="/media/{{ bio.image }}" alt="" /></div>
+				{% if bio.image %}
+					<div class="bio_photo"><img src="/media/{{ bio.image }}" alt="" /></div>
+				{% endif %}
+
+				{{ bio.description | smartlines | safe }}
+
+				<div class="bio_detail">
+					{% if bio.show_email %}
+						<p class="bio_email"><a href="mailto:{{ bio.get_email }}"><i class="ss-icon ss-social">email</i> {{ bio.get_email }}</a></p>
 					{% endif %}
-
-					{{ bio.description | smartlines | safe }}
-
-					<div class="bio_detail">
-						{% if bio.show_email %}
-							<p class="bio_email"><a href="mailto:{{ bio.get_email }}"><i class="ss-icon ss-social">email</i> {{ bio.get_email }}</a></p>
-						{% endif %}
-						{% if bio.web %}
-							<p class="bio_website"><a href="{{ bio.get_web }}"><i class="ss-icon">&#x1F30E;</i> {{ bio.get_plain_web }}</a></p>
-						{% endif %}
-						{% if bio.twitter %}
-							<p class="bio_twitter"><a href="http://twitter.com/{{ bio.get_twitter }}"><i class="ss-icon ss-social">twitter</i> @{{ bio.get_twitter }}</a></p>
-						{% endif %}
-					</div>
-					
-				{% endfor %}
-			{% endif %}
-		</div>
+					{% if bio.web %}
+						<p class="bio_website"><a href="{{ bio.get_web }}"><i class="ss-icon">&#x1F30E;</i> {{ bio.get_plain_web }}</a></p>
+					{% endif %}
+					{% if bio.twitter %}
+						<p class="bio_twitter"><a href="http://twitter.com/{{ bio.get_twitter }}"><i class="ss-icon ss-social">twitter</i> @{{ bio.get_twitter }}</a></p>
+					{% endif %}
+				</div>
+			{% endfor %}
+            </div>
+		{% endif %}
 
 	</div>
 
 {% endblock %}
-

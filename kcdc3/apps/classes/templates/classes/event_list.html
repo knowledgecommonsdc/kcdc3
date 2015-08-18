@@ -15,16 +15,16 @@
 	</div>
 
 	<div id="main">
-	
+
 		{% for session in selected_session %}
 			{% if forloop.last %}
 				<div class="local_intro type_section">
 					{{ session.description | smartlines | safe }}
-					
+
 					{% if session.documentation %}
 						<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>
 					{% endif %}
-									
+
 				</div>
 			{% endif %}
 		{% endfor %}
@@ -72,22 +72,22 @@
 								{% elif event.cancelled %}
 									<!-- hide registration info -->
 								{% else %}
-									{% if event.registration_status == "AUTO" and not event.is_registration_open %}	
+									{% if event.registration_status == "AUTO" and not event.is_registration_open %}
 										<!-- registration opens later -->
-									{% elif event.registration_status == "PREVENT" %}	
-										<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
+									{% elif event.registration_status == "PREVENT" %}
+										<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>
 									{% elif event.registration_count >=  event.max_students %}
 										{% if event.waitlist_status %}
 											<span class="registration_indicator"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
 										{% else %}
-											<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>			
+											<span class="registration_indicator"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>
 										{% endif %}
 									{% else%}
 										<span class="registration_indicator"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
 									{% endif %}
-								{% endif %}							
+								{% endif %}
 							</p>
-							
+
 							{% if event.thumbnail %}
 								<div class="event_thumbnail {% if event.list_layout == 'small' %}event_thumbnail_small{% endif %}">
 									<img src="/media/{{ event.thumbnail }}" alt="" class="" />
@@ -96,14 +96,16 @@
 
 							{{ event.summary | smartquotes | safe }}
 
+							{% if event.num_teachers > 0 %}
 							<p>
 								<i class="ss-icon">&#x1F464;</i> Instructor{{ event.num_teachers|pluralize }}: {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
 							</p>
-							
-							{% if event.registration_status == "AUTO" and not event.is_registration_open and not event.has_passed %}	
+							{% endif %}
+
+							{% if event.registration_status == "AUTO" and not event.is_registration_open and not event.has_passed %}
 								<p class="registration-open-info"><i class="ss-icon">&#xF072;</i> Registration opens at {{ event.registration_opens|time:"P" }} on {{ event.registration_opens|date:"j F" }}</p>
 							{% endif %}
-							
+
 						</a>
 					</dd>
 
@@ -149,7 +151,7 @@
 								<i class="ss-icon">time</i> {{ event.date|date:"P" }}
 
 								{% if event.documentation %}
-									<span class="registration_indicator documentation"><i class="ss-icon indicator_documentation">&#x1F4F7;</i> Documentation</span>			
+									<span class="registration_indicator documentation"><i class="ss-icon indicator_documentation">&#x1F4F7;</i> Documentation</span>
 								{% endif %}
 
 							</p>
