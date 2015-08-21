@@ -1,5 +1,6 @@
 {% extends 'userena/base_userena.html' %}
 {% load i18n %}
+{% load pinata_filters %}
 
 {% block title %}{% trans "Disabled account" %}{% endblock %}
 {% block content_title %}<h2>{% trans "Your account has been disabled" %}</h2>{% endblock %}
@@ -11,7 +12,7 @@
 		You'll need to click on the link in that message to activate your account.</p>
 	<p><strong>Check your spam folder</strong>; your mail provider may have wrongly marked the message as spam.</p>
 	<p>If you're still having problems, please email us at
-		<a href="mailto:contact@knowledgecommonsdc.org">contact@knowledgecommonsdc.org</a>.
+		<a href="mailto:{% boilerplate 'project_email' %}">{% boilerplate 'project_email' %}</a>.
 	</p>
 
-{% endblock %} 
+{% endblock %}

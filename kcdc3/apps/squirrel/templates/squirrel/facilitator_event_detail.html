@@ -1,10 +1,11 @@
 {% extends "squirrel_base.html" %}
+{% load pinata_filters %}
 
 {% block content %}
 
 	<h1>{{ title }}</h1>
-	
-	<h2>Registered students ({{ registration_count }})</h2>	
+
+	<h2>Registered students ({{ registration_count }})</h2>
 	<table>
 		<tr>
 			<td>
@@ -41,10 +42,10 @@
 				{{ registration.student.extendedprofile.phone_number }}
 			</td>
 			<td>
-				{{ registration.date_registered }} 
+				{{ registration.date_registered }}
 			</td>
 			<td>
-				{{ registration.attended }} 
+				{{ registration.attended }}
 			</td>
 		</tr>
 	{% endfor %}
@@ -54,12 +55,12 @@
 
 	<p>
 	{% for registration in registered_students %}
-		{{ registration.student.email }}, 
+		{{ registration.student.email }},
 	{% endfor %}
-	contact@knowledgecommonsdc.org
+	{% boilerplate 'project_email' %}
 	</p>
 
-	<h2>Waitlisted students ({{ waitlist_count }})</h2>	
+	<h2>Waitlisted students ({{ waitlist_count }})</h2>
 	<table>
 		<tr>
 			<td>
@@ -93,22 +94,22 @@
 				{{ registration.student.extendedprofile.phone_number }}
 			</td>
 			<td>
-				{{ registration.date_registered }} 
+				{{ registration.date_registered }}
 			</td>
 			<td>
-				{{ registration.attended }} 
+				{{ registration.attended }}
 			</td>
 		</tr>
 	{% endfor %}
 	</table>
-	
+
 	<h4>Waitlisted student emails:</h4>
 
 	<p>
 	{% for registration in waitlisted_students %}
-		{{ registration.student.email }}, 
+		{{ registration.student.email }},
 	{% endfor %}
-	contact@knowledgecommonsdc.org
+	{% boilerplate 'project_email' %}
 	</p>
 
 
@@ -116,6 +117,5 @@
 	<hr />
 
 	<p><a href="/classes/{{ slug }}">main class page</a></p>
-	
-{% endblock %}
 
+{% endblock %}

@@ -1,3 +1,4 @@
+{% load pinata_filters %}
 Thanks for signing up!
 
 Our teachers and organizers have volunteered their time and resources to
@@ -6,7 +7,7 @@ advance as you can. Many of our classes have waitlists, and our teachers need
 to know how many students to expect.
 
 You can cancel your registration at:
-http://knowledgecommonsdc.org/classes/{{ slug }}
+{% boilerplate 'project_url' %}/classes/{{ slug }}
 
 CLASS: {{ title|safe }}
 
@@ -27,16 +28,16 @@ LOCATION:
 {{ location_hint }}{% endif %}
 
 COURSE PAGE:
-http://knowledgecommonsdc.org/classes/{{ slug }}
+{% boilerplate 'project_url' %}/classes/{{ slug }}
 
 
-Please email us if you need special accommodations. 
+Please email us if you need special accommodations.
 
 If you find yourself signing up for several classes, consider giving back to our community by volunteering or teaching. Drop us a line at knowledgecommonsdc@gmail.com if you want to learn about helping out.
 
 Onwards and upwards!
 
 With best wishes,
-Knowledge Commons DC
+{% boilerplate 'project_name' %}
 
-http://knowledgecommonsdc.org
+{% boilerplate 'project_url' %}

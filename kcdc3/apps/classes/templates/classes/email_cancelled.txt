@@ -1,5 +1,6 @@
+{% load pinata_filters %}
 You've cancelled your registration. We hope that you'll be able to take
-another Knowledge Commons DC class later.
+another {% boilerplate 'project_name' %} class later.
 
 CLASS: {{ title|safe }}
 
@@ -8,6 +9,6 @@ DATE: {{ date|date:"l, j F Y, P" }} {% if end_time %}to {{ end_time|date:"P" }}{
 Onwards and upwards!
 
 With best wishes,
-Knowledge Commons DC
+{% boilerplate 'project_name' %}
 
-http://knowledgecommonsdc.org
+{% boilerplate 'project_url' %}

@@ -6,15 +6,18 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 
 # Project content settings
-PROJECT_NAME = 'Knowledge Commons DC'
-PROJECT_SHORT_NAME = 'KCDC'
+PROJECT_URL = 'http://localhost'
+PROJECT_NAME = 'Test Name'
+PROJECT_SHORT_NAME = 'KCTN'
 DATE_FORMAT_DATETIME_INTERCHANGE = '%Y-%m-%dT%H%M'
 DATE_FORMAT_DATE_INTERCHANGE = '%Y-%m-%d'
+DEFAULT_FROM_EMAIL = 'Test Name <test@test.org>'
+PROJECT_EMAIL = 'test@test.org'
 
 
 
 ADMINS = (
-    ('KCDC', 'contact@knowledgecommonsdc.org'),
+    ('KCTN', 'test@test.org'),
 )
 
 MANAGERS = ADMINS
@@ -90,8 +93,6 @@ LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 USERENA_MUGSHOT_DEFAULT = 'mm'
-
-DEFAULT_FROM_EMAIL = 'Knowledge Commons DC <contact@knowledgecommonsdc.org>'
 
 ROOT_URLCONF = 'kcdc3.urls'
 

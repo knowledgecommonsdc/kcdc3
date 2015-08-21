@@ -7,11 +7,11 @@
 
 	<div id="front_intro">
 		<p class="front_intro_text">
-			<b>Knowledge Commons DC</b> is a free school for thinkers, doers, and tinkerers &ndash; taught anywhere, by anyone, for everyone.
+			<b>{% boilerplate 'project_name' %}</b> is a free school for thinkers, doers, and tinkerers &ndash; taught anywhere, by anyone, for everyone.
 		</p>
 		<p class="front_intro_call"><a href="/teach">teach</a> or <a href="/classes">take a class</a></p>
 	</div>
-	
+
 	<div id="slideshow-frame">
 		<div id="front_slideshow">
 			<div id="flexslider">
@@ -33,7 +33,7 @@
 
 
 {% block content %}
-									
+
 	<div id="front_motd">
 		{% for notice in notices %}
 			{{ notice.main_text | smartquotes | safe }}
@@ -52,26 +52,26 @@
 						{{ event.date|date:"j N, P" }}
 					</p>
 
-					<p class="meta indicators">					
+					<p class="meta indicators">
 						{% if event.has_passed %}
 							<!-- past event -->
 						{% elif event.registration_status == "HIDE" %}
 							<!-- hide registration info -->
 						{% else %}
-							{% if event.registration_status == "AUTO" and not event.is_registration_open %}	
+							{% if event.registration_status == "AUTO" and not event.is_registration_open %}
 								<!-- registration opens later -->
-							{% elif event.registration_status == "PREVENT" %}	
-								<span class="registration_indicator solid"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>			
+							{% elif event.registration_status == "PREVENT" %}
+								<span class="registration_indicator solid"><i class="ss-icon registration_full">&#xF073;</i> Registration is closed</span>
 							{% elif event.registration_count >=  event.max_students %}
 								{% if event.waitlist_status %}
 									<span class="registration_indicator solid"><i class="ss-icon registration_waitlist">&#xF071;</i> Waitlist</span>
 								{% else %}
-									<span class="registration_indicator solid"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>			
+									<span class="registration_indicator solid"><i class="ss-icon registration_full">&#xF073;</i> Class is full</span>
 								{% endif %}
 							{% else%}
 								<span class="registration_indicator solid"><i class="ss-icon registration_open">&#xF070;</i> Registration is open</span>
 							{% endif %}
-						{% endif %}							
+						{% endif %}
 					</p>
 
 				</a>
@@ -89,19 +89,19 @@
 			<p>
 			<a href="/blog/{{ post.slug }}">
 				{% if post.department_label %}<i class="department_label">{{ post.department_label }}: </i>{% endif %}
-				<strong>{{ post.title | smartlines | safe }}</strong>, 
+				<strong>{{ post.title | smartlines | safe }}</strong>,
 				{{ post.date|date:"j N" }}
 				{% if post.author.count > 0 %}
 					<i class="byline">
-					By 
-					{% for bio in post.author.all %}							
+					By
+					{% for bio in post.author.all %}
 						{% if forloop.last %}{% if forloop.counter > 1 %} and {% endif %}{% endif %}
 						{{ bio.name }}{% if not forloop.last %}{% if post.author.all|length > 2 %}, {% endif %}{% endif %}
 					{% endfor %}
 					</i>
 				{% elif post.author.count = 0 and post.special_author %}
 					<i class="byline">
-					By 
+					By
 					{{ post.special_author | smartlines }}
 					</i>
 				{% endif %}
@@ -110,7 +110,7 @@
 	{% endfor %}
 	</div>
 
-	
+
 {% endblock %}
 
 
@@ -124,18 +124,15 @@
 			$('#flexslider').flexslider({
 				controlNav: false,
 				directionNav: false,
-				slideshowSpeed: 9000,         
-				animationSpeed: 100, // doesn't work; set this in the script file         
-				randomize: true,              
-				keyboard: true,              
-				touch: true,              
-				pauseOnAction: true,              
-				pauseOnHover: true,              
-			});                               
+				slideshowSpeed: 9000,
+				animationSpeed: 100, // doesn't work; set this in the script file
+				randomize: true,
+				keyboard: true,
+				touch: true,
+				pauseOnAction: true,
+				pauseOnHover: true,
+			});
 		});
 	</script>
 
 {% endblock %}
-
-
-

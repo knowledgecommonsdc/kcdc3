@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load pinata_filters %}
 
 {% block content %}
 
@@ -10,14 +10,14 @@
 
 		<!-- donation call -->
 		<div style="margin-top: 2em; padding: 0.25em 1em 2em 1em; max-width: 440px; border: 1px solid #eee; ">
-			<h4>Donate to KCDC</h4>
+			<h4>Donate to {% boilerplate 'project_short_name' %}</h4>
 			<p>
 				This school relies on your support.
-				A gift of even $10 will help us deliver superb, participatory classes all over the city. 
+				A gift of even $10 will help us deliver superb, participatory classes all over the city.
 			</p>
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick" /> <input type="hidden" name="hosted_button_id" value="H9ENKNZVLPU4W" /> <button class="button_link alt" type="submit">Donate now</button></form>
 		</div>
-			
+
 	{% elif message = "waitlisted" %}
 		<h3>You&rsquo;ve been added to the waitlist</h3>
 		<p>We sent you a confirmation email with details about the class.</p>

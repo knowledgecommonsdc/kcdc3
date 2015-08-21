@@ -1,10 +1,11 @@
+{% load pinata_filters %}
 <!DOCTYPE html>
 <html class="no-js">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Knowledge Commons DC {% block title %}{% endblock %}</title>
-        <meta name="description" content="Knowledge Commons DC (KCDC) is a free school for thinkers, doers, and tinkerers - taught anywhere, by anyone, for everyone.">
+		<title>{% boilerplate 'project_name' %} {% block title %}{% endblock %}</title>
+        <meta name="description" content="{% boilerplate 'project_name' %} ({% boilerplate 'project_short_name' %}) is a free school for thinkers, doers, and tinkerers - taught anywhere, by anyone, for everyone.">
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="/static/css/style.css">
@@ -15,7 +16,7 @@
     <body class="{% block body_class %}{% endblock %}">
 
 		<div id="skip">
-			<h1>Knowledge Commons DC</h1>
+			<h1>{% boilerplate 'project_name' %}</h1>
 			<a href="#content">skip to content</a>
 		</div>
 
@@ -23,12 +24,12 @@
 		<div id="header">
 
 			<div id="logo">
-				<a href="http://knowledgecommonsdc.org/"><img src="/static/images/logo_reversed.png" alt="logo" /></a>
+				<a href="/"><img src="/static/images/logo_reversed.png" alt="logo" /></a>
 			</div>
 			<div id="mobile_jump"><a href="#mobile_nav"><span class="ss-icon" id="menu-icon">&#xED50;</span> menu</a></div>
 			<div id="desktop_nav">
 				<ul class="nav">
-					
+
 					<li><a href="/staff">Staff Dashboard</a></li>
 
 					{% if user.is_authenticated %}
@@ -41,25 +42,25 @@
 			</div>
 
 		</div>
-		
+
 		{% block pre_content %}{% endblock %}
 
 		{% block content_shell %}
 		<div id="content">
-										
+
 			{% block content %}{% endblock %}
 			{% block sidebar %}{% endblock %}
-						
+
 		</div>
 		{% endblock %}
-		
+
 		{% block post_content %}{% endblock %}
 
 		{% comment %}
 		<div id="mobile_nav">
 			<ul class="nav">
-				
-					<li class="nav_home"><a href="/">Knowledge Commons DC</a></li>
+
+					<li class="nav_home"><a href="/">{% boilerplate 'project_name' %}</a></li>
 					<li><a href="/staff">Staff Dashboard</a></li>
 
 				{% if user.is_authenticated %}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load pinata_filters %}
 
 {% block content %}
 
@@ -100,7 +101,7 @@
 	{% for facilitator in facilitators.all %}
 		{{ facilitator.email }},
 	{% endfor %}
-	contact@knowledgecommonsdc.org
+	{% boilerplate 'project_email' %}
 	</p>
 
 	</section>
@@ -168,7 +169,7 @@
 	{% for facilitator in facilitators.all %}
 		{{ facilitator.email }},
 	{% endfor %}
-	contact@knowledgecommonsdc.org
+	{% boilerplate 'project_email' %}
 	</p>
 
 	</section>

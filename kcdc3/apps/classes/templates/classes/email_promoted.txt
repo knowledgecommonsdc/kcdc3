@@ -1,14 +1,15 @@
+{% load pinata_filters %}
 Hi!
 
-It’s your lucky day! There is a space for you in a Knowledge Commons DC class.
+It’s your lucky day! There is a space for you in a {% boilerplate 'project_name' %} class.
 
-We've added you to the class roster. We hope that you can attend. 
+We've added you to the class roster. We hope that you can attend.
 If you can't, please cancel your registration at:
 
-   http://knowledgecommonsdc.org/classes/{{ slug }}
+   {% boilerplate 'project_url' %}/classes/{{ slug }}
 
 {% if is_late_promotion %}We realize that you are receiving this message quite late.
-We want to give you a chance to attend, but we understand 
+We want to give you a chance to attend, but we understand
 if you've made other plans.{% endif %}
 
 CLASS: {{ title|safe }}
@@ -31,9 +32,9 @@ LOCATION:
 {{ location_hint }}{% endif %}
 
 COURSE PAGE:
-http://knowledgecommonsdc.org/classes/{{ slug }}
+{% boilerplate 'project_url' %}/classes/{{ slug }}
 
-If you'd like to participate more actively in this gift economy, 
+If you'd like to participate more actively in this gift economy,
 drop us a line at knowledgecommonsdc@gmail.com to volunteer.
 
 Please reply to this email if you'd like more information.
@@ -41,6 +42,6 @@ Please reply to this email if you'd like more information.
 Onwards and upwards!
 
 With best wishes,
-Knowledge Commons DC
+{% boilerplate 'project_name' %}
 
-http://knowledgecommonsdc.org
+{% boilerplate 'project_url' %}

@@ -1,4 +1,5 @@
-Your Knowledge Commons DC class is coming up!
+{% load pinata_filters %}
+Your {% boilerplate 'project_name' %} class is coming up!
 {% if email_welcome_text %}Read this message for important instructions.{% endif %}
 
 CLASS: {{ title|safe }}
@@ -8,7 +9,7 @@ Most of our classes have waitlists. If you can no longer
 attend, please cancel your registration at least a day
 ahead of time. Visit the website to cancel:
 
-http://knowledgecommonsdc.org/classes/{{ slug }}
+{% boilerplate 'project_url' %}/classes/{{ slug }}
 
 Class starts promptly at {{ date|time:"P" }} Give yourself
 time to find the location and check in.
@@ -33,8 +34,8 @@ or need help finding the class location):
 {{ facilitator.extendedprofile.phone_number }}
 {% endfor %}
 COURSE PAGE:
-http://knowledgecommonsdc.org/classes/{{ slug }}
+{% boilerplate 'project_url' %}/classes/{{ slug }}
 
 Onward and upward!
-Knowledge Commons DC
-http://knowledgecommonsdc.org
+{% boilerplate 'project_name' %}
+{% boilerplate 'project_url' %}
