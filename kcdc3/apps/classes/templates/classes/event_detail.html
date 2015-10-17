@@ -114,7 +114,7 @@
 			{% if event.location.state %}<span itemprop="region">{{ event.location.state }}</span>{% endif %}
 			{% if event.location.zip %}<span itemprop="postal-code">{{ event.location.zip }}</span>{% endif %}
 			{% if event.location.neighborhood %}<br />Neighborhood: {{ event.location.neighborhood }} {% endif %}
-			{% if event.location.hint %}<br /><em>{{ event.location.hint }}</em>{% endif %}
+			{% if event.location.hint %}<br /><em>{{ event.location.hint | safe }}</em>{% endif %}
 		</p>
 
 		{% if event.details %}
