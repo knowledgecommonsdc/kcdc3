@@ -424,6 +424,7 @@ def csv_session_registration_data(request, slug):
 				'promoted hours',
 				'canceled hours',
 				'date user joined',
+				'ZIP',
 				])
 
 
@@ -455,6 +456,7 @@ def csv_session_registration_data(request, slug):
 					registration.get_promoted_interval(),
 					registration.get_cancelled_interval(),
 					registration.student.date_joined.strftime(settings.DATE_FORMAT_DATE_INTERCHANGE),
+					registration.student.extendedprofile.zipcode,
 					])
 
 	return response
