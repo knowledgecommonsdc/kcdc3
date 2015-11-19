@@ -415,6 +415,7 @@ def csv_session_registration_data(request, slug):
 				'event',
 				'event date',
 				'username',
+				'email',
 				'date registered',
 				'date canceled',
 				'date promoted',
@@ -425,6 +426,7 @@ def csv_session_registration_data(request, slug):
 				'canceled hours',
 				'date user joined',
 				'ZIP',
+				'class location',
 				])
 
 
@@ -442,11 +444,17 @@ def csv_session_registration_data(request, slug):
 		else:
 			date_promoted = ''
 
+		if registration.event.location:
+			location_name = registration.event.location
+		else:
+			location_name = ''
+
 		writer.writerow([
 					registration.event.session.slug,
 					registration.event,
 					registration.event.date.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE),
 					registration.student.username,
+					registration.student.email,
 					registration.date_registered.strftime(settings.DATE_FORMAT_DATETIME_INTERCHANGE),
 					date_cancelled,
 					date_promoted,
@@ -457,6 +465,7 @@ def csv_session_registration_data(request, slug):
 					registration.get_cancelled_interval(),
 					registration.student.date_joined.strftime(settings.DATE_FORMAT_DATE_INTERCHANGE),
 					registration.student.extendedprofile.zipcode,
+					location_name,
 					])
 
 	return response
