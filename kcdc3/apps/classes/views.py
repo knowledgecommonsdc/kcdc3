@@ -426,7 +426,7 @@ def csv_session_registration_data(request, slug):
 				'canceled hours',
 				'date user joined',
 				'ZIP',
-				'class location',
+				'event location',
 				])
 
 
