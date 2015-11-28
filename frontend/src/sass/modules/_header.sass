@@ -1,0 +1,14 @@
+
+.global-header
+	@include outer-container()
+	padding-top: 1em
+	padding-bottom: 1em
+
+.nameplate
+	+span-columns(12)
+	&__bd
+		margin: 0 auto 0.35em auto
+		max-width: 509px
+		a,
+		a:hover
+			+noborder
