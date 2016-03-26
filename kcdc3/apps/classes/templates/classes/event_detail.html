@@ -116,7 +116,7 @@
 			{% if event.location.neighborhood %}<br />Neighborhood: {{ event.location.neighborhood }} {% endif %}
 			{% if event.location.hint %}<br /><em>{{ event.location.hint | safe }}</em>{% endif %}
 			{% if not event.location.show_exact %}
-				<br /><em>Exact address will be emailed to students.</em>
+				<br /><em>Address will be emailed upon registration.</em>
 			{% endif %}
 		</p>
 
