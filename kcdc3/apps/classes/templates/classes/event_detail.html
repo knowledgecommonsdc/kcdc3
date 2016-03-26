@@ -115,6 +115,9 @@
 			{% if event.location.zip %}<span itemprop="postal-code">{{ event.location.zip }}</span>{% endif %}
 			{% if event.location.neighborhood %}<br />Neighborhood: {{ event.location.neighborhood }} {% endif %}
 			{% if event.location.hint %}<br /><em>{{ event.location.hint | safe }}</em>{% endif %}
+			{% if not event.location.show_exact %}
+				<br /><em>Exact address will be emailed to students.</em>
+			{% endif %}
 		</p>
 
 		{% if event.details %}
