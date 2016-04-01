@@ -1,0 +1,44 @@
+{% extends "pinata/base.html" %}
+{% load pinata_filters %}
+
+{% block title %}
+ / Search
+{% endblock %}
+
+
+
+
+{% block content %}
+
+	<div id="hed">
+		<h1>Search</h1>
+	</div>
+
+	<div id="main">
+
+        <div class="google_search">
+
+            {# this is custom search code for each site #}
+            <script>
+              (function() {
+                var cx = '007264891774337421779:afm84t4twlq';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <gcse:search></gcse:search>
+        </div>
+
+	</div>
+
+{% endblock %}
+
+
+
+{% block sidebar_content %}
+{% endblock %}

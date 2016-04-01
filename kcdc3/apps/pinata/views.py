@@ -201,3 +201,14 @@ def pressclippings(request):
 	context['children'] = Page.objects.filter(Q(parent=e)&Q(status='PUBLISHED')).order_by('sort_order', 'path',)
 
 	return render_to_response('pinata/pressclippings.html',context)
+
+
+
+
+def search(request):
+	""" Handle requests for search page. """
+
+	context = Context()
+	context['user'] = request.user
+
+	return render_to_response('pinata/search.html', context)
