@@ -16,22 +16,19 @@
 
 	<div id="main">
 
-        <div class="google_search">
+        <div class="site_search">
 
             {# this is custom search code for each site #}
-            <script>
-              (function() {
-                var cx = '007264891774337421779:afm84t4twlq';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                    '//cse.google.com/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:search></gcse:search>
+
+            <form class="ddg" name="x" action="//duckduckgo.com/">
+                <input type="hidden" value="knowledgecommonsdc.org" name="sites"></input>
+                <input type="hidden" value="1" name="kh"></input>
+                <input type="hidden" value="-1" name="kn"></input>
+                <input type="hidden" value="1" name="kac"></input>
+                <input type="search" placeholder="Search KCDC" name="q"></input>
+                <button class="button" type="submit">Go</button>
+            </form>
+
         </div>
 
 	</div>
