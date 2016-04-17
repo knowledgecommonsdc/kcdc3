@@ -71,9 +71,9 @@
 		</p>
 
 		{% if event.main_image %}<p class="{% if event.img_layout == 'small' %}event_img_small{% endif %}"><img src="/media/{{ event.main_image }}" alt="event preview image" /></p>{% endif %}
-		{% if event.caption %}<div class="caption">{{ event.caption | smartlines | safe }}</div>{% endif %}
+		{% if event.caption %}<div class="caption">{{ event.caption | smartdown | safe }}</div>{% endif %}
 
-		{{ event.description | smartlines | safe }}
+		{{ event.description | smartdown | safe }}
 
 		{% if event.type == "EXTERNAL" %}
 			<p class="partner_event_note">
@@ -84,7 +84,7 @@
 
 		{% if event.documentation %}
 			<h3>Documentation</h3>
-			{{ event.documentation | smartlines | safe }}
+			{{ event.documentation | smartdown | safe }}
 		{% endif %}
 
 		{% if event.additional_dates_text %}
@@ -122,7 +122,7 @@
 
 		{% if event.details %}
 			<h3>Details</h3>
-			{{ event.details | smartlines | safe }}
+			{{ event.details | smartdown | safe }}
 		{% endif %}
 
 		{% if event.cancelled %}
@@ -220,7 +220,7 @@
 					<div class="bio_photo"><img src="/media/{{ bio.image }}" alt="" /></div>
 				{% endif %}
 
-				{{ bio.description | smartlines | safe }}
+				{{ bio.description | smartdown | safe }}
 
 				<div class="bio_detail">
 					{% if bio.show_email %}

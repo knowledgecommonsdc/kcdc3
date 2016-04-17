@@ -9,7 +9,7 @@
 		<h1 class="section_hed">Classes + Events</h1>
 		{% for session in selected_session %}
 			{% if forloop.last %}
-				<p>{{ session.kicker | smartlines | safe }}</p>
+				<p>{{ session.kicker | smartdown | safe }}</p>
 			{% endif %}
 		{% endfor %}
 	</div>
@@ -19,7 +19,7 @@
 		{% for session in selected_session %}
 			{% if forloop.last %}
 				<div class="local_intro type_section">
-					{{ session.description | smartlines | safe }}
+					{{ session.description | smartdown | safe }}
 
 					{% if session.documentation %}
 						<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>

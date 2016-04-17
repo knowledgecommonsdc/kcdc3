@@ -23,7 +23,7 @@
 				{% endfor %}
 			{% elif post.author.count = 0 and post.special_author %}
 				By
-				{{ post.special_author | smartlines }}
+				{{ post.special_author | smartdown }}
 			{% endif %}
 			
 			({{ post.date|date:"j F Y" }})
@@ -32,12 +32,12 @@
 	
 	<div id="main">
 		
-		{{ post.main_text | smartlines | safe }}
+		{{ post.main_text | smartdown | safe }}
 
 		{% if post.author.count > 0 %}
 			<hr />
 			{% for bio in post.author.all %}
-				{{ bio.get_staff_description | smartlines | safe }}
+				{{ bio.get_staff_description | smartdown | safe }}
 				<div class="bio_detail">
 				{% if bio.show_email %}
 						<p class="bio_email"><a href="mailto:{{ bio.get_email }}"><i class="ss-icon ss-social">email</i> {{ bio.get_email }}</a></p>
