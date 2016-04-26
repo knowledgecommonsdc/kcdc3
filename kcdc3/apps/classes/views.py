@@ -148,7 +148,7 @@ def register(request, slug):
 		if request.POST["student_needs"] != "":
 			send_mail("(KCDC accommodation form) " + e.title,
 				request.user.email+" requested the following: "+request.POST["student_needs"],
-				request.user.email,
+				"contact@knowledgecommonsdc.org",
 				["contact@knowledgecommonsdc.org"],
 				fail_silently=False)
 
