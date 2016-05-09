@@ -48,7 +48,7 @@
 						<a href="/classes/{{ event.slug }}">
 							<h3>
 								{% if event.cancelled %}<i class="label-cancelled">Cancelled<br></i>{% endif %}
-								{% if event.type == "EXTERNAL" %}<i>Partner Event:</i>{% endif %}
+								{% if event.type == "EXTERNAL" %}<i>Community Calendar:</i>{% endif %}
 								{{ event.title | smartlines }}
 							</h3>
 							<p class="meta">
