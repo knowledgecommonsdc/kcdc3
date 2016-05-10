@@ -1,14 +1,20 @@
 {
   "root": {
     "src": "./src",
-    "dest": "./public"
+    "dest": "./public/static",
+    "server_root": "./public"
   },
 
   "tasks": {
     "browserSync": {
       "server": {
         "baseDir": "public"
-      }
+      },
+      "open": false,
+	  "port": 4000,
+	  "ui": {
+	  	"port": 4001
+	  }
     },
 
     "static": {
@@ -83,7 +89,7 @@
     },
 
     "production" : {
-      "rev": true
+      "rev": false
     }
   }
 }
