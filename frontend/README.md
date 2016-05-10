@@ -1,3 +1,7 @@
+Frontend build/dev tools for Knowledge Commons DC, based on gulp-starter.
+
+*** 
+
 # ![Gulp Starter](extras/demo/src/images/gulp-starter-logo.png)
 
 [![Build Status](https://travis-ci.org/vigetlabs/gulp-starter.svg?branch=static-server)](https://travis-ci.org/vigetlabs/gulp-starter)
