@@ -24,7 +24,7 @@
 
     "js": {
       "src": "javascripts",
-      "dest": "assets/javascripts",
+      "dest": "javascripts",
       "entries": {
         "app": ["./app.js"]
       },
@@ -37,7 +37,7 @@
     },
     "css": {
       "src": "stylesheets",
-      "dest": "assets/stylesheets",
+      "dest": "stylesheets",
       "autoprefixer": {
         "browsers": ["last 3 version"]
       },
@@ -65,26 +65,26 @@
 
     "images": {
       "src": "images",
-      "dest": "assets/images",
+      "dest": "images",
       "extensions": ["jpg", "png", "svg", "gif"]
     },
 
     "fonts": {
       "src": "fonts",
-      "dest": "assets/fonts",
+      "dest": "fonts",
       "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
     },
 
     "iconFont": {
       "src": "icons",
-      "dest": "assets/fonts",
+      "dest": "fonts",
       "sassDest": "generated",
       "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
     },
 
     "svgSprite": {
       "src": "icons",
-      "dest": "assets/images",
+      "dest": "images",
       "extensions": ["svg"]
     },
 

@@ -1,3 +1,4 @@
 {
-  "title": "New Project"
+  "title": "New Project",
+  "STATIC_URL": "/"
 }
