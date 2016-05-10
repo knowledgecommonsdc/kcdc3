@@ -1,0 +1,295 @@
+
+/* content container model (sc) */
+
+.sc-container
+	+span-columns(12)
+	margin: 1em 0 0 0
+	padding: 0
+
+	h2
+		margin: 0 0 0.5em 0
+		padding: 0 0 0.25em 0
+		text-align: left
+		border-bottom: 0.2em solid $cN-light
+		i
+			display: inline-block
+			margin: 0 0 0 0.25em
+			font-size: 0.75em
+		b
+			position: relative
+			top: -0.0em
+			left: 0.1em
+			font-size: 1em
+			font-weight: normal
+			color: $cN_mid
+		a
+			+hover-noborder-link
+	h2:before
+		content: none
+		border: none
+
+	h2.alt
+		font-size: 1em
+		font-family: $font-family-main
+		i
+			color: $cT-mid
+			font-size: 1em
+		b
+			font-size: 1em
+
+.sc-slice
+	+span-columns(12)
+	padding: 0 0 0 0
+
+	// typography for story containers
+	h1, h2, h3, h4, h5, h6, p
+		margin: 0 0 0 0
+		text-align: left
+
+	h4
+		margin: 0 0 0.25em 0
+		line-height: 1.125em
+		font-weight: normal
+
+	p
+		font-size: 0.65em
+		line-height: 1.125em
+
+.sc-story
+
+	// link within story container
+	a
+		color: inherit
+		h4, p, b, i, span
+			@include fast-transition
+	a:hover
+		color: inherit
+		h4, p, b, i, span
+			@include fast-transition
+			color: $cA
+
+.sc-story__hd
+
+.sc-story__bd
+
+// sizes and formats ---------------------------------------
+
+// medium
+.size-md
+	.sc-story
+		+span-columns(3)
+		margin-bottom: 0.5em
+		height: 4em
+		overflow: clip
+		&:nth-child(4n)
+			margin-right: 0
+		+respond-to($mid-screen)
+			+span-columns(12)
+	h4
+		font-size: 1.1em
+	.dateline
+		margin: 0.5em 0 0 0
+
+	// medium, with image
+	.option-image
+		h4
+			font-size: 0.9em
+		.sc-story__hd
+			float: left
+			width: 25%
+		.sc-story__bd
+			float: left
+			width: 75%
+			padding-left: 0.5em
+
+// large
+.size-lg
+	margin-bottom: 2em
+	background: $cN-xxlight
+	.sc-story
+		float: left
+		width: 50% // not using Neat grid
+		margin-right: 0
+		height: 9em
+		border-bottom: 1px solid $cN-light
+		border-right: 1px solid $cN-light
+		&:nth-child(2n)
+			border-right: none
+		+respond-to($mid-screen)
+			+span-columns(12)
+	.sc-story__bd
+		padding: 1em 0.5em 0 1em
+	h4
+		display: inline-block
+		margin: 0em 0 0 0
+		font-size: 1.400em
+	.dateline
+		display: inline-block
+		margin: 0 0 0 0.5em
+	.kicker
+		margin: 1.5em 0.5em 0 0
+		position: relative
+		top: -0.125em
+
+	// large, with image
+	.option-image
+		.sc-story__hd
+			float: left
+			width: 33.333%
+			padding: 1em 0 0 1em
+		.sc-story__bd
+			float: left
+			width: 66.667%
+			padding-top: 0.125em
+
+// extra large
+.size-xl
+	.sc-story
+		+span-columns(12)
+		margin-bottom: 0.85em
+		padding: 1em 2em 2em 2em
+		background: $cN-xxlight
+	h4
+		display: inline-block
+		margin: 0.5em 0 0 0
+		// padding-left: 0.125em
+		font-size: 1.4em
+		font-weight: normal
+	.dateline
+		display: inline-block
+		margin: 0 0 0 0.5em
+	.kicker
+		display: inline-block
+		margin: 0 0.5em 0 0.5em
+		position: relative
+		top: -0.25em
+	.sc-story__hd
+		padding: 1em 2em 1em 0
+		border-bottom: 1px solid rgba(0,0,0,0.30)
+		p
+			font-style: italic
+			font-size: 1.4em
+			color: $cT
+			color: rgba(0,0,0,0.40)
+			max-width: 18em
+
+	// with image
+	.option-image
+		padding: 0 0 0.25em 0
+		border-bottom: 1px solid $cN-light
+		.sc-story__hd
+			max-width: 100%
+			padding: 0
+			border: none
+		h4
+			display: inline-block
+			margin: 0.45em 0 0 0
+			// padding-left: 0.125em
+			font-size: 1.25em
+			font-weight: bold
+		.dateline
+			display: inline-block
+			margin: 0 0 0 0.5em
+		.kicker
+			display: inline-block
+			margin: 0 0.5em 0 0.5em
+			position: relative
+			top: -0.25em
+
+// small
+// small stories have different markup structure
+.size-sm
+	padding-bottom: 1em
+	.sc-story
+		width: 100%
+		padding: 0.125em 0 0.125em 0
+		clear: both
+		&:nth-child(2n+1)
+			background: $cN-xxlight
+	.sc-story__bd
+	h4
+		display: inline-block
+		margin: 0
+		padding: 0 0 0 0.25em
+		font-size: 0.88em
+		line-height: 1.2em
+	.kicker
+		font-size: 0.8em
+	.dateline
+		font-size: 0.65em
+
+// extra small
+// extra-small stories have different markup structure
+.size-xs
+	padding-bottom: 1em
+	.sc-story
+		width: 100%
+		margin: 0
+		padding: 0.125em 0 0.125em 0.125em
+		// padding: 0
+		clear: both
+		&:nth-child(2n+1)
+			background: $cN-xxlight
+	.sc-story__bd
+	h4
+		display: inline-block
+		margin: 0
+		padding: 0
+		font-size: 0.75em
+		line-height: 1em
+	.kicker
+		font-size: 0.8em
+	.dateline
+		font-size: 0.85em
+
+
+
+// special cases ----------------------------------------
+
+// medium format stories with background colors
+// can only be assigned to medium size stories
+
+.format-md-bg
+	.sc-story
+		padding: 0.75em 0.75em 1.0em 0.75em
+		height: 7em
+		width: 25%
+		margin-right: 0
+		border-right: 2px solid #fff
+		&:nth-child(4n)
+			border-right: none
+		+respond-to($mid-screen)
+			+span-columns(12)
+
+.format-color-a
+	.sc-story
+		background: lighten($cA-light,20%)
+		border-color: lighten($cA-light,10%)
+	.kicker
+		color: $cT
+
+.format-color-e
+	.sc-story
+		background: lighten($cA-light,30%)
+		border-color: #fff
+	.kicker
+		color: $cT
+
+// three columns of stories rather than the usual four
+// needed on medium-format slices
+.size-md.format-3col
+	.sc-story
+		+span-columns(4)
+		&:nth-child(3n)
+			margin-right: 0
+		+respond-to($mid-screen)
+			+span-columns(12)
+
+// medium format stories with background colors, three wide
+.size-md.format-3col.format-md-bg
+	.sc-story
+		width: 33.333%
+		margin-right: 0
+		border-right: 2px solid #fff // make all borders white for simplicity
+		+respond-to($mid-screen)
+			+span-columns(12)

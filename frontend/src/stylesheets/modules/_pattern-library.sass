@@ -1,0 +1,49 @@
+
+.documentation
+    clear: both
+    padding: 4em 0 1em 0
+    h1, h2, h3, h4, h5, h6, p, blockquote, li, a, a:visited
+        color: $cDoc
+        text-align: left
+    code
+        padding: 2px 4px
+        background: lighten($cDoc,35%)
+    h1
+        margin: 0.5em 0 0.125em 0
+    h2
+        margin: 1em 0 1em 0
+    h3
+        margin: 1em 0 0.5em 0
+    &__bd
+        padding: 0.25em 1em 1em 1em
+        background: lighten($cDoc,38%)
+        border-top: 3px solid lighten($cDoc,30%)
+
+// has to be separate to prevent Gulp/SASS compile error
+.documentation h2:before
+	content: ""
+	display: none
+	height: 0
+	width: 0
+	margin: 0
+
+
+
+
+// project-specific scaffolding ----------------------------
+
+// left part of three-column wide alternative stories layout
+.documentation-wide
+    width: 75%
+    margin-right: 25%
+    clear: both
+
+// right part of three-column wide alternative stories layout
+.documentation-narrow
+    width: 25%
+    margin-right: 75%
+    clear: both
+    margin-top: 10em
+
+.documentation-main
+    padding-bottom: 5em
