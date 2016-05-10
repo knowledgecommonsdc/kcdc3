@@ -48,7 +48,7 @@ class RoleAdmin(admin.ModelAdmin):
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
+			'tiny_mce/tinymce_setup.js',
 		]
 
 admin.site.register(Role, RoleAdmin)
@@ -91,7 +91,7 @@ class BioAdmin(admin.ModelAdmin):
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
+			'tiny_mce/tinymce_setup.js',
 		]
 
 admin.site.register(Bio, BioAdmin)
@@ -148,7 +148,7 @@ class EventAdmin(admin.ModelAdmin):
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
+			'tiny_mce/tinymce_setup.js',
 		]
 
 	list_display = ('title', 'status','date','session', 'featured', 'registration_status', 'registration_opens', 'cancelled','max_students', 'registration_count', 'waitlist_count',)
@@ -190,7 +190,7 @@ class SessionAdmin(admin.ModelAdmin):
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
+			'tiny_mce/tinymce_setup.js',
 		]
 
 admin.site.register(Session, SessionAdmin)
@@ -207,7 +207,7 @@ class PartnerAdmin(admin.ModelAdmin):
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
+			'tiny_mce/tinymce_setup.js',
 		]
 
 admin.site.register(Partner, PartnerAdmin)

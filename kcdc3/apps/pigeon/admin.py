@@ -43,7 +43,7 @@ class PostAdmin(admin.ModelAdmin):
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
+			'tiny_mce/tinymce_setup.js',
 		]
 
 admin.site.register(Post, PostAdmin)

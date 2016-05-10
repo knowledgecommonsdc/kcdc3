@@ -39,7 +39,7 @@ class PageAdmin(admin.ModelAdmin):
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
+			'tiny_mce/tinymce_setup.js',
 		]
 
 admin.site.register(Page, PageAdmin)
@@ -121,7 +121,7 @@ class SponsorAdmin(admin.ModelAdmin):
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
+			'tiny_mce/tinymce_setup.js',
 		]
 
 admin.site.register(Sponsor, SponsorAdmin)
@@ -150,7 +150,7 @@ class PressClippingAdmin(admin.ModelAdmin):
 	class Media:
 		js = [
 			'tiny_mce/tiny_mce.js',
-			'tinymce_setup.js',
+			'tiny_mce/tinymce_setup.js',
 		]
 	
 
