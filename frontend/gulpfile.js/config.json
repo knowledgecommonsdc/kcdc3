@@ -1,7 +1,7 @@
 {
   "root": {
     "src": "./src",
-    "dest": "./public/static",
+    "dest": "./public",
     "server_root": "./public"
   },
 
@@ -24,7 +24,7 @@
 
     "js": {
       "src": "javascripts",
-      "dest": "javascripts",
+      "dest": "assets/javascripts",
       "entries": {
         "app": ["./app.js"]
       },
@@ -37,7 +37,7 @@
     },
     "css": {
       "src": "stylesheets",
-      "dest": "stylesheets",
+      "dest": "assets/stylesheets",
       "autoprefixer": {
         "browsers": ["last 3 version"]
       },
@@ -65,26 +65,26 @@
 
     "images": {
       "src": "images",
-      "dest": "images",
+      "dest": "assets/images",
       "extensions": ["jpg", "png", "svg", "gif"]
     },
 
     "fonts": {
       "src": "fonts",
-      "dest": "fonts",
+      "dest": "assets/fonts",
       "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
     },
 
     "iconFont": {
       "src": "icons",
-      "dest": "fonts",
+      "dest": "assets/fonts",
       "sassDest": "generated",
       "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
     },
 
     "svgSprite": {
       "src": "icons",
-      "dest": "images",
+      "dest": "assets/images",
       "extensions": ["svg"]
     },
 
