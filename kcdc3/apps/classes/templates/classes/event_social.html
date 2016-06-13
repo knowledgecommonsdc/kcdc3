@@ -1,0 +1,98 @@
+{% extends "classes/event_base.html" %}
+{% load pinata_filters %}
+
+{% block title %}
+ / {% for session in selected_session %}{{ session.long_title }}{% endfor %}
+{% endblock %}
+
+{% block content %}
+
+	<div id="hed">
+		<h1>
+			{% for session in selected_session %}
+			{{ session.long_title | smartlines }}
+			{% endfor %}
+		</h1>
+	</div>
+
+	<div id="main">
+
+		{% for event in events reversed %}
+
+			{% if event.status == "PUBLISHED" %}
+
+                <hr>
+
+                <p>
+                    <strong>"{{ event.title | smartlines }}"</strong>
+                    {{ event.date|date:"D n/j" }} at
+                    {{ event.location.name }}{% if event.location.neighborhood %}, {{ event.location.neighborhood }}{% endif %}
+                    http://knowledgecommonsdc.org/classes/{{ event.slug }}
+                </p>
+                
+                <p>
+                    {{ event.registration_count }} registered / 
+                    {{ event.waitlist_count }} waitlist / 
+                    {{ event.max_students }} seats
+                    <a href="/classes/{{ event.slug }}">more</a>
+                </p>
+
+                <p>
+                    {% if event.cancelled %}
+            			This class is canceled
+            		{% elif event.has_passed %}
+            			Past event
+            		{% elif event.registration_status == "HIDE" %}
+            			No registration info
+            		{% else %}
+            			{% if event.registration_status == "AUTO" and not event.is_registration_open %}
+            				Registration opens at {{ event.registration_opens|time:"P" }} on {{ event.registration_opens|date:"l, j F" }}
+            			{% elif event.registration_status == "PREVENT" %}
+            				Registration is closed.
+            				No waitlist slots are available.
+            			{% elif registration_count >=  event.max_students %}
+            				{% if event.waitlist_status %}
+            					This class is full, but there is a waitlist available.
+            				{% else %}
+            					This class is full.
+            					No waitlist slots are available.
+            				{% endif %}
+            			{% else%}
+                            Registration is open
+            			{% endif %}
+            		{% endif %}
+                </p>
+
+                <p>
+                    {{ event.date|date:"P" }}
+                </p>
+
+                {% if event.thumbnail %}
+                    <div class="event_thumbnail {% if event.list_layout == 'small' %}event_thumbnail_small{% endif %}">
+                        <img src="/media/{{ event.thumbnail }}" alt="" class="" />
+                    </div>
+                {% endif %}
+
+                {% if event.num_teachers > 0 %}
+                    <p>
+                        {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
+                        {% for bio in event.teacher_bios.all %}{% if bio.twitter %}<a href="http://twitter.com/{{ bio.get_twitter }}">@{{ bio.get_twitter }} </a>{% endif %}{% endfor %}
+                    </p>
+                {% endif %}
+
+            {% endif %}
+
+		{% endfor %}
+
+	</div>
+
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+
+
+
+
+

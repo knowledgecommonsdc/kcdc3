@@ -105,6 +105,7 @@ class EventDetailView(DetailView):
 		context['user_is_registered'] = is_registered(user, event)
 		context['is_registration_open'] = event.is_registration_open()
 		context['add_to_waitlist'] = event.add_to_waitlist()
+		context['events'] = Event.objects.filter(status='PUBLISHED', session__status="CURRENT", featured=True, cancelled=False).order_by('date')[:4]
 
 		# TODO: move this
 		if self.request.user.is_authenticated():
@@ -277,6 +278,25 @@ class RegistrationListView(ListView):
 
 		context = super(RegistrationListView, self).get_context_data(**kwargs)
 		context['events'] = Registration.objects.filter(event__session__slug=self.kwargs['slug'])
+		return context
+
+
+
+# Staff dashboard
+# Display a list of events for a session, preformatted for social media
+class SocialListView(ListView):
+
+	template_name = "classes/event_social.html"
+	context_object_name = "event_list"
+	model = Event
+
+	def get_context_data(self, **kwargs):
+
+		context = super(SocialListView, self).get_context_data(**kwargs)
+
+		context['events'] = Event.objects.filter(status='PUBLISHED', session__slug=self.kwargs['slug'])
+		context['selected_session'] = Session.objects.filter(slug=self.kwargs['slug'])
+
 		return context
 
 

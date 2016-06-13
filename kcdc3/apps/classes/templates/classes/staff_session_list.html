@@ -28,6 +28,9 @@
 			<td colspan="2">
 				Reports
 			</td>
+			<td>
+				Preformatted
+			</td>
 		</tr>
 	{% for session in session_list %}
 		<tr>
@@ -54,6 +57,9 @@
 			</td>
 			<td>
 				<a href="/classes/data/registration/session/{{ session.slug }}/csv/">Registrations (CSV)</a>
+			</td>
+			<td>
+				<a href="/classes/staff/social/session/{{ session.slug }}">Social</a>
 			</td>
 		</tr>
 	{% endfor %}
