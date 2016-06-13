@@ -286,7 +286,7 @@ class RegistrationListView(ListView):
 # Display a list of events for a session, preformatted for social media
 class SocialListView(ListView):
 
-	template_name = "classes/event_social.html"
+	template_name = "classes/staff_event_social.html"
 	context_object_name = "event_list"
 	model = Event
 

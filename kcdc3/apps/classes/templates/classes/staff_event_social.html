@@ -19,7 +19,7 @@
 
 		{% for event in events reversed %}
 
-			{% if event.status == "PUBLISHED" %}
+			{% if event.status == "PUBLISHED" and not event.has_passed %}
 
                 <hr>
 
@@ -64,7 +64,7 @@
                 </p>
 
                 <p>
-                    {{ event.date|date:"P" }}
+                    Time: {{ event.date|date:"P" }}
                 </p>
 
                 {% if event.thumbnail %}
@@ -75,6 +75,7 @@
 
                 {% if event.num_teachers > 0 %}
                     <p>
+					Instructor{{ event.num_teachers|pluralize }}: 
                         {% for bio in event.teacher_bios.all %}{% if not forloop.first %}, {% endif %}{{ bio.name }}{% endfor %}
                         {% for bio in event.teacher_bios.all %}{% if bio.twitter %}<a href="http://twitter.com/{{ bio.get_twitter }}">@{{ bio.get_twitter }} </a>{% endif %}{% endfor %}
                     </p>
