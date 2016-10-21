@@ -16,6 +16,12 @@
 
 	<div id="main">
 
+        {% if event.additional_dates_text %}
+        <p class="meta">
+            <i class="ss-icon">&#x22C6;</i> Multipart class
+        </p>
+        {% endif %}
+
 		<p class="meta">
 
 			{% if event.type == "EVENT" %}
@@ -23,11 +29,15 @@
 			{% endif %}
 
 			<i class="ss-icon">date</i>
+            {% if event.additional_dates_text %}
+                First meeting: 
+    		{% endif %}
 			{{ event.date|date:"l, j F Y" }}
 
 			<i class="ss-icon icon_push_right">time</i>
 			{{ event.date|date:"P" }}
 			{% if event.end_time %} to {{ event.end_time|date:"P" }}{% endif %}
+
 		</p>
 
 		<p class="meta">

@@ -57,6 +57,11 @@
 								{% if event.type == "EXTERNAL" %}<i>Community Calendar:</i>{% endif %}
 								{{ event.title | smartlines }}
 							</h3>
+							{% if event.additional_dates_text %}
+					        <p class="meta">
+					            <i class="ss-icon">&#x22C6;</i> Multipart class
+					        </p>
+					        {% endif %}
 							<p class="meta">
 
 								{% if event.type == "EVENT" %}
@@ -142,6 +147,11 @@
 								{% if event.type == "EXTERNAL" %}<i>Community Calendar:</i>{% endif %}
 								{{ event.title | smartlines }}
 							</h3>
+							{% if event.additional_dates_text %}
+					        <p class="meta">
+					            <i class="ss-icon">&#x22C6;</i> Multipart class
+					        </p>
+					        {% endif %}
 							<p class="meta">
 
 								{% if event.type == "EVENT" %}
