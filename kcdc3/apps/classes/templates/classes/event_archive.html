@@ -20,7 +20,7 @@
 		{% for session in selected_session %}
 			<div class="local_intro">
 
-				{{ session.description | smartdown | safe }}
+				{{ session.description | smartlines | safe }}
 
 				{% if session.documentation %}
 					<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>
