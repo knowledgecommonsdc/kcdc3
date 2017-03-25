@@ -106,7 +106,7 @@ class Partner(models.Model):
 	featured = models.BooleanField('Featured', default=True)
 
 	class Meta:
-		verbose_name=u'Location/Programming Partner'
+		verbose_name=u'Location Partner'
 
 	def __unicode__(self):
 		return self.name
@@ -254,7 +254,7 @@ class Event(models.Model):
 		(TN_SMALL, 'Small'),
 		(TN_LARGE, 'Large'),
 	)
-	list_layout = models.CharField(max_length=5, choices=LIST_LAYOUT_CHOICES, default=TN_LARGE)
+	list_layout = models.CharField(max_length=5, choices=LIST_LAYOUT_CHOICES, default=TN_SMALL)
 	thumbnail = models.ImageField('Thumbnail (max 432px wide)', upload_to='event_images', blank=True, null=True)
 
 	# detail view
@@ -264,7 +264,7 @@ class Event(models.Model):
 		(IMG_SMALL, 'Small'),
 		(IMG_LARGE, 'Large'),
 	)
-	img_layout = models.CharField(max_length=5, choices=IMG_LAYOUT_CHOICES, default=IMG_LARGE)
+	img_layout = models.CharField(max_length=5, choices=IMG_LAYOUT_CHOICES, default=IMG_SMALL)
 	main_image = models.ImageField('Main image (max 660px wide)', upload_to='event_images', blank=True, null=True)
 	caption = models.TextField(blank=True)
 
