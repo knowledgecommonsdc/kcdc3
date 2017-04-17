@@ -1,0 +1,15 @@
+[Unit]
+Description=Runs the gunicorn process for KCDC website
+After=nginx.service mysql.service
+
+[Service]
+PIDFile=/srv/www/production/var/gunicorn.pid
+Type=forking
+User=www-data
+Group=www-data
+ExecStart=/bin/bash -c 'cd /srv/www/production && source venv/bin/activate ; /srv/www/production/manage.py run_gunicorn --pid=/srv/www/production/var/gunicorn.pid --access-logfile=/srv/www/production/var/access.log --error-logfile=/srv/www/production/var/error.log --log-level=INFO --bind=127.0.0.1:8000 --daemon'
+TimeoutStopSec=10
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
