@@ -19,7 +19,7 @@
 		{% for session in selected_session %}
 			{% if forloop.last %}
 				<div class="local_intro type_section">
-					{{ session.description | smartdown | safe }}
+					{{ session.description | smartlines | safe }}
 
 					{% if session.documentation %}
 						<p class="more_link"><a href="/classes/{{ session.slug }}/background">More about this session</a></p>
